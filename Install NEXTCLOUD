@@ -78,3 +78,7 @@ services:
       - nextcloud:/var/www/html #Change 'nextcloud' to your external drive volume if available
     restart: always
 
+
+SYNCTHING:
+
+https://www.youtube.com/watch?v=rztoXXJ4y0I&t=61s
