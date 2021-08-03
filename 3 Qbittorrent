@@ -19,8 +19,8 @@ docker create \
   -p 6881:6881 \
   -p 6881:6881/udp \
   -p 8080:8080 \
-  -v /path/to/appdata/config:/config \
-  -v /path/to/downloads:/downloads \
+  -v /home/pi/Dockre/qbittorrent/config:/config \
+  -v /home/pi/Downloads:/downloads \
   --restart unless-stopped \
   ghcr.io/linuxserver/qbittorrent
   
