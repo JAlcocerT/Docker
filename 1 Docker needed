@@ -8,3 +8,18 @@ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
 $ sudo apt update
 
 $ sudo apt install -t buster-backports [package]
+
+sudo apt install -t buster-backports youtube-dl
+
+
+FOR JELLYFIN TO WORK:
+
+Your DockerHost is most likely running an outdated version of libseccomp
+To fix this, please visit https://docs.linuxserver.io/faq#libseccomp
+Some apps might not behave correctly without this
+So I went there and applied the steps from no. 3:
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC 648ACFD622F3D138
+echo "deb http://deb.debian.org/debian buster-backports main" | sudo tee -a /etc/apt/sources.list.d/buster-backports.list
+sudo apt update
+sudo apt install -t buster-backports libseccomp2
