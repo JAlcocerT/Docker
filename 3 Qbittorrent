@@ -25,6 +25,9 @@ docker create \
   ghcr.io/linuxserver/qbittorrent
   
   
+docker start qbittorrent
+  
+  
 #INSTALL QBITTORRENT WITH VPN and stacks
 
 https://www.youtube.com/watch?v=5y1z_I_HnoA
