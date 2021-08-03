@@ -1,0 +1,33 @@
+#INSTALL DOCKER:
+
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+sudo apt update
+
+sudo apt update
+
+Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:
+
+apt-cache policy docker-ce
+sudo apt install docker-ce
+
+sudo systemctl status docker
+sudo docker ps // list all containers
+
+#INSTALL PORTAINER:
+
+sudo docker run -d \
+--name="portainer" \
+--restart on-failure \
+-p 9000:9000 \
+-p 8000:8000 \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v portainer_data:/data \
+portainer/portainer-ce:latest
+
+
+ifconfig
+ipserver:9000
