@@ -1,0 +1,57 @@
+https://hub.docker.com/r/linuxserver/qbittorrent
+
+#INSTALL QBITTORRENT:
+
+
+sudo su
+
+cd /home/pi/Docker
+mkdir qbittorrent
+cd qbittorrent
+mkdir config
+
+docker create \
+  --name=qbittorrent \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -e WEBUI_PORT=8080 \
+  -p 6881:6881 \
+  -p 6881:6881/udp \
+  -p 8080:8080 \
+  -v /path/to/appdata/config:/config \
+  -v /path/to/downloads:/downloads \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/qbittorrent
+  
+  
+#INSTALL QBITTORRENT WITH VPN and stacks
+
+https://www.youtube.com/watch?v=5y1z_I_HnoA
+https://dbtechreviews.com/2020/04/how-to-install-qbittorrent-with-a-vpn-on-omv-docker/
+
+---
+version: "2"
+services:
+  qbittorrentvpn:
+    image: markusmcnugen/qbittorrentvpn
+    container_name: qbittorrentvpn
+    privileged: true   
+    environment:
+      - VPN_USERNAME=vpnusername
+      - VPN_PASSWORD=vpnpassword
+      - PUID=998 #optional
+      - PGID=100 #optional
+      - WEBUI_PORT_ENV=8080 #optional
+      - INCOMING_PORT_ENV=8999 #optional
+      - VPN_ENABLED=yes
+      - LAN_NETWORK=192.168.1.0/24
+      - NAME_SERVERS=8.8.8.8,8.8.4.4
+    ports:
+      - 8080:8080
+      - 8999:8999
+      - 8999:8999/udp
+    volumes:
+      - /srv/dev-disk-by-label-Files/Config/QBittorrentVPN:/config
+      - /srv/dev-disk-by-label-Files/Torrents:/downloads
+    restart: unless-stopped
