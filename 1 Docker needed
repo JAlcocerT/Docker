@@ -8,7 +8,7 @@ $ sudo apt install -t buster-backports [package]
 sudo apt install -t buster-backports youtube-dl
 
 
-FOR JELLYFIN TO WORK:
+FOR JELLYFIN & QBITTORRENT TO WORK:
 
 Your DockerHost is most likely running an outdated version of libseccomp
 To fix this, please visit https://docs.linuxserver.io/faq#libseccomp
