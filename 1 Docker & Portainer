@@ -31,3 +31,20 @@ portainer/portainer-ce:latest
 
 ifconfig
 ipserver:9000
+
+
+#List containers:
+docker ps
+docker run hello-world
+
+docker pull alpine
+docker pull alpine:3.7
+
+#Run some command inside the cointainer
+docker run alpine:3.7 ls -l
+
+#Interactive terminal of the container (execute it and stops the container) :
+docker run -it alpine:3.7 sh
+
+#executes a command on a running container
+docker exec -it 554kjgIDfgeofm sh
