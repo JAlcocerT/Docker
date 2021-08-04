@@ -1,7 +1,8 @@
 PORTAINER MARIADB:
 
 app templates - maria db
-
+https://www.youtube.com/watch?v=zyGhnbyOq90&list=LL&index=3
+https://hub.docker.com/r/linuxserver/mariadb
 
 PORTAINER NEXTCLOUD
 new volume - nextcloud:latest - 8080 80
