@@ -32,6 +32,9 @@ portainer/portainer-ce:latest
 ifconfig
 ipserver:9000
 
+#see processes running
+ps fax
+
 
 #List containers:
 docker ps
@@ -46,5 +49,20 @@ docker run alpine:3.7 ls -l
 #Interactive terminal of the container (execute it and stops the container) :
 docker run -it alpine:3.7 sh
 
+#Execute a process inside a container and keep it running if needed :
+docker run -d nginx:1.15.7 
+
 #executes a command on a running container
 docker exec -it 554kjgIDfgeofm sh
+
+exit
+docker stop yjbf7i3ID3jkj67
+
+#mount volumes:
+in docker folder:
+docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -d nginx:1.15.7
+               mount this file    into this path with this name, read only  keep it running, image
+#ports:
+expose a port from the container to the host (machine:container)
+docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7           
+    
