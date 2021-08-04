@@ -38,6 +38,10 @@ ps fax
 
 #List containers:
 docker ps
+
+#List all containers, even the stopped:
+docker ps -a | head
+
 docker run hello-world
 
 docker pull alpine
@@ -64,5 +68,30 @@ docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -d nginx:1
                mount this file    into this path with this name, read only  keep it running, image
 #ports:
 expose a port from the container to the host (machine:container)
-docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7           
-    
+docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7      
+
+
+#create image of a container:
+docker commit 4699hf7ID7hfty
+docker image ls | head
+
+#create a tag for the image:
+docker image tag 4699hf7ID7hfty midocker
+docker image tag 4699hf7ID7hfty midocker:1.0
+
+docker run midocker figlet hola (figlet installed previously in the container and hola as argument)
+docker run ubuntu figlet hola (wont run since it does not have figlet by default)
+
+
+#docker file: conteneder que se basa en otra imagen
+FROM ubuntu
+
+vim Dockerfile
+RUN apt-get update && apt-get install figlet -y
+
+cd docker/
+docker build -t midocker:1.1
+docker run midocker:1.1 figlet hola
+
+#see the history of an image (historical commands)
+docker image history 4699hf7ID7hfty
