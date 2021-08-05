@@ -17,9 +17,9 @@ vi docker-compose.yaml
     environment:
       - PGID=1000
       - PUID=1000
-      - TZ=America/Chicago
+      - TZ=Europe/Madrid
     volumes:
-      - /home/adrian/kodi:/config/.kodi
+      - /home/pi/Docker/kodi:/config/.kodi
     ports:
       - 8082:8080
       - 9090:9090
