@@ -1,4 +1,4 @@
-#INSTALL DOCKER:
+### INSTALL DOCKER ### 
 
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -17,16 +17,16 @@ sudo apt install docker-ce
 sudo systemctl status docker
 sudo docker ps // list all containers
 
-#INSTALL PORTAINER:
+## #INSTALL PORTAINER ###
 
 sudo docker run -d \
 --name="portainer" \
 --restart on-failure \
--p 9000:9000 \
+-p 9000:9000 \                                                    web port
 -p 8000:8000 \
--v /var/run/docker.sock:/var/run/docker.sock \
--v portainer_data:/data \
-portainer/portainer-ce:latest
+-v /var/run/docker.sock:/var/run/docker.sock \                    docker API port
+-v portainer_data:/data \                                         portainer data to be stored on this persistent volume
+portainer/portainer-ce:latest                                     the image
 
 
 ifconfig
@@ -42,8 +42,10 @@ docker ps
 #List all containers, even the stopped:
 docker ps -a | head
 
+#Test that docker works with this image:
 docker run hello-world
 
+#Another image to test:
 docker pull alpine
 docker pull alpine:3.7
 
@@ -55,12 +57,15 @@ docker run -it alpine:3.7 sh
 
 #Execute a process inside a container and keep it running if needed :
 docker run -d nginx:1.15.7 
+docker run -p 80:80 -d nginx (start nginx web server on port 80)
+
 
 #executes a command on a running container
 docker exec -it 554kjgIDfgeofm sh
 
 exit
 docker stop yjbf7i3ID3jkj67
+docker rm yjbf7i3ID3jkj67
 
 #mount volumes:
 in docker folder:
@@ -95,3 +100,14 @@ docker run midocker:1.1 figlet hola
 
 #see the history of an image (historical commands)
 docker image history 4699hf7ID7hfty
+
+
+
+
+###
+
+DOCKER VOLUMES: 
+-changes inside the container will be gone unless volumes are used
+-mount points inside the container
+#check the data stored in volumes (the same volume mounted on a new container, will have the same info available):
+docker volume ls
