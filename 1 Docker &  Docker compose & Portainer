@@ -17,6 +17,14 @@ sudo apt install docker-ce
 sudo systemctl status docker
 sudo docker ps // list all containers
 
+## INSTALL DOCKER COMPOSE ##
+
+sudo apt install docker-compose
+
+vim docker-compose.yaml
+sudo docker-compose up -d
+
+
 ## #INSTALL PORTAINER ###
 
 sudo docker run -d \
