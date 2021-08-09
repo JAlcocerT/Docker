@@ -103,7 +103,7 @@ docker create \
   -v /home/pi/etc/pihole:/etc/pihole \
   -v /home/pi/etc/pihole/etc-dnsmasq.d:/etc/dnsmasq.d \
   --restart unless-stopped \
-  ghcr.io/linuxserver/qbittorrent(????)
+  ghcr.io/pihole/pihole
   
 docker container ls
 docker inspect 4648tgIDngkfo30 #get IP address
