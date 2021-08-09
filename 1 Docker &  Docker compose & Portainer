@@ -9,7 +9,7 @@ sudo apt update
 
 sudo apt update
 
-Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:
+Make sure you are about to install from the Docker repo instead of the default Ubuntu repo (sudo apt install docker.io):
 
 apt-cache policy docker-ce
 sudo apt install docker-ce
