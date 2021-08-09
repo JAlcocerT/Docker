@@ -1,11 +1,18 @@
+docker pull pihole/pihole:latest
+docker image ls
+docker run pihole/pihole
+docker container ls
+docker inspect 4648tgIDngkfo30 #get IP address
+docker logs 4648tgIDngkfo30 #get the password | grep pass
+
+
+
 ### https://hub.docker.com/r/pihole/pihole
 
 #with docker compose:
 vim docker-compose.yaml
-sudo docker-compose up -d
 
 version: "3"
-
 services:
   pihole:
     container_name: pihole
@@ -14,23 +21,23 @@ services:
       - 53:53/tcp
       - 53:53/udp
       - 67:67/udp
-      - 80:80/tcp
+      - 86:80/tcp
       - 443:443/tcp
     environment:
       TZ: Europe/Madrid
-      WEBPASSWORD: password
+      WEBPASSWORD: password #optional
     # Volumes store your data between container upgrades
     volumes:
       - home/pi/etc/pihole/:/etc/pihole/
       - home/pi/etc/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
     # Recommended but not required (DHCP needs NET_ADMIN)
-    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
     
-    
-    
+sudo docker-compose up -d   
+
+Change DNS on the device or on the router(applicable to all devices connected to the LAN) to the rpi address. For example to 192.168.1.31
     
 ### OPENDNS - domain name system:
 
