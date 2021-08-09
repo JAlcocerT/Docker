@@ -1,4 +1,8 @@
-https://hub.docker.com/r/pihole/pihole
+### https://hub.docker.com/r/pihole/pihole
+
+#with docker compose:
+vim docker-compose.yaml
+sudo docker-compose up -d
 
 version: "3"
 
@@ -7,17 +11,18 @@ services:
     container_name: pihole
     image: pihole/pihole:latest
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "67:67/udp"
-      - "80:80/tcp"
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 80:80/tcp
+      - 443:443/tcp
     environment:
       TZ: Europe/Madrid
-      # WEBPASSWORD: 'set a secure password here or it will be random'
+      WEBPASSWORD: password
     # Volumes store your data between container upgrades
     volumes:
-      - './etc-pihole/:/etc/pihole/'
-      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - home/pi/etc/pihole/:/etc/pihole/
+      - home/pi/etc/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
     # Recommended but not required (DHCP needs NET_ADMIN)
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
@@ -26,7 +31,20 @@ services:
     
     
     
-https://github.com/theNetworkChuck/NetworkChuck/blob/master/pihole.sh    
+    
+### OPENDNS - domain name system:
+
+nslookup (windows)
+youtube.com
+    
+    
+    
+    
+### https://github.com/theNetworkChuck/NetworkChuck/blob/master/pihole.sh    
+
+nano pihole.sh
+
+
  #!/bin/bash
 
 # https://github.com/pi-hole/docker-pi-hole/blob/master/README.md
@@ -60,3 +78,8 @@ for i in $(seq 1 20); do
         exit 1
     fi
 done;
+
+
+
+sudo chmod u+x pihole.sh #changing the attribute of the file to be executable
+sudo ./pihole.sh
