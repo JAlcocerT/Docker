@@ -1,0 +1,8 @@
+https://github.com/containrrr/watchtower
+https://hub.docker.com/r/containrrr/watchtower
+
+
+sudo docker run -d \
+    --name watchtower \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    containrrr/watchtower --run-once 
