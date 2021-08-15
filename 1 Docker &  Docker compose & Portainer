@@ -50,6 +50,12 @@ docker ps
 #List all containers, even the stopped:
 docker ps -a | head
 
+#list all images
+docker image ls
+
+#remove unsed images
+docker image prune -a
+
 #Test that docker works with this image:
 docker run hello-world
 
