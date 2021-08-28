@@ -1,0 +1,34 @@
+https://techsquidtv.com/linux/how-to-install-wordpress-with-docker-compose/
+
+version: '3'
+
+services:
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     volumes:
+       - wp_data:/var/www/html
+     ports:
+       - "80:80"
+     restart_policy:
+      condition: on-failure
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: my_wordpress_db_password
+
+   db:
+     image: mariadb
+     volumes:
+       - db_data:/var/lib/mysql
+     restart_policy:
+      condition: on-failure
+     environment:
+       MYSQL_ROOT_PASSWORD: my_db_root_password
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: my_wordpress_db_password
+volumes:
+    wp_data:
+    db_data:
