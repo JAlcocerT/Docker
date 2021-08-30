@@ -1,0 +1,11 @@
+docker run -d \
+  --name=couchpotato \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 5050:5050 \
+  -v /path/to/appdata/config:/config \
+  -v /path/to/downloads:/downloads \
+  -v /path/to/movies:/movies \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/couchpotato
