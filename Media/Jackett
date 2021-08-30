@@ -2,9 +2,7 @@ docker run -d \
   --name=jackett \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Europe/London \
-  -e AUTO_UPDATE=true `#optional` \
-  -e RUN_OPTS=<run options here> `#optional` \
+  -e TZ=Europe/Madrid \
   -p 9117:9117 \
   -v /home/pi/Docker/Jackett/config:/config \
   -v /home/pi/Downloads/Jackett/downloads:/downloads \
