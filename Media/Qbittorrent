@@ -1,0 +1,27 @@
+https://hub.docker.com/r/linuxserver/qbittorrent
+
+#INSTALL QBITTORRENT:
+
+sudo su
+
+cd /home/pi/Docker
+mkdir qbittorrent
+cd qbittorrent
+mkdir config
+
+docker create \
+  --name=qbittorrent \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -e WEBUI_PORT=8080 \
+  -p 6881:6881 \
+  -p 6881:6881/udp \
+  -p 8080:8080 \
+  -v /home/pi/Docker/qbittorrent/config:/config \
+  -v /home/pi/Downloads:/downloads \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/qbittorrent
+  
+  
+docker start qbittorrent
