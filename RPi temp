@@ -1,6 +1,0 @@
-BASH ALIAS - temp
-https://pimylifeup.com/raspberry-pi-temperature/
-
-nano /home/pi/.bash_aliases
-alias temp='/opt/vc/bin/vcgencmd measure_temp'
-temp
