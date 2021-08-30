@@ -15,10 +15,11 @@ services:
       - HOST_WHITELIST=dnsnane list #optional
     volumes:
       - /home/pi/Docker/Transmission/config:/config
-      - /home/pi/Downloads:/downloads
-      - /home/pi/Downloads:/watch
+      - /home/pi/Downloads/Transmission:/downloads
+      - /home/pi/Downloads/Tranmission:/watch
     ports:
       - 9091:9091
       - 51413:51413
       - 51413:51413/udp
     restart: unless-stopped
+    
