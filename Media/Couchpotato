@@ -4,7 +4,7 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
   -p 5050:5050 \
-  -v home/pi/Docker/couchpotato/config:/config \
+  -v /home/pi/Docker/couchpotato/config:/config \
   -v /home/pi/Downloads/couchpotato/downloads:/downloads \
   -v /home/pi/Downloads/couchpotato/movies:/movies \
   --restart unless-stopped \
