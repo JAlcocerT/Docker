@@ -6,7 +6,7 @@ docker run -d \
   -e AUTO_UPDATE=true `#optional` \
   -e RUN_OPTS=<run options here> `#optional` \
   -p 9117:9117 \
-  -v <path to data>:/config \
-  -v <path to blackhole>:/downloads \
+  -v /home/pi/Docker/Jackett/config:/config \
+  -v /home/pi/Downloads/Jackett/downloads:/downloads \
   --restart unless-stopped \
   ghcr.io/linuxserver/jackett
