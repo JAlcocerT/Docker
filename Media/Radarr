@@ -1,0 +1,11 @@
+docker run -d \
+  --name=radarr \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 7878:7878 \
+  -v /home/pi/Docker/Sonarr/config:/config \
+  -v /path/to/movies:/movies `#optional` \
+  -v /home/pi/Downloads/Radarr/downloads:/downloads `#optional` \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/radarr
