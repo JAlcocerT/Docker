@@ -1,0 +1,28 @@
+docker run -d \
+  --name=firefox \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 3000:3000 \
+  -v /home/pi/Docker/Firefox/config:/config \
+  --shm-size="1gb" \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/firefox
+  
+  
+---
+version: "2.1"
+services:
+  firefox:
+    image: ghcr.io/linuxserver/firefox
+    container_name: firefox
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - /home/pi/Docker/Firefox/config:/config
+    ports:
+      - 3000:3000
+    shm_size: "1gb"
+    restart: unless-stopped
