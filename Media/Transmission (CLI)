@@ -1,0 +1,13 @@
+docker run -d \
+  --name=transmission \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 9091:9091 \
+  -p 51413:51413 \
+  -p 51413:51413/udp \
+  -v /home/pi/Docker/Transmission/config:/config \
+  -v /home/pi/Downloads/Transmission/downloads:/downloads \
+  -v /home/pi/Downloads/Tranmission/watch:/watch \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/transmission
