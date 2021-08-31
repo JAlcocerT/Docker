@@ -6,8 +6,7 @@ https://www.youtube.com/watch?v=rztoXXJ4y0I&t=61s
 https://hub.docker.com/r/linuxserver/syncthing
 
 #with docker compose:
-https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing%20-%20docker%20compose.yml
-vim docker-compose.yaml
+docker_me Syncthing https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing%20-%20docker%20compose.yaml
 sudo docker-compose up -d
 
 ---
