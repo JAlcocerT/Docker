@@ -10,3 +10,5 @@ docker run \
       -e OOKLA_EULA_GDPR=true \
       --restart unless-stopped \
       henrywhitaker3/speedtest-tracker
+
+docker_me SpeedTest https://raw.githubusercontent.com/reisikei/docker/main/IoT/InternetSpeedTracker.yaml
