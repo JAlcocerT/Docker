@@ -1,3 +1,12 @@
 https://www.youtube.com/watch?v=nMNlkDPohcc&t=1s
 
 https://hub.docker.com/r/henrywhitaker3/speedtest-tracker
+
+
+docker run \
+      --name=speedtest \
+      -p 8765:80 \
+      -v /home/pi/Docker/InternetSpeedTest/config:/config \
+      -e OOKLA_EULA_GDPR=true \
+      --restart unless-stopped \
+      henrywhitaker3/speedtest-tracker
