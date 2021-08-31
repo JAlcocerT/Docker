@@ -7,7 +7,7 @@ docker run -d \
   -p 51413:51413 \
   -p 51413:51413/udp \
   -v /home/pi/Docker/Transmission/config:/config \
-  -v /home/pi/Downloads/Transmission/downloads:/downloads \
-  -v /home/pi/Downloads/Tranmission/watch:/watch \
+  -v /media/pi/Nowy1/DOWNLOADS:/downloads \
+  -v /home/pi/Downloads/Transmission/watch:/watch \
   --restart unless-stopped \
   ghcr.io/linuxserver/transmission
