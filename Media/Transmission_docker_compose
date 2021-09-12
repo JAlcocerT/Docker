@@ -34,3 +34,42 @@ services:
       - /Home/Downloads:/downloads
       - /Home/Downloads/Transmission_watch:/watch
      restart: unless-stopped
+
+
+
+---
+version: "2.1"
+services:
+  qbittorrent:
+    image: ghcr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ_set}
+      - WEBUI_PORT=8080
+    volumes:
+      - ${Home}/Docker/Torrents/qbittorrent/config:/config
+      - ${Media_2}:/downloads
+    ports:
+      - 6881:6881
+      - 6881:6881/udp
+      - ${qbitTorrent_app_port}:8081
+    restart: unless-stopped
+    
+  transmission:
+    image: ghcr.io/linuxserver/transmission
+    container_name: transmission
+     environment:
+      - PUID=1000 
+      - PGID=1000 
+      - TZ=${TZ_set}
+     ports:
+      - ${transmission_app_port}:9091 
+      - 51413:51413 
+      - 51413:51413/udp 
+     volumes:
+      - ${Home}//Docker/Torrents/Transmission/config:/config
+      - ${Media_2}:/downloads
+      - ${Media_2}/Transmission_watch:/watch
+     restart: unless-stopped
