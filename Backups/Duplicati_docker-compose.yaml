@@ -2,7 +2,7 @@
 version:"2"
 services:
   duplicati:
-  image: linuxserver/duplicati
+  image: linuxserver/duplicati #https://docs.linuxserver.io/images/docker-duplicati
   container_name: duplicati
   environment:
     - PUID=1000
@@ -10,9 +10,9 @@ services:
     - TZ=Europe/Madrid
     - CLI_ARGS = #optional
   volumes:
-    - /fjdj/fdg:/config
-    - :/backups
-    - :/source
+    - /home/pi/Docker/Duplicati/config:/config
+    - /media/pi/Nowy1/Duplicaty_backups:/backups
+    - /media/pi/Nowy1:/source
    ports:
     - 8200:8200
    restart: unless-stopped
