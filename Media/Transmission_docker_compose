@@ -10,26 +10,27 @@ services:
       - TZ=Europe/Madrid
       - WEBUI_PORT=8080
     volumes:
-      - /home/pi/Docker/qbittorrent/config:/config
-      - /home/pi/Downloads:/downloads
+      - /Home/Docker/Torrents/qbittorrent/config:/config
+      - /Home/Downloads:/downloads
     ports:
       - 6881:6881
       - 6881:6881/udp
       - 8080:8080
     restart: unless-stopped
     
-    transmission:
+  transmission:
     image: ghcr.io/linuxserver/transmission
+    container_name: transmission
      environment:
       - PUID=1000 
       - PGID=1000 
       - TZ=Europe/Madrid 
-      ports:
+     ports:
       - 9091:9091 
       - 51413:51413 
       - 51413:51413/udp 
-      volumes:
-      - /home/pi/Docker/Transmission/config:/config
-      - /media/pi/Nowy1/DOWNLOADS:/downloads
-      - /home/pi/Downloads/Transmission/watch:/watch
-      restart: unless-stopped 
+     volumes:
+      - /Home/Docker/Torrents/Transmission/config:/config
+      - /Home/Downloads:/downloads
+      - /Home/Downloads/Transmission_watch:/watch
+     restart: unless-stopped
