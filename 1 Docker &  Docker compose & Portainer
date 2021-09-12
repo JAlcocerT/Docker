@@ -25,7 +25,7 @@ vim docker-compose.yaml
 sudo docker-compose up -d
 
 
-## #INSTALL PORTAINER ###
+## #INSTALL PORTAINER (ports, name, restart and volumes in CLI docker) ###
 docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 
 
@@ -82,6 +82,12 @@ docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -d nginx:1
 expose a port from the container to the host (machine:container)
 docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7      
 
+#change the restart policy of an existing container:
+docker update --restart unless-stopped running_container_name
+
+#change the policy of all the containers running:
+docker update --restart unless-stopped $(docker ps -q)
+
 
 #create image of a container:
 docker commit 4699hf7ID7hfty
@@ -118,3 +124,14 @@ DOCKER VOLUMES:
 -mount points inside the container
 #check the data stored in volumes (the same volume mounted on a new container, will have the same info available):
 docker volume ls
+
+
+
+### ENV files:
+By having an .env file on the same folder that the docker-compose.yaml file
+the file can be simplified:
+
+
+(CLI)
+docker run -d --name example --env-file vars_file.env ubuntu:latest --restart unless-stopped
+(Docker compose)
