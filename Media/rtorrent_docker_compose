@@ -9,7 +9,7 @@ services:
     image: pablokbs/rutorrent-armhf
     ports:
       - 85:80 #web port
-      - 51413:51413
+      - 51415:51413
       - 6881:6881/udp
     volumes:
       - ~/Downloads/rtorrent:/config/rtorrent
