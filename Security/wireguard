@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
+#wget  -cO - https://github.com/reisikei/docker/blob/main/Security/Wireguard_docker_compose.yaml > wg.sh && chmod 775 wg.sh && sudo ./wg.sh
+
+mkdir Docker
+cd Docker
+mkdir wireguard
+cd wireguard
+wget  -cO - https://github.com/reisikei/docker/blob/main/Security/Wireguard_docker_compose.yaml > docker-compose.yaml
+sudo docker-compose up -d
