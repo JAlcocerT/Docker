@@ -22,4 +22,4 @@ services: ##for ubuntu
       MYSQL_DATABASE: wordpress
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - /Home/Docker/WP/mysql-data:/var/lib/mysql
+      - ~/Docker/wordpress/mysql-data:/var/lib/mysql
