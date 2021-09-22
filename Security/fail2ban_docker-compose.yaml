@@ -9,6 +9,6 @@ services:
     - NET_RAW
     volumes:
     - /var/log:/var/log:ro
-    - /home/geekland/services/fail2ban/data:/data
+    - ~/docker/fail2ban/data:/data
     env_file:
       - ./fail2ban.env
