@@ -1,6 +1,9 @@
 ifconfig
 ipserver:9000
 
+# Install docker & docker compose & portainer
+https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer
+
 # see processes running
 ps fax
 
