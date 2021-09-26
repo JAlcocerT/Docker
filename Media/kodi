@@ -1,0 +1,11 @@
+#https://hub.docker.com/r/linuxserver/kodi-headless/
+
+cd /home/pi/Docker
+mkdir kodi
+cd kodi
+mkdir config
+cd /home/pi/Docker/kodi
+
+wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_docker_compose > docker-compose.yaml
+      
+sudo docker-compose up -d
