@@ -12,5 +12,5 @@ mkdir Docker
 cd Docker
 mkdir wireguard
 cd wireguard
-wget  -cO - https://github.com/reisikei/docker/blob/main/Security/Wireguard_docker_compose.yaml > docker-compose.yaml
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/Wireguard_docker_compose.yaml > docker-compose.yaml
 sudo docker-compose up -d
