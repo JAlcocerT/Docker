@@ -10,10 +10,10 @@ services:
       - TZ=${TZ_set}
       - WEBUI_PORT=${qbitTorrent_app_port} #8080
     volumes:
-      - ${Home}/Docker/Torrents/qbittorrent/config:/config
-      - ${Media_2}:/downloads
+      - ~/Docker/Torrents/qbittorrent/config:/config
+      - ${Media}:/downloads
     ports:
-      - 6881:6881
-      - 6881:6881/udp
+      - ${qbitTorrent_port}:6881
+      - ${qbitTorrent_port}:6881/udp
       - ${qbitTorrent_app_port}:8081 #8080
     restart: unless-stopped
