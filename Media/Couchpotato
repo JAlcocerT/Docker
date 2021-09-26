@@ -4,8 +4,8 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
   -p 5050:5050 \
-  -v /home/pi/Docker/couchpotato/config:/config \
-  -v /home/pi/Downloads/couchpotato/downloads:/downloads \
-  -v /home/pi/Downloads/couchpotato/movies:/movies \
+  -v ~/Docker/couchpotato/config:/config \
+  -v ~/Downloads/couchpotato/downloads:/downloads \
+  -v ~/Downloads/couchpotato/movies:/movies \
   --restart unless-stopped \
-  ghcr.io/linuxserver/couchpotato
+  #ghcr.io/linuxserver/couchpotato
