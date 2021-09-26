@@ -4,8 +4,8 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
   -p 6767:6767 \
-  -v /home/pi/Docker/Bazarr/config:/config \
-  -v /home/pi/Downloads:/movies `#optional` \
-  -v /home/pi/Downloads:/tv `#optional` \
+  -v ~/Docker/Bazarr/config:/config \
+  -v ~/Downloads:/movies `#optional` \
+  -v ~/Downloads:/tv `#optional` \
   --restart unless-stopped \
-  ghcr.io/linuxserver/bazarr
+  #ghcr.io/linuxserver/bazarr
