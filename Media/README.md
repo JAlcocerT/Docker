@@ -6,15 +6,21 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorren
 docker-compose up -d
 
 ### qBitTorrent
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittorrent_docker-compose.yaml > Wordpress_docker-compose.yaml
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittorrent_docker-compose.yaml > docker-compose.yaml
 
 docker-compose up -d
 
 ### Transmission
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose > Wordpress_docker-compose.yaml
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose > docker-compose.yaml
 
 docker-compose up -d
 
+## Multimedia Center
+
+### Kodi
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_docker_compose > docker-compose.yaml
+
+### Plex
 
 ## Media
 
