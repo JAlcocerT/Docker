@@ -11,6 +11,8 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittor
 
 docker-compose up -d
 
+OR:
+
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose_w_environment > docker-compose.yaml
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
