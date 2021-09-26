@@ -7,4 +7,4 @@ sudo docker run -d \
     containrrr/watchtower --run-once 
     
 #to monitor only a container (ex: shipyard)
-sudo docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower shipyard
+#sudo docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower shipyard
