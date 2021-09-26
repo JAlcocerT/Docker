@@ -11,12 +11,14 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorren
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
 
-### qBitTorrent :heavy_check_mark:
+### qBitTorrent 
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittorrent_docker-compose.yaml > docker-compose.yaml
 
 docker-compose up -d
 
 OR:
+
+(:heavy_check_mark: Sept 2021)
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittorrent_docker-compose_wenvironment.yaml > docker-compose.yaml
 
