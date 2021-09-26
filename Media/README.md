@@ -5,10 +5,16 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorren
 
 docker-compose up -d
 
+
 ### qBitTorrent
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittorrent_docker-compose.yaml > docker-compose.yaml
 
 docker-compose up -d
+
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose_w_environment > docker-compose.yaml
+
+wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
+
 
 ### Transmission
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose > docker-compose.yaml
@@ -20,6 +26,8 @@ OR:
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose_w_environment > docker-compose.yaml
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
+
+
 
 ## Multimedia Center
 
