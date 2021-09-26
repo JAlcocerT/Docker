@@ -4,8 +4,8 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
   -p 7878:7878 \
-  -v /home/pi/Docker/Radarr/config:/config \
+  -v ~/Docker/Radarr/config:/config \
   -v /path/to/movies:/movies `#optional` \
-  -v /home/pi/Downloads/Radarr/downloads:/downloads `#optional` \
+  -v ~/Downloads/Radarr/downloads:/downloads `#optional` \
   --restart unless-stopped \
-  ghcr.io/linuxserver/radarr
+  #ghcr.io/linuxserver/radarr
