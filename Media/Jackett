@@ -4,7 +4,7 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
   -p 9117:9117 \
-  -v /home/pi/Docker/Jackett/config:/config \
-  -v /home/pi/Downloads/Jackett/downloads:/downloads \
+  -v ~/Docker/Jackett/config:/config \
+  -v ~/Downloads/Jackett/downloads:/downloads \
   --restart unless-stopped \
-  ghcr.io/linuxserver/jackett
+  #ghcr.io/linuxserver/jackett
