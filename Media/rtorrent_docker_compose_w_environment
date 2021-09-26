@@ -5,6 +5,7 @@
 version: "2"
 services:
   rtorrent:
+    container_name: rtorrent_Nowy
     image: pablokbs/rutorrent-armhf
     ports:
       - ${rtorrent_webport}:80 #web port
