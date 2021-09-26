@@ -10,7 +10,7 @@ services:
       - PGID=1000
       - TZ=Europe/Warsaw
     volumes:
-      - /home/pi/Docker/Syncthing/config:/config
+      - ~/Docker/Syncthing/config:/config
       - /media/pi/Nowy1/SYNC:/data1
     ports:
       - 8384:8384
