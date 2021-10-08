@@ -17,26 +17,34 @@ sudo docker run -d \
 ## Useful Docker commands
 
 * see processes running
- ``` ps fax ```
+ ``` ps fax 
+ ```
 
 * List containers:
-  ```docker ps```
+  ```docker ps
+  ```
 
 * List all containers, even the stopped:
-  ```docker ps -a | head```
+  ```docker ps -a | head
+  ```
 
 * list all images
-  ```docker image ls```
+  ```docker image ls
+  ```
 
 * remove unsed images
-  ```docker image prune -a```
+  ```docker image prune -a
+  ```
 
 * Test that docker works with this image:
-  ```docker run hello-world```
+* 
+  ```docker run hello-world
+  ```
 
 * Another image to test:
   ```docker pull alpine
-  docker pull alpine:3.7```
+  docker pull alpine:3.7
+  ```
 
 * Run some command inside the cointainer
   docker run alpine:3.7 ls -l
