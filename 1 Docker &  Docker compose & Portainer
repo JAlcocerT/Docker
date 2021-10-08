@@ -16,7 +16,7 @@ sudo apt update -y
 #Make sure you are about to install from the Docker repo instead of the default Ubuntu repo (sudo apt install docker.io):
 
 apt-cache policy docker-ce
-sudo apt install docker-ce
+sudo apt install docker-ce -y
 
 sudo systemctl status docker
 #sudo docker ps // list all containers
