@@ -1,11 +1,12 @@
-ifconfig
-ipserver:9000
 
 ## Install docker & docker compose & portainer 
 ```
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
 ```
-## Install watchtower
+
+To get to know what's the private address of your device and access portainer, simply use: ifconfig, then privateipserver:9000
+
+### Install watchtower
 ```
 sudo docker run -d \
     --name watchtower \
@@ -82,7 +83,7 @@ docker commit 4699hf7ID7hfty
   docker run ubuntu figlet hola (wont run since it does not have figlet by default)
 
 
-#docker file: conteneder que se basa en otra imagen
+#docker file: container based on other image
   FROM ubuntu
 
   vim Dockerfile
@@ -99,8 +100,9 @@ docker commit 4699hf7ID7hfty
 
 
 ### DOCKER VOLUMES: 
-  -changes inside the container will be gone unless volumes are used
-  -mount points inside the container
+  * changes inside the container will be gone unless volumes are used
+  * mount points inside the container
+  * 
   #check the data stored in volumes (the same volume mounted on a new container, will have the same info available):
   docker volume ls
 
