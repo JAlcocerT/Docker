@@ -17,53 +17,67 @@ sudo docker run -d \
 ## Useful Docker commands
 
 * see processes running
- ``` ps fax 
+ ``` 
+ ps fax 
  ```
 
 * List containers:
-  ```docker ps
+  ```
+  docker ps
   ```
 
 * List all containers, even the stopped:
-  ```docker ps -a | head
+  ```
+  docker ps -a | head
   ```
 
 * list all images
-  ```docker image ls
+  ```
+  docker image ls
   ```
 
 * remove unsed images
-  ```docker image prune -a
+  ```
+  docker image prune -a
   ```
 
 * Test that docker works with this image:
 * 
-  ```docker run hello-world
+  ```
+  docker run hello-world
   ```
 
 * Another image to test:
-  ```docker pull alpine
+  ```
+  docker pull alpine
   docker pull alpine:3.7
   ```
 
 * Run some command inside the cointainer
+  ```
   docker run alpine:3.7 ls -l
-
+  ```
+  
 * Interactive terminal of the container (execute it and stops the container) :
+  ```
   docker run -it alpine:3.7 sh
+  ```
 
 * Execute a process inside a container and keep it running if needed :
+  ```
   docker run -d nginx:1.15.7 
   docker run -p 80:80 -d nginx (start nginx web server on port 80)
-
+  ```
 
 * executes a command on a running container
+  ```
   docker exec -it 554kjgIDfgeofm sh
-
+   
   exit
   docker stop yjbf7i3ID3jkj67
   docker rm yjbf7i3ID3jkj67
-
+  ```
+  
 * Kali on docker
 ```
 docker pull kalilinux/kali-rolling
@@ -77,27 +91,35 @@ docker run --tty --interactive kalilinux/kali-rolling
                  mount this file    into this path with this name, read only  keep it running, image
 ```
 * ports:
+```
   expose a port from the container to the host (machine:container)
   docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7      
+```
 
 * change the restart policy of an existing container:
+  ```
   docker update --restart unless-stopped running_container_name
-
+  ```
+  
 * Change the policy of all the containers running:
+  ```
   docker update --restart unless-stopped $(docker ps -q)
-
+  ```
 
 * create image of a container:
-docker commit 4699hf7ID7hfty
+  ```
+  docker commit 4699hf7ID7hfty
   docker image ls | head
-
+  ```
+  
 * create a tag for the image:
+  ```
   docker image tag 4699hf7ID7hfty midocker
   docker image tag 4699hf7ID7hfty midocker:1.0
 
   docker run midocker figlet hola (figlet installed previously in the container and hola as argument)
   docker run ubuntu figlet hola (wont run since it does not have figlet by default)
-
+  ```
 
 * docker file: container based on other image
   FROM ubuntu
@@ -110,18 +132,21 @@ docker commit 4699hf7ID7hfty
   docker run midocker:1.1 figlet hola
 
 * see the history of an image (historical commands)
+  ```
   docker image history 4699hf7ID7hfty
-
+  ```
 
 
 
 ### DOCKER VOLUMES: 
   * changes inside the container will be gone unless volumes are used
   * mount points inside the container
-  * 
-  #check the data stored in volumes (the same volume mounted on a new container, will have the same info available):
+  
+  * check the data stored in volumes (the same volume mounted on a new container, will have the same info available):
+  
+  ```
   docker volume ls
-
+  ```
 
 
 ### ENV files:
