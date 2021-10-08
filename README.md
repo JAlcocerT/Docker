@@ -16,66 +16,66 @@ sudo docker run -d \
 
 ## Useful Docker commands
 
-#see processes running
+* see processes running
   ps fax
 
-#List containers:
+* List containers:
   docker ps
 
-#List all containers, even the stopped:
+* List all containers, even the stopped:
   docker ps -a | head
 
-#list all images
+* list all images
   docker image ls
 
-#remove unsed images
+* remove unsed images
   docker image prune -a
 
-#Test that docker works with this image:
+* Test that docker works with this image:
   docker run hello-world
 
-#Another image to test:
+* Another image to test:
   docker pull alpine
   docker pull alpine:3.7
 
-#Run some command inside the cointainer
+* Run some command inside the cointainer
   docker run alpine:3.7 ls -l
 
-#Interactive terminal of the container (execute it and stops the container) :
+* Interactive terminal of the container (execute it and stops the container) :
   docker run -it alpine:3.7 sh
 
-#Execute a process inside a container and keep it running if needed :
+* Execute a process inside a container and keep it running if needed :
   docker run -d nginx:1.15.7 
   docker run -p 80:80 -d nginx (start nginx web server on port 80)
 
 
-#executes a command on a running container
+* executes a command on a running container
   docker exec -it 554kjgIDfgeofm sh
 
   exit
   docker stop yjbf7i3ID3jkj67
   docker rm yjbf7i3ID3jkj67
 
-#mount volumes:
+* mount volumes:
   in docker folder:
   docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -d nginx:1.15.7
                  mount this file    into this path with this name, read only  keep it running, image
-#ports:
+* ports:
   expose a port from the container to the host (machine:container)
   docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7      
 
-#change the restart policy of an existing container:
+* change the restart policy of an existing container:
   docker update --restart unless-stopped running_container_name
 
-#change the policy of all the containers running:
+* Change the policy of all the containers running:
   docker update --restart unless-stopped $(docker ps -q)
 
 
-#create image of a container:
+* create image of a container:
 docker commit 4699hf7ID7hfty
   docker image ls | head
 
-#create a tag for the image:
+* create a tag for the image:
   docker image tag 4699hf7ID7hfty midocker
   docker image tag 4699hf7ID7hfty midocker:1.0
 
@@ -83,7 +83,7 @@ docker commit 4699hf7ID7hfty
   docker run ubuntu figlet hola (wont run since it does not have figlet by default)
 
 
-#docker file: container based on other image
+* docker file: container based on other image
   FROM ubuntu
 
   vim Dockerfile
@@ -93,7 +93,7 @@ docker commit 4699hf7ID7hfty
   docker build -t midocker:1.1
   docker run midocker:1.1 figlet hola
 
-#see the history of an image (historical commands)
+* see the history of an image (historical commands)
   docker image history 4699hf7ID7hfty
 
 
@@ -109,7 +109,7 @@ docker commit 4699hf7ID7hfty
 
 
 ### ENV files:
-  By having an .env file on the same folder that the docker-compose.yaml file
+  By having an .env file on the same folder that the docker-compose.yaml file,
   the file can be simplified:
 
 
