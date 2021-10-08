@@ -56,10 +56,18 @@ sudo docker run -d \
   docker stop yjbf7i3ID3jkj67
   docker rm yjbf7i3ID3jkj67
 
+* Kali on docker
+```
+docker pull kalilinux/kali-rolling
+docker run --tty --interactive kalilinux/kali-rolling
+```
+
 * mount volumes:
   in docker folder:
+```
   docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -d nginx:1.15.7
                  mount this file    into this path with this name, read only  keep it running, image
+```
 * ports:
   expose a port from the container to the host (machine:container)
   docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7      
