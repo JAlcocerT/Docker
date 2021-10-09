@@ -34,6 +34,6 @@ services:
     links:
       - db
     volumes:
-      - nextcloud:/var/www/html #Change 'nextcloud' to your external drive volume if available
+      - ~/nextcloud:/var/www/html #Change 'nextcloud' to your external drive volume if available
     restart: always
 
