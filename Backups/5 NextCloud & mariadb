@@ -8,6 +8,15 @@ PORTAINER NEXTCLOUD
 new volume - nextcloud:latest - 8080 80
 new stack - https://dbtechreviews.com/2020/07/install-nextcloud-on-a-raspberry-pi-4-with-openmediavault-and-docker/
 
+location of docker:
+/var/lib/docker
+
+docker run -d -p 8080:80 nextcloud
+
+
+docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 nextcloud
+
+
 version: '2'
 
 volumes:
@@ -36,4 +45,52 @@ services:
     volumes:
       - ~/nextcloud:/var/www/html #Change 'nextcloud' to your external drive volume if available
     restart: always
+    
+    
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    restart: unless-stopped
+    container_name: nxtclouddb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - ~/Docker/nextcloud:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+
+
+  app:
+    image: nextcloud
+    container_name: nxtcloud
+    restart: unless-stopped
+    ports:
+      - 8081:80
+    links:
+      - db
+    volumes:
+      - ~/Docker/nextcloud:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      
+      
+  enviroment:
+  - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.11.com:8080 ???????
+  
+  
+  
+  
+  sudo docker exec -it be8aa338d656 bash
+  apt-get update
+apt-get install vim nano
+cd config
+nano config.php en el contenedor
+
 
