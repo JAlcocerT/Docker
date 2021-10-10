@@ -52,3 +52,20 @@ The problem was solved by editing the /etc/fstab as follow:
 ```
 (Your Shared Folder) (Your Path to Mountpoint) vboxsf defaults,uid=www-data,gid=www-data,dmask=007 0 0
 ```
+
+to make it read from an external drive
+
+
+92C269FAC269E2C9
+
+To get this UUID, run this command:
+sudo ls -l /dev/disk/by-uuid/
+
+
+sudo fdisk -l
+
+sudo umount /mnt/usb
+
+sudo mount /dev/sda1 /mnt/usb -o uid=pi,gid=pi
+
+
