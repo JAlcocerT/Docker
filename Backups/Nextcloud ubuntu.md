@@ -33,3 +33,22 @@ Add the internal vpn (tailscale) as a trusted domain:
 ```
 sudo docker exec --user www-data nextcloud_container php occ config:system:set trusted_domains 7 --value 100.82.151.45:8080
 ```
+
+```
+sudo fdisk -l
+```
+
+google brings me at this old post when looking for the same problem.
+I just solved by assigning uid and grid to www-data
+
+the fstab entry should look like:
+
+```
+/dev/LogicalVolume1/Volume1 /home/jollyj/server ntfs defaults,uid=www-data,grid=www-data umask=007 0 1
+```
+
+The problem was solved by editing the /etc/fstab as follow:
+
+```
+(Your Shared Folder) (Your Path to Mountpoint) vboxsf defaults,uid=www-data,gid=www-data,dmask=007 0 0
+```
