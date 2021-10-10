@@ -28,3 +28,8 @@ Therefore we could do:
 sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_container nextcloud  \
 sudo docker exec --user www-data nextcloud_container php occ config:system:set trusted_domains 7 --value hostname -I | head -c12
 ```
+
+Add the internal vpn (tailscale) as a trusted domain:
+```
+sudo docker exec --user www-data nextcloud_container php occ config:system:set trusted_domains 7 --value 100.82.151.45:8080
+```
