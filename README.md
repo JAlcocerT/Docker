@@ -16,7 +16,7 @@ sudo docker run -d \
     containrrr/watchtower --run-once 
 ```
 
-## Useful Docker commands
+### Useful Docker commands
 
 * see processes running
  ``` 
@@ -107,6 +107,11 @@ docker run --tty --interactive kalilinux/kali-rolling
   ```
   docker update --restart unless-stopped $(docker ps -q)
   ```
+ 
+* Restart all containers:
+ ```
+ docker restart $(docker ps -a -q)
+ ```
 
 * create image of a container:
   ```
