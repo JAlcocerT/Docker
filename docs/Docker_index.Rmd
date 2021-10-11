@@ -1,7 +1,7 @@
 ---
-title: "Docker"
+title: "Docker A-Z"
 author: "JAT"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: "Updated on: `r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
     css: styles.css
@@ -14,8 +14,11 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r, echo=FALSE} 
+a = knitr::asis_output("\U2714")
+```
 
-# Intro:
+# Intro
 
 Nowadays there are a lot of businesses doing their transformation towards data, cloud, AI and so on. Once you dig in a little bit, you find a fundamental pillar on all of this are very powerful servers that can do the heavy lifting on the computational power required to run all of this.
 
@@ -28,7 +31,7 @@ Remember that whatever application you get to run in Docker in your PC, you coul
 All the files that I use to configure the servers, including this web as well, are in the public repository: <https://github.com/reisikei/docker>   
 
 
-## Install Docker
+## Docker
 
 To install docker, docker compose and portainer, simply copy the following code chunks in your terminal:
 
@@ -36,7 +39,7 @@ To install docker, docker compose and portainer, simply copy the following code 
 Option 1:
 
 ```
-### INSTALL DOCKER ### 
+### INSTALL DOCKER
 
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
@@ -54,16 +57,14 @@ sudo systemctl status docker
 
 sudo apt install docker-compose -y
 
-## #INSTALL PORTAINER
+## INSTALL PORTAINER
 docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 
 #Test that docker works with this image:
 #docker run hello-world
 ```
 
-```{r, echo=FALSE} 
-knitr::asis_output("Last time tested on Sept 2021 \U2714")
-```
+##### Last time tested on Sept 2021 `r a`
 
 Option 2:
 
@@ -73,9 +74,7 @@ On [this github repository](https://github.com/reisikei/docker/blob/main/1%20Doc
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
 ```
 
-```{r, echo=FALSE} 
-knitr::asis_output("Last time tested on Oct 2021 \U2714")
-```
+##### Last time tested on Oct 2021 `r a`
 
 ### Torrents within Docker
 
@@ -115,9 +114,7 @@ To access nextcloud while being out of home, simply configure your VPN, for exam
 
 As this would fall under general linux systems, the guide sits on: <https://reisikei.github.io/Linux/#Tailscale>
 
-```{r, echo=FALSE} 
-knitr::asis_output("Last time tested on Oct 2021 \U2714")
-```
+##### Last time tested on Oct 2021 `r a`
 
 To make the data part of the docker installation read/write on a external hard drive is a key part that most of us could be interested at some point, for that we can:
 
@@ -129,7 +126,7 @@ The Raspberry Pi is a tiny and affordable computer (ARM based) that you can use 
 
 It can run Linux distros like: Debian, OpenMediaVault or most commonly Raspbian OS.
 
-Check out some recommended setups and projects (involving DOcker as well) on [my repo](https://reisikei.github.io/RPi/)
+Check out some recommended setups and projects (involving Docker as well) on <https://reisikei.github.io/RPi/>
 
 
 

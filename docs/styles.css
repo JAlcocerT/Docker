@@ -1,26 +1,30 @@
 <style>
+
 #TOC {
-  color: #708090;
+  color: #6cf542;
   font-family: Calibri;
-  font-size: 16px; 
-  border-color: #708090;
+  font-size: 26px; 
+  border-color: #e6f1fa;
 }
 h1.title {
-  color: #F08080;
-  background-color: #F5F5F5;
+  color: #0f03ab;
+  background-color: #e6f1fa;
   opacity: 0.6;
   font-family: Calibri;
-  font-size: 20px;
+  font-size: 40px;
+  text-align: center;
 }
 h4.author {
-  color: #708090;
+  color: #0f03ab;
   font-family: Calibri;
-  background-color: #F5F5F5;
+  background-color: #e6f1fa;
+  text-align: center;
 }
 h4.date {
-  color: #708090;  
+  color: #02c73a;  
   font-family: Calibri;
-  background-color: #F5F5F5;
+  background-color: #e6f1fa;
+  text-align: center;
 }
 body {
   color: #708090;
@@ -29,6 +33,10 @@ body {
 }
 pre {
   color: #708090;
-  background-color: #F8F8FF;
+  background-color: #e6f1fa;
 }
+h5 {
+color: #02c73a;
+}
+
 </style>
