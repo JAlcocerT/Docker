@@ -17,13 +17,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Intro:
 
-Nowadays there are a lot of businesses doing their transformation towards data, cloud, AI and so on. Once you dig in a little bit, you find a fundamental pillar on all of this are very powerfull servers that can do the heavy lifting on the computational power required to run all of this.
+Nowadays there are a lot of businesses doing their transformation towards data, cloud, AI and so on. Once you dig in a little bit, you find a fundamental pillar on all of this are very powerful servers that can do the heavy lifting on the computational power required to run all of this.
 
 Linux and specifically docker containers that will be discussed here are an inevitable topic through this journey and with this really simple web I would like to make it as simple as possible for new people trying out this technologies.
 
 I would like to give a reference for my other website that covers linux topics, since its closely related on how docker works: <https://reisikei.github.io/Linux/>
 
 Remember that whatever application you get to run in Docker in your PC, you could make it run in a small low power devide such a raspberry pi, or to the mentioned powerful super computers that will train our latest algorithms on the cloud.
+
+All the files that I use to configure the servers, including this web as well, are in the public repository: <https://github.com/reisikei/docker>   
 
 
 ## Install Docker
@@ -112,6 +114,10 @@ hostname -I
 To access nextcloud while being out of home, simply configure your VPN, for example with tailscale, and add the internal Ip address assign by tail scale as shown two commands before.
 
 As this would fall under general linux systems, the guide sits on: <https://reisikei.github.io/Linux/#Tailscale>
+
+```{r, echo=FALSE} 
+knitr::asis_output("Last time tested on Oct 2021 \U2714")
+```
 
 To make the data part of the docker installation read/write on a external hard drive is a key part that most of us could be interested at some point, for that we can:
 
