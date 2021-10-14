@@ -154,7 +154,7 @@ Example:
 
 ```
 
-```{r, include=FALSE}
+```{r, include=FALSE, echo=FALSE}
 
 # Cloud - Kubernetes (PaaS)
 
