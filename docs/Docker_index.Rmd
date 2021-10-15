@@ -18,6 +18,14 @@ knitr::opts_chunk$set(echo = TRUE)
 a = knitr::asis_output("\U2714")
 ```
 
+```{r klippy, echo=FALSE, include=TRUE}
+#It allows the clipboard button to be available in the html output
+klippy::klippy()
+
+#install.packages("remotes")
+#remotes::install_github("rlesur/klippy")
+```
+
 # Intro [^1]
 
 Nowadays there are a lot of businesses doing their transformation towards data, cloud, AI and so on. Once you dig in a little bit, you find a fundamental pillar on all of this are very powerful servers that can do the heavy lifting on the computational power required to run all of this.
@@ -38,7 +46,7 @@ To install docker, docker compose and portainer, simply copy the following code 
 
 Option 1:
 
-```
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
 ### INSTALL DOCKER
 
 sudo apt update
@@ -70,7 +78,7 @@ Option 2:
 
 On [this github repository](https://github.com/reisikei/docker/blob/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer), there is the possibility to download and install directly a bash program with all the previous commands by typing only this on the terminal:
 
-```
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
 ```
 
@@ -86,27 +94,27 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20
 
 In linux systems it is as simple as running the following commands in the terminal after having installed docker:
 
-```
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
 sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_container nextcloud 
 
 ```
 
 Remember to update the list of trusted domains so that other devices can log, we can see the current list with:
 
-```
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
 sudo docker exec --user www-data nextcloud_container php occ config:system:get trusted_domains
 ```
 
 To add a new domain/ internal ip, simply:
 
-```
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
 sudo docker exec --user www-data nextcloud_container php occ config:system:set trusted_domains 7 --value 192.168.1.30:8080
 
 ```
 
 You can check your device internal IP adress with:
 
-```
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
 hostname -I
 ```
 
@@ -150,11 +158,11 @@ As per the [official documentation](https://registry.terraform.io/providers/hash
 
 Example:
 
-```
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
 
 ```
 
-```{r, include=FALSE, echo=FALSE}
+```{r, include=FALSE, echo=FALSE, class.source=".TheCode"}
 
 # Cloud - Kubernetes (PaaS)
 
