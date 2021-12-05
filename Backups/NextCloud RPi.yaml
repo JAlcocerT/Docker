@@ -4,13 +4,22 @@ sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_cont
 
 And set a new one:
 docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 7 --value 192.168.1.11:8080
-Use this command to query trusted_domains:
+docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 8 --value 100.100.100.11:8080
+Use this command to query trusted_domains (it should be 3 of them now):
 docker exec --user www-data nextcloud_container_name php occ config:system:get trusted_domains
 
 
 #  enviroment:
 #  - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.11:8080
 # https://github.com/nextcloud/docker/issues/469
+
+
+#sudo docker exec -it be8aa338d656 bash
+#apt-get update
+#apt-get install vim nano
+#cd config
+#nano config.php en el contenedor
+
 
 
 version: '2'
@@ -85,6 +94,10 @@ services:
     restart: always
     
     
+    
+    
+    
+    
 version: '3'
 
 services:
@@ -125,10 +138,5 @@ services:
   
   
   
-  sudo docker exec -it be8aa338d656 bash
-  apt-get update
-apt-get install vim nano
-cd config
-nano config.php en el contenedor
 
 
