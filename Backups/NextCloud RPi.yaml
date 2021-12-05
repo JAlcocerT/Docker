@@ -3,9 +3,9 @@ sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_cont
 
 
 And set a new one:
-docker exec --user www-data nextcloud_container php occ config:system:set trusted_domains 7 --value 192.168.1.11:8080
+docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 7 --value 192.168.1.11:8080
 Use this command to query trusted_domains:
-docker exec --user www-data nextcloud_container php occ config:system:get trusted_domains
+docker exec --user www-data nextcloud_container_name php occ config:system:get trusted_domains
 
 
 #  enviroment:
