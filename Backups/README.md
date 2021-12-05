@@ -5,6 +5,7 @@ wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2
 
 * Raspberry Pi version (ARM):
 
+Remember in any case to update the list of trusted domains (through an environment variable or via the CLI).
 
 ### Syncthing
 
