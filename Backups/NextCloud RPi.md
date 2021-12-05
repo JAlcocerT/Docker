@@ -1,18 +1,3 @@
-PORTAINER MARIADB:
-
-app templates - maria db
-https://www.youtube.com/watch?v=zyGhnbyOq90&list=LL&index=3
-https://hub.docker.com/r/linuxserver/mariadb
-
-PORTAINER NEXTCLOUD
-new volume - nextcloud:latest - 8080 80
-new stack - https://dbtechreviews.com/2020/07/install-nextcloud-on-a-raspberry-pi-4-with-openmediavault-and-docker/
-
-location of docker:
-/var/lib/docker
-
-docker run -d -p 8080:80 nextcloud
-
 
 sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_container nextcloud 
 
