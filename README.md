@@ -1,6 +1,43 @@
 Public repo that serves as a pillar for the github page built on: https://reisikei.github.io/docker/
 
 
+* Backups:
+    * Nextcloud Ubuntu
+    * Nextcloud RPi
+    * Syncthing
+    * Duplicati
+* Development:
+    * VSCode in docker
+* IoT:
+    * Internet speed tracker
+    * GPIO
+    * NetData
+    * Graphana with Prometheus
+* Media
+    * Kodi
+    * Plex
+    * Bazar
+    * Couchpotato
+    * Jacket
+    * Radarr
+    * Sonarr
+    * Transmission
+    * Qbittorrent
+    * rtorrent
+* Security:
+    * Pihole
+    * wirehole
+    * wireguard
+    * fail2ban
+    * watchtower
+* Web
+    * Wordpress
+    * Traefik
+    * Nginx
+    * Firefox
+
+
+
 ## Install docker & docker compose & portainer 
 ```
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
