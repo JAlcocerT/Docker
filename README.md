@@ -45,13 +45,7 @@ wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20%
 
 To get to know what's the private address of your device and access portainer, simply use: ifconfig, then privateipserver:9000
 
-### Install watchtower
-```
-sudo docker run -d \
-    --name watchtower \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    containrrr/watchtower --run-once 
-```
+
 
 ### Useful Docker commands
 
