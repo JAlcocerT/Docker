@@ -35,6 +35,8 @@ Public repo that serves as a pillar for the github page built on: https://reisik
     * Traefik
     * Nginx
     * Firefox
+ * Python apps
+ * Shiny dashboards
 
 
 
