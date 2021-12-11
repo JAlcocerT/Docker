@@ -1,0 +1,29 @@
+#FOR NEXTCLOUD TO STORE YOUR DATA IN AN EXTERNAL DRIVE
+version: '2'
+
+volumes:
+  nextcloud:
+  db:
+
+services:
+  db:
+    image: yobasystems/alpine-mariadb:latest
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password #Change This
+      - MYSQL_PASSWORD=password #Change This
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+
+  app:
+    image: nextcloud
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - ~/nextcloud:/var/www/html #Change 'nextcloud' to your external drive volume if available
+    restart: always
