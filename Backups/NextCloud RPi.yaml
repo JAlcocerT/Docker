@@ -1,19 +1,18 @@
 
-sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_container nextcloud 
+#CHECK TRUSTED DOMAINS
+#Use this command to query trusted_domains (my default its only 1):
+#docker exec --user www-data nextcloud_container_name php occ config:system:get trusted_domains
+#And set a new one - so that you can access your files from another device in your local network - VPN:
+#docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 7 --value 192.168.1.11:8080
+#docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 8 --value 100.100.100.11:8080
 
 
-And set a new one:
-docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 7 --value 192.168.1.11:8080
-docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 8 --value 100.100.100.11:8080
-Use this command to query trusted_domains (it should be 3 of them now):
-docker exec --user www-data nextcloud_container_name php occ config:system:get trusted_domains
-
-
+#TRUSTED DOMAIN SOLUTION 1
 #  enviroment:
 #  - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.11:8080
 # https://github.com/nextcloud/docker/issues/469
 
-
+#TRUSTED DOMAIN SOLUTION 2
 #sudo docker exec -it be8aa338d656 bash
 #apt-get update
 #apt-get install vim nano
@@ -21,7 +20,7 @@ docker exec --user www-data nextcloud_container_name php occ config:system:get t
 #nano config.php en el contenedor
 
 
-
+#TRUSTED DOMAINS CAN BE INDICATED IN THE DOCKER COMPOSE FILE
 version: '2'
 
 volumes:
@@ -57,86 +56,4 @@ services:
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_HOST=db
-      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.31:8080
-      
-      
-      
-      
-      
-
-version: '2'
-
-volumes:
-  nextcloud:
-  db:
-
-services:
-  db:
-    image: yobasystems/alpine-mariadb:latest
-    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
-    restart: always
-    volumes:
-      - db:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=password #Change This
-      - MYSQL_PASSWORD=password #Change This
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
-
-  app:
-    image: nextcloud
-    ports:
-      - 8080:80
-    links:
-      - db
-    volumes:
-      - ~/nextcloud:/var/www/html #Change 'nextcloud' to your external drive volume if available
-    restart: always
-    
-    
-    
-    
-    
-    
-version: '3'
-
-services:
-  db:
-    image: mariadb
-    restart: unless-stopped
-    container_name: nxtclouddb
-    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
-    volumes:
-      - ~/Docker/nextcloud:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
-
-
-  app:
-    image: nextcloud
-    container_name: nxtcloud
-    restart: unless-stopped
-    ports:
-      - 8081:80
-    links:
-      - db
-    volumes:
-      - ~/Docker/nextcloud:/var/www/html
-    environment:
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
-      - MYSQL_HOST=db
-      
-      
-  enviroment:
-  - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.11.com:8080 ???????
-  
-  
-  
-  
-
-
+      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.31:8080 http://0.0.0.0:8080
