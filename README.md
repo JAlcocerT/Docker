@@ -31,7 +31,7 @@ Public repo that serves as a pillar for the github page built on: https://reisik
     * fail2ban
     * watchtower
 * Web
-    * Wordpress
+    * Wordpress Ubuntu single site :heavy_check_mark:
     * Traefik
     * Nginx
     * Firefox
