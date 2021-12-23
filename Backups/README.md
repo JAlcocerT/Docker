@@ -1,4 +1,4 @@
-### NextCloud
+### NextCloud :heavy_check_mark:
 
 * Ubuntu version:
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2ban > f2b.sh && chmod 775 f2b.sh && sudo ./f2b.sh
@@ -17,11 +17,11 @@ As well as:
   *   <https://apps.nextcloud.com/apps/phonetrack>
              
                 
-### Syncthing
+### Syncthing :heavy_check_mark:
 
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing > syncthing.sh && chmod 775 syncthing.sh && sudo ./syncthing.sh
 
 
-### Duplicati
+### Duplicati :heavy_check_mark:
 
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Duplicati > duplicati.sh && chmod 775 duplicati.sh && sudo ./duplicati.sh
