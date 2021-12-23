@@ -25,3 +25,8 @@ wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncth
 ### Duplicati :heavy_check_mark:
 
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Duplicati > duplicati.sh && chmod 775 duplicati.sh && sudo ./duplicati.sh
+
+
+### RClone :heavy_check_mark:
+
+docker run -it -v ~/.config/rclone:/config/rclone  rclone/rclone:beta config
