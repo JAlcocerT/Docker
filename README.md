@@ -4,8 +4,8 @@ Public repo that serves as a pillar for the github page built on: https://reisik
 * Backups:
     * Nextcloud Ubuntu :heavy_check_mark:
     * Nextcloud RPi :heavy_check_mark:
-    * Syncthing
-    * Duplicati
+    * Syncthing :heavy_check_mark:
+    * Duplicati :heavy_check_mark:
 * Development:
     * VSCode in docker
 * IoT:
