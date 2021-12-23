@@ -11,7 +11,8 @@ services:
       - TZ=Europe/Warsaw
     volumes:
       - ~/Docker/Syncthing/config:/config
-      - /media/pi/Nowy1/SYNC:/data1
+      - ~/losperris/SINCRONIZADO-NUBE-NEXTCLOUD:/data1
+      - /media/losperris/TOSHIBA\ EXT/:/data2
     ports:
       - 8384:8384
       - 22000:22000/tcp
