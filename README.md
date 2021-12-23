@@ -7,6 +7,7 @@ Public repo that serves as a pillar for the github page built on: https://reisik
       * RPI :heavy_check_mark:
     * Syncthing :heavy_check_mark:
     * Duplicati :heavy_check_mark:
+    * RClone :heavy_check_mark:
 * Development:
     * VSCode in docker
 * IoT:
