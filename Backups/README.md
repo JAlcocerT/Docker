@@ -17,11 +17,9 @@ As well as:
   *   <https://apps.nextcloud.com/apps/phonetrack>
              
                 
-                  
-
 ### Syncthing
 
-wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing%20-%20docker%20compose.yaml > syncthing.sh && chmod 775 syncthing.sh && sudo ./syncthing.sh
+wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing > syncthing.sh && chmod 775 syncthing.sh && sudo ./syncthing.sh
 
 
 ### Duplicati
