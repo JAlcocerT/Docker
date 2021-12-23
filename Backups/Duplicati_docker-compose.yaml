@@ -11,8 +11,8 @@ services:
       - CLI_ARGS= #optional
     volumes:
     - ~/home/pi/Docker/Duplicati/config:/config
-    - ~/losperris/SINCRONIZADO-NUBE-NEXTCLOUD:/source
-    - /media/losperris/TOSHIBA\ EXT/A-SYNC-NUBE:/backups
+    - ~/losperris:/source
+    - /media/losperris/TOSHIBA\ EXT:/backups
     ports:
       - 8200:8200
     restart: unless-stopped
