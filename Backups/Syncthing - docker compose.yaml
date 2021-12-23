@@ -12,7 +12,7 @@ services:
     volumes:
       - ~/Docker/Syncthing/config:/config
       - ~/losperris/SINCRONIZADO-NUBE-NEXTCLOUD:/data1
-      - /media/losperris/TOSHIBA\ EXT/:/data2
+      - /media/losperris/TOSHIBA\ EXT/A-SYNC-NUBE:/data2
     ports:
       - 8384:8384
       - 22000:22000/tcp
