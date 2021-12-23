@@ -3,15 +3,15 @@ version: "2.1"
 services:
   duplicati:
     image: ghcr.io/linuxserver/duplicati
-    container_name: duplicati22
+    container_name: duplicati
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
       - CLI_ARGS= #optional
     volumes:
-    - /home/pi/Docker/Duplicati/config:/config
-    - /media/pi/Nowy1/Duplicaty_backups:/backups
+    - ~/home/pi/Docker/Duplicati/config:/config
+    - ~/media/pi/Nowy1/Duplicaty_backups:/backups
     - /media/pi/Nowy1:/source
     ports:
       - 8200:8200
