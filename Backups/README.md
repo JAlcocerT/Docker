@@ -7,7 +7,9 @@ wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2
 
 Remember in any case to update the list of trusted domains (through an environment variable or via the CLI).
 
-Its recommended to add 2FA to your nextcloud server, specially if you are going to expose it to the internet, we can do it with the app: Two-Factor TOTP Provider, <https://apps.nextcloud.com/apps/twofactor_totp> As well as:
+It is recommended to add 2FA to your nextcloud server, specially if you are going to expose it to the internet, we can do it with the app: Two-Factor TOTP Provider, <https://apps.nextcloud.com/apps/twofactor_totp> 
+
+As well as:
             
   * <https://apps.nextcloud.com/apps/bruteforcesettings>
   *  <https://apps.nextcloud.com/apps/duplicatefinder>
@@ -18,5 +20,8 @@ Its recommended to add 2FA to your nextcloud server, specially if you are going 
                   
 
 ### Syncthing
+
+wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing%20-%20docker%20compose.yaml > syncthing.sh && chmod 775 syncthing.sh && sudo ./syncthing.sh
+
 
 ### Duplicati
