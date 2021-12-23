@@ -3,6 +3,8 @@ Public repo that serves as a pillar for the github page built on: https://reisik
 
 * Backups:
     * Nextcloud Ubuntu :heavy_check_mark:
+      * Ubuntu 
+      * RPI
     * Nextcloud RPi :heavy_check_mark:
     * Syncthing :heavy_check_mark:
     * Duplicati :heavy_check_mark:
