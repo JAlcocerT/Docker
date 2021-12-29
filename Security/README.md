@@ -26,7 +26,7 @@ git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet
 cp env.example .env
 ```
 sudo nano .env
-sudo nano docker-compose.yml --use the latest stable https://hub.docker.com/r/jitsi/web/tags?page=1
+sudo nano docker-compose.yml --use the latest stable https://hub.docker.com/r/jitsi/web/tags?page=1 (5076)
 sudo docker-compose up
 
 #### Matrix
