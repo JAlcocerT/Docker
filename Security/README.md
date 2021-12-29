@@ -15,6 +15,19 @@ sudo docker run -d \
 
 ## Communication
 
+
+#### Jitsi :heavy_check_mark:
+
+```
+sudo apt update 
+sudo apt upgrade -y
+sudo apt-get install docker.io docker-compose -y
+git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet
+cp env.example .env
+```
+
+sudo docker-compose up
+
 #### Matrix
 
 ```
@@ -82,17 +95,6 @@ enable_registration: true
 docker-compose restart synapse
 ```
 
-#### Jitsi
-
-```
-sudo apt update 
-sudo apt upgrade -y
-sudo apt-get install docker.io docker-compose -y
-git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet
-cp env.example .env
-```
-
-sudo docker-compose up
 
 ### VPN's
 
