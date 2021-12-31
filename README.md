@@ -47,7 +47,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
 
 ## Install docker & docker compose & portainer 
 ```
-wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
+wget -cO - https://raw.githubusercontent.com/jalcocert/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
 ```
 
 To get to know what's the private address of your device and access portainer, simply use: ifconfig, then privateipserver:9000
@@ -149,6 +149,16 @@ docker run --tty --interactive kalilinux/kali-rolling
 * Restart all containers:
  ```
  docker restart $(docker ps -a -q)
+ ```
+ 
+ * Stop all containers
+ ```
+ docker container stop $(docker container ls -aq)
+ ```
+ 
+ * Remove all stopped containers
+ ```
+ docker container rm $(docker container ls -aq)
  ```
 
 * create image of a container:
