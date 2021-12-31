@@ -8,6 +8,8 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Syncthing :heavy_check_mark:
     * Duplicati :heavy_check_mark:
     * RClone :heavy_check_mark:
+* Communication:
+   * Discourse 
 * Development:
     * VSCode in docker
 * IoT:
