@@ -63,7 +63,7 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Bazarr 
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Couchpotato > Couchpotato.sh && chmod 775 Couchpotato.sh && sudo ./Couchpotato.sh
 
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Jackett > Jackett.sh && chmod 775 Jackett.sh && sudo ./Jackett.sh
+#### Jacket :heavy_check_mark:
 
 ```
 docker run -d --name=jackett \
@@ -79,7 +79,7 @@ linuxserver//jackett
  #ghcr.io/linuxserver/jackett
 ```
 
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Radarr > Radarr.sh && chmod 775 Radarr.sh && sudo ./Radarr.sh
+#### Radarr :heavy_check_mark:
 
 ```
 docker run -d --name=radarr \
@@ -96,7 +96,7 @@ linuxserver/radarr
 #ghcr.io/linuxserver/radarr
   ```
 
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Sonarr > Sonarr.sh && chmod 775 Sonarr.sh && sudo ./Sonarr.sh
+#### Sonarr :heavy_check_mark:
 
 ```
 docker run -d --name=sonarr \
