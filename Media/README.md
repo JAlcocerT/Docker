@@ -65,6 +65,19 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Couchpo
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Jackett > Jackett.sh && chmod 775 Jackett.sh && sudo ./Jackett.sh
 
+```
+docker run -d \
+  --name=jackett \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 9117:9117 \
+  -v ~/Docker/Jackett/config:/config \
+  -v ~/Downloads/Jackett/downloads:/downloads \
+  --restart unless-stopped \
+  #ghcr.io/linuxserver/jackett
+```
+
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Radarr > Radarr.sh && chmod 775 Radarr.sh && sudo ./Radarr.sh
 
 ```
