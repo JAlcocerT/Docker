@@ -17,7 +17,9 @@ sudo nano containers/app.yml
 https://github.com/discourse/discourse/blob/main/docs/INSTALL-email.md
 
 ```
-./launcher bootstrap app
+#install discourse
+./discourse-setup
+#./launcher bootstrap app
 #Start Discourse
 /var/docker/launcher start app
 ```
