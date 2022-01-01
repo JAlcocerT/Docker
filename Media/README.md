@@ -1,6 +1,6 @@
-## Torrents
+### Torrents
 
-### rTorrent
+#### rTorrent
 
 ```javascript
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent > rtorrent.sh && chmod 775 rtorrent.sh && sudo ./rtorrent.sh
@@ -15,7 +15,7 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorren
 wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
 ```
 
-### qBitTorrent 
+#### qBitTorrent 
 
 ```javascript
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittorrent_docker-compose.yaml > docker-compose.yaml
@@ -33,7 +33,7 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittor
 wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
 ```
 
-### Transmission
+#### Transmission
 
 ```javascript
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose > docker-compose.yaml
@@ -59,9 +59,40 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_do
 
 ## Media
 
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Bazarr > Bazarr.sh && chmod 775 Bazarr.sh && sudo ./Bazarr.sh
 
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Couchpotato > Couchpotato.sh && chmod 775 Couchpotato.sh && sudo ./Couchpotato.sh
+#### Bazarr
+
+```
+docker run -d --name=bazarr\
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 6767:6767 \
+  -v ~/Docker/Bazarr/config:/config \
+  -v ~/Downloads:/movies `#optional` \
+  -v ~/Downloads:/tv `#optional` \
+  --restart unless-stopped \
+  linuxserver/bazarr
+  
+  #ghcr.io/linuxserver/bazarr
+```
+
+
+#### Couchpotato
+```
+docker run -d --name=couchpotato\
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 5050:5050 \
+  -v ~/Docker/couchpotato/config:/config \
+  -v ~/Downloads/couchpotato/downloads:/downloads \
+  -v ~/Downloads/couchpotato/movies:/movies \
+  --restart unless-stopped \
+  linuxserver/couchpotato
+  
+  #ghcr.io/linuxserver/couchpotato
+```
 
 #### Jacket :heavy_check_mark:
 
