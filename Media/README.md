@@ -40,17 +40,16 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmi
 
 docker-compose up -d
 
-docker run -d \
-  --name=transmission \
+docker run -d --name=transmission \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
   -p 9091:9091 \
   -p 51413:51413 \
   -p 51413:51413/udp \
-  -v /home/pi/Docker/Transmission/config:/config \
-  -v /media/pi/Nowy1/DOWNLOADS:/downloads \
-  -v /home/pi/Downloads/Transmission/watch:/watch \
+  -v ~/Docker/Transmission/config:/config \
+  -v ~/Downloads/Torrents/Transmission:/downloads \
+  -v ~/Downloads/Torrents/watch:/watch \
   --restart unless-stopped \
   ghcr.io/linuxserver/transmission
 ```
@@ -77,7 +76,7 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_do
 #### Bazarr
 
 ```
-docker run -d --name=bazarr\
+docker run -d --name=bazarr \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
@@ -94,7 +93,7 @@ docker run -d --name=bazarr\
 
 #### Couchpotato
 ```
-docker run -d --name=couchpotato\
+docker run -d --name=couchpotato \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
