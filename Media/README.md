@@ -39,6 +39,20 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose > docker-compose.yaml
 
 docker-compose up -d
+
+docker run -d \
+  --name=transmission \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 9091:9091 \
+  -p 51413:51413 \
+  -p 51413:51413/udp \
+  -v /home/pi/Docker/Transmission/config:/config \
+  -v /media/pi/Nowy1/DOWNLOADS:/downloads \
+  -v /home/pi/Downloads/Transmission/watch:/watch \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/transmission
 ```
 
 OR:
