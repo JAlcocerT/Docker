@@ -67,4 +67,18 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Jackett
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Radarr > Radarr.sh && chmod 775 Radarr.sh && sudo ./Radarr.sh
 
+```
+docker run -d \
+  --name=radarr \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 7878:7878 \
+  -v ~/Docker/Radarr/config:/config \
+  -v /path/to/movies:/movies `#optional` \
+  -v ~/Downloads/Radarr/downloads:/downloads `#optional` \
+  --restart unless-stopped \
+  #ghcr.io/linuxserver/radarr
+  ```
+
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Sonarr > Sonarr.sh && chmod 775 Sonarr.sh && sudo ./Sonarr.sh
