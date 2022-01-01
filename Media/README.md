@@ -82,3 +82,17 @@ docker run -d \
   ```
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Sonarr > Sonarr.sh && chmod 775 Sonarr.sh && sudo ./Sonarr.sh
+
+```
+docker run -d \
+  --name=sonarr \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -p 8989:8989 \
+  -v ~/Docker/Sonarr/config:/config \
+  -v /path/to/tvseries:/tv `#optional` \
+  -v /path/to/downloadclient-downloads:/downloads `#optional` \
+  --restart unless-stopped \
+  #ghcr.io/linuxserver/sonarr
+ ```
