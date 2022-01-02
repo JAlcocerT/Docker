@@ -55,18 +55,14 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env
 
 #### qBitTorrent :heavy_check_mark:
 
-```javascript
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittorrent_docker-compose.yaml > docker-compose.yaml
-
-docker-compose up -d
-
+```
 docker run -d --name=qbittorrent\
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
   -e WEBUI_PORT=8083 \
-  -p 6881:6881 \
-  -p 6881:6881/udp \
+  -p 6883:6881 \
+  -p 6883:6881/udp \
   -p 8083:8080 \
   -v ~/Docker/qbittorrent/config:/config \
   -v /media/pi/Nowy/DOWNLOADS:/downloads \
