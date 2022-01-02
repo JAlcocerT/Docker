@@ -14,16 +14,33 @@ sudo nano docker-compose.yml
 docker-compose up -d
 
 
-### Internet Speed Tracker
+#### Internet Speed Tracker
 
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/IoT/InternetSpeedTracker.yaml > docker-compose.yaml
 docker-compose up -d
 
-### Graphana with Prometheus
+#### Graphana with Prometheus
 
 Prometheus is the standard for monitoring in kubernetes.
 It can store the metrics in the disk, but not in the cloud by default.
 
+#### NetData
+
 ### GPIO
 
-### NetData
+### Home Assistant
+
+```
+docker run -d \
+  --name=homeassistant \
+  --net=host \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/London \
+  -p 8123:8123 `#optional` \
+  -v /path/to/data:/config \
+  --device /path/to/device:/path/to/device \
+  --restart unless-stopped \
+  lscr.io/linuxserver/homeassistant
+```
+
