@@ -1,6 +1,6 @@
 ### Torrents
 
-#### rTorrent
+#### rTorrent :heavy_check_mark:
 
 ```javascript
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent > rtorrent.sh && chmod 775 rtorrent.sh && sudo ./rtorrent.sh
@@ -91,7 +91,7 @@ docker run -d --name=bazarr \
 ```
 
 
-#### Couchpotato
+#### Couchpotato :heavy_check_mark:
 ```
 docker run -d --name=couchpotato \
   -e PUID=1000 \
