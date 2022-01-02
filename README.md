@@ -13,8 +13,10 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
    * Matrix:
    * Jitsi:
    * Revolt
-* Development:
+* Development / Project Management:
     * VSCode in docker
+    * Focalboard
+    * Grocy
 * IoT:
     * Internet speed tracker :heavy_check_mark:
     * Home Assistant :heavy_check_mark:
@@ -22,9 +24,9 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * NetData
     * Graphana with Prometheus
 * Media
+    * Jellyfin :heavy_check_mark:
     * Kodi
     * Plex
-    * Jellyfin
     * Transmission :heavy_check_mark:
     * rtorrent :heavy_check_mark:
     * Qbittorrent
