@@ -8,6 +8,8 @@ cd ~/Docker
 git clone https://github.com/geerlingguy/internet-monitoring MonitoringInternet
 cd internet-monitoring
 sudo nano docker-compose.yml
+#https://github.com/geerlingguy/internet-monitoring
+#pass to be modified in the env file located at grafana/config.monitoring
 ```
 docker-compose up -d
 
