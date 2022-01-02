@@ -10,6 +10,25 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_do
 
 ### Torrents
 
+#### Transmission :heavy_check_mark:
+
+```
+docker run -d --name=transmission \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -e USER=username `#optional` \
+  -e PASS=password `#optional` \
+  -p 9091:9091 \
+  -p 51413:51413 \
+  -p 51413:51413/udp \
+  -v ~/Docker/Transmission/config:/config \
+  -v ~/Downloads/Torrents/Transmission:/downloads \
+  -v ~/Downloads/Torrents/watch:/watch \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/transmission
+```
+
 #### rTorrent :heavy_check_mark:
 
 ```
@@ -64,36 +83,6 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittor
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
 ```
-
-#### Transmission :heavy_check_mark:
-
-```javascript
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose > docker-compose.yaml
-
-docker-compose up -d
-
-docker run -d --name=transmission \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Europe/Madrid \
-  -p 9091:9091 \
-  -p 51413:51413 \
-  -p 51413:51413/udp \
-  -v ~/Docker/Transmission/config:/config \
-  -v ~/Downloads/Torrents/Transmission:/downloads \
-  -v ~/Downloads/Torrents/watch:/watch \
-  --restart unless-stopped \
-  ghcr.io/linuxserver/transmission
-```
-
-OR:
-
-```javascript
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose_w_environment > docker-compose.yaml
-
-wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
-```
-
 
 
 
