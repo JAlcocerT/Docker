@@ -10,32 +10,34 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * RClone :heavy_check_mark:
 * Communication:
    * Discourse 
+   * Matrix:
+   * Jitsi:
 * Development:
     * VSCode in docker
 * IoT:
-    * Internet speed tracker
+    * Internet speed tracker :heavy_check_mark:
+    * Home Assistant :heavy_check_mark:
     * GPIO
     * NetData
     * Graphana with Prometheus
 * Media
     * Kodi
     * Plex
-    * Bazar
+    * Bazar :heavy_check_mark:
     * Couchpotato :heavy_check_mark:
     * Jacket :heavy_check_mark:
     * Radarr :heavy_check_mark:
     * Sonarr :heavy_check_mark:
     * Transmission :heavy_check_mark:
+    * rtorrent :heavy_check_mark:
     * Qbittorrent
-    * rtorrent
 * Security:
-    * Pihole
+    * Pihole :heavy_check_mark:
     * wirehole
     * wireguard
-    * fail2ban
+    * fail2ban 
     * Watchtower :heavy_check_mark:
-    * Matrix:
-    * Jitsi:
+
 * Web
     * Wordpress Ubuntu single site :heavy_check_mark:
     * Wordpress Ubuntu multi site
