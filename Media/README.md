@@ -1,35 +1,29 @@
+### Multimedia Center
+
+#### Kodi
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_docker_compose > docker-compose.yaml
+
+#### Plex
+
+
+
+
 ### Torrents
 
-#### rTorrent 
+#### rTorrent :heavy_check_mark:
 
-```javascript
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent > rtorrent.sh && chmod 775 rtorrent.sh && sudo ./rtorrent.sh
-docker-compose up -d
-
+```
 docker run -d --name=rutorrent\
   -e PUID=1000 \
   -e PGID=1000 \
-  -p 8085:80 \
-  -p 5005:5000 \
-  -p 51415:51413 \
-  -p 6885:6881/udp \
-  -v </path/to/rutorrent/config>:/config \
-  -v </path/to/rutorrent/downloads>:/downloads \
+  -p 8087:80 \
+  -p 5007:5000 \
+  -p 51417:51413 \
+  -p 6887:6881/udp \
+  -v ~/Docker/rtorrent:/config \
+  -v /media/pi/Nowy/DOWNLOADS:/downloads \
   --restart unless-stopped \
   ghcr.io/linuxserver/rutorrent
-
-services:
-
-  rtorrent:
-    image: pablokbs/rutorrent-armhf
-    ports:
-      - 85:80 #web port
-      - 51415:51413
-      - 6881:6881/udp
-    volumes:
-      - ~/Downloads/rtorrent:/config/rtorrent
-      - /media/pi/Nowy/DOWNLOADS:/downloads
-    restart: always
 ```
 
 OR:
@@ -101,15 +95,9 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env
 ```
 
 
-## Multimedia Center
 
-### Kodi
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_docker_compose > docker-compose.yaml
 
-### Plex
-
-## Media
-
+### Extra
 
 #### Bazarr
 
@@ -118,7 +106,7 @@ docker run -d --name=bazarr \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/Madrid \
-  -p 6767:6767 \
+  -p 6780:6767 \
   -v ~/Docker/Bazarr/config:/config \
   -v ~/Downloads:/movies `#optional` \
   -v ~/Downloads:/tv `#optional` \
