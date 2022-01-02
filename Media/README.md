@@ -100,7 +100,7 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env
 
 ### Extra
 
-#### Bazarr
+#### Bazarr :heavy_check_mark:
 
 ```
 docker run -d --name=bazarr \
