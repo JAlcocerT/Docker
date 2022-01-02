@@ -5,6 +5,31 @@
 ```javascript
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent > rtorrent.sh && chmod 775 rtorrent.sh && sudo ./rtorrent.sh
 docker-compose up -d
+
+docker run -d --name=rutorrent\
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -p 8085:80 \
+  -p 5005:5000 \
+  -p 51415:51413 \
+  -p 6885:6881/udp \
+  -v </path/to/rutorrent/config>:/config \
+  -v </path/to/rutorrent/downloads>:/downloads \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/rutorrent
+
+services:
+
+  rtorrent:
+    image: pablokbs/rutorrent-armhf
+    ports:
+      - 85:80 #web port
+      - 51415:51413
+      - 6881:6881/udp
+    volumes:
+      - ~/Downloads/rtorrent:/config/rtorrent
+      - /media/pi/Nowy/DOWNLOADS:/downloads
+    restart: always
 ```
 
 OR:
