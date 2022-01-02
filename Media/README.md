@@ -4,9 +4,23 @@
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_docker_compose > docker-compose.yaml
 
 #### Plex
-
-
-
+```
+---
+version: "2.1"
+services:
+  plex:
+    image: linuxserver/plex
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+    volumes:
+      - ~/Docker/Plex/config:/config
+      - /media/pi/Nowy:/media #(Ruta donde tenéis montado vuestro disco duro)
+    restart: unless-stopped
+```
 
 ### Torrents
 
