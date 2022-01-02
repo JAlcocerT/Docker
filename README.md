@@ -21,11 +21,11 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Kodi
     * Plex
     * Bazar
-    * Couchpotato
-    * Jacket
-    * Radarr
-    * Sonarr
-    * Transmission
+    * Couchpotato :heavy_check_mark:
+    * Jacket :heavy_check_mark:
+    * Radarr :heavy_check_mark:
+    * Sonarr :heavy_check_mark:
+    * Transmission :heavy_check_mark:
     * Qbittorrent
     * rtorrent
 * Security:
