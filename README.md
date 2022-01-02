@@ -12,6 +12,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
    * Discourse 
    * Matrix:
    * Jitsi:
+   * Revolt
 * Development:
     * VSCode in docker
 * IoT:
@@ -23,6 +24,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
 * Media
     * Kodi
     * Plex
+    * Jellyfin
     * Transmission :heavy_check_mark:
     * rtorrent :heavy_check_mark:
     * Qbittorrent
