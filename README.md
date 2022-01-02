@@ -23,14 +23,15 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
 * Media
     * Kodi
     * Plex
+    * Transmission :heavy_check_mark:
+    * rtorrent :heavy_check_mark:
+    * Qbittorrent
     * Bazar :heavy_check_mark:
     * Couchpotato :heavy_check_mark:
     * Jacket :heavy_check_mark:
     * Radarr :heavy_check_mark:
     * Sonarr :heavy_check_mark:
-    * Transmission :heavy_check_mark:
-    * rtorrent :heavy_check_mark:
-    * Qbittorrent
+
 * Security:
     * Pihole :heavy_check_mark:
     * wirehole
