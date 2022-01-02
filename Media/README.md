@@ -24,6 +24,22 @@ services:
 ```
 Port 32400
 
+#### Jellyfin
+
+```
+docker run -d \
+  --name=jellyfin \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Rome \
+  -p 8096:8096 \
+  -v ~/Docker/Jellyfin:/config \
+  -v /media/pi/Nowy:/data/tvshows \
+  -v /media/pi/Nowy:/data/movies \
+  --restart unless-stopped \
+  lscr.io/linuxserver/jellyfin
+```
+
 ### Torrents
 
 #### Transmission :heavy_check_mark:
