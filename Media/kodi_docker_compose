@@ -2,23 +2,6 @@
 version: "2.1"
 services:
   kodi:
-      container_name: kodi
-      image: linuxserver/kodi-headless
-      restart: always
-      environment:
-        - PGID=1000
-        - PUID=1000
-        - TZ=Europe/Madrid
-      volumes:
-        - ~/Docker/kodi:/config/.kodi
-      ports:
-        - "8085:8080"
-        - "9090:9090"
-        - "9777:9777/udp"
-
-version: "2.1"
-services:
-  kodi:
     container_name: kodi
     image: linuxserver/kodi-headless
     restart: always
@@ -31,23 +14,4 @@ services:
     ports:
       - 8088:8080
       - 9098:9090
-      - "9777:9777/udp"
-
-version: "3.3"
-
-services:
-
-  kodi:
-    container_name: kodi
-    image: linuxserver/kodi-headless
-    restart: unless-stopped
-    environment:
-      - PGID=1000
-      - PUID=1000
-      - TZ=Europe/Madrid
-    volumes:
-      - ./kodi_data:/config/.kodi
-    ports:
-      - "8200:8080"
-      - "9090:9090"
       - "9777:9777/udp"
