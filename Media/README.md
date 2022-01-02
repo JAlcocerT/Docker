@@ -1,6 +1,6 @@
 ### Torrents
 
-#### rTorrent :heavy_check_mark:
+#### rTorrent 
 
 ```javascript
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent > rtorrent.sh && chmod 775 rtorrent.sh && sudo ./rtorrent.sh
@@ -33,7 +33,7 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittor
 wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
 ```
 
-#### Transmission
+#### Transmission :heavy_check_mark:
 
 ```javascript
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Transmission_docker_compose > docker-compose.yaml
