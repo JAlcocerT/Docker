@@ -9,7 +9,8 @@ wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_do
 version: "2.1"
 services:
   plex:
-    image: linuxserver/plex
+    #image: linuxserver/plex:arm64v8-latest #for RPi
+    #image: linuxserver/plex:amd64-latest #for am64
     container_name: plex
     network_mode: host
     environment:
