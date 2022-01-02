@@ -1,6 +1,6 @@
 ### Monitoring
 
-#### Internet Speed
+#### Internet Speed :heavy_check_mark:
 ##### With Graphana, Promotheus,  SpeedTest, Nodeexp
 
 ```
@@ -28,7 +28,7 @@ It can store the metrics in the disk, but not in the cloud by default.
 
 ### GPIO
 
-### Home Assistant
+### Home Assistant :heavy_check_mark:
 
 ```
 docker run -d \
@@ -42,4 +42,4 @@ docker run -d \
   --restart unless-stopped \
   lscr.io/linuxserver/homeassistant
 ```
-
+https://hub.docker.com/r/linuxserver/homeassistant
