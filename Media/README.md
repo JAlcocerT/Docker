@@ -21,6 +21,7 @@ services:
       - /media/pi/Nowy:/media #(Ruta donde tenéis montado vuestro disco duro)
     restart: unless-stopped
 ```
+Port 32400
 
 ### Torrents
 
