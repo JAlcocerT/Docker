@@ -26,6 +26,34 @@ It can store the metrics in the disk, but not in the cloud by default.
 
 #### NetData
 
+```
+docker run -d --name=netdata \
+  -p 19997:19999 \
+  -v ~/Docker/netdata/passwd:/host/etc/passwd:ro \
+  -v ~/Docker/netdata/group:/host/etc/group:ro \
+  -v ~/Docker/netdata/proc:/host/proc:ro \
+  -v ~/Docker/netdata/sys:/host/sys:ro \
+  -v ~/Docker/netdata/var/run/docker.sock:/var/run/docker.sock:ro \
+  --cap-add SYS_PTRACE \
+  --security-opt apparmor=unconfined \
+  netdata/netdata
+  
+  docker run -d --name=netdata --hostname=friday \
+-e UID=1000 \
+-e GID=100  \
+-p 19999:19999 \
+-v /etc/passwd:/host/etc/passwd:ro \
+-v /etc/group:/host/etc/group:ro \
+-v /proc:/host/proc:ro \
+-v /sys:/host/sys:ro \
+-v /etc/os-release:/host/etc/os-release:ro \
+-v /var/run/docker.sock:/var/run/docker.sock:ro \
+--restart always \
+--cap-add SYS_PTRACE \
+--security-opt apparmor=unconfined \
+netdata/netdata
+```
+
 ### GPIO
 
 ### Home Assistant :heavy_check_mark:
