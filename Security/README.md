@@ -46,6 +46,8 @@ services:
       - ~/Docker/Nginx/letsencrypt:/etc/letsencrypt
 ```
 
+For the initial setup, check: https://nginxproxymanager.com/setup/#initial-run
+
 ## Communication
 
 
