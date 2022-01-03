@@ -11,7 +11,9 @@ Remember to check the latest WP image available with apache and php to avoid com
 
 * Wordpress RPi single site :heavy_check_mark:
 
-* Traefik
-* Nginx
+* Plausible
+
+
+
 * DuckDNS
 * Firefox
