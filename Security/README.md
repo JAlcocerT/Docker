@@ -1,6 +1,38 @@
-#### Fail2Ban
+#### Fail2Ban :heavy_check_mark:
 ```
 wget  -cO - https://raw.githubusercontent.com/jalcocert/docker/main/Security/fail2ban > f2b.sh && chmod 775 f2b.sh && sudo ./f2b.sh
+```
+
+```
+ #fail2ban
+sudo apt-get install -y \
+apt-transport-https \
+ca-certificates \
+curl \
+gnupg2 \
+vim \
+fail2ban \
+ntfs-3g
+```
+
+```
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local && #copying it to edit
+sudo nano /etc/fail2ban/jail.local
+```
+
+Add this to the file to ban for 24h if retry +3 times:
+
+
+Copy
+bantime = 86400
+port    = ssh
+logpath = %(sshd_log)s
+backend = %(sshd_backend)s
+maxretry = 3
+
+```
+sudo service fail2ban restart &&
+sudo nano /var/log/fail2ban.log
 ```
 
 #### watchtower :heavy_check_mark:
