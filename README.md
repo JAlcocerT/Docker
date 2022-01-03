@@ -16,7 +16,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
 * Development / Others:
     * VSCode in docker
     * Focalboard
-    * Grocy
+    * Grocy :heavy_check_mark:
 * IoT:
     * Internet speed tracker :heavy_check_mark:
     * Home Assistant :heavy_check_mark:
