@@ -36,6 +36,11 @@ sudo service fail2ban restart &&
 sudo nano /var/log/fail2ban.log
 ```
 
+https://geekland.eu/instalar-configurar-y-usar-fail2ban-para-evitar-ataques-de-fuerza-bruta/
+
+#### Traefik with fail2ban
+https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
+
 #### watchtower :heavy_check_mark:
 ```
 #to run once
