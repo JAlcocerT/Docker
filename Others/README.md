@@ -1,6 +1,6 @@
 #### VScode
 
-#### Grocy
+#### Grocy :heavy_check_mark:
 
 ```
 docker run -d \
@@ -14,6 +14,10 @@ docker run -d \
   lscr.io/linuxserver/grocy
 ```
 
-####
+#### Focalboard
+
+```
+docker run -it -p 807:8000 mattermost/focalboard
+```
 
 #### 
