@@ -1,0 +1,36 @@
+version: '3.6'
+
+services:
+  wordpress:
+    image: wordpress:5.7.2
+    ports:
+      - 80:80
+    environment:
+      - "WORDPRESS_DB_USER=root"
+      - "WORDPRESS_DB_PASSWORD=vFvpKjJ7HUbkD3wyLDp4"
+    restart: always
+    dns: 8.8.8.8
+    volumes: 
+      #- /srv/wordpress:/var/www/html
+      - ~Docker/WP/wordpress:/var/www/html
+
+  mysql:
+    image: jsurf/rpi-mariadb
+    volumes:
+    #- /srv/wordpress-mysql:/var/lib/mysql
+    - ~Docker/WP/wordpress-mysql:/var/lib/mysql
+    environment:
+    - "MYSQL_ROOT_PASSWORD=vFvpKjJ7HUbkD3wyLDp4"
+    - "MYSQL_DATABASE=wordpress"
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin:apache
+    environment:
+     - PMA_ARBITRARY=1
+    restart: always
+    ports:
+     - 9999:80
+    volumes:
+     #- /sessions
+     - /sessions
