@@ -14,10 +14,9 @@ docker run -d \
   lscr.io/linuxserver/grocy
 ```
 
-#### Focalboard
+#### Focalboard :heavy_check_mark:
 
+It works for x86:
 ```
 docker run -it -p 807:8000 mattermost/focalboard
 ```
-
-#### 
