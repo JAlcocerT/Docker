@@ -24,12 +24,13 @@ Add this to the file to ban for 24h if retry +3 times:
 
 
 Copy
+```
 bantime = 86400
 port    = ssh
 logpath = %(sshd_log)s
 backend = %(sshd_backend)s
 maxretry = 3
-
+```
 ```
 sudo service fail2ban restart &&
 sudo nano /var/log/fail2ban.log
