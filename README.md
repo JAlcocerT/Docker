@@ -42,12 +42,13 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * wireguard
     * fail2ban 
     * Watchtower :heavy_check_mark:
+    * NGINX :heavy_check_mark:
 
 * Web
     * Wordpress Ubuntu single site :heavy_check_mark:
     * Wordpress Ubuntu multi site
+    * Wordpress RPi single site :heavy_check_mark:
     * Traefik
-    * Nginx
     * Firefox
  * Python apps
  * Shiny dashboards
