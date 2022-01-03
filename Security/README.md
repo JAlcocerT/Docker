@@ -5,11 +5,24 @@ wget  -cO - https://raw.githubusercontent.com/jalcocert/docker/main/Security/fai
 
 #### watchtower :heavy_check_mark:
 ```
+#to run once
 sudo docker run -d \
     --name watchtower \
     -v /var/run/docker.sock:/var/run/docker.sock \
     containrrr/watchtower --run-once 
+    
+#to run on a specific time and remove unused images    
+sudo docker run -d \
+    --name watchtower \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    containrrr/watchtower --debug --cleanup --schedule "0 30 4 * * *"
+    
+#to monitor only a container (ex: shipyard)
+#sudo docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower shipyard
 ```
+#https://github.com/containrrr/watchtower
+#https://hub.docker.com/r/containrrr/watchtower
+
 
 #### PiHole :heavy_check_mark:
 
