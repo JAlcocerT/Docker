@@ -11,10 +11,10 @@ sudo docker run -d \
     containrrr/watchtower --run-once 
 ```
 
-#### PiHole
+#### PiHole :heavy_check_mark:
 
 
-#### NginX
+#### NginX :heavy_check_mark:
 
 ```
 version: "3"
