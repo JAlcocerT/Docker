@@ -38,8 +38,7 @@ sudo nano /var/log/fail2ban.log
 
 https://geekland.eu/instalar-configurar-y-usar-fail2ban-para-evitar-ataques-de-fuerza-bruta/
 
-#### Traefik with fail2ban
-https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
+
 
 #### watchtower :heavy_check_mark:
 ```
@@ -112,6 +111,15 @@ services:
 ```
 
 For the initial setup, check: https://nginxproxymanager.com/setup/#initial-run
+
+Remember to portforward your router to the chosen NginX selected ports on the host.
+
+#### Traefik with fail2ban
+https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
+
+#### Authelia
+
+
 
 ## Communication
 
