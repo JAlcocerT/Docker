@@ -3,7 +3,7 @@
 #### Grocy :heavy_check_mark:
 
 ```
-docker run -d \
+docker run --name grocy -d \
   --name=grocy \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -18,5 +18,5 @@ docker run -d \
 
 It works for x86:
 ```
-docker run -it -p 807:8000 mattermost/focalboard
+docker run --name focalboard -d -p 807:8000 mattermost/focalboard
 ```
