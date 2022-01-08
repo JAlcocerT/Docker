@@ -77,6 +77,13 @@ docker run -d \
 
 By default admin and admin123.
 
+Remember to add the following file to the library location to be able to select the location of your books and save it (restart the container):
+
+```
+cd ~/Docker/CalibreWeb/library
+wget https://github.com/xe-nvdk/awesome-docker/raw/main/calibre-web/metadata.db
+```
+
 ### Torrents
 
 #### Transmission :heavy_check_mark:
