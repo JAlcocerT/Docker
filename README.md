@@ -15,7 +15,8 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
    * Revolt
 * Development / Others:
     * VSCode in docker
-    * Focalboard
+    * Focalboard :heavy_check_mark:
+    * OpenProject :heavy_check_mark:
     * Grocy :heavy_check_mark:
 * IoT:
     * Internet speed tracker :heavy_check_mark:
