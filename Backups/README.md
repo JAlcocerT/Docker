@@ -27,6 +27,8 @@ Then, update the DB of the container (so that the changes are visible) with:
 ```
 sudo docker exec -ti --user www-data your_nextcloud_containers_name /var/www/html/occ files:scan --all
 ```
+            
+On a given folder, check the timestamp with: ls -la --time-style=full-iso
     
 ### Syncthing :heavy_check_mark:
 
