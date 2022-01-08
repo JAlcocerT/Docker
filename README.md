@@ -27,6 +27,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Jellyfin :heavy_check_mark:
     * Kodi
     * Plex
+    * Calibre :heavy_check_mark:
     * Supysonic
     * Transmission :heavy_check_mark:
     * rtorrent :heavy_check_mark:
