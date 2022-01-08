@@ -40,7 +40,8 @@ docker run -d \
   lscr.io/linuxserver/jellyfin
 ```
 
-#### Calibre
+#### Calibre :heavy_check_mark:
+
 
 ```
 docker run -d \
@@ -58,6 +59,7 @@ docker run -d \
 ```
 
 Calibre Web
+
 ```
 docker run -d \
   --name=calibre-web \
@@ -71,8 +73,9 @@ docker run -d \
   -v ~/Docker/CalibreWeb/library:/books \
   --restart unless-stopped \
   lscr.io/linuxserver/calibre-web
+```
 
-By default admin and admin123.```
+By default admin and admin123.
 
 ### Torrents
 
