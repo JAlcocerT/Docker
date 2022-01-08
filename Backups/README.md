@@ -16,7 +16,18 @@ As well as:
   *   <https://apps.nextcloud.com/apps/fileslibreofficeedit>
   *   <https://apps.nextcloud.com/apps/phonetrack>
              
-                
+To copy faster all your document, try: cp -a <source> <destination>
+
+```
+cp -a /home/$USER/Archive /media/$USER/USB_drive/        
+```
+
+Then, update the DB of the container (so that the changes are visible) with:
+
+```
+sudo docker exec -ti --user www-data your_nextcloud_containers_name /var/www/html/occ files:scan --all
+```
+    
 ### Syncthing :heavy_check_mark:
 
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing > syncthing.sh && chmod 775 syncthing.sh && sudo ./syncthing.sh
