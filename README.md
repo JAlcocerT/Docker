@@ -13,6 +13,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
    * Matrix:
    * Jitsi:
    * Revolt
+   * FreshRSS :heavy_check_mark:
 * Development / Others:
     * VSCode in docker
     * Focalboard :heavy_check_mark:
