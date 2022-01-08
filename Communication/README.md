@@ -24,3 +24,23 @@ sudo ./discourse-setup
 
 ```
 ```
+
+#### FreshRSS :heavy_check_mark:
+
+```
+---
+version: "2.1"
+services:
+  freshrss:
+    image: lscr.io/linuxserver/freshrss
+    container_name: freshrss
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /path/to/data:/config
+    ports:
+      - 70:80
+    restart: unless-stopped
+ ```
