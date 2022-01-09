@@ -19,6 +19,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Focalboard :heavy_check_mark:
     * OpenProject :heavy_check_mark:
     * Grocy :heavy_check_mark:
+    * Webtops
 * IoT:
     * Internet speed tracker :heavy_check_mark:
     * Home Assistant :heavy_check_mark:
