@@ -17,7 +17,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
 * Development / Others:
     * VSCode in docker
     * Focalboard :heavy_check_mark:
-    * OpenProject :heavy_check_mark:
+    * OpenProject 
     * Grocy :heavy_check_mark:
     * Personal management system
     * Webtops
@@ -31,6 +31,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Jellyfin :heavy_check_mark:
     * Kodi
     * Plex
+    * Emby
     * Calibre :heavy_check_mark:
     * Supysonic
     * Transmission :heavy_check_mark:
@@ -41,6 +42,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Jacket :heavy_check_mark:
     * Radarr :heavy_check_mark:
     * Sonarr :heavy_check_mark:
+    * ArchiveBox
 
 * Security:
     * Pihole :heavy_check_mark:
@@ -56,6 +58,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Wordpress Ubuntu single site :heavy_check_mark:
     * Wordpress Ubuntu multi site
     * Wordpress RPi single site :heavy_check_mark:
+    * Moodle
     * Traefik
     * Firefox
  * Python apps
