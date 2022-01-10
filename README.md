@@ -19,6 +19,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Focalboard :heavy_check_mark:
     * OpenProject :heavy_check_mark:
     * Grocy :heavy_check_mark:
+    * Personal management system
     * Webtops
 * IoT:
     * Internet speed tracker :heavy_check_mark:
