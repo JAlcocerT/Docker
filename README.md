@@ -60,7 +60,7 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
     * Wordpress RPi single site :heavy_check_mark:
     * Moodle
     * Traefik
-    * Firefox
+    * Firefox :heavy_check_mark:
  * Python apps
  * Shiny dashboards
 
