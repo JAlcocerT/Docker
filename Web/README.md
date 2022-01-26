@@ -34,4 +34,5 @@ Edit wp-config.php file
 
 
 * DuckDNS
-* Firefox
+
+* Firefox :heavy_check_mark:
