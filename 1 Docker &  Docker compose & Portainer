@@ -39,3 +39,10 @@ sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -
 ## Install net tools to show interfaces ip address
 sudo apt install net-tools -y
 hostname -i
+
+
+## To reset the password of portainer:
+
+docker stop "id-portainer-container"
+docker run --rm -v portainer_data:/data portainer/helper-reset-password
+docker start "id-portainer-container"
