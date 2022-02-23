@@ -16,10 +16,14 @@ Public repo that serves as a pillar for the github page built on: https://jalcoc
    * FreshRSS :heavy_check_mark:
 * Development / Others:
     * VSCode in docker
+    
     * Focalboard :heavy_check_mark:
-    * OpenProject 
+    * OpenProject (Asana alternative)
+    * Kanboard
+    * wecan
     * Grocy :heavy_check_mark:
     * Personal management system
+    
     * Webtops
 * IoT:
     * Internet speed tracker :heavy_check_mark:
