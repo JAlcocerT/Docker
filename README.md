@@ -1,5 +1,14 @@
 Public repo that serves as a pillar for the github page built on: https://jalcocert.github.io/docker/
 
+### Intro
+
+Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.
+
+Containers allow us to package up an application with all of the parts it needs to work properly -  such as libraries and other dependencies, and deploy it as one package.
+By doing this, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
+
+
+### Content structure
 
 * Backups:
     * Nextcloud
