@@ -7,6 +7,10 @@ Docker is a tool designed to make it easier to create, deploy, and run applicati
 Containers allow us to package up an application with all of the parts it needs to work properly -  such as libraries and other dependencies, and deploy it as one package.
 By doing this, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
 
+ Containers remain lightweight by sharing the OS they run on while isolating processes within user space.
+ 
+Everything needed to run a software application successfully can be stored in a container to make development and deployment more efficient. For this reason, containers are perfect for running microservices.
+
 
 ### Content structure
 
