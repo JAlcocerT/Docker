@@ -27,10 +27,12 @@ Everything needed to run a software application successfully can be stored in a 
    * Jitsi:
    * Revolt
    * FreshRSS :heavy_check_mark:
+   * RocketChat
 * Development / Others:
     * VSCode in docker
     
     * Focalboard :heavy_check_mark:
+    * Tiddlywiki
     * OpenProject (Asana alternative)
     * Kanboard
     * wecan
@@ -44,6 +46,7 @@ Everything needed to run a software application successfully can be stored in a 
     * GPIO
     * NetData
     * Graphana with Prometheus
+    * Redash
 * Media
     * Jellyfin :heavy_check_mark:
     * Kodi
