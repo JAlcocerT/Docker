@@ -79,7 +79,7 @@ docker logs 4648tgIDngkfo30 | grep pass #get the password
 #change update frequency when cron updates pihole
 sudo nano /etc/cron.d/pihole
 
-#blocklist updates
+#blocklist updates in group management + update the gravity under tools
 https://firebog.net/
 https://v.firebog.net/hosts/lists.php?type=tick
 ```
