@@ -13,8 +13,10 @@ sudo nano docker-compose.yml
 ```
 docker-compose up -d
 
+#### open Speed test :heavy_check_mark:
+docker run --restart=unless-stopped --name openspeedtest -d -p 3000:3000 -p 3001:3001 openspeedtest/latest
 
-#### Internet Speed Tracker (X86 :heavy_check_mark:)
+#### Internet Speed Tracker (X86 only :heavy_check_mark:)
 
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/IoT/InternetSpeedTracker.yaml > docker-compose.yaml
 docker-compose up -d
