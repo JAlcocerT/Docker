@@ -1,14 +1,19 @@
 https://www.youtube.com/watch?v=nMNlkDPohcc&t=1s
 
-https://hub.docker.com/r/henrywhitaker3/speedtest-tracker
+#https://hub.docker.com/r/henrywhitaker3/speedtest-tracker
 
 
 docker run \
       --name=speedtest \
       -p 8765:80 \
-      -v /home/pi/Docker/InternetSpeedTest/config:/config \
+      -v ~/Docker/InternetSpeedTest/config:/config \
       -e OOKLA_EULA_GDPR=true \
       --restart unless-stopped \
       henrywhitaker3/speedtest-tracker
 
 docker_me SpeedTest https://raw.githubusercontent.com/reisikei/docker/main/IoT/InternetSpeedTracker.yaml
+
+
+git clone https://github.com/geerlingguy/internet-monitoring
+cd internet-monitoring
+docker-compose up -d
