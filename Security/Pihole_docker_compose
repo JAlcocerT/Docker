@@ -1,7 +1,7 @@
 ### https://hub.docker.com/r/pihole/pihole
 
 #with docker compose:
-vim docker-compose.yaml
+#nano docker-compose.yaml
 
 version: "3"
 services:
@@ -13,14 +13,14 @@ services:
       - 53:53/udp
       - 67:67/udp
       - 86:80/tcp
-      - 443:443/tcp
+      - 446:443/tcp
     environment:
       TZ: Europe/Madrid
       WEBPASSWORD: password_change_me #optional
     # Volumes store your data between container upgrades
     volumes:
-      - home/pi/etc/pihole/:/etc/pihole/
-      - home/pi/etc/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+      - ~/Docker/pihole/:/etc/pihole/
+      - ~/Docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
     # Recommended but not required (DHCP needs NET_ADMIN)
     cap_add:
       - NET_ADMIN
