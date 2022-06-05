@@ -67,14 +67,21 @@ sudo docker run -d \
 
 sudo docker-compose up -d   
 
-Change DNS on the device or on the router(applicable to all devices connected to the LAN) to the rpi address. For example to 192.168.1.31
+#Change DNS on the device or on the router(applicable to all devices connected to the LAN) to the rpi address. For example to 192.168.1.31
     
-nslookup (windows to check router address)
+#nslookup (windows to check router address)
     
   
 docker container ls
 docker inspect 4648tgIDngkfo30 #get IP address
 docker logs 4648tgIDngkfo30 | grep pass #get the password 
+
+#change update frequency when cron updates pihole
+sudo nano /etc/cron.d/pihole
+
+#blocklist updates
+https://firebog.net/
+https://v.firebog.net/hosts/lists.php?type=tick
 ```
 
 
