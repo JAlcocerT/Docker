@@ -14,7 +14,7 @@ sudo nano docker-compose.yml
 docker-compose up -d
 
 
-#### Internet Speed Tracker
+#### Internet Speed Tracker (X86 :heavy_check_mark:)
 
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/IoT/InternetSpeedTracker.yaml > docker-compose.yaml
 docker-compose up -d
