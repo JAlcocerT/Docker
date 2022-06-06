@@ -33,7 +33,7 @@ services:
     restart: always
     container_name: nextclouddb
     volumes:
-      - db:/var/lib/mysql
+      - ./db:/var/lib/mysql
     environment:
       - MYSQL_INITDB_SKIP_TZINFO=1
       - MYSQL_ROOT_PASSWORD=rootpass
