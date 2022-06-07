@@ -1,4 +1,4 @@
-### Monitoring
+### Internet Monitoring
 
 #### Internet Speed :heavy_check_mark:
 ##### With Graphana, Promotheus,  SpeedTest, Nodeexp
@@ -55,6 +55,13 @@ docker run -d --name=netdata \
 --security-opt apparmor=unconfined \
 netdata/netdata
 ```
+### Server Monitoring
+##### Using Grafana, Prometheus & Node Exporter
+
+```
+
+```
+
 
 ### GPIO
 
