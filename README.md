@@ -93,7 +93,11 @@ wget -cO - https://raw.githubusercontent.com/jalcocert/docker/main/1%20Docker%20
 
 To get to know what's the private address of your device and access portainer, simply use: ifconfig, then privateipserver:9000
 
+### Install Yacht (Portainer alternative)
 
+```
+docker run -d -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock -v ~/Dockeryacht:/config selfhostedpro/yacht
+```
 
 ### Useful Docker commands
 
