@@ -44,7 +44,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Internet speed tracker :heavy_check_mark:
     * Home Assistant :heavy_check_mark:
     * GPIO
-    * NetData
+    * NetData :heavy_check_mark:
     * Graphana with Prometheus
     * Redash
 * Media
