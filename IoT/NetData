@@ -4,7 +4,7 @@
     environment:
       - UID=1000
       - GID=100
-      - TZ=America/Argentina/Buenos_Aires
+      - TZ=Europe/Berlin
     ports:
       - 19999:19999
     volumes:
