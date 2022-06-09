@@ -23,7 +23,7 @@ docker run --name focalboard -d -p 807:8000 mattermost/focalboard
 sudo docker run --network nginx_default --name=focalboard -d -p 807:8000 mattermost/focalboard
 ```
 
-#### Kanboard (x86 only :heavy_check_mark:)
+#### Kanboard (x86 only)
 
 ```
 version: '2'
