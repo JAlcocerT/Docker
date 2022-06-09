@@ -28,9 +28,8 @@ Everything needed to run a software application successfully can be stored in a 
    * Revolt
    * FreshRSS :heavy_check_mark:
    * RocketChat
-* Development / Others:
+*  Others:
     * VSCode in docker
-    
     * Focalboard :heavy_check_mark:
     * Tiddlywiki
     * OpenProject (Asana alternative)
