@@ -26,7 +26,7 @@ docker-compose up -d
 Prometheus is the standard for monitoring in kubernetes.
 It can store the metrics in the disk, but not in the cloud by default.
 
-#### NetData
+#### NetData :heavy_check_mark:
 
 ```
 docker run -d --name=netdata \
