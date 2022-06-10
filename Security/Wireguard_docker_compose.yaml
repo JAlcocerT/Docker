@@ -1,4 +1,4 @@
-version: "2.1"
+version: '3.3'
 services:
   wireguard:
     image: linuxserver/wireguard
@@ -9,15 +9,16 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Madrid
-      - SERVERURL=auto #optional
+      - TZ=Europe/Paris
+      - SERVERURL=aa.333.999.zzz #optional_change_me
       - SERVERPORT=51820 #optional
-      - PEERS=1 #optional
+      - PEERS=2 #optional
       - PEERDNS=auto #optional
-      - INTERNAL_SUBNET=0.0.0.0 #optional
+      - INTERNAL_SUBNET=10.13.13.0 #optional
     volumes:
-      - /opt/wireguard-server/config:/config
+      - /root/wireguard:/config
       - /lib/modules:/lib/modules
+      - /usr/src:/usr/src
     ports:
       - 51820:51820/udp
     sysctls:
