@@ -60,6 +60,14 @@ sudo docker run -d \
 #https://github.com/containrrr/watchtower
 #https://hub.docker.com/r/containrrr/watchtower
 
+#### Wireguard :heavy_check_mark:
+
+```
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/Wireguard_docker_compose.yaml > docker-compose.yaml
+sudo docker-compose up -d
+
+sudo docker-compose logs wireguard
+```
 
 #### PiHole :heavy_check_mark:
 
