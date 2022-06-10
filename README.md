@@ -66,7 +66,7 @@ Everything needed to run a software application successfully can be stored in a 
 * Security:
     * Pihole :heavy_check_mark:
     * wirehole
-    * wireguard
+    * wireguard :heavy_check_mark:
     * fail2ban 
     * Traefik + failban
     * NGINX :heavy_check_mark:
