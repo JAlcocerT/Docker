@@ -39,6 +39,16 @@ Edit wp-config.php file
 
 #### Plausible
 
-* DuckDNS
 
-* Firefox :heavy_check_mark:
+### Others
+
+#### DuckDNS
+
+#### Firefox :heavy_check_mark:
+
+#### NGINX
+<https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
+
+#### Traefik
+https://geekland.eu/instalar-y-configurar-el-proxy-inverso-traefik-en-docker/
+https://geekland.eu/limitar-acceso-servicio-o-web-por-ip-con-traefik/
