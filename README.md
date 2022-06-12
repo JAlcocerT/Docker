@@ -23,7 +23,7 @@ Everything needed to run a software application successfully can be stored in a 
     * RClone :heavy_check_mark:
 * Communication:
    * Discourse 
-   * Matrix:
+   * Matrix with synapse :heavy_check_mark:
    * Jitsi:
    * Revolt
    * FreshRSS :heavy_check_mark:
