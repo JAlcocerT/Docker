@@ -1,3 +1,4 @@
+
 #### Discourse
 
 ```
@@ -19,7 +20,18 @@ sudo ./discourse-setup
 /var/docker/launcher start app
 ```
 
-#### Matrix with synapse
+#### Jitsi
+
+```
+```
+
+#### Mattermost
+
+
+```
+```
+
+#### Matrix with synapse :heavy_check_mark:
 
 ```
 mkdir reverse-proxy && cd reverse-proxy
@@ -39,6 +51,14 @@ docker-compose up -d
 ```
 
 #### Revolt
+
+
+```
+```
+
+
+
+#### Rocket.Chat
 
 
 ```
