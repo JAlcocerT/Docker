@@ -16,7 +16,7 @@ docker run --name grocy -d \
 
 #### Focalboard (x86 only :heavy_check_mark:)
 
-
+It needs to have running already the [nginx container](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml) (with its nginx_default network).
 ```
 docker run --name focalboard -d -p 807:8000 mattermost/focalboard
 
