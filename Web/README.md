@@ -1,4 +1,4 @@
-#### Wordpress
+### Wordpress
 
 * Wordpress Ubuntu single site :heavy_check_mark:
 
@@ -29,9 +29,15 @@ Edit wp-config.php file
 
 * Wordpress RPi single site :heavy_check_mark:
 
-* Plausible
 
 
+### Analytics
+
+#### Matomo
+
+#### Open web analytics
+
+#### Plausible
 
 * DuckDNS
 
