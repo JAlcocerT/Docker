@@ -19,6 +19,25 @@ sudo ./discourse-setup
 /var/docker/launcher start app
 ```
 
+#### Matrix with synapse
+
+```
+mkdir reverse-proxy && cd reverse-proxy
+
+docker network create server
+nano docker-compose.yaml #1st part
+docker compose up -d #to the first part
+
+mkdir synapse && cd synapse
+nano docker-compose.yaml #2nd part
+mkdir data
+docker-compose run --rm synapse generate
+nano homeserver.yaml #allow registrations
+docker-compose up -d
+
+#use a matrix client, like element, and enjoy
+```
+
 #### Revolt
 
 
