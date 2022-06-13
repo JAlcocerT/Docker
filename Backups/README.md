@@ -1,8 +1,10 @@
-### Filerun
+### Filerun :heavy_check_mark:
 
 * Raspberry Pi version (ARM): :heavy_check_mark:
 
     * <https://github.com/JAlcocerT/Docker/blob/main/Backups/Filerun_rpi.yaml>
+
+* Ubuntu version:
 
 ### NextCloud :heavy_check_mark:
 
