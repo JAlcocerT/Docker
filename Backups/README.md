@@ -1,9 +1,22 @@
+### Filerun
+
+
 ### NextCloud :heavy_check_mark:
 
 * Ubuntu version:
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2ban > f2b.sh && chmod 775 f2b.sh && sudo ./f2b.sh
 
-* Raspberry Pi version (ARM):
+* Raspberry Pi version (ARM): :heavy_check_mark:
+- <https://github.com/JAlcocerT/Docker/blob/main/Backups/NextCloud%20RPi.yaml>
+
+* Ubuntu version with existing nginx (A): :heavy_check_mark:
+- <https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
+- <https://github.com/JAlcocerT/Docker/blob/main/Backups/Nextcloud_ubuntu_nginx_existing.yaml>
+- Add the proxy host in the nginx portal: domain needed + name of the container (nextcloud-app for this one) + port 80 (where ssl listens to)
+
+* Ubuntu version with new nginx (B):
+- <https://github.com/JAlcocerT/Docker/blob/main/Backups/Nextcloud_ubuntu_with_nginx.yaml>
+
 
 Remember in any case to update the list of trusted domains (through an environment variable or via the CLI).
 
@@ -15,7 +28,12 @@ As well as:
   *  <https://apps.nextcloud.com/apps/duplicatefinder>
   *   <https://apps.nextcloud.com/apps/fileslibreofficeedit>
   *   <https://apps.nextcloud.com/apps/phonetrack>
-             
+
+
+
+
+
+
 To copy faster all your document, try: cp -a <source> <destination>
 
 ```
