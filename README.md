@@ -15,11 +15,14 @@ Everything needed to run a software application successfully can be stored in a 
 ### Content structure
 
 * Backups:
+    * Duplicati :heavy_check_mark:
+    * Filerun
+      * Ubuntu
+      * RPI :heavy_check_mark:
     * Nextcloud
       * Ubuntu :heavy_check_mark:
       * RPI :heavy_check_mark:
     * Syncthing :heavy_check_mark:
-    * Duplicati :heavy_check_mark:
     * RClone :heavy_check_mark:
 * Communication:
    * Discourse 
