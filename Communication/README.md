@@ -33,6 +33,7 @@ sudo ./discourse-setup
 
 #### Matrix with synapse :heavy_check_mark:
 
+* Creating a new nginx proxy for this 
 ```
 mkdir reverse-proxy && cd reverse-proxy
 
@@ -49,6 +50,34 @@ docker-compose up -d
 
 #use a matrix client, like element, and enjoy
 ```
+
+* Reusing an existing nginx proxy manager
+
+If there is already an instance of [nginx running](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml), you can deploy the below docker compose file (nginx_default is the name of nginx network that is already created by default)2.
+
+```
+version: "3.3"
+
+services:
+    synapse:
+        image: "matrixdotorg/synapse:latest"
+        container_name: "synapse"
+        volumes:
+            - "./data:/data"
+        environment:
+            VIRTUAL_HOST: "your.domain.com"
+            VIRTUAL_PORT: 8008
+            LETSENCRYPT_HOST: "your.domain.com"
+            SYNAPSE_SERVER_NAME: "your.domain.com"
+            SYNAPSE_REPORT_STATS: "yes"
+        networks: ["nginx_default"]
+
+
+networks:
+    nginx_default:
+        external: true
+```
+Then, use nginx portal to add the domain + name of the docker container (synapse) + the port as 8008 (as defined here).
 
 #### Revolt
 
