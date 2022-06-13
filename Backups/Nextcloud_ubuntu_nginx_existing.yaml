@@ -22,6 +22,7 @@ services:
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_HOST=nextcloud-db
+      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.31:8080 http://0.0.0.0:8080
     networks:
       - nginx_default
       - backend
