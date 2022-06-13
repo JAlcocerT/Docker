@@ -33,7 +33,7 @@ sudo ./discourse-setup
 
 #### Matrix with synapse :heavy_check_mark:
 
-* Creating a new nginx proxy for this 
+* Creating a new nginx proxy for this  :heavy_check_mark:
 ```
 mkdir reverse-proxy && cd reverse-proxy
 
@@ -51,7 +51,7 @@ docker-compose up -d
 #use a matrix client, like element, and enjoy
 ```
 
-* Reusing an existing nginx proxy manager
+* Reusing an existing nginx proxy manager :heavy_check_mark:
 
 If there is already an instance of [nginx running](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml), you can deploy the below docker compose file (nginx_default is the name of nginx network that is already created by default)2.
 
