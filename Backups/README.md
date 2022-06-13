@@ -20,6 +20,8 @@ wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2
 
 Remember in any case to update the list of trusted domains (through an environment variable or via the CLI).
 
+Modify  config/config.php file to include: 'overwriteprotocol' => 'https'
+
 It is recommended to add 2FA to your nextcloud server, specially if you are going to expose it to the internet, we can do it with the app: Two-Factor TOTP Provider, <https://apps.nextcloud.com/apps/twofactor_totp> 
 
 As well as:
