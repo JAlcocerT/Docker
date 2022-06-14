@@ -163,7 +163,7 @@ sudo docker-compose up
 ```
 sudo apt update & sudo apt upgrade -y 
 sudo apt-get install docker.io docker-compose -y 
-docker run -it --rm -v /root/synapse-data:/data -e SYNAPSE_SERVER_NAME=matrix.fossengineer.com -e SYNAPSE_REPORT_STATS=yes matrixdotorg/synapse:latest generate 
+docker run -it --rm -v /root/synapse-data:/data -e SYNAPSE_SERVER_NAME=your.domain.com -e SYNAPSE_REPORT_STATS=yes matrixdotorg/synapse:latest generate 
 sudo su
 cd
 ls
