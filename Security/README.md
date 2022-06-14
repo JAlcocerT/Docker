@@ -1,3 +1,33 @@
+## VPN's
+
+Check: curl ifconfig.io
+
+#### Wireguard :heavy_check_mark:
+
+```
+<https://github.com/JAlcocerT/Docker/blob/main/Security/Wireguard_docker_compose.yaml>
+```
+
+```
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/Wireguard > wg.sh && chmod 775 wg.sh && sudo ./wg.sh &&
+docker exec -it wireguard wg #to make sur eits running &&
+docker logs wireguard #to check the logs
+```
+
+* The environment variable PEERS is set to a number or a list of strings separated by comma, the container will run in server mode and the necessary server and peer/client confs will be generated. 
+
+* The peer/client config qr codes will be output in the docker log. They will also be saved in text and png format under /config/peerX in case PEERS is a variable and an integer or /config/peer_X in case a list of names was provided instead of an integer.
+
+
+
+
+##### OpenVPN
+
+```
+
+```
+
+
 #### Authelia
 
 ```
@@ -44,6 +74,8 @@ sudo nano /var/log/fail2ban.log
 
 https://geekland.eu/instalar-configurar-y-usar-fail2ban-para-evitar-ataques-de-fuerza-bruta/
 
+## Proxies
+
 #### NginX :heavy_check_mark:
 
 <https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
@@ -65,6 +97,14 @@ networks:
     nginx_default:
         external: true
 ```
+
+
+
+
+
+
+#### Traefik with fail2ban
+https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
 
 
 #### PiHole :heavy_check_mark:
@@ -92,14 +132,6 @@ https://v.firebog.net/hosts/lists.php?type=tick
 
 
 
-
-#### Traefik with fail2ban
-https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
-
-
-
-
-
 #### Watchtower :heavy_check_mark:
 ```
 #to run once
@@ -120,18 +152,6 @@ sudo docker run -d \
 #https://github.com/containrrr/watchtower
 #https://hub.docker.com/r/containrrr/watchtower
 
-#### Wireguard :heavy_check_mark:
-
-```
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/Wireguard_docker_compose.yaml > docker-compose.yaml
-sudo docker-compose up -d
-
-sudo docker-compose logs wireguard
-```
-
-* The environment variable PEERS is set to a number or a list of strings separated by comma, the container will run in server mode and the necessary server and peer/client confs will be generated. 
-
-* The peer/client config qr codes will be output in the docker log. They will also be saved in text and png format under /config/peerX in case PEERS is a variable and an integer or /config/peer_X in case a list of names was provided instead of an integer.
 
 
 ## Communication
@@ -172,20 +192,6 @@ docker-compose restart synapse
 ```
 
 
-### VPN's
-
-##### Wireguard :heavy_check_mark:
-
-```
-<https://github.com/JAlcocerT/Docker/blob/main/Security/Wireguard_docker_compose.yaml>
-```
-
-```
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/Wireguard > wg.sh && chmod 775 wg.sh && sudo ./wg.sh &&
-docker exec -it wireguard wg #to make sur eits running &&
-docker logs wireguard #to check the logs
-```
-##### OpenVPN
 
 
 
