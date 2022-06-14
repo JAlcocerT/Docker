@@ -81,16 +81,21 @@ Everything needed to run a software application successfully can be stored in a 
     * OpenProject (Asana alternative)
     * wecan
     * Personal management system
-    * VSCode in docker
+    * VSCode
     * Webtops
 
 * Web
-    * Wordpress Ubuntu single site :heavy_check_mark:
-    * Wordpress Ubuntu multi site
-    * Wordpress RPi single site :heavy_check_mark:
-    * Moodle
-    * Traefik
+    * Hosting
+      * Wordpress Ubuntu single site :heavy_check_mark:
+      * Wordpress Ubuntu multi site
+      * Wordpress RPi single site :heavy_check_mark:
+      * Wix
+      * Ghost
+    * Analytics
+       * Umami
+       * Plausible
     * Firefox :heavy_check_mark:
+    * Moodle
  * Python apps
  * Shiny dashboards
 
