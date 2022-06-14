@@ -24,7 +24,7 @@ Everything needed to run a software application successfully can be stored in a 
       * RPI :heavy_check_mark:
     * Syncthing :heavy_check_mark:
     * RClone :heavy_check_mark:
-    * 
+    
 * Communication:
    * Discourse 
    * FreshRSS :heavy_check_mark:
