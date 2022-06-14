@@ -2,9 +2,11 @@
 
 * Raspberry Pi version (ARM): :heavy_check_mark:
 
-    * <https://github.com/JAlcocerT/Docker/blob/main/Backups/Filerun_rpi.yaml>
+    <https://github.com/JAlcocerT/Docker/blob/main/Backups/Filerun_rpi.yaml>
 
-* Ubuntu version:
+* Ubuntu version: :heavy_check_mark:
+
+   <https://github.com/JAlcocerT/Docker/blob/main/Backups/Filerun_ubuntu.yaml>
 
 ### NextCloud :heavy_check_mark:
 
