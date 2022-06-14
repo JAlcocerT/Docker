@@ -11,7 +11,7 @@ services:
     volumes:
       - /filerun/db:/var/lib/mysql
     networks:
-      - ["nginx_default"]
+      - nginx_default
   web:
     image: filerun/filerun
     environment:
@@ -36,7 +36,7 @@ services:
       - ~/Docker/filerun/html:/var/www/html
       - ~/Docker/filerun/user-files:/user-files
     networks:
-      - ["nginx_default"]
+      - nginx_default
   tika:
     image: logicalspark/docker-tikaserver
   elasticsearch:
@@ -54,7 +54,7 @@ services:
     volumes:
       - ~/Docker/filerun/esearch:/usr/share/elasticsearch/data
     networks:
-      - ["nginx_default"]
+      - nginx_default
        
 networks:
     nginx_default:
