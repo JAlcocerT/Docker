@@ -59,22 +59,24 @@ Everything needed to run a software application successfully can be stored in a 
     * ArchiveBox
 
 * Security:
-    * Authelia    
-    * Fail2ban 
-    * NGINX :heavy_check_mark:
-    * NGINX + SSL
-    * NGINX + SSL + Fail2ban
-    * NGINX + SSL + Fail2ban + Authelia
-    * Pihole :heavy_check_mark:
 
-    * Traefik
-    * Traefik + failban
-    * Watchtower :heavy_check_mark:
+    * Proxies
+      * NGINX :heavy_check_mark:
+      * NGINX + SSL
+      * NGINX + SSL + Fail2ban
+      * NGINX + SSL + Fail2ban + Authelia
+      * Traefik
+      * Traefik + failban
     * VPN's
       * Gluetun
       * OpenVPN
       * Wirehole
       * Wireguard :heavy_check_mark:
+    * Authelia    
+    * Fail2ban  
+    * Pihole :heavy_check_mark:
+    * Watchtower :heavy_check_mark:
+
     
 *  Others:
     * Focalboard :heavy_check_mark:
