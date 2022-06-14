@@ -118,7 +118,9 @@ sudo docker-compose up -d
 sudo docker-compose logs wireguard
 ```
 
+* The environment variable PEERS is set to a number or a list of strings separated by comma, the container will run in server mode and the necessary server and peer/client confs will be generated. 
 
+* The peer/client config qr codes will be output in the docker log. They will also be saved in text and png format under /config/peerX in case PEERS is a variable and an integer or /config/peer_X in case a list of names was provided instead of an integer.
 
 
 ## Communication
