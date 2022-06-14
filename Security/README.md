@@ -44,9 +44,52 @@ sudo nano /var/log/fail2ban.log
 
 https://geekland.eu/instalar-configurar-y-usar-fail2ban-para-evitar-ataques-de-fuerza-bruta/
 
+#### NginX :heavy_check_mark:
+
+<https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
+```
+sudo docker-compose up -d
+```
+
+For the initial setup, check: https://nginxproxymanager.com/setup/#initial-run
+
+Remember to portforward your router to the chosen NginX selected ports on the host.
 
 
-#### watchtower :heavy_check_mark:
+#### PiHole :heavy_check_mark:
+
+```
+
+sudo docker-compose up -d   
+
+#Change DNS on the device or on the router(applicable to all devices connected to the LAN) to the rpi address. For example to 192.168.1.31
+    
+#nslookup (windows to check router address)
+    
+  
+docker container ls
+docker inspect 4648tgIDngkfo30 #get IP address
+docker logs 4648tgIDngkfo30 | grep pass #get the password 
+
+#change update frequency when cron updates pihole
+sudo nano /etc/cron.d/pihole
+
+#blocklist updates in group management + update the gravity under tools
+https://firebog.net/
+https://v.firebog.net/hosts/lists.php?type=tick
+```
+
+
+
+
+#### Traefik with fail2ban
+https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
+
+
+
+
+
+#### Watchtower :heavy_check_mark:
 ```
 #to run once
 sudo docker run -d \
@@ -74,45 +117,6 @@ sudo docker-compose up -d
 
 sudo docker-compose logs wireguard
 ```
-
-#### PiHole :heavy_check_mark:
-
-```
-
-sudo docker-compose up -d   
-
-#Change DNS on the device or on the router(applicable to all devices connected to the LAN) to the rpi address. For example to 192.168.1.31
-    
-#nslookup (windows to check router address)
-    
-  
-docker container ls
-docker inspect 4648tgIDngkfo30 #get IP address
-docker logs 4648tgIDngkfo30 | grep pass #get the password 
-
-#change update frequency when cron updates pihole
-sudo nano /etc/cron.d/pihole
-
-#blocklist updates in group management + update the gravity under tools
-https://firebog.net/
-https://v.firebog.net/hosts/lists.php?type=tick
-```
-
-
-#### NginX :heavy_check_mark:
-
-<https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
-```
-sudo docker-compose up -d
-```
-
-For the initial setup, check: https://nginxproxymanager.com/setup/#initial-run
-
-Remember to portforward your router to the chosen NginX selected ports on the host.
-
-#### Traefik with fail2ban
-https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
-
 
 
 
