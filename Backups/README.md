@@ -7,6 +7,10 @@
 * Ubuntu version: :heavy_check_mark:
 
    <https://github.com/JAlcocerT/Docker/blob/main/Backups/Filerun_ubuntu.yaml>
+   
+ * Ubuntu version connected to existing nginx: :heavy_check_mark:
+   <https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
+   <https://github.com/JAlcocerT/Docker/blob/main/Backups/Filerun_ubuntu.yaml>
 
 ### NextCloud :heavy_check_mark:
 
