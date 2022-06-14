@@ -66,12 +66,15 @@ Everything needed to run a software application successfully can be stored in a 
     * NGINX + SSL + Fail2ban
     * NGINX + SSL + Fail2ban + Authelia
     * Pihole :heavy_check_mark:
-    * OpenVPN
+
     * Traefik
     * Traefik + failban
     * Watchtower :heavy_check_mark:
-    * Wirehole
-    * Wireguard :heavy_check_mark:
+    * VPN's
+      * Gluetun
+      * OpenVPN
+      * Wirehole
+      * Wireguard :heavy_check_mark:
     
 *  Others:
     * Focalboard :heavy_check_mark:
