@@ -1,3 +1,9 @@
+#### Authelia
+
+```
+
+```
+
 #### Fail2Ban :heavy_check_mark:
 ```
 wget  -cO - https://raw.githubusercontent.com/jalcocert/docker/main/Security/fail2ban > f2b.sh && chmod 775 f2b.sh && sudo ./f2b.sh
