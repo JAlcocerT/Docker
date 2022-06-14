@@ -24,24 +24,15 @@ Everything needed to run a software application successfully can be stored in a 
       * RPI :heavy_check_mark:
     * Syncthing :heavy_check_mark:
     * RClone :heavy_check_mark:
+    * 
 * Communication:
    * Discourse 
-   * Matrix with synapse :heavy_check_mark:
-   * Jitsi:
-   * Revolt
    * FreshRSS :heavy_check_mark:
+   * Jitsi
+   * Matrix with synapse :heavy_check_mark:
+   * Revolt
    * RocketChat
-*  Others:
-    * VSCode in docker
-    * Focalboard :heavy_check_mark:
-    * Tiddlywiki
-    * OpenProject (Asana alternative)
-    * Kanboard
-    * wecan
-    * Grocy :heavy_check_mark:
-    * Personal management system
     
-    * Webtops
 * IoT:
     * Internet speed tracker :heavy_check_mark:
     * Home Assistant :heavy_check_mark:
@@ -49,6 +40,7 @@ Everything needed to run a software application successfully can be stored in a 
     * NetData :heavy_check_mark:
     * Graphana with Prometheus
     * Redash
+    
 * Media
     * Jellyfin :heavy_check_mark:
     * Kodi
@@ -67,14 +59,30 @@ Everything needed to run a software application successfully can be stored in a 
     * ArchiveBox
 
 * Security:
-    * Pihole :heavy_check_mark:
-    * wirehole
-    * wireguard :heavy_check_mark:
-    * fail2ban 
-    * Traefik + failban
+    * Authelia    
+    * Fail2ban 
     * NGINX :heavy_check_mark:
     * NGINX + SSL
+    * NGINX + SSL + Fail2ban
+    * NGINX + SSL + Fail2ban + Authelia
+    * Pihole :heavy_check_mark:
+    * OpenVPN
+    * Traefik
+    * Traefik + failban
     * Watchtower :heavy_check_mark:
+    * Wirehole
+    * Wireguard :heavy_check_mark:
+    
+*  Others:
+    * Focalboard :heavy_check_mark:
+    * Grocy :heavy_check_mark:
+    * Kanboard
+    * Tiddlywiki
+    * OpenProject (Asana alternative)
+    * wecan
+    * Personal management system
+    * VSCode in docker
+    * Webtops
 
 * Web
     * Wordpress Ubuntu single site :heavy_check_mark:
