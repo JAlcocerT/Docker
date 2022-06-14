@@ -17,7 +17,7 @@ Everything needed to run a software application successfully can be stored in a 
 * Backups:
     * Duplicati :heavy_check_mark:
     * Filerun
-      * Ubuntu
+      * Ubuntu :heavy_check_mark:
       * RPI :heavy_check_mark:
     * Nextcloud
       * Ubuntu :heavy_check_mark:
