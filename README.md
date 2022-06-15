@@ -90,15 +90,20 @@ Everything needed to run a software application successfully can be stored in a 
     * Webtops
 
 * Web
+    * Analytics
+       * Umami
+       * Plausible
     * Hosting
       * Wordpress Ubuntu single site :heavy_check_mark:
       * Wordpress Ubuntu multi site
       * Wordpress RPi single site :heavy_check_mark:
       * Wix
       * Ghost
-    * Analytics
-       * Umami
-       * Plausible
+    * Mail:
+       * Mailcow
+       * Mailserver
+       * Mailu
+       * Poste
     * Firefox :heavy_check_mark:
     * Moodle
  * Python apps
