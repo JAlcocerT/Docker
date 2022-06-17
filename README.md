@@ -16,6 +16,7 @@ Everything needed to run a software application successfully can be stored in a 
 
 * Backups:
     * Duplicati :heavy_check_mark:
+    * Duplicity
     * Filerun
       * Ubuntu :heavy_check_mark:
       * RPI :heavy_check_mark:
@@ -24,6 +25,8 @@ Everything needed to run a software application successfully can be stored in a 
       * RPI :heavy_check_mark:
     * Photoprism
     * RClone :heavy_check_mark:
+    * RSync
+    * RSnapshot
     * Syncthing :heavy_check_mark:
     
 * Communication:
