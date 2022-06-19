@@ -53,6 +53,8 @@ docker run \
   linuxserver/duckdns
   ```
 
+https://raw.githubusercontent.com/JAlcocerT/Docker/main/Web/DuckDNS_docker_compose.yaml
+
 #### No-IP
 
 ## Others
