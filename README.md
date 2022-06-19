@@ -39,6 +39,7 @@ Everything needed to run a software application successfully can be stored in a 
     
 * IoT:
     * Internet speed tracker :heavy_check_mark:
+    * Flame 
     * Home Assistant :heavy_check_mark:
     * GPIO
     * NetData :heavy_check_mark:
@@ -68,6 +69,7 @@ Everything needed to run a software application successfully can be stored in a 
       * NGINX + SSL :heavy_check_mark:
       * NGINX + SSL + Fail2ban
       * NGINX + SSL + Fail2ban + Authelia
+      * NGINX + SSL + Fail2ban + Authelia + DuckDNS
       * Traefik
       * Traefik + failban
     * VPN's
@@ -96,6 +98,9 @@ Everything needed to run a software application successfully can be stored in a 
     * Analytics
        * Umami
        * Plausible
+    * Dynamic DNS
+       * DuckDNS
+       * No-IP
     * Hosting
       * Wordpress Ubuntu single site :heavy_check_mark:
       * Wordpress Ubuntu multi site
