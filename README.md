@@ -65,8 +65,7 @@ Everything needed to run a software application successfully can be stored in a 
 * Security:
 
     * Proxies
-      * NGINX :heavy_check_mark:
-      * NGINX + SSL
+      * NGINX + SSL :heavy_check_mark:
       * NGINX + SSL + Fail2ban
       * NGINX + SSL + Fail2ban + Authelia
       * Traefik
