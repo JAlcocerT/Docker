@@ -18,10 +18,10 @@ docker run --name grocy -d \
 
 It needs to have running already the [nginx container](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml) (with its nginx_default network).
 ```
-docker run --name focalboard -d -p 807:8000 mattermost/focalboard
-
-sudo docker run --network nginx_default --name=focalboard -d -p 807:8000 mattermost/focalboard
+#docker run --name focalboard -d -p 807:8000 mattermost/focalboard
+sudo docker run --name=focalboard -d -p 807:8000 mattermost/focalboard  -v ~/Docker/focalboard/data:/data --network nginx_default --restart unless-stopped
 ```
+
 To have a persistant volume, the folder must by owned by user 'nobody':
 
 ```
