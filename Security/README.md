@@ -92,6 +92,8 @@ sudo docker-compose up -d
 ```
 
 For the initial setup, check: https://nginxproxymanager.com/setup/#initial-run
+#admin@example.com
+#changeme
 
 Remember to portforward your router to the chosen NginX selected ports on the host.
 
