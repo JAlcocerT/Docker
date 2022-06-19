@@ -41,7 +41,7 @@ Edit wp-config.php file
 
 They can work in combination with [Nginx](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml)
 
-#### DuckDNS
+#### DuckDNS :heavy_check_mark:
 
 ```
 docker run \
@@ -59,13 +59,17 @@ https://raw.githubusercontent.com/JAlcocerT/Docker/main/Web/DuckDNS_docker_compo
 
 #### No-IP
 
+```
+
+```
+
 ## Others
 
 
 
 #### Firefox :heavy_check_mark:
 
-#### NGINX
+#### NGINX :heavy_check_mark:
 <https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
 
 #### Traefik
