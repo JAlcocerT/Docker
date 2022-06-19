@@ -1,11 +1,15 @@
-docker run \
-  --name=duckdns \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Europe/Madrid \
-  -e SUBDOMAINS=eryosuatrol,tocerdo \
-  -e TOKEN=51bd4cd9-270b-4879-bd0c-63e97ef7ada9 \
-  --restart unless-stopped \
-  linuxserver/duckdns
-  
-  #https://geekland.eu/instalar-y-configurar-duck-dns-con-docker/
+version: "2"
+services:
+  duckdns:
+    image: linuxserver/duckdns
+    container_name: duckdns
+    environment:
+      - PUID=1000 #optional
+      - PGID=1000 #optional
+      - TZ=Europe/London
+      - SUBDOMAINS=subdomain1,subdomain2
+      - TOKEN=token
+      - LOG_FILE=false #optional
+    volumes:
+      - ~/Docker/duckdns/config:/config #optional
+    restart: unless-stopped
