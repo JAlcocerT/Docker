@@ -77,7 +77,8 @@ Everything needed to run a software application successfully can be stored in a 
       * OpenVPN
       * Wirehole
       * Wireguard :heavy_check_mark:
-    * Authelia    
+    * Authelia   
+    * Crowdsec 
     * Fail2ban  
     * Pihole :heavy_check_mark:
     * Watchtower :heavy_check_mark:
