@@ -25,7 +25,7 @@ sudo docker run --network nginx_default --name=focalboard -d -p 807:8000 matterm
 To have a persistant volume, the folder must by owned by user 'nobody':
 
 ```
-sudo chown -R nobody /home/user/focalboard-data
+sudo chown -R nobody ~/Docker/focalboard/data
 docker build -t focalboard .
 docker run -it -v "~/Docker/focalboard/data:/data" -p 807:8000 focalboard
 ```
