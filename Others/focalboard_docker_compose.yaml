@@ -1,0 +1,15 @@
+version: '2'
+services:
+  focalboard:
+    image: mattermost/focalboard:latest
+    volumes:
+      - ~/Docker/focalboard/data:/data
+    ports:
+      - "807:8000"
+    networks:
+      - own_nginx    
+    restart: always 
+    
+networks:
+    own_nginx:
+        external: true
