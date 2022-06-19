@@ -37,10 +37,27 @@ Edit wp-config.php file
 
 * Wordpress RPi single site :heavy_check_mark:
 
+## Dynamic DNS
+
+#### DuckDNS
+
+```
+docker run \
+  --name=duckdns \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Madrid \
+  -e SUBDOMAINS=subdomain1,subdomain2 \
+  -e TOKEN=yourtoken-270b-from-bd0c-duckdns \
+  --restart unless-stopped \
+  linuxserver/duckdns
+  ```
+
+#### No-IP
 
 ## Others
 
-#### DuckDNS
+
 
 #### Firefox :heavy_check_mark:
 
