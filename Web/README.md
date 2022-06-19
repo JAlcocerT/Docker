@@ -39,6 +39,8 @@ Edit wp-config.php file
 
 ## Dynamic DNS
 
+They can work in combination with [Nginx](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml)
+
 #### DuckDNS
 
 ```
