@@ -86,6 +86,8 @@ https://geekland.eu/instalar-configurar-y-usar-fail2ban-para-evitar-ataques-de-f
 
 <https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
 ```
+#curl https://raw.githubusercontent.com/JAlcocerT/Docker/main/Security/nginx_docker_compose.yaml -O 
+wget -c https://raw.githubusercontent.com/JAlcocerT/Docker/main/Security/nginx_docker_compose.yaml -O docker-compose.yml
 sudo docker-compose up -d
 ```
 
