@@ -1,0 +1,150 @@
+version: "2"
+
+services:
+
+  wekandb:
+    image: mongo:4.4
+    container_name: wekan-db
+    restart: always
+    command: mongod --logpath /dev/null --oplogSize 128 --quiet
+    networks:
+      - wekannet
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ~/Docker/wekan/mongodata:/data/db
+      - ~/Docker/wekan/configDB:/data/configDB
+      - ~/Docker/wekan/mongodump:/dump
+
+  wekan:
+    image: wekanteam/wekan
+    container_name: wekan-app
+    restart: always
+    networks:
+      - wekannet
+    expose:
+      - 8087
+    ports:
+      - 8087:8080
+    environment:
+      - WITH_API=FALSE
+      - MONGO_URL=mongodb://wekandb:27017/wekan
+      - ROOT_URL=http://localhost  #   <=== using only at same laptop/desktop where Wekan is installed
+      - RICHER_CARD_COMMENT_EDITOR=false
+      - CARD_OPENED_WEBHOOK_ENABLED=false
+      - BIGEVENTS_PATTERN=NONE
+      - BROWSER_POLICY_ENABLED=true
+    depends_on:
+      - wekandb
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/Docker/wekan/wekan-files:/data:rw
+
+networks:
+  wekannet:
+    driver: bridge
+    
+    
+    
+version: "2"
+
+services:
+
+  wekandb:
+    image: mongo 4.4
+    container_name: wekan-db
+    restart: always
+    command: mongod --logpath /dev/null --oplogSize 128 --quiet
+    networks:
+      - wekannet
+    expose:
+      - 27017
+    ports
+      - 27017:27017
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ~/Docker/wekan/mongodata:/data/db
+      - ~/Docker/wekan/configDB:/data/db
+      - ~/Docker/wekan/mongodump:/dump
+
+  wekan:
+    container_name: wekan-app
+    restart: always
+    networks:
+      - wekannet
+    ports:
+      - 8087:8080
+    environment:
+      - WITH_API=FALSE
+      #- WRITABLE_PATH=/data
+      - MONGO_URL=mongodb://wekandb:27017/wekan
+      #---------------------------------------------------------------
+      # ==== ROOT_URL SETTING ====
+      # Change ROOT_URL to your real Wekan URL, for example:
+      # If you have Caddy/Nginx/Apache providing SSL
+      #  - https://example.com
+      #  - https://boards.example.com
+      #  - http://192.168.1.100    <=== using at local LAN
+      - ROOT_URL=http://localhost  #   <=== using only at same laptop/desktop where Wekan is installed
+      # ==== PASSWORD BRUTE FORCE PROTECTION ====
+      #https://atmospherejs.com/lucasantoniassi/accounts-lockout
+      #Defaults below. Uncomment to change. wekan/server/accounts-lockout.js
+      #- ACCOUNTS_LOCKOUT_KNOWN_USERS_FAILURES_BEFORE=3
+      #- ACCOUNTS_LOCKOUT_KNOWN_USERS_PERIOD=60
+      #- ACCOUNTS_LOCKOUT_KNOWN_USERS_FAILURE_WINDOW=15
+      #- ACCOUNTS_LOCKOUT_UNKNOWN_USERS_FAILURES_BERORE=3
+      #- ACCOUNTS_LOCKOUT_UNKNOWN_USERS_LOCKOUT_PERIOD=60
+      #- ACCOUNTS_LOCKOUT_UNKNOWN_USERS_FAILURE_WINDOW=15
+      # ==== ACCOUNT OPTIONS ====
+      - RICHER_CARD_COMMENT_EDITOR=false
+      - CARD_OPENED_WEBHOOK_ENABLED=false
+      - BIGEVENTS_PATTERN=NONE
+      - BROWSER_POLICY_ENABLED=true
+    depends_on:
+      - wekandb
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/Docker/wekan/wekan-files:/data:rw
+
+# OPTIONAL NGINX CONFIG FOR REVERSE PROXY
+#  nginx:
+#    image: nginx
+#    container_name: nginx
+#    restart: always
+#    networks:
+#      - wekan-tier
+#    depends_on:
+#      - wekan
+#    ports:
+#      - 80:80
+#      - 443:443
+#    volumes:
+#      - ./nginx/ssl:/etc/nginx/ssl/:ro
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+## Alternative volume config:
+##   volumes:
+##     - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+##     - ./nginx/ssl/ssl.conf:/etc/nginx/conf.d/ssl/ssl.conf:ro
+##     - ./nginx/ssl/testvm-ehu.crt:/etc/nginx/conf.d/ssl/certs/mycert.crt:ro
+##     - ./nginx/ssl/testvm-ehu.key:/etc/nginx/conf.d/ssl/certs/mykey.key:ro
+##     - ./nginx/ssl/pphrase:/etc/nginx/conf.d/ssl/pphrase:ro
+
+volumes:
+  wekan-files:
+    driver: local
+  wekan-db:
+    driver: local
+  wekan-db-dump:
+    driver: local
+
+networks:
+  wekannet:
+    driver: bridge
+    
+    
+    
