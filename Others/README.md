@@ -66,3 +66,14 @@ services:
       - db:db
     restart: always
     ```
+
+#### Planka :heavy_check_mark:
+
+```
+curl -L https://raw.githubusercontent.com/plankanban/planka/master/docker-compose.yml -o docker-compose.yml
+
+openssl rand -hex 64 #for random secret_key generation
+
+docker-compose up -d
+
+```
