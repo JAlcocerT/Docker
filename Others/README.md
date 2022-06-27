@@ -1,5 +1,7 @@
 #### VScode
 
+## Time management
+
 #### Grocy :heavy_check_mark:
 
 ```
@@ -68,7 +70,7 @@ services:
 ```
     
 
-#### Planka :heavy_check_mark:
+#### Planka 
 
 ```
 curl -L https://raw.githubusercontent.com/plankanban/planka/master/docker-compose.yml -o docker-compose.yml
@@ -76,4 +78,11 @@ curl -L https://raw.githubusercontent.com/plankanban/planka/master/docker-compos
 openssl rand -hex 64 #for random secret_key generation
 
 docker-compose up -d
+```
+
+#### Wekan
+
+```
+
+
 ```
