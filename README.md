@@ -100,7 +100,7 @@ Everything needed to run a software application successfully can be stored in a 
        * Umami
        * Plausible
     * Dynamic DNS
-       * DuckDNS
+       * DuckDNS :heavy_check_mark:
        * No-IP
     * Hosting
       * Wordpress Ubuntu single site :heavy_check_mark:
