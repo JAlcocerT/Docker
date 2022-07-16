@@ -141,19 +141,21 @@ docker run -d --name=qbittorrent\
   -p 6883:6881/udp \
   -p 8083:8080 \
   -v ~/Docker/qbittorrent/config:/config \
-  -v /media/pi/Nowy/DOWNLOADS:/downloads \
+  -v ~/Docker/qbittorrent/DOWNLOADS:/downloads \
   --restart unless-stopped \
   ghcr.io/linuxserver/qbittorrent
 ```
 
 OR:
 
-(:heavy_check_mark: Sept 2021)
+(:heavy_check_mark: Jul 2022)
 
-```javascript
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/Qbittorrent_docker-compose_wenvironment.yaml > docker-compose.yaml
+```
+sudo wget -c https://raw.githubusercontent.com/JAlcocerT/Docker/main/Media/Qbittorrent_docker-compose.yaml -O docker-compose.yaml
 
-wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
+wget  -cO - https://raw.githubusercontent.com/JAlcocerT/docker/main/Media/Qbittorrent_docker-compose_wenvironment.yaml > docker-compose.yaml
+
+wget  -cO - https://raw.githubusercontent.com/JAlcocerT/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
 ```
 
 
