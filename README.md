@@ -53,9 +53,11 @@ Everything needed to run a software application successfully can be stored in a 
     * Emby
     * Calibre :heavy_check_mark:
     * Supysonic
+    
     * Transmission :heavy_check_mark:
     * rtorrent :heavy_check_mark:
-    * Qbittorrent
+    * Qbittorrent :heavy_check_mark:
+    
     * Bazar :heavy_check_mark:
     * Couchpotato :heavy_check_mark:
     * Jacket :heavy_check_mark:
