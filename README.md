@@ -52,12 +52,10 @@ Everything needed to run a software application successfully can be stored in a 
     * Plex
     * Emby
     * Calibre :heavy_check_mark:
-    * Supysonic
-    
+    * Supysonic    
     * Transmission :heavy_check_mark:
     * rtorrent :heavy_check_mark:
     * Qbittorrent :heavy_check_mark:
-    
     * Bazar :heavy_check_mark:
     * Couchpotato :heavy_check_mark:
     * Jacket :heavy_check_mark:
