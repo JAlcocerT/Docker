@@ -37,7 +37,18 @@ docker logs wireguard #to check the logs
 #### Authelia
 
 ```
-
+version: '3.3'
+    
+services:
+  authelia:
+    image: authelia/authelia
+    container_name: authelia
+    volumes:
+      - ~/Docker/Authelia:/config 
+    ports:
+      - 9091:9091
+    environment:
+      - TZ=Europe/Paris
 ```
 
 #### Fail2Ban :heavy_check_mark:
