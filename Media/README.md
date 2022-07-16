@@ -123,13 +123,13 @@ docker run -d --name=rutorrent\
 
 OR:
 
-```javascript
+```
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent_docker_compose_w_environment > docker-compose.yaml
 
 wget  -cO - https://raw.githubusercontent.com/reisikei/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
 ```
 
-#### qBitTorrent :heavy_check_mark:
+#### qBitTorrent [:heavy_check_mark:](https://hub.docker.com/r/linuxserver/qbittorrent)
 
 ```
 docker run -d --name=qbittorrent\
@@ -158,6 +158,7 @@ wget  -cO - https://raw.githubusercontent.com/JAlcocerT/docker/main/Media/Qbitto
 wget  -cO - https://raw.githubusercontent.com/JAlcocerT/Ubuntu/main/variables.env?token=ANL2TWHRX5WRKS3O3ZYJVULBKDBEU > .env
 ```
 
+Remember: the default username/password is admin/adminadmin
 
 
 ### Extra
