@@ -23,6 +23,9 @@ wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2
 
 * Raspberry Pi version (ARM): :heavy_check_mark:
    * <https://github.com/JAlcocerT/Docker/blob/main/Backups/NextCloud%20RPi.yaml>
+   ```
+   sudo wget -c https://github.com/JAlcocerT/Docker/blob/main/Backups/NextCloud%20RPi.yaml -O docker-compose.yaml
+   ```
 
 * Ubuntu version with existing nginx (A): :heavy_check_mark:
 
