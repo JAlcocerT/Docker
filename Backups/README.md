@@ -2,7 +2,9 @@
 
 * Raspberry Pi version (ARM): :heavy_check_mark:
 
-    <https://github.com/JAlcocerT/Docker/blob/main/Backups/Filerun_rpi.yaml>
+ ```
+ sudo wget -c https://raw.githubusercontent.com/JAlcocerT/Docker/main/Backups/Filerun_rpi.yaml -O docker-compose.yaml
+ ```
 
 * Ubuntu version: :heavy_check_mark:
 
