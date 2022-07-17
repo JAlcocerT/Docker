@@ -10,9 +10,9 @@ services:
       - TZ=Europe/Madrid
       - CLI_ARGS= #optional
     volumes:
-    - ~/home/pi/Docker/Duplicati/config:/config
-    - ~/losperris:/source
-    - /media/losperris/TOSHIBA\ EXT:/backups
+    - ~/Docker/Duplicati/config:/config
+    - ~/Docker:/source
+    - ~/Docker/backups:/backups
     ports:
       - 8200:8200
     restart: unless-stopped
