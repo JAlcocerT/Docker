@@ -108,6 +108,7 @@ Everything needed to run a software application successfully can be stored in a 
       * Wordpress RPi single site :heavy_check_mark:
       * Wix
       * Ghost
+      * Chevereto
     * Mail:
        * Mailcow
        * Mailserver
