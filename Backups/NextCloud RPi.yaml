@@ -1,11 +1,9 @@
-
 #CHECK TRUSTED DOMAINS
 #Use this command to query trusted_domains (my default its only 1):
 #docker exec --user www-data nextcloud_container_name php occ config:system:get trusted_domains
 #And set a new one - so that you can access your files from another device in your local network - VPN:
 #docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 7 --value 192.168.1.11:8080
 #docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 8 --value 100.100.100.11:8080
-
 
 #TRUSTED DOMAIN SOLUTION 1
 #  enviroment:
@@ -19,8 +17,7 @@
 #cd config
 #nano config.php en el contenedor
 
-
-#TRUSTED DOMAINS CAN BE INDICATED IN THE DOCKER COMPOSE FILE
+#TRUSTED DOMAINS CAN BE INDICATED IN THE DOCKER COMPOSE FILE:
 version: '2'
 
 volumes:
