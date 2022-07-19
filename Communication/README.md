@@ -35,7 +35,7 @@ sudo ./discourse-setup
 
 First step - generate the configuration with
 ```
-sudo docker run -it --rm -v ~/Docker/synapse/data:/data -e SYNAPSE_SERVER_NAME=mtg.fossengineer.com -e SYNAPSE_REPORT_STATS=yes matrixdotorg/synapse:latest generate
+sudo docker run -it --rm -v ~/Docker/synapse/data:/data -e SYNAPSE_SERVER_NAME=matrix.yourdomain.com -e SYNAPSE_REPORT_STATS=yes matrixdotorg/synapse:latest generate
 ```
 
 * Creating a new nginx proxy for this  :heavy_check_mark:
