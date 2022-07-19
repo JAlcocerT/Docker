@@ -71,7 +71,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Podgrab
 
 * Security:
-
+    * Whoogle
     * Proxies
       * NGINX + SSL :heavy_check_mark:
       * NGINX + SSL + Fail2ban
