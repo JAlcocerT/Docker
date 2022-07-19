@@ -17,6 +17,7 @@ Everything needed to run a software application successfully can be stored in a 
 * Backups:
     * Duplicati :heavy_check_mark:
     * Duplicity
+    * Urbackup
     * Filerun
       * Ubuntu :heavy_check_mark:
       * RPI :heavy_check_mark:
@@ -28,6 +29,7 @@ Everything needed to run a software application successfully can be stored in a 
     * RSync
     * RSnapshot
     * Syncthing :heavy_check_mark:
+    * Webdav
     
 * Communication:
    * Discourse 
@@ -45,6 +47,7 @@ Everything needed to run a software application successfully can be stored in a 
     * NetData :heavy_check_mark:
     * Graphana with Prometheus
     * Redash
+    * GOtify
     
 * Media
     * Jellyfin :heavy_check_mark:
@@ -62,6 +65,10 @@ Everything needed to run a software application successfully can be stored in a 
     * Radarr :heavy_check_mark:
     * Sonarr :heavy_check_mark:
     * ArchiveBox
+    * Supysonic
+    * Navidrome
+    * Mumble
+    * Podgrab
 
 * Security:
 
