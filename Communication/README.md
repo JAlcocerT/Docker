@@ -53,7 +53,7 @@ docker-compose up -d
 
 * Reusing an existing nginx proxy manager :heavy_check_mark:
 
-If there is already an instance of [nginx running](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml), you can deploy the below docker compose file (nginx_default is the name of nginx network that is already created by default)2.
+If there is already an instance of [nginx running](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml), you can deploy the below docker compose file (nginx_default is the name of nginx network that is already created by default, but you could have named it in another way).
 
 ```
 version: "3.3"
