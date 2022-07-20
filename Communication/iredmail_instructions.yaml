@@ -1,0 +1,29 @@
+mkdir ~/Docker/iRedMail/data/{backup-mysql,clamav,custom,imapsieve_copy,mailboxes,mlmmj,mlmmj-archive,mysql,sa_rules,ssl,postfix_queue} -p
+touch ~/Docker/iRedMail/iredmail-docker.conf
+
+
+echo HOSTNAME=mail.fossengineer.com >> ~/Docker/iRedMail/iredmail-docker.conf
+echo FIRST_MAIL_DOMAIN=fossengineer.com >> ~/Docker/iRedMail/iredmail-docker.conf
+echo FIRST_MAIL_DOMAIN_ADMIN_PASSWORD=SomethingSecure >> ~/Docker/iRedMail/iredmail-docker.conf
+echo MLMMJADMIN_API_TOKEN=$(openssl rand -base64 32) >> ~/Docker/iRedMail/iredmail-docker.conf
+echo ROUNDCUBE_DES_KEY=$(openssl rand -base64 24) >> ~/Docker/iRedMail/iredmail-docker.conf
+
+
+
+echo HOSTNAME= mail.domain.com >> ~/Docker/iRedMail/iredmail-docker.conf
+echo FIRST_MAIL_DOMAIN= domain.com >> ~/Docker/iRedMail/iredmail-docker.conf
+echo FIRST_MAIL_DOMAIN_ADMIN_PASSWORD= SomethingSecure >> ~/Docker/iRedMail/iredmail-docker.conf
+echo MLMMJADMIN_API_TOKEN= bla/bla/FsgNG5Y4ubcQ5 >> ~/Docker/iRedMail/iredmail-docker.conf
+echo ROUNDCUBE_DES_KEY= bla/bla/TDUeFzc1Es9DAal >> ~/Docker/iRedMail/iredmail-docker.conf
+
+
+HOSTNAME= mail.domain.com
+FIRST_MAIL_DOMAIN= domain.com
+FIRST_MAIL_DOMAIN_ADMIN_PASSWORD= SomethingSecure
+MLMMJADMIN_API_TOKEN= bla/bla
+ROUNDCUBE_DES_KEY= bla/bla
+
+
+ cat ~/Docker/iRedMail/iredmail-docker.conf
+# run the iRedMail container
+docker run -d --name iRedMail --env-file ~/Docker/iRedMail/iredmail-docker.conf -p 88:80 -p 448:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v ~/Docker/iRedMail/data/backup-mysql:/var/vmail/backup/mysql -v ~/Docker/iRedMail/data/mailboxes:/var/vmail/vmail1 -v ~/Docker/iRedMail/data/mlmmj:/var/vmail/mlmmj -v ~/Docker/iRedMail/data/mlmmj-archive:/var/vmail/mlmmj-archive -v ~/Docker/iRedMail/data/imapsieve_copy:/var/vmail/imapsieve_copy -v ~/Docker/iRedMail/data/custom:/opt/iredmail/custom -v ~/Docker/iRedMail/data/ssl:/opt/iredmail/ssl -v ~/Docker/iRedMail/data/mysql:/var/lib/mysql -v ~/Docker/iRedMail/data/clamav:/var/lib/clamav -v ~/Docker/iRedMail/data/sa_rules:/var/lib/spamassassin -v ~/Docker/iRedMail/data/postfix_queue:/var/spool/postfix iredmail/mariadb:stable
