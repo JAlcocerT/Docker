@@ -1,3 +1,4 @@
+## Chats:
 
 #### Discourse
 
@@ -102,6 +103,11 @@ Then, use nginx portal to add the domain + name of the docker container (synapse
 
 ```
 ```
+
+## Mails: (mail tester: <https://www.mail-tester.com/>)
+
+### iredmail
+
 
 #### FreshRSS :heavy_check_mark:
 
