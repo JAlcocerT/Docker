@@ -56,6 +56,7 @@ mkdir data
 docker-compose run --rm synapse generate
 nano homeserver.yaml #allow registrations
 docker-compose up -d
+#docker-compose restart synapse #if its already running
 
 #use a matrix client, like element, and enjoy
 ```
