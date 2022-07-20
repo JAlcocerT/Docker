@@ -32,12 +32,21 @@ Everything needed to run a software application successfully can be stored in a 
     * Webdav
     
 * Communication:
-   * Discourse 
+   * Chats:
+       * Discourse 
+       * Jitsi
+       * Matrix with synapse :heavy_check_mark:
+       * Revolt
+       * RocketChat
+   * Mail:
+       * iRedMail
+       * Mailcow
+       * Mailinabox
+       * Mailserver
+       * Mailu (rspamd)
+       * Poste
+       * Postfix
    * FreshRSS :heavy_check_mark:
-   * Jitsi
-   * Matrix with synapse :heavy_check_mark:
-   * Revolt
-   * RocketChat
     
 * IoT:
     * Internet speed tracker :heavy_check_mark:
@@ -116,11 +125,6 @@ Everything needed to run a software application successfully can be stored in a 
       * Wix
       * Ghost
       * Chevereto
-    * Mail:
-       * Mailcow
-       * Mailserver
-       * Mailu
-       * Poste
     * Firefox :heavy_check_mark:
     * Moodle
  * Python apps
