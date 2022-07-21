@@ -6,7 +6,9 @@
 
 #### Plausible
 
-## Wordpress
+## Web
+
+#### Wordpress
 
 * Wordpress Ubuntu single site :heavy_check_mark:
 
@@ -37,7 +39,63 @@ Edit wp-config.php file
 
 * Wordpress RPi single site :heavy_check_mark:
 
-## Dynamic DNS
+#### Chevereto
+
+```
+#sudo mkdir ~/Docker/chevereto/chevereto_images/
+#sudo chmod -R a+rwx ~/Docker/chevereto/chevereto_images/
+#pwd
+#sudo chmod -R a+rwx /home/jesalctag/Docker/chevereto/chevereto_images/
+#sudo chmod -R a+rwx chevereto_images/
+#docker pull linuxserver/chevereto:1.6.2
+
+version: '2'
+
+services:
+  db:
+    image: mariadb
+    volumes:
+      - ~/Docker/chevereto/database:/var/lib/mysql:rw # I haven't had good luck putting this database in a different directory
+    restart: unless-stopped
+    networks:
+      - nginx_default
+    environment:
+      MYSQL_ROOT_PASSWORD: chevereto_root
+      MYSQL_DATABASE: chevereto
+      MYSQL_USER: chevereto
+      MYSQL_PASSWORD: chevereto
+
+  chevereto:
+    depends_on:
+      - db
+    image: nmtan/chevereto:latest
+    restart: unless-stopped
+    networks:
+      - nginx_default
+    environment:
+      CHEVERETO_DB_HOST: db
+      CHEVERETO_DB_USERNAME: chevereto
+      CHEVERETO_DB_PASSWORD: chevereto
+      CHEVERETO_DB_NAME: chevereto
+      CHEVERETO_DB_PREFIX: chv_
+    volumes:
+      - ~/Docker/chevereto/chevereto_images:/var/www/html/images:rw
+      - ~/Docker/chevereto/conf/php.ini:/usr/local/etc/php/php.ini:ro
+    ports:
+      - 8686:80
+
+networks:
+  nginx_default:
+volumes:
+  database:
+  chevereto_images:
+
+
+
+
+```
+
+#### Dynamic DNS
 
 They can work in combination with [Nginx](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml)
 
