@@ -108,6 +108,14 @@ Then, use nginx portal to add the domain + name of the docker container (synapse
 
 ### iredmail
 
+### mailcow
+
+```
+#in /opt
+sudo git clone https://github.com/mailcow/mailcow-dockerized
+sudo bash generate_config.sh 
+sudo nano mailcow.conf
+```
 
 #### FreshRSS :heavy_check_mark:
 
