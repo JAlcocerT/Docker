@@ -54,7 +54,9 @@ Everything needed to run a software application successfully can be stored in a 
     * Home Assistant :heavy_check_mark:
     * GPIO
     * NetData :heavy_check_mark:
-    * Graphana with Prometheus
+    * Grafana with Prometheus (internet speed) :heavy_check_mark:
+    * Grafana with Prometheus (internet + device with node exporter)
+    * EFK stack for logs(elastic search, Fluentd, Kibana)
     * Redash
     * GOtify
     
