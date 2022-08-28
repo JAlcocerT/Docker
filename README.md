@@ -52,6 +52,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Internet speed tracker :heavy_check_mark:
     * Flame 
     * Home Assistant :heavy_check_mark:
+    * Home Bridge
     * GPIO
     * NetData :heavy_check_mark:
     * Grafana with Prometheus (internet speed) :heavy_check_mark:
