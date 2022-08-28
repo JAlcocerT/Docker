@@ -19,6 +19,8 @@ services:
       - 22000:22000/udp
       - 21027:21027/udp
     restart: unless-stopped
+    
+#https://hub.docker.com/r/linuxserver/syncthing/tags?page=1 
 
 # ---
 # version: "2.1"
