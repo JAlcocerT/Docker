@@ -60,6 +60,8 @@ Everything needed to run a software application successfully can be stored in a 
     * EFK stack for logs(elastic search, Fluentd, Kibana)
     * Redash
     * GOtify
+    * Ntfy (notify)
+    * Uptime Kuma
     
 * Media
     * Jellyfin :heavy_check_mark:
