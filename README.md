@@ -49,11 +49,11 @@ Everything needed to run a software application successfully can be stored in a 
    * FreshRSS :heavy_check_mark:
     
 * IoT:
-    * Domoticz
-    * Home Assistant :heavy_check_mark:
-    * Home Bridge
-    * OpenHab
-    
+    *Automations:
+       * Domoticz
+       * Home Assistant :heavy_check_mark:
+       * Home Bridge
+       * OpenHab
     * Internet speed tracker :heavy_check_mark:
     * Flame 
     * GPIO
@@ -61,7 +61,6 @@ Everything needed to run a software application successfully can be stored in a 
     * Grafana with Prometheus (internet speed) :heavy_check_mark:
     * Grafana with Prometheus (internet + device with node exporter)
     * EFK stack for logs(elastic search, Fluentd, Kibana)
-    
     * Redash
     * GOtify
     * Ntfy (notify)
