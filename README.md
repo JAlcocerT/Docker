@@ -31,6 +31,12 @@ Everything needed to run a software application successfully can be stored in a 
     * Syncthing :heavy_check_mark:
     * Webdav
     
+* Business:
+   * ERPs:
+       * ERPNext
+       * Dolibarr
+       * Odoo
+     
 * Communication:
    * Chats:
        * Discourse 
