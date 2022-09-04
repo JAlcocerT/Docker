@@ -111,6 +111,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Crowdsec 
     * Fail2ban  
     * Pihole :heavy_check_mark:
+    * Pi-Alert
     * Watchtower :heavy_check_mark:
     
 *  Others:
