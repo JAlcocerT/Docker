@@ -35,3 +35,5 @@ services:
     volumes:
       - ~/Docker/filerun/html:/var/www/html
       - ~/Docker/filerun/user-files:/user-files
+      
+#For connecting using nextcloud, remember to go to Security>API>Enable API
