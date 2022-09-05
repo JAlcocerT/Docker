@@ -37,7 +37,7 @@ Everything needed to run a software application successfully can be stored in a 
        * Dolibarr
        * Odoo
     * Management:
-       * Vikunja
+       * Vikunja :heavy_check_mark:
 * Communication:
    * Chats:
        * Discourse 
