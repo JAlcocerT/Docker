@@ -36,7 +36,8 @@ Everything needed to run a software application successfully can be stored in a 
        * ERPNext
        * Dolibarr
        * Odoo
-     
+    * Management:
+       * Vikunja
 * Communication:
    * Chats:
        * Discourse 
