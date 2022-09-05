@@ -28,29 +28,29 @@ services:
   db:
     image: linuxserver/mariadb
     restart: always
-    container_name: nextclouddb
+    container_name: nextclouddb_rpi
     volumes:
-      - ./db:/var/lib/mysql
+      - ~/Docker/NC/db:/var/lib/mysql
     environment:
       - MYSQL_INITDB_SKIP_TZINFO=1
-      - MYSQL_ROOT_PASSWORD=rootpass
-      - MYSQL_PASSWORD=ncpass
+      - MYSQL_ROOT_PASSWORD=tekO91lodnvG
+      - MYSQL_PASSWORD=Kt5Bnao73
       - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
+      - MYSQL_USER=telopetob
 
   app:
     image: nextcloud:latest #or nextcloud:stable
-    container_name: nextcloud
+    container_name: nextcloud_rpi
     restart: always
     ports:
       - 8080:80
     links:
       - db
     volumes:
-      - ./html:/var/www/html
+      - ~/Docker/NC/html:/var/www/html
     environment:
-      - MYSQL_PASSWORD=ncpass
+      - MYSQL_PASSWORD=Kt5Bnao73
       - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
+      - MYSQL_USER=telopetob
       - MYSQL_HOST=db
-      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.31:8080 http://0.0.0.0:8080
+      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.31:8080 http://0.0.0.0:8080 http://100.90.100.90:8080
