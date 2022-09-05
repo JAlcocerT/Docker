@@ -39,7 +39,7 @@ services:
       - MYSQL_USER=nextcloud
 
   app:
-    image: nextcloud
+    image: nextcloud:latest #or nextcloud:stable
     container_name: nextcloud
     restart: always
     ports:
