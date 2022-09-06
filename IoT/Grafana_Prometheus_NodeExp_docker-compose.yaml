@@ -1,0 +1,53 @@
+#Install Node Exporter (listens on 9100, see container log):
+#docker run --name="rpi_node_exporter_prom_graf" -d   --net="host"   --pid="host"   -v "/:/host:ro,rslave"   quay.io/prometheus/node-exporter:latest   --path.rootfs=/host
+
+#Create Prometheus Config:
+
+#First create the proper folder:
+#mkdir ~/Docker/Prom_Graf
+#nano prometheus.yaml
+
+#Paste this code including your server IP (port remains the same) and create prometheus config file:
+
+global:
+  scrape_interval: 5s
+  external_labels:
+    monitor: 'node'
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['192.168.68.127:9090'] ## IP Address of the localhost
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['192.168.68.127:9100'] ## IP Address of the localhost
+
+#Install Prometheus:
+#docker run --name="rpi_prometheus_graf" -d -p 9090:9090 -v ~/Docker/Prom_Graf/prometheus.yaml:/etc/prometheus prom/prometheus/prometheus.yaml
+
+
+
+#Add Prometheus as grafana data source ---> http://192.168.3.241:9090
+#Look for an existing dash, like https://grafana.com/grafana/dashboards/11074-node-exporter-for-prometheus-dashboard-en-v20201010/
+#Copy id --> import by id --> select Prometheus as data source -> Done
+
+
+version: "3.3"
+services:
+    node-exporter:
+        network_mode: host
+        pid: host
+        volumes:
+            - /:/host:ro,rslave
+        image: quay.io/prometheus/node-exporter:latest
+    prometheus:
+        container_name: prometheus
+        ports:
+            - 9090:9090 #modify to your setup needs
+        volumes:
+            - ~/Docker/Prom_Graf/prometheus.yaml:/etc/prometheus/prometheus.yaml #modify the path for your install location
+        image: prom/prometheus
+    grafana:
+        container_name: grafana
+        ports:
+            - 3457:3000 #modify 3457 to your setup needs, default admin/admin, change it 
+        image: grafana/grafana
