@@ -91,8 +91,6 @@ services:
     container_name: grafana
     ports:
       - "3457:3000"
-    volumes:
-      - ~/Docker/Prom_Graf/grafana:/var/lib/grafana
     restart: unless-stopped
 ```
 ```
