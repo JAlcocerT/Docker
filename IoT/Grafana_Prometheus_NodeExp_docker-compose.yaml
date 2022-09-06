@@ -34,8 +34,11 @@ scrape_configs:
 version: "3.3"
 services:
     node-exporter:
+        container_name: node_exp
         network_mode: host
         pid: host
+        ports:
+            - 9100:9100
         volumes:
             - /:/host:ro,rslave
         image: quay.io/prometheus/node-exporter:latest
