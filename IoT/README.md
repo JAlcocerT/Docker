@@ -56,10 +56,10 @@ docker run -d --name=netdata \
 netdata/netdata
 ```
 ### Server Monitoring
-##### Using Grafana, Prometheus & Node Exporter
+##### Using Grafana, Prometheus & Node Exporter :heavy_check_mark:
 
 ```
-
+Grafana_Prometheus_NodeExp_docker-compose.yaml
 ```
 
 
