@@ -22,7 +22,7 @@ scrape_configs:
       - targets: ['192.168.68.127:9100'] ## IP Address of the localhost
 
 #Install Prometheus:
-#docker run --name="rpi_prometheus_graf" -d -p 9090:9090 -v ~/Docker/Prom_Graf/prometheus.yaml:/etc/prometheus prom/prometheus/prometheus.yaml
+#docker run --name="rpi_prometheus_graf" -d -p 9090:9090 -v ~/Docker/Prom_Graf/prometheus.yaml:/etc/prometheus/prometheus.yaml prom/prometheus
 
 
 
