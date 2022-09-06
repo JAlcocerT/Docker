@@ -59,9 +59,61 @@ netdata/netdata
 ##### Using Grafana, Prometheus & Node Exporter :heavy_check_mark:
 
 ```
-Grafana_Prometheus_NodeExp_docker-compose.yaml
-```
+version: '3'
 
+volumes:
+  prometheus-data:
+    driver: local
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - /etc/prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    command:
+      - '--path.rootfs=/host'
+    pid: host
+    restart: unless-stopped
+    volumes:
+      - '/:/host:ro,rslave' 
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    ports:
+      - "3457:3000"
+    volumes:
+      - ~/Docker/Prom_Graf/grafana:/var/lib/grafana
+    restart: unless-stopped
+```
+```
+global: 
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+    # Override the global default and scrape targets from this job every 5 seconds.
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Example job for node_exporter
+  - job_name: 'node_exporter'
+    static_configs:
+      - targets: ['node_exporter:9100'] #container_name
+```
 
 ### GPIO
 
