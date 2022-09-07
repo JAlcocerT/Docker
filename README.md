@@ -64,10 +64,14 @@ Everything needed to run a software application successfully can be stored in a 
     * Internet speed tracker :heavy_check_mark:
     * Flame 
     * GPIO
-    * NetData :heavy_check_mark:
-    * Grafana with Prometheus (internet speed) :heavy_check_mark:
-    * Grafana with Prometheus (internet + device with node exporter)
-    * EFK stack for logs(elastic search, Fluentd, Kibana)
+    * Dashboards:
+       * NetData :heavy_check_mark:
+       * Grafana with Prometheus (internet speed) :heavy_check_mark:
+       * Grafana with Prometheus (internet + device with node exporter)
+       * Grafana with Graphite StatsD
+       * Grafana with InfluxDB (Temperature measuring)
+       * Grafana with Node-Red
+       * EFK stack for logs(elastic search, Fluentd, Kibana)
     * Redash
     * GOtify
     * Ntfy (notify)
