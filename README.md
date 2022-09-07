@@ -71,6 +71,7 @@ Everything needed to run a software application successfully can be stored in a 
        * Grafana with Graphite StatsD
        * Grafana with InfluxDB (Temperature measuring)
        * Grafana with Proxmox and InfluxDB
+       * Grafana with Proxmox and Graphite
        * Grafana with Node-Red
        * EFK stack for logs(elastic search, Fluentd, Kibana)
     * Redash
