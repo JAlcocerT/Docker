@@ -93,6 +93,7 @@ services:
       - "3457:3000"
     restart: unless-stopped
 ```
+Below file must be created with the proper name and location, as specified by the upper yaml file:
 ```
 global: 
   scrape_interval:     15s # By default, scrape targets every 15 seconds.
