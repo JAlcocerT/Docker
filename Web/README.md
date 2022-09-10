@@ -39,6 +39,11 @@ Edit wp-config.php file
 
 * Wordpress RPi single site :heavy_check_mark:
 
+```
+#Wordpress RPi Docker compose.yml
+sudo docker-compose up -d
+```
+
 #### Chevereto
 
 ```
