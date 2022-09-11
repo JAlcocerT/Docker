@@ -21,7 +21,9 @@ docker run --restart=unless-stopped --name openspeedtest -d -p 3000:3000 -p 3001
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/IoT/InternetSpeedTracker.yaml > docker-compose.yaml
 docker-compose up -d
 
-#### Graphana with Prometheus
+### Graphana
+
+Dashboards already configured <https://grafana.com/grafana/dashboards/>
 
 Prometheus is the standard for monitoring in kubernetes.
 It can store the metrics in the disk, but not in the cloud by default.
