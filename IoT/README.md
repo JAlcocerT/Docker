@@ -116,7 +116,7 @@ scrape_configs:
       - targets: ['node_exporter:9100'] #container_name
 ```
 ##### Using Grafana, InfluxDB & Telegraph (x86 for now :heavy_check_mark:)
-
+The following telegraf.conf file is required:
 ```
 #Grafana_InfluxDB_Telegraf_docker-compose.yaml
 #docker compose up -d
