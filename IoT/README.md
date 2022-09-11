@@ -167,6 +167,22 @@ The following telegraf.conf file is required:
 [[inputs.system]]
 
 ```
+##### Using Grafana, Prometheus, Cadvisor, NodeExp
+
+<https://grafana.com/grafana/dashboards/15120-docker-and-os-metrics-for-raspberry-pi/>
+It requires the following prometheus.yml as a config file:
+```
+#Grafana_Prometheus_Cadvisor_NodeExp_docker-compose.yaml
+#sudo docker-compose up -d
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 30s
+    static_configs:
+      - targets: ['localhost:9090', 'cadvisor:8080', 'node-exporter:9100']
+```
+
+
 
 ### GPIO
 
