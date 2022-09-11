@@ -113,6 +113,58 @@ scrape_configs:
     static_configs:
       - targets: ['node_exporter:9100'] #container_name
 ```
+##### Using Grafana, InfluxDB & Telegraph (x86 for now :heavy_check_mark:)
+
+```
+#Grafana_InfluxDB_Telegraf_docker-compose.yaml
+#docker compose up -d
+
+ [global_tags]
+
+[agent]
+  interval = "60s"
+  round_interval = true
+  metric_batch_size = 1000
+  metric_buffer_limit = 10000
+  collection_jitter = "0s"
+  flush_interval = "10s"
+  flush_jitter = "0s"
+  precision = ""
+  hostname = "192.xxx.0.xxx"
+  omit_hostname = false
+
+[[outputs.influxdb]]
+  urls = ["http://influxdb:8086"]
+  database = "influx"
+  timeout = "5s"
+  username = "telegraf"
+  password = "metricsmetricsmetricsmetrics"
+
+
+[[inputs.cpu]]
+  percpu = true
+  totalcpu = true
+  collect_cpu_time = false
+  report_active = false
+
+
+[[inputs.disk]]
+  ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
+
+
+[[inputs.diskio]]
+
+[[inputs.kernel]]
+
+[[inputs.mem]]
+
+[[inputs.processes]]
+
+[[inputs.swap]]
+
+[[inputs.system]]
+
+```
 
 ### GPIO
 
