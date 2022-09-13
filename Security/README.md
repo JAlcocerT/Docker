@@ -1,6 +1,6 @@
 ## LAN Monitoring
 
-#### WatchYourLan
+#### WatchYourLan :heavy_check_mark:
 
 Remember to use the proper IFACE, according to what the command provides in your docker's host machine:
 
