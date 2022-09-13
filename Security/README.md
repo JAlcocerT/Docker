@@ -1,3 +1,31 @@
+## LAN Monitoring
+
+#### WatchYourLan
+
+Remember to use the proper IFACE, according to what the command provides in your docker's host machine:
+
+```
+version: "3"
+services:
+  wyl:
+    image: aceberg/watchyourlan
+    container_name: watchyourlan	
+    network_mode: "host"        
+    restart: unless-stopped
+    volumes:
+    - ~/Docker/watchyourlan/wyl:/data
+    environment:
+      TZ: Europe/Paris              # required: needs your TZ for correct time
+      IFACE: "eth0"                     # required: 1 or more interface, use the command 'ip link conf' and use the second entry
+      DBPATH: "/data/db.sqlite"         # optional, default: /data/db.sqlite
+      GUIIP: "0.0.0.0"                  # optional, default: localhost
+      GUIPORT: "8840"                   # optional, default: 8840
+      TIMEOUT: "120"                    # optional, time in seconds, default: 60
+      SHOUTRRR_URL: ""                  # optional, set url to notify
+      THEME: "darkly"                   # optional
+
+```
+
 ## VPN's
 
 Check: curl ifconfig.io
