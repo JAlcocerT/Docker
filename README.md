@@ -105,7 +105,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Podgrab
 
 * Security:
-    * Watchyourlan
+    * Watchyourlan :heavy_check_mark:
     * Whoogle
     * Proxies
       * NGINX + SSL :heavy_check_mark:
