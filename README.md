@@ -106,8 +106,9 @@ Everything needed to run a software application successfully can be stored in a 
 
 * Security:
     * Watchyourlan :heavy_check_mark:
-    * Whoogle
+    * Whoogle :heavy_check_mark:
     * Proxies
+      * Caddy 
       * NGINX + SSL :heavy_check_mark:
       * NGINX + SSL + Fail2ban
       * NGINX + SSL + Fail2ban + Authelia
