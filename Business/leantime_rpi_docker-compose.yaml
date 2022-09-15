@@ -13,18 +13,22 @@ services:
           - MYSQL_USER=admin
           - MYSQL_PASSWORD=321.qwerty
         container_name: leantime_db
-        image: linuxserver/mariadb
+        image: linuxserver/mariadb #for ARM MariaDB is required
         restart: always
     leantime:
         ports:
             - '8483:80'
         networks: 
           - leantime-net
+        volumes:
+          - ~/Docker/Leantime/public:/var/www/html/public/userfiles
+          - ~/Docker/Leantime:/var/www/html/userfiles          
         environment:
             - LEAN_DB_HOST=db_leantime
             - LEAN_DB_USER=admin
             - LEAN_DB_PASSWORD=321.qwerty
             - LEAN_DB_DATABASE=leantime
+            - LEAN_DEFAULT_TIMEZONE= 'Europe/Berlin' # Set default server timezone            
         container_name: leantime
         image: 'leantime/leantime:latest'
         restart: always
