@@ -2,9 +2,9 @@ version: '3'
 
 services:
 
-  mariadb:
+  mariadb-dolibarr:
     image: mariadb:10.6
-    container_name: mariadb
+    container_name: mariadb-dolibarr
     restart: unless-stopped
     command: --character_set_client=utf8 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
@@ -20,7 +20,7 @@ services:
     container_name: dolibarr
     restart: unless-stopped
     depends_on:
-        - mariadb
+        - mariadb-dolibarr
     ports:
         - "8200:80"
     environment:
