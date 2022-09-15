@@ -38,7 +38,7 @@ Everything needed to run a software application successfully can be stored in a 
    * ERPs:
        * ERPNext
        * Dolibarr
-       * Odoo
+       * Odoo (ex- OpenERP)
     * Management:
        * Vikunja :heavy_check_mark:
        * Leantime (x86 & ARM, :heavy_check_mark:)
