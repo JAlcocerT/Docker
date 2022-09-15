@@ -2,6 +2,10 @@ version: '2'
 services:
   db:
     image: postgres:10
+    ports:
+      - '5432:5432'   
+    networks: 
+      - odoo-net      
     environment:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
@@ -17,5 +21,11 @@ services:
       - "db"
     ports:
       - 8069:8069
+    networks: 
+      - odoo-net        
     volumes:
       - ~/Docker/oodo/config:/etc/oodo
+      
+networks:
+  odoo-net:
+    external: false      
