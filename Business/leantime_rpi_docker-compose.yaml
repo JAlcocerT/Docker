@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+    db_leantime:
+        ports:
+          - '3306:3306'
+        networks: 
+          - leantime-net
+        volumes:
+          - ~/Docker/Leantime/db:/var/lib/mysql
+        environment:
+          - MYSQL_ROOT_PASSWORD=321.qwerty
+          - MYSQL_DATABASE=leantime
+          - MYSQL_USER=admin
+          - MYSQL_PASSWORD=321.qwerty
+        container_name: leantime_db
+        image: linuxserver/mariadb
+        restart: always
+    leantime:
+        ports:
+            - '8483:80'
+        networks: 
+          - leantime-net
+        environment:
+            - LEAN_DB_HOST=db_leantime
+            - LEAN_DB_USER=admin
+            - LEAN_DB_PASSWORD=321.qwerty
+            - LEAN_DB_DATABASE=leantime
+        container_name: leantime
+        image: 'leantime/leantime:latest'
+        restart: always
+
+networks:
+  leantime-net:
+    external: false
