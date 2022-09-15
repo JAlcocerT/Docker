@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: postgres:10
+    image: postgres:14
     ports:
       - '5432:5432'   
     networks: 
@@ -12,9 +12,9 @@ services:
       - POSTGRES_DB=postgres
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - ~/Docker/oodo:/var/lib/postgresql/data  
+      - ~/Docker/oodo2:/var/lib/postgresql/data  
   odoo:
-    image: odoo:latest
+    image: odoo:14
     links:
       - db:db
     depends_on:
@@ -24,7 +24,7 @@ services:
     networks: 
       - odoo-net        
     volumes:
-      - ~/Docker/oodo/config:/etc/oodo
+      - ~/Docker/oodo2/config:/etc/oodo
       
 networks:
   odoo-net:
