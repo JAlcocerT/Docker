@@ -41,6 +41,7 @@ Everything needed to run a software application successfully can be stored in a 
        * Odoo
     * Management:
        * Vikunja :heavy_check_mark:
+       * Leantime (x86 & ARM, :heavy_check_mark:)
 * Communication:
    * Chats:
        * Discourse 
@@ -128,13 +129,14 @@ Everything needed to run a software application successfully can be stored in a 
     * Watchtower :heavy_check_mark:
     
 *  Others:
-    * Focalboard :heavy_check_mark:
+    * Management:
+      * Focalboard :heavy_check_mark:
+      * Kanboard
+      * OpenProject (Asana alternative)
+      * Personal management system
+      * Wecan (Kanban board)
     * Grocy :heavy_check_mark:
-    * Kanboard
     * Tiddlywiki
-    * OpenProject (Asana alternative)
-    * wecan
-    * Personal management system
     * VSCode
     * Webtops
 
