@@ -1,0 +1,21 @@
+---
+version: "2.1"
+
+services:
+  wireshark:
+    image: lscr.io/linuxserver/wireshark:latest
+    container_name: wireshark
+    cap_add:
+      - NET_ADMIN #access to read network configuration
+    network_mode: host
+    environment:
+      - PUID=1000 #you can always check those with: id user_name in the CLI
+      - PGID=1000
+      - TZ=Europe/Rome
+    volumes:
+      - ~/Docker/Wireshark:/config
+    ports:
+      - 3000:3000 #optional
+    restart: unless-stopped
+
+#user & pass by default is abc
