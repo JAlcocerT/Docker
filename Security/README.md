@@ -186,13 +186,17 @@ It can be used together with Pi-Hole, add the container ip and port in: Settings
 ```
 sudo docker run --name my-unbound-dns -d -p 54:53/udp -p 54:53/tcp \
 --restart=always mvance/unbound:latest
+
+
+sudo docker run --name my-unbound-dns -d -p 54:53/udp -p 54:53/tcp \
+--restart=always mvance/unbound-rpi:latest
 ```
 
 #### Wireshark :heavy_check_mark:
 You can check what is going on in your network with Wireshark, or for example if unbound is doing its job.
 
 ```
-sudo docker-compose up -d
+sudo docker-compose up -d #port 3000 by default
 ```
 
 #### Watchtower :heavy_check_mark:
