@@ -188,7 +188,7 @@ sudo docker run --name my-unbound-dns -d -p 54:53/udp -p 54:53/tcp \
 --restart=always mvance/unbound:latest
 
 
-sudo docker run --name my-unbound-dns -d -p 54:53/udp -p 54:53/tcp \
+sudo docker run --name my-unbound-dns -d -p 5335:53/udp -p 5335:53/tcp \
 --restart=always mvance/unbound-rpi:latest
 ```
 
