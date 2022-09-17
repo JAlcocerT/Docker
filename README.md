@@ -106,7 +106,10 @@ Everything needed to run a software application successfully can be stored in a 
     * Podgrab
 
 * Security:
+    * CoreDNS
+    * Unbound 
     * Watchyourlan :heavy_check_mark:
+    * Wireshark :heavy_check_mark:
     * Whoogle :heavy_check_mark:
     * Proxies
       * Caddy 
@@ -125,6 +128,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Crowdsec 
     * Fail2ban  
     * Pihole :heavy_check_mark:
+    * PiHole + Cloudflare (DNS over HTTPs)
     * Pi-Alert
     * Watchtower :heavy_check_mark:
     
