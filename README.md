@@ -107,7 +107,7 @@ Everything needed to run a software application successfully can be stored in a 
 
 * Security:
     * CoreDNS
-    * Unbound 
+    * Unbound :heavy_check_mark:
     * Watchyourlan :heavy_check_mark:
     * Wireshark :heavy_check_mark:
     * Whoogle :heavy_check_mark:
