@@ -261,6 +261,16 @@ docker-compose restart synapse
 
 ## Privacy
 
+#### Invidious
+
+```
+git clone https://github.com/iv-org/invidious.git
+cd invidious
+nano docker-compose.yml #modify it to your preferences
+```
+
+#### Piped
+
 #### Whoogle
 
 ```
