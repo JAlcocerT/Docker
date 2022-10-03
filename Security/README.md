@@ -257,3 +257,12 @@ nano synapse-data/homeserver.yaml
 enable_registration: true
 docker-compose restart synapse
 ```
+
+
+## Privacy
+
+#### Whoogle
+
+```
+docker run --publish 5000:5000 --detach --name whoogle-search benbusby/whoogle-search:latest
+```
