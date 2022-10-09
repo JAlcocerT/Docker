@@ -161,6 +161,9 @@ Everything needed to run a software application successfully can be stored in a 
       * Wix
       * Ghost
       * Chevereto
+    * Instagram alternatives
+      * Pixelfed
+      * Vero
     * Firefox :heavy_check_mark:
     * Moodle
  * Python apps
