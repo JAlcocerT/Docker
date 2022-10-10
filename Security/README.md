@@ -174,8 +174,10 @@ sudo docker-compose up -d
 
 #Change DNS on the device or on the router(applicable to all devices connected to the LAN) to the rpi address. For example to 192.168.1.31
     
-#nslookup (windows to check router address)
-    
+#nslookup (to check which dns you are using)
+#sudo apt-get install dnsutils
+#nslookup reddit.com  #you should see the server/rpi local lan ip address as the server and the port 53 as its the default for DNS  
+#if you are running tailscale, be aware of the conflicts with magicdns if its enabled there  
   
 docker container ls
 docker inspect 4648tgIDngkfo30 #get IP address
