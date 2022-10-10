@@ -139,7 +139,7 @@ Everything needed to run a software application successfully can be stored in a 
       * Kanboard
       * OpenProject (Asana alternative)
       * Personal management system
-      * Trilium
+      * Trilium :heavy_check_mark:
       * Wecan (Kanban board)
     * Grocy :heavy_check_mark:
     * Tiddlywiki
