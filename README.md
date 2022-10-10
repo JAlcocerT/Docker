@@ -106,7 +106,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Podgrab
 
 * Security:
-    * Cloudflare tunnel
+    * Cloudflare - zero trust tunnel :heavy_check_mark:
     * CoreDNS
     * Unbound :heavy_check_mark:
     * Watchyourlan :heavy_check_mark:
