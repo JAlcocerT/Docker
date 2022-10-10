@@ -121,6 +121,16 @@ https://geekland.eu/instalar-configurar-y-usar-fail2ban-para-evitar-ataques-de-f
 
 ## Proxies
 
+### Cloudflare - zero trust :heavy_check_mark:
+
+Tunnels allow you to easily and securely connect your environment to Cloudflare so that your users can reach public or private resources.
+<https://dash.teams.cloudflare.com/>
+Create a tunnel and you will get a docker run command like:
+
+```
+sudo docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token whatevertokencloudflarewillassigntoyou
+```
+
 #### NginX :heavy_check_mark:
 
 <https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
