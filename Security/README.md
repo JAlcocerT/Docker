@@ -176,7 +176,7 @@ sudo docker-compose up -d
     
 #nslookup (to check which dns you are using)
 #sudo apt-get install dnsutils
-#nslookup reddit.com  #you should see the server/rpi local lan ip address as the server and the port 53 as its the default for DNS  
+#nslookup reddit.com/pi.hole  #you should see the server/rpi local lan ip address as the server and the port 53 as its the default for DNS  
 #if you are running tailscale, be aware of the conflicts with magicdns if its enabled there  
   
 docker container ls
