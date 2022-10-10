@@ -173,13 +173,14 @@ Everything needed to run a software application successfully can be stored in a 
 
 
 ### Install docker & docker compose & portainer :heavy_check_mark:
+
 ```
+#sudo apt update & apt upgrade
 sudo apt install docker.io -y & sudo docker version
 
 sudo apt-get install docker-compose -y & sudo docker-compose --version
 
 sudo docker run -d -p 9000:9000 -p 8000:8000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v ~/Docker/portainer:/data portainer/portainer-ce
-
 ```
 
 To get to know what's the private address of your device and access portainer, simply use: ifconfig, then privateipserver:9000
