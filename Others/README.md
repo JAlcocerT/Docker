@@ -16,6 +16,20 @@ docker run --name grocy -d \
   lscr.io/linuxserver/grocy
 ```
 
+#### Trilium :heavy_check_mark:
+
+```
+version: '3.3'
+services:
+    trilium:
+        ports:
+            - '8482:8080'
+        volumes:
+            - '~/Docker/Trilium:/home/node/trilium-data'
+        image: 'zadam/trilium:latest'
+        restart: always
+```
+
 #### Focalboard (x86 only :heavy_check_mark:)
 
 It needs to have running already the [nginx container](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml) (with its nginx_default network).
