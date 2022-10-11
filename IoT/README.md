@@ -16,10 +16,13 @@ docker-compose up -d
 #### open Speed test :heavy_check_mark:
 docker run --restart=unless-stopped --name openspeedtest -d -p 3000:3000 -p 3001:3001 openspeedtest/latest
 
-#### Internet Speed Tracker (X86 only :heavy_check_mark:)
+#### Internet Speed Tracker (X86 only, :heavy_check_mark:)
 
-wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/IoT/InternetSpeedTracker.yaml > docker-compose.yaml
+It works with a UI, whcih you can query any time that you need to make the internet test locally.
+```
+wget -cO - https://raw.githubusercontent.com/JAlcocerT/docker/main/IoT/InternetSpeedTracker.yaml > docker-compose.yaml
 docker-compose up -d
+```
 
 ### Graphana
 
@@ -57,6 +60,15 @@ docker run -d --name=netdata \
 --security-opt apparmor=unconfined \
 netdata/netdata
 ```
+
+#### Grafana InfluxDB SpeedTest
+```
+sudo git clone https://github.com/frdmn/docker-speedtest-grafana grafana_speedtest #clone the repo to the folder grafana_speedtest
+sudo cp .env.sample .env
+sudo nano .env
+sudo docker-compose up -d
+```
+
 ### Server Monitoring
 ##### Using Grafana, Prometheus & Node Exporter :heavy_check_mark:
 
