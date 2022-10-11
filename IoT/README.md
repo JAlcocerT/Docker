@@ -6,15 +6,25 @@
 ```
 cd ~/Docker
 git clone https://github.com/geerlingguy/internet-monitoring MonitoringInternet
-cd internet-monitoring
-sudo nano docker-compose.yml
+cd MonitoringInternet
+docker-compose up -d
+#https://github.com/geerlingguy/internet-pi/tree/master/internet-monitoring
+
+#git clone https://github.com/geerlingguy/internet-monitoring MonitoringInternet
+#cd MonitoringInternet
+#sudo nano docker-compose.yml
 #https://github.com/geerlingguy/internet-monitoring
 #pass to be modified in the env file located at grafana/config.monitoring
-```
+
 docker-compose up -d
+```
+
 
 #### open Speed test :heavy_check_mark:
+
+```
 docker run --restart=unless-stopped --name openspeedtest -d -p 3000:3000 -p 3001:3001 openspeedtest/latest
+```
 
 #### Internet Speed Tracker (X86 only, :heavy_check_mark:)
 
