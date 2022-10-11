@@ -16,6 +16,7 @@ docker-compose up -d
 #https://github.com/geerlingguy/internet-monitoring
 #pass to be modified in the env file located at grafana/config.monitoring
 
+#sudo nano ./prometheus/pinghosts.yaml
 docker-compose up -d
 ```
 
