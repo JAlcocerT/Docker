@@ -44,6 +44,15 @@ Edit wp-config.php file
 sudo docker-compose up -d
 ```
 
+#### Pixelfed
+
+```
+git clone https://github.com/pixelfed/pixelfed && cd pixelfed
+git config --global --add safe.directory /home/reisikei/Docker/pixelfed
+git tag
+git checkout tags/v0.11.2
+```
+
 #### Chevereto
 
 ```
