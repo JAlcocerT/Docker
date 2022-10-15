@@ -66,6 +66,7 @@ Everything needed to run a software application successfully can be stored in a 
         * Home Bridge
         * OpenHab
     * Internet speed tracker :heavy_check_mark:
+    * OpenSpeedTest :heavy_check_mark:
     * Flame 
     * GPIO
     * Dashboards:
