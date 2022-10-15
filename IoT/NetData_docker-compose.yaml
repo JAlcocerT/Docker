@@ -1,3 +1,6 @@
+---
+version: "2.1"
+services:
   netdata:
     container_name: netdata
     image: netdata/netdata
