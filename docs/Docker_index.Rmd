@@ -32,12 +32,11 @@ Nowadays there are a lot of businesses doing their transformation towards data, 
 
 Linux and specifically docker containers that will be discussed here are an inevitable topic through this journey and with this really simple web I would like to make it as simple as possible for new people trying out this technologies.
 
-I would like to give a reference for my other website that covers linux topics, since its closely related on how docker/cloud works: <https://reisikei.github.io/Linux/> 
+I would like to give a reference for my other website that covers linux topics, since its closely related on how docker/cloud works: <https://jalcocert.github.io/Linux/> 
 
 Remember that whatever application you get to run in Docker in your PC, you could make it run in a small low power device such a raspberry pi [^2], or to the mentioned powerful super computers that will train our latest algorithms on the cloud.
 
  
-
 
 # Docker
 
@@ -49,7 +48,7 @@ Option 1:
 ```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
 ### INSTALL DOCKER
 
-sudo apt update
+sudo apt update & \
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
@@ -72,14 +71,13 @@ sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -
 #docker run hello-world
 ```
 
-##### Last time tested on Sept 2021 `r a`
 
 Option 2:
 
-On [this github repository](https://github.com/reisikei/docker/blob/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer), there is the possibility to download and install directly a bash program with all the previous commands by typing only this on the terminal:
+On [this github repository](https://github.com/jalcocert/docker/blob/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer), there is the possibility to download and install directly a bash program with all the previous commands by typing only this on the terminal:
 
 ```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
+wget  -cO - https://raw.githubusercontent.com/jalcocert/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
 ```
 
 It will be useful to check you uid and gid with:
@@ -87,50 +85,6 @@ It will be useful to check you uid and gid with:
 grep $USER /etc/passwd
 ```
 
-
-##### Last time tested on Oct 2021 `r a`
-
-### Torrents within Docker
-
-#### Qbittorrent
-
-#### Transmission Telegram Bot
-
-### Nextcloud
-
-In linux systems it is as simple as running the following commands in the terminal after having installed docker:
-
-```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
-sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_container nextcloud 
-
-```
-
-Remember to update the list of trusted domains so that other devices can log, we can see the current list with:
-
-```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
-sudo docker exec --user www-data nextcloud_container php occ config:system:get trusted_domains
-```
-
-To add a new domain/ internal ip, simply:
-
-```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
-sudo docker exec --user www-data nextcloud_container php occ config:system:set trusted_domains 7 --value 192.168.1.30:8080
-
-```
-
-You can check your device internal IP adress with:
-
-```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
-hostname -I
-```
-
-To access nextcloud while being out of home, simply configure your VPN, for example with tailscale, and add the internal Ip address assign by tail scale as shown two commands before.
-
-As this would fall under general linux systems, the guide sits on: <https://reisikei.github.io/Linux/#Tailscale>
-
-##### Last time tested on Oct 2021 `r a`
-
-To make the data part of the docker installation read/write on a external hard drive is a key part that most of us could be interested at some point, for that we can:
 
 
 
@@ -182,6 +136,6 @@ Example:
 ```
 
 
-[^1]: All the files that I use to configure the servers, including this web as well, are in the public repository: <https://github.com/reisikei/docker>  
+[^1]: All the files that I use to configure the servers(your old laptop or an RaspberryPi would do the job too to test it out), including this web as well, are in the public repository: <https://github.com/jalcocert/docker>  
 
-[^2]: Recommended setups and projects for the RPi (involving Docker as well) on <https://reisikei.github.io/RPi/>
+[^2]: Recommended setups and projects (for example self-hosting) for the RPi (involving Docker as well) on <https://jalcocert.github.io/RPi/>
