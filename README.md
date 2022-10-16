@@ -27,6 +27,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Photos: 
       * Lychee 
       * Photoprism
+      * Photoview
       * Piwigo
     * RClone :heavy_check_mark:
     * RSync
@@ -168,8 +169,10 @@ Everything needed to run a software application successfully can be stored in a 
       * Vero
     * Firefox :heavy_check_mark:
     * Moodle
- * Python apps
- * Shiny dashboards
+ * Dev
+    * Gitea :heavy_check_mark:
+    * Python apps
+    * Shiny dashboards
 
 
 
