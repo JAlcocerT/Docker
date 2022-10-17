@@ -25,6 +25,7 @@ Everything needed to run a software application successfully can be stored in a 
       * Ubuntu :heavy_check_mark:
       * RPI :heavy_check_mark:
     * Photos: 
+      * LibrePhotos
       * Lychee 
       * Photoprism
       * Photoview
