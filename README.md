@@ -87,6 +87,10 @@ Everything needed to run a software application successfully can be stored in a 
     * Uptime Kuma
     
 * Media
+    * E-Books
+       * Calibre
+       * Kavita
+       * Koodo reader
     * Jellyfin :heavy_check_mark:
     * Kodi
     * Plex
@@ -155,16 +159,17 @@ Everything needed to run a software application successfully can be stored in a 
     * Dynamic DNS
        * DuckDNS :heavy_check_mark:
        * No-IP
-    * Hosting
+    * Sites
       * Bludit
+      * HUGO 
       * Wordpress Ubuntu single site :heavy_check_mark:
       * Wordpress Ubuntu multi site
       * Wordpress RPi single site :heavy_check_mark:
       * Wordpress RPi single sites X NginX --> multi sites
       * Wix
       * Ghost
-      * Chevereto
     * Instagram alternatives
+      * Chevereto
       * Pixelfed
       * Vero
     * Firefox :heavy_check_mark:
