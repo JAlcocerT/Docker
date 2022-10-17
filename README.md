@@ -150,6 +150,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Grocy :heavy_check_mark:
     * Tiddlywiki
     * VSCode
+    * Firefox
     * Webtops
 
 * Web
@@ -159,7 +160,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Dynamic DNS
        * DuckDNS :heavy_check_mark:
        * No-IP
-    * Sites
+    * CMS/Sites
       * Bludit
       * HUGO 
       * Wordpress Ubuntu single site :heavy_check_mark:
@@ -172,7 +173,6 @@ Everything needed to run a software application successfully can be stored in a 
       * Chevereto
       * Pixelfed
       * Vero
-    * Firefox :heavy_check_mark:
     * Moodle
  * Dev
     * Gitea :heavy_check_mark:
