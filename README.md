@@ -103,6 +103,9 @@ Everything needed to run a software application successfully can be stored in a 
     * Bazar :heavy_check_mark:
     * Couchpotato :heavy_check_mark:
     * Jacket :heavy_check_mark:
+    * Mylar3
+    * Readarr
+    * Midarr
     * Radarr :heavy_check_mark:
     * Sonarr :heavy_check_mark:
     * ArchiveBox
@@ -155,8 +158,10 @@ Everything needed to run a software application successfully can be stored in a 
 
 * Web
     * Analytics
-       * Umami
+       * Matomo
        * Plausible
+       * Posthog
+       * Umami
     * Dynamic DNS
        * DuckDNS :heavy_check_mark:
        * No-IP
@@ -169,6 +174,10 @@ Everything needed to run a software application successfully can be stored in a 
       * Wordpress RPi single sites X NginX --> multi sites
       * Wix
       * Ghost
+    * Forms (HTML)
+      * Alpaca
+      * Drupal
+      * OhMyForm
     * Instagram alternatives
       * Chevereto
       * Pixelfed
@@ -178,8 +187,6 @@ Everything needed to run a software application successfully can be stored in a 
     * Gitea :heavy_check_mark:
     * Python apps
     * Shiny dashboards
-
-
 
 ### Install docker & docker compose & portainer :heavy_check_mark:
 
