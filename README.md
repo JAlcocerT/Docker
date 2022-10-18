@@ -183,6 +183,9 @@ Everything needed to run a software application successfully can be stored in a 
       * Chevereto
       * Pixelfed
       * Vero
+    * Static Web Server
+      * Apache
+      * NginX
     * Moodle
  * Dev
     * Gitea :heavy_check_mark:
