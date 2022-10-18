@@ -6,7 +6,7 @@
 
 #### Plausible
 
-## Web
+## CMS
 
 #### Wordpress
 
@@ -134,6 +134,13 @@ https://raw.githubusercontent.com/JAlcocerT/Docker/main/Web/DuckDNS_docker_compo
 ```
 
 ```
+
+## Static web servers:
+
+#### Apache
+
+
+#### NginX
 
 ## Others
 
