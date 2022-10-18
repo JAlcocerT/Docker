@@ -215,120 +215,140 @@ To get to know what's the private address of your device and access portainer, s
 docker run -d -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock -v ~/Dockeryacht:/config selfhostedpro/yacht
 ```
 
-## Useful Docker commands
+### Useful Docker commands
 
-* see processes running
+* Processes running:
+
  ``` 
  ps fax 
  ```
 
 * List containers:
+
   ```
   docker ps
   ```
 
 * List all containers, even the stopped:
+
   ```
   docker ps -a | head
   ```
 
-* list all images
+* List all images:
+
   ```
   docker image ls
   ```
 
-* remove unsed images
+* Remove unsed images:
+
   ```
   docker image prune -a
   ```
 
 * Test that docker works with this image:
-* 
+
   ```
   docker run hello-world
   ```
 
 * Another image to test:
+
   ```
   docker pull alpine
-  docker pull alpine:3.7
+  docker pull alpine:3.7 #a specific version
   ```
 
-* Run some command inside the cointainer
+* Run some command inside the cointainer:
+
   ```
   docker run alpine:3.7 ls -l
   ```
   
 * Interactive terminal of the container (execute it and stops the container) :
+
   ```
   docker run -it alpine:3.7 sh
   ```
 
-* Execute a process inside a container and keep it running if needed :
+* Execute a process inside a container and keep it running if needed:
+
   ```
   docker run -d nginx:1.15.7 
   docker run -p 80:80 -d nginx (start nginx web server on port 80)
   ```
 
-* executes a command on a running container
+* Executes a command on a running container:
+
   ```
   docker exec -it 554kjgIDfgeofm sh
    
   exit
-  docker stop yjbf7i3ID3jkj67
+  docker stop yjbf7i3ID3jkj67 #contained ID
   docker rm yjbf7i3ID3jkj67
   ```
   
-* Kali on docker
+* Kali on docker:
+
 ```
 docker pull kalilinux/kali-rolling
 docker run --tty --interactive kalilinux/kali-rolling
 ```
 
-* mount volumes:
+* Mount volumes:
   in docker folder:
 ```
   docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -d nginx:1.15.7
-                 mount this file    into this path with this name, read only  keep it running, image
+                 #mount this file --->  #into this path with this name, read only image & version
 ```
-* ports:
+
+* Ports:
+
 ```
-  expose a port from the container to the host (machine:container)
+  #expose a port from the container to the host --->                 (machine:container)
   docker run -v ~/docker/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7      
 ```
 
-* change the restart policy of an existing container:
+* Change the restart policy of an existing container:
+* 
   ```
   docker update --restart unless-stopped running_container_name
   ```
   
 * Change the policy of all the containers running:
+
   ```
   docker update --restart unless-stopped $(docker ps -q)
   ```
  
 * Restart all containers:
+
  ```
  docker restart $(docker ps -a -q)
  ```
  
- * Stop all containers
+ * Stop all containers:
+ 
  ```
  docker container stop $(docker container ls -aq)
  ```
  
- * Remove all stopped containers
+ * Remove all stopped containers:
+ 
  ```
  docker container rm $(docker container ls -aq)
  ```
 
-* create image of a container:
+* Create image of a container:
+
   ```
   docker commit 4699hf7ID7hfty
   docker image ls | head
   ```
   
-* create a tag for the image:
+* Create a tag for the image:
+
   ```
   docker image tag 4699hf7ID7hfty midocker
   docker image tag 4699hf7ID7hfty midocker:1.0
@@ -337,7 +357,7 @@ docker run --tty --interactive kalilinux/kali-rolling
   docker run ubuntu figlet hola (wont run since it does not have figlet by default)
   ```
 
-* docker file: container based on other image
+* Docker file: container based on other image
   FROM ubuntu
 
   vim Dockerfile
@@ -347,33 +367,38 @@ docker run --tty --interactive kalilinux/kali-rolling
   docker build -t midocker:1.1
   docker run midocker:1.1 figlet hola
 
-* see the history of an image (historical commands)
+* See the history of an image (historical commands)
   ```
   docker image history 4699hf7ID7hfty
   ```
 
 
+#### DOCKER VOLUMES: 
 
-### DOCKER VOLUMES: 
-  * changes inside the container will be gone unless volumes are used
-  * mount points inside the container
+  * Changes inside the container will be gone unless volumes are used
+  * Mount points inside the container
   
-  * check the data stored in volumes (the same volume mounted on a new container, will have the same info available):
+  * Check the data stored in volumes (the same volume mounted on a new container, will have the same info available):
   
   ```
   docker volume ls
   ```
 
 
-### ENV files:
-  By having an .env file on the same folder that the docker-compose.yaml file,
-  the file can be simplified:
+#### ENV files:
+
+  By having an .env file on the same folder that the docker-compose.yaml file, will make the configuration file simpler/allow us to automate:
 
 
-    ### (CLI)
+* With CLI:
+
+```
     docker run -d --name example --env-file vars_file.env ubuntu:latest --restart unless-stopped
+```
 
-    ### (Docker compose)
+* With Docker compose:
+
+```
     ---
     version: "2.1"
     services:
@@ -394,3 +419,4 @@ docker run --tty --interactive kalilinux/kali-rolling
           - 22000:22000/udp
           - 21027:21027/udp
         restart: unless-stopped
+```
