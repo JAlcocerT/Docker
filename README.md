@@ -4,7 +4,7 @@ Public repo that serves as a pillar for self-hosting pourposes, a companion for:
 
 This document is done in markdown [(try it! :black_nib:).](https://github.com/JAlcocerT/Docker/edit/main/README.md)
 
-### Intro
+### Intro: Why Docker?
 
 Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.
 
@@ -16,7 +16,7 @@ Containers remain lightweight by sharing the OS they run on while isolating proc
 Everything needed to run a software application successfully can be stored in a container to make development and deployment more efficient. For this reason, containers are perfect for running microservices.
 
 
-### Content structure
+## Repo's Content Structure:
 
 * Backups:
     * Duplicati :heavy_check_mark:
@@ -196,7 +196,9 @@ Everything needed to run a software application successfully can be stored in a 
     * Python apps
     * Shiny dashboards
 
-### Install docker & docker compose & portainer :heavy_check_mark:
+## Good to know
+
+### Install docker & docker compose & portainer
 
 ```
 #sudo apt update & apt upgrade
@@ -209,7 +211,7 @@ sudo docker run -d -p 9000:9000 -p 8000:8000 --name portainer --restart always -
 
 To get to know what's the private address of your device and access portainer, simply use: ifconfig, then privateipserver:9000
 
-### Install Yacht (Portainer alternative) :heavy_check_mark:
+### Install Yacht (Portainer alternative)
 
 ```
 docker run -d -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock -v ~/Dockeryacht:/config selfhostedpro/yacht
