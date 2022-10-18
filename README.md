@@ -1,4 +1,8 @@
-Public repo that serves as a pillar for the github page built on: <https://jalcocert.github.io/RPi/#Prerequisites>
+Public repo that serves as a pillar for self-hosting pourposes, a companion for:
+* Github Page built on: <https://jalcocert.github.io/RPi/#Prerequisites>
+* The Linux GH page: <https://github.com/JAlcocerT/Linux>
+
+This document is done in markdown [(try it! :black_nib:).](https://github.com/JAlcocerT/Docker/edit/main/README.md)
 
 ### Intro
 
