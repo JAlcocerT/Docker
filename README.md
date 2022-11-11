@@ -31,6 +31,8 @@ Everything needed to run a software application successfully can be stored in a 
     * Photos: 
       * LibrePhotos
       * Lychee 
+      * PiGallery
+      * Photonix
       * Photoprism
       * Photoview
       * Piwigo
