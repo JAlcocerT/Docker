@@ -34,7 +34,7 @@ Everything needed to run a software application successfully can be stored in a 
       * PiGallery
       * Photonix
       * Photoprism
-      * Photoview -> file system friendly
+      * Photoview :heavy_check_mark: -> file system friendly
       * Piwigo
     * RClone :heavy_check_mark:
     * RSync
