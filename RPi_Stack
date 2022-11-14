@@ -82,7 +82,8 @@ services:
       - TZ=Europe/Warsaw
     volumes:
       - ~/Docker/Syncthing/config:/config
-      - ~/Docker/Syncthing/Photoview:/data1:rw 
+      - ~/Docker/Syncthing/Photoview:/data1
+      - /media/pi/Nowy/Syncthing_RPi:/data2
     ports:
       - 8384:8384
       - 22000:22000/tcp
