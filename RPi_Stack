@@ -90,3 +90,24 @@ services:
       - 22000:22000/udp
       - 21027:21027/udp
     restart: unless-stopped
+    
+    
+    
+    
+    
+
+
+version: "3"
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    ports:
+      - "4533:4533"
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_BASEURL: ""
+    volumes:
+      - "~/Docker/navidrome/data:/data"
+      - "~/Docker/Syncthing/config/Aficiones/Musica:/music:ro"
