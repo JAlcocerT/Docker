@@ -117,7 +117,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Sonarr :heavy_check_mark:
     * ArchiveBox
     * Supysonic
-    * Navidrome
+    * Navidrome :heavy_check_mark:
     * Mumble
     * Podgrab
 
