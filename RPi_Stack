@@ -1,5 +1,5 @@
 
-sudo apt-get update & sudo apt-get upgrade & sudo reboot
+sudo apt-get update & sudo apt-get upgrade -y & sudo reboot
 curl -sSL https://get.docker.com | sh
 
 sudo apt-get install libffi-dev libssl-dev & \
