@@ -80,8 +80,8 @@ services:
       - PGID=1000
       - TZ=Europe/Warsaw
     volumes:
-      - ~/Docker/Syncthing/config:/config
-      - ~/Docker/Syncthing/Photoview:/data1
+      - /home/rpi_user_name/Docker/Syncthing/config:/config
+      - /home/rpi_user_name/Docker/Syncthing/Photoview:/data1
       - /media/pi/Nowy/Syncthing_RPi:/data2
     ports:
       - 8384:8384
@@ -127,7 +127,7 @@ services:
     restart: always
     container_name: nextclouddb
     volumes:
-      - ~/Docker/nextcloud/db:/var/lib/mysql
+      - /home/rpi_user_name/Docker/nextcloud/db:/var/lib/mysql
     environment:
       - MYSQL_INITDB_SKIP_TZINFO=1
       - MYSQL_ROOT_PASSWORD=rootpass
@@ -144,7 +144,7 @@ services:
     links:
       - db
     volumes:
-      - ~/Docker/nextcloud/html:/var/www/html
+      - /home/rpi_user_name/Docker/nextcloud/html:/var/www/html
     environment:
       - MYSQL_PASSWORD=ncpass
       - MYSQL_DATABASE=nextcloud
