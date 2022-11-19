@@ -4,6 +4,7 @@
 #And set a new one - so that you can access your files from another device in your local network - VPN:
 #docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 7 --value 192.168.1.11:8080
 #docker exec --user www-data nextcloud_container_name php occ config:system:set trusted_domains 8 --value 100.100.100.11:8080
+#the location is /var/www/html/config/config.php
 
 #TRUSTED DOMAIN SOLUTION 1
 #  enviroment:
