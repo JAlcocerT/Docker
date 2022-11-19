@@ -12,14 +12,13 @@ sudo systemctl enable docker & \
 
 sudo systemctl status docker
 sudo apt-get install docker-compose-plugin
-sudo apt install docker-compose
+sudo apt install docker-compose -y
 sudo docker compose version
 
 sudo systemctl start docker
 systemctl status docker.service
 
-
-docker run hello-world
+sudo docker run hello-world
 
 
 
