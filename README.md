@@ -31,7 +31,6 @@ Everything needed to run a software application successfully can be stored in a 
     * Photos: 
       * LibrePhotos
       * Lychee 
-      * PiGallery
       * Photonix
       * Photoprism
       * Photoview :heavy_check_mark: -> file system friendly
@@ -99,6 +98,8 @@ Everything needed to run a software application successfully can be stored in a 
        * Calibre
        * Kavita
        * Koodo reader
+    * Photos: 
+      * PiGallery :heavy_check_mark: -> GPX & file system friendly friendly   
     * Jellyfin :heavy_check_mark:
     * Kodi
     * Plex
