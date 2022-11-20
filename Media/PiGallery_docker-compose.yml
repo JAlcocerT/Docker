@@ -1,0 +1,30 @@
+version: '3'
+services:
+  pigallery-db:
+    container_name: pigallery-db
+    image: mariadb
+    volumes:
+      - /home/reisipi/Docker/pigallery:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=pigallery2_pass
+      - MYSQL_USER=pigallery2
+      - MYSQL_PASSWORD=pigallery2_pass
+      - MYSQL_DATABASE=pigallery2
+
+  pigallery2:
+    image: bpatrik/pigallery2:latest
+    command: sh -c 'bin/wait-for pigallery-db:3306 -- --Server-Database-mysql-host=pigallery-db --Server-Database-mysql-username=pigallery2 --Server-Database-mysql-password=pigallery2_pass --Server-Database-mysql-database=pigallery2'
+    container_name: pigallery2
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - "/home/reisipi/Docker/pigallery/config:/app/data/config" # CHANGE ME
+      - "db-data:/app/data/db"
+      - "/home/reisipi/Docker/nextcloud2/html/data/rejsikej/files/Photos:/app/data/images:ro" # CHANGE ME, ':ro' mean read-only
+      - "/home/reisipi/Docker/pigallery/tmp:/app/data/tmp" # CHANGE ME
+    expose:
+      - "81"
+    restart: always
+
+volumes:
+  db-data:
