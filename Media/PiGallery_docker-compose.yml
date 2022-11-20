@@ -2,7 +2,7 @@ version: '3'
 services:
   pigallery-db:
     container_name: pigallery-db
-    image: mariadb
+    image: linuxserver/mariadb
     volumes:
       - /home/reisipi/Docker/pigallery:/var/lib/mysql
     environment:
