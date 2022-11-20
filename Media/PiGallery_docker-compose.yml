@@ -1,10 +1,32 @@
 version: '3'
 services:
+  pigallery2:
+    image: bpatrik/pigallery2:latest
+    container_name: pigallery2
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - "/home/your_rpi_user/Docker/pigallery/config:/app/data/config" # CHANGE ME
+      - "db-data:/app/data/db"
+      - "/home/your_rpi_user/Docker/nextcloud2/html/data/rejsikej/files/Photos:/app/data/images:ro" # CHANGE ME, ':ro' mean read-only
+      - "/home/your_rpi_user/Docker/pigallery/tmp:/app/data/tmp" # CHANGE ME
+    ports:
+      - 81:80
+    restart: "no"
+
+volumes:
+  db-data:
+
+
+
+
+version: '3'
+services:
   pigallery-db:
     container_name: pigallery-db
     image: linuxserver/mariadb
     volumes:
-      - /home/reisipi/Docker/pigallery:/var/lib/mysql
+      - /home/your_rpi_user/Docker/pigallery:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=pigallery2_pass
       - MYSQL_USER=pigallery2
@@ -18,13 +40,16 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      - "/home/reisipi/Docker/pigallery/config:/app/data/config" # CHANGE ME
+      - "/home/your_rpi_user/Docker/pigallery/config:/app/data/config" # CHANGE ME
       - "db-data:/app/data/db"
-      - "/home/reisipi/Docker/nextcloud2/html/data/rejsikej/files/Photos:/app/data/images:ro" # CHANGE ME, ':ro' mean read-only
-      - "/home/reisipi/Docker/pigallery/tmp:/app/data/tmp" # CHANGE ME
-    expose:
-      - "81"
+      - "/home/your_rpi_user/Docker/nextcloud2/html/data/rejsikej/files/Photos:/app/data/images:ro" # CHANGE ME, ':ro' mean read-only
+      - "/home/your_rpi_user/Docker/pigallery/tmp:/app/data/tmp" # CHANGE ME
+    ports:
+      - 81:80
     restart: always
 
 volumes:
   db-data:
+  
+  
+  
