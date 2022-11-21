@@ -100,26 +100,28 @@ Everything needed to run a software application successfully can be stored in a 
        * Koodo reader
     * Photos: 
       * PiGallery :heavy_check_mark: -> GPX & file system friendly friendly   
-    * Jellyfin :heavy_check_mark:
-    * Kodi
-    * Plex
-    * Emby
+    * Entertainment  
+      * Jellyfin :heavy_check_mark:
+      * Kodi
+      * Plex
+      * Emby
+      * Couchpotato :heavy_check_mark:
+      * Jacket :heavy_check_mark:
+      * Mylar3
+      * Midarr      
     * Calibre :heavy_check_mark:
-    * Supysonic    
-    * Transmission :heavy_check_mark:
-    * rtorrent :heavy_check_mark:
-    * Qbittorrent :heavy_check_mark:
-    * Bazar :heavy_check_mark:
-    * Couchpotato :heavy_check_mark:
-    * Jacket :heavy_check_mark:
-    * Mylar3
     * Readarr
-    * Midarr
-    * Radarr :heavy_check_mark:
-    * Sonarr :heavy_check_mark:
+    * P2P
+      * Transmission :heavy_check_mark:
+      * rTorrent :heavy_check_mark:
+      * Qbittorrent :heavy_check_mark:
+      * Radarr :heavy_check_mark:
+      * Sonarr :heavy_check_mark:
+      * Bazar :heavy_check_mark:
     * ArchiveBox
-    * Supysonic
-    * Navidrome :heavy_check_mark:
+    * Music
+      * Supysonic
+      * Navidrome :heavy_check_mark:
     * Mumble
     * Podgrab
 
