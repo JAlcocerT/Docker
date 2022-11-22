@@ -156,7 +156,10 @@ For the initial setup, check: https://nginxproxymanager.com/setup/#initial-run
 
 Remember to portforward your router to the chosen NginX selected ports on the host.
 
-When adding new services behind this nginx, they must be on the same network as nginx, normally nginx_default, this can be done in portainer or by including it in the docker compose files with:
+When adding new services behind this nginx, they must be on the same network as nginx, normally nginx_default, this can be done:
+
+* in portainer, in the container section, connected networks, then join nginx_default network
+* by including it in the docker compose files with:
 
 ```
      networks: ["nginx_default"]
@@ -167,6 +170,11 @@ networks:
         external: true
 ```
 
+* by CLI with:
+
+```
+docker network connect nginx_default your_new_container_to_go_on_nginx_network
+```
 
 
 
