@@ -43,6 +43,7 @@ services:
 #    volumes:
 #      - /home/user_name/Docker/Nginx/data:/data
 #      - /home/user_name/Docker/Nginx/letsencrypt:/etc/letsencrypt
+#    restart: always
 #  db:
 #    image: 'jc21/mariadb-aria:10.4.15'
 #    environment:
@@ -52,3 +53,4 @@ services:
 #      MYSQL_PASSWORD: 'npm'
 #    volumes:
 #      - /home/user_name/Docker/Nginx/data/mysql:/var/lib/mysql
+#    restart: always
