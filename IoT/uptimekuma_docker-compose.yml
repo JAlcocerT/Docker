@@ -6,7 +6,7 @@ services:
     ports:
       - '3001:3001'
     volumes:
-      - /home/jesalctag/Docker/uptime-kuma/data:/app/data
+      - /home/user_name/Docker/uptime-kuma/data:/app/data
     restart: unless-stopped
     networks: ["nginx_default"]    
 networks:
