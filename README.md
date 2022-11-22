@@ -122,7 +122,7 @@ Everything needed to run a software application successfully can be stored in a 
       * Bazar :heavy_check_mark:
     * ArchiveBox
     * Music
-      * Supysonic
+      * Supysonic :heavy_check_mark:
       * Navidrome :heavy_check_mark:
     * Mumble
 
@@ -173,7 +173,7 @@ Everything needed to run a software application successfully can be stored in a 
        * Matomo
        * Plausible
        * Posthog
-       * Umami
+       * Umami :heavy_check_mark:
     * Dynamic DNS
        * DuckDNS :heavy_check_mark:
        * No-IP
