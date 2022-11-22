@@ -98,7 +98,7 @@ Everything needed to run a software application successfully can be stored in a 
        * Calibre
        * Kavita
        * Koodo reader
-       * Audiobookshelf
+       * Audiobookshelf :heavy_check_mark:
     * Photos: 
       * PiGallery :heavy_check_mark: -> GPX & file system friendly friendly   
     * Entertainment  
