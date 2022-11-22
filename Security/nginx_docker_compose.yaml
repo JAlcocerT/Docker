@@ -26,4 +26,29 @@ services:
       #- ./letsencrypt:/etc/letsencrypt
       - ~/Docker/Nginx/data:/data
       - ~/Docker/Nginx/letsencrypt:/etc/letsencrypt
+      
 #admin@example.com #changeme
+
+
+
+
+#version: '3'
+#services:
+#  app:
+#    image: 'jc21/nginx-proxy-manager:latest'
+#    ports:
+#      - '80:80'
+#      - '81:81'
+#      - '443:443'
+#    volumes:
+#      - /home/user_name/Docker/Nginx/data:/data
+#      - /home/user_name/Docker/Nginx/letsencrypt:/etc/letsencrypt
+#  db:
+#    image: 'jc21/mariadb-aria:10.4.15'
+#    environment:
+#      MYSQL_ROOT_PASSWORD: 'npm'
+#      MYSQL_DATABASE: 'npm'
+#      MYSQL_USER: 'npm'
+#      MYSQL_PASSWORD: 'npm'
+#    volumes:
+#      - /home/user_name/Docker/Nginx/data/mysql:/var/lib/mysql
