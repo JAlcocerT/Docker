@@ -1,0 +1,16 @@
+version: '2.1'
+services:
+  flame:
+    image: pawelmalak/flame:latest
+    container_name: flame
+    volumes:
+      - /home/user_name/Docker/flame/data:/app/data
+    ports:
+      - 5005:5005
+    environment:
+      - PASSWORD=flame_password
+    restart: unless-stopped
+    networks: ["nginx_default"]    
+networks:
+    nginx_default:
+        external: true    
