@@ -75,7 +75,6 @@ Everything needed to run a software application successfully can be stored in a 
         * OpenHab
     * Internet speed tracker :heavy_check_mark:
     * OpenSpeedTest :heavy_check_mark:
-    * Flame 
     * GPIO
     * Dashboards:
        * NetData :heavy_check_mark:
@@ -91,7 +90,8 @@ Everything needed to run a software application successfully can be stored in a 
     * Redash
     * GOtify
     * Ntfy (notify)
-    * Uptime Kuma
+    * Uptime Kuma :heavy_check_mark:
+    * Flame :heavy_check_mark:    
     
 * Media
     * E-Books/Podcasts
