@@ -169,48 +169,7 @@ networks:
         external: true
 ```
 
-Example
-
-```
-version: "2.1"
-services:
-  podgrab:
-    image: akhilrex/podgrab
-    container_name: podgrab
-    environment:
-      - CHECK_FREQUENCY=240
-     # - PASSWORD=password     ## Uncomment to enable basic authentication, username = podgrab
-    volumes:
-      - /home/user_name/Docker/podgrab/config:/config
-      - /home/user_name/Docker/podgrab/data:/assets
-    ports:
-      - 8080:8080
-    restart: unless-stopped
-#    networks: ["nginx_default"]    
-#networks:
-#    nginx_default:
-#        external: true    
-
-
-# version: "2.1"
-# services:
-#   podgrab:
-#     image: akhilrex/podgrab
-#     container_name: podgrab
-#     environment:
-#       - CHECK_FREQUENCY=240
-#      # - PASSWORD=password     ## Uncomment to enable basic authentication, username = podgrab
-#     volumes:
-#       - /home/user_name/Docker/podgrab/config:/config
-#       - /home/user_name/Docker/podgrab/data:/assets
-#     expose:
-#       - 8080
-#     restart: unless-stopped
-#     networks: ["nginx_default"]
-# networks:
-#     nginx_default:
-#         external: true    
-```
+Example <https://github.com/JAlcocerT/Docker/blob/main/Media/podgrab_docker-compose.yml>
 
 * by CLI with:
 
