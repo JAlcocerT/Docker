@@ -95,7 +95,7 @@ Everything needed to run a software application successfully can be stored in a 
     
 * Media
     * E-Books/Podcasts
-       * Calibre
+       * Calibre :heavy_check_mark:
        * Kavita
        * Koodo reader
        * Audiobookshelf :heavy_check_mark:
