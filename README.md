@@ -94,11 +94,12 @@ Everything needed to run a software application successfully can be stored in a 
     * Uptime Kuma
     
 * Media
-    * E-Books
+    * E-Books/Podcasts
        * Calibre
        * Kavita
        * Koodo reader
        * Audiobookshelf :heavy_check_mark:
+       * Podgrab :heavy_check_mark:
     * Photos: 
       * PiGallery :heavy_check_mark: -> GPX & file system friendly friendly   
     * Entertainment  
@@ -124,7 +125,6 @@ Everything needed to run a software application successfully can be stored in a 
       * Supysonic
       * Navidrome :heavy_check_mark:
     * Mumble
-    * Podgrab
 
 * Security:
     * Cloudflare - zero trust tunnel :heavy_check_mark:
