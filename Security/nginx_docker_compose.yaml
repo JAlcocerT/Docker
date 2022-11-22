@@ -26,3 +26,4 @@ services:
       #- ./letsencrypt:/etc/letsencrypt
       - ~/Docker/Nginx/data:/data
       - ~/Docker/Nginx/letsencrypt:/etc/letsencrypt
+#admin@example.com #changeme
