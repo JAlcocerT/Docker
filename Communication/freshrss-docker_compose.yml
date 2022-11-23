@@ -7,9 +7,13 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/London
+      - TZ=Europe/Paris
     volumes:
       - /home/Docker/freshrss/config:/config
     ports:
       - 8200:80
     restart: unless-stopped
+    networks: ["nginx_default"]    
+networks:
+    nginx_default:
+        external: true 
