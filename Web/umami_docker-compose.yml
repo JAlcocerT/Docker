@@ -30,4 +30,4 @@ networks:
     nginx_default:
         external: true     
 
-##umami // password
+##admin // umami
