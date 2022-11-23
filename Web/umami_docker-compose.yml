@@ -29,3 +29,5 @@ volumes:
 networks:
     nginx_default:
         external: true     
+
+##umami // password
