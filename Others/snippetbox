@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  snippet-box:
+    image: pawelmalak/snippet-box
+    container_name: snippet-box
+    volumes:
+      - /home/Docker/snippetbox/data:/app/data
+    #ports:
+    #  - "8200:5000"
+    expose:
+      - "5000"
+    restart: unless-stopped
+    networks: ["nginx_default"]    
+networks:
+    nginx_default:
+        external: true
