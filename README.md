@@ -166,7 +166,9 @@ Everything needed to run a software application successfully can be stored in a 
       * MeTube :heavy_check_mark:
     * Grocy :heavy_check_mark:
     * Tiddlywiki
-    * VSCode
+    * Dev
+      * VSCode
+      * SnippetBox :heavy_check_mark:
     * Firefox
     * Webtops
 
