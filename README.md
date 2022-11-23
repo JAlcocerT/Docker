@@ -157,11 +157,13 @@ Everything needed to run a software application successfully can be stored in a 
 *  Others:
     * Management:
       * Focalboard :heavy_check_mark:
-      * Kanboard
+      * Kanboard :heavy_check_mark:
       * OpenProject (Asana alternative)
       * Personal management system
       * Trilium :heavy_check_mark:
       * Wecan (Kanban board)
+    * Youtube
+      * MeTube :heavy_check_mark:
     * Grocy :heavy_check_mark:
     * Tiddlywiki
     * VSCode
