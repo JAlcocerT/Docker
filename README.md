@@ -77,6 +77,7 @@ Everything needed to run a software application successfully can be stored in a 
     * OpenSpeedTest :heavy_check_mark:
     * GPIO
     * Dashboards:
+       * cAdvisor :heavy_check_mark: 
        * NetData :heavy_check_mark:
        * Grafana with Prometheus (internet speed) :heavy_check_mark:
        * Grafana with Prometheus (internet + device with node exporter)
