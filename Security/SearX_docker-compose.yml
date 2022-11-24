@@ -1,0 +1,15 @@
+---
+version: "2.1"
+volumes:
+  searx:
+services:
+  searx:
+    image: searx/searx
+    container_name: searx
+    volumes:
+      - /home/Docker/searx:/etc/searx
+    environment:
+      - BASE_URL=http://http://192.168.your.ip/
+    ports:
+      - 3000:8080 #change 8282 as necessary
+    restart: unless-stopped  
