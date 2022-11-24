@@ -133,6 +133,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Watchyourlan :heavy_check_mark:
     * Wireshark :heavy_check_mark:
     * Whoogle :heavy_check_mark:
+    * SearX :heavy_check_mark:
     * Proxies
       * Caddy 
       * NGINX + SSL :heavy_check_mark:
