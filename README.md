@@ -150,7 +150,8 @@ Everything needed to run a software application successfully can be stored in a 
       * Windscribe
     * Authelia   
     * Crowdsec 
-    * Fail2ban  
+    * Fail2ban 
+    * EndleSSH
     * Pihole :heavy_check_mark:
     * PiHole + Cloudflare (DNS over HTTPs)
     * Pi-Alert
@@ -170,6 +171,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Tiddlywiki
     * Dev
       * VSCode
+      * Gitea
       * SnippetBox :heavy_check_mark:
     * Firefox
     * Webtops
