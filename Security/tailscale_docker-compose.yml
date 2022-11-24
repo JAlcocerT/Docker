@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+    tailscale:
+        container_name: tailscale2
+        cap_add:
+            - NET_ADMIN
+        volumes:
+            - '/home/Docker/tailscale2/appdata/var_lib:/var/lib'
+            - '/dev/net/tun:/dev/net/tun'
+        network_mode: "host"
+        image: tailscale/tailscale
+        command:
+            - tailscale
+        privileged: true
+        restart: unless-stopped
