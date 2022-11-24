@@ -1,0 +1,37 @@
+---
+version: "2.1"
+services:
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.46.0
+    container_name: cadvisor
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    ports:
+      - 3000:8000 #webgui
+    privileged: true
+    device: 
+      - /dev/kmsg
+    restart: unless-stopped
+
+
+# VERSION=v0.46.0 # use the latest release version from https://github.com/google/cadvisor/releases
+# sudo docker run \
+#   --volume=/:/rootfs:ro \
+#   --volume=/var/run:/var/run:ro \
+#   --volume=/sys:/sys:ro \
+#   --volume=/var/lib/docker/:/var/lib/docker:ro \
+#   --volume=/dev/disk/:/dev/disk:ro \
+#   --publish=8080:8080 \
+#   --detach=true \
+#   --name=cadvisor \
+#   --privileged \
+#   --device=/dev/kmsg \
+#   gcr.io/cadvisor/cadvisor:$VERSION
