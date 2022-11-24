@@ -144,8 +144,10 @@ Everything needed to run a software application successfully can be stored in a 
     * VPN's
       * Gluetun
       * OpenVPN
+      * Tailscale
       * Wirehole
       * Wireguard :heavy_check_mark:
+      * Windscribe
     * Authelia   
     * Crowdsec 
     * Fail2ban  
