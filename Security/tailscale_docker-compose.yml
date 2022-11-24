@@ -13,3 +13,5 @@ services:
             - tailscale
         privileged: true
         restart: unless-stopped
+
+## sudo docker exec tailscale tailscale status
