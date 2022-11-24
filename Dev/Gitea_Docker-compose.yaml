@@ -20,7 +20,7 @@ services:
     networks:
       - gitea
     volumes:
-      - /srv/confs/gitea:/data
+      - /home/Docker/gitea/data:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
@@ -40,4 +40,4 @@ services:
     networks:
       - gitea
     volumes:
-      - ~/Docker/gitea/mysql:/var/lib/mysql
+      - /home/Docker/gitea/mysql:/var/lib/mysql
