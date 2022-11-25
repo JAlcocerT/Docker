@@ -92,7 +92,8 @@ Everything needed to run a software application successfully can be stored in a 
     * GOtify
     * Ntfy (notify)
     * Uptime Kuma :heavy_check_mark:
-    * Flame :heavy_check_mark:    
+    * Flame :heavy_check_mark:   
+    * Homer
     
 * Media
     * E-Books/Podcasts
