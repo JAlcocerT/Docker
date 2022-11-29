@@ -208,6 +208,9 @@ Everything needed to run a software application successfully can be stored in a 
     * Static Web Server
       * Apache
       * NginX
+    * Subscriptions
+      * Keila
+      * Mailtrain
     * Moodle
  * Dev
     * Gitea :heavy_check_mark:
