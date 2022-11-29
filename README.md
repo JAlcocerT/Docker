@@ -47,6 +47,10 @@ Everything needed to run a software application successfully can be stored in a 
        * ERPNext
        * Dolibarr :heavy_check_mark:
        * Odoo (ex- OpenERP) :heavy_check_mark:
+    * Invoicing:
+      * Crater Invoices
+      * Invoice Ninja
+      * Solid Invoice
     * Management:
        * Vikunja :heavy_check_mark:
        * Leantime (x86 & ARM, :heavy_check_mark:)
@@ -124,12 +128,14 @@ Everything needed to run a software application successfully can be stored in a 
       * Bazar :heavy_check_mark:
     * ArchiveBox
     * Music
+      * Ampache
       * Supysonic :heavy_check_mark:
       * Navidrome :heavy_check_mark:
     * Mumble
 
 * Security:
     * Cloudflare - zero trust tunnel :heavy_check_mark:
+    * Blocky
     * CoreDNS
     * Unbound :heavy_check_mark:
     * Watchyourlan :heavy_check_mark:
