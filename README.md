@@ -50,7 +50,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Invoicing:
       * Crater Invoices
       * Invoice Ninja
-      * Solid Invoice
+      * Solid Invoice (x86 only)
     * Management:
        * Vikunja :heavy_check_mark:
        * Leantime (x86 & ARM, :heavy_check_mark:)
@@ -168,6 +168,7 @@ Everything needed to run a software application successfully can be stored in a 
     
 *  Others:
     * Management:
+      * Bookstack
       * Focalboard :heavy_check_mark:
       * Joplin (x86 only)
       * Kanboard :heavy_check_mark:
