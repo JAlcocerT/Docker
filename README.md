@@ -169,6 +169,7 @@ Everything needed to run a software application successfully can be stored in a 
 *  Others:
     * Management:
       * Bookstack
+      * Drawio
       * Focalboard :heavy_check_mark:
       * Joplin (x86 only)
       * Kanboard :heavy_check_mark:
