@@ -1,0 +1,29 @@
+---
+version: "2.1"
+services:
+  samba:
+    image: dperson/samba
+    container_name: samba 
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vienna
+    volumes:
+      - /media/your/folder/:/mount
+    ports:
+      - 139:139
+      - 445:445
+    restart: unless-stopped
+    
+    
+#vi /etc/samba.smb.conf
+
+#[RpiShared]
+#path = /mount
+#available = yes
+#writable = yes
+#browseable = yes
+#public = yes
+
+
+#windows ---> \\192.168.private.ip
