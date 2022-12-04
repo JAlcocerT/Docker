@@ -16,14 +16,15 @@ services:
     restart: unless-stopped
     
     
-#vi /etc/samba.smb.conf
+#vi /etc/samba/smb.conf
 
 #[RpiShared]
 #path = /mount
 #available = yes
 #writable = yes
-#browseable = yes
+#browseable = no #if no ===> \\192.168.private.ip\RpiShared
 #public = yes
 
+#Esc, then :wq
 
 #windows ---> \\192.168.private.ip
