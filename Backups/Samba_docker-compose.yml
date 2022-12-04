@@ -18,11 +18,14 @@ services:
     
 #vi /etc/samba/smb.conf
 
+#host_allows remember to check this one
+
+#add on the end:
 #[RpiShared]
 #path = /mount
 #available = yes
 #writable = yes
-#browseable = no #if no ===> \\192.168.private.ip\RpiShared
+#browseable = yes #if no ===> \\192.168.private.ip\RpiShared
 #public = yes
 
 #Esc, then :wq
