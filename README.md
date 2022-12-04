@@ -38,6 +38,7 @@ Everything needed to run a software application successfully can be stored in a 
     * RClone :heavy_check_mark:
     * RSync
     * RSnapshot
+    * Samba :heavy_check_mark:
     * Seafile
     * Syncthing :heavy_check_mark:
     * Webdav
