@@ -108,7 +108,7 @@ Everything needed to run a software application successfully can be stored in a 
        * Audiobookshelf :heavy_check_mark:
        * Podgrab :heavy_check_mark:
     * Photos: 
-      * PiGallery :heavy_check_mark: -> GPX & file system friendly friendly   
+      * PiGallery :heavy_check_mark: -> Photo location, GPX support & file system friendly friendly (no DB required) :rocket:
     * Entertainment  
       * Jellyfin :heavy_check_mark:
       * Kodi
