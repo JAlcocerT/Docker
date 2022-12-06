@@ -28,6 +28,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Nextcloud
       * Ubuntu :heavy_check_mark:
       * RPI :heavy_check_mark:
+      * Recommended apps: cospend (moneybuster android)
     * Photos: 
       * LibrePhotos
       * Lychee 
