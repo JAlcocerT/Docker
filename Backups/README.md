@@ -72,14 +72,38 @@ On a given folder, check the timestamp with: ls -la --time-style=full-iso
     
 ### Syncthing :heavy_check_mark:
 
+```
 wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing > syncthing.sh && chmod 775 syncthing.sh && sudo ./syncthing.sh
+```
+
+
+```
+#https://hub.docker.com/r/linuxserver/syncthing
+
+#with docker compose:
+#docker_me Syncthing https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing%20-%20docker%20compose.yaml
+#sudo docker-compose up -d
+
+cd ~/Docker
+sudo wget https://raw.githubusercontent.com/reisikei/docker/main/Backups/Syncthing%20-%20docker%20compose.yaml -O docker-compose.yaml
+sudo docker-compose up -d
+```
 
 
 ### Duplicati :heavy_check_mark:
 
 ```
-wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Backups/Duplicati > duplicati.sh && chmod 775 duplicati.sh && sudo ./duplicati.sh
+wget -cO - https://raw.githubusercontent.com/JAlcocerT/docker/main/Backups/Duplicati > duplicati.sh && chmod 775 duplicati.sh && sudo ./duplicati.sh
 sudo wget -c https://raw.githubusercontent.com/JAlcocerT/Docker/main/Backups/Duplicati_docker-compose.yaml -O docker-compose.yaml
+```
+
+```
+
+cd ~/Docker
+sudo mkdir Duplicati
+cd Duplicati
+sudo wget https://raw.githubusercontent.com/JAlcocerT/docker/main/Backups/Duplicati_docker-compose.yaml -O docker-compose.yaml
+sudo docker-compose up -d
 ```
 
 ### RClone :heavy_check_mark:

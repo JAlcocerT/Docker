@@ -1,7 +1,0 @@
-#DUPLICATI:
-
-cd ~/Docker
-sudo mkdir Duplicati
-cd Duplicati
-sudo wget https://raw.githubusercontent.com/reisikei/docker/main/Backups/Duplicati_docker-compose.yaml -O docker-compose.yaml
-sudo docker-compose up -d

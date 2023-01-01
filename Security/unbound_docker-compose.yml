@@ -1,0 +1,9 @@
+---
+version: "2"
+services:
+  whoogle:
+    image: mvance/unbound-rpi:latest
+    container_name: unbound-dns
+    ports:
+      - 5000:5000
+    restart: unless-stopped

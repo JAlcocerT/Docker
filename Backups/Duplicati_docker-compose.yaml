@@ -10,7 +10,7 @@ services:
       - TZ=Europe/Madrid
       - CLI_ARGS= #optional
     volumes:
-    - ~/Docker/Duplicati/config:/config
+    - /home/your_user_name/Docker/Duplicati/config:/config
     - ~/Docker:/source
     - ~/Docker/backups:/backups
     ports:

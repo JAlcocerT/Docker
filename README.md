@@ -45,6 +45,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Webdav
     
 * Business:
+   * Drawio
    * ERPs:
        * ERPNext
        * Dolibarr :heavy_check_mark:
@@ -136,14 +137,24 @@ Everything needed to run a software application successfully can be stored in a 
     * Mumble
 
 * Security:
-    * Cloudflare - zero trust tunnel :heavy_check_mark:
+    * Authelia  
     * Blocky
-    * CoreDNS
-    * Unbound :heavy_check_mark:
-    * Watchyourlan :heavy_check_mark:
-    * Wireshark :heavy_check_mark:
-    * Whoogle :heavy_check_mark:
-    * SearX :heavy_check_mark:
+    * Cloudflare - zero trust tunnel :heavy_check_mark:
+    * Crowdsec 
+    * DNS:
+      * CoreDNS
+      * Unbound :heavy_check_mark:
+      * Pihole :heavy_check_mark:
+      * PiHole + Cloudflare (DNS over HTTPs)      
+    * EndleSSH
+    * Fail2ban 
+    * LAN:
+      * Watchyourlan :heavy_check_mark:
+      * Wireshark :heavy_check_mark:
+    * Pi-Alert  
+    * Privacy:
+      * Whoogle :heavy_check_mark:
+      * SearX :heavy_check_mark:
     * Proxies
       * Caddy 
       * NGINX + SSL :heavy_check_mark:
@@ -158,20 +169,12 @@ Everything needed to run a software application successfully can be stored in a 
       * Tailscale
       * Wirehole
       * Wireguard :heavy_check_mark:
-      * Windscribe
-    * Authelia   
-    * Crowdsec 
-    * Fail2ban 
-    * EndleSSH
-    * Pihole :heavy_check_mark:
-    * PiHole + Cloudflare (DNS over HTTPs)
-    * Pi-Alert
+      * Windscribe 
     * Watchtower :heavy_check_mark:
     
 *  Others:
     * Management:
       * Bookstack
-      * Drawio
       * Focalboard :heavy_check_mark:
       * Joplin (x86 only)
       * Kanboard :heavy_check_mark:

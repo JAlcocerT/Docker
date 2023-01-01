@@ -4,26 +4,12 @@
 
 Remember to use the proper IFACE, according to what the command provides in your docker's host machine:
 
-```
-version: "3"
-services:
-  wyl:
-    image: aceberg/watchyourlan
-    container_name: watchyourlan	
-    network_mode: "host"        
-    restart: unless-stopped
-    volumes:
-    - ~/Docker/watchyourlan/wyl:/data
-    environment:
-      TZ: Europe/Paris              # required: needs your TZ for correct time
-      IFACE: "eth0"                     # required: 1 or more interface, use the command 'ip link conf' and use the second entry
-      DBPATH: "/data/db.sqlite"         # optional, default: /data/db.sqlite
-      GUIIP: "0.0.0.0"                  # optional, default: localhost
-      GUIPORT: "8840"                   # optional, default: 8840
-      TIMEOUT: "120"                    # optional, time in seconds, default: 60
-      SHOUTRRR_URL: ""                  # optional, set url to notify
-      THEME: "darkly"                   # optional
+#### Wireshark :heavy_check_mark:
 
+You can check what is going on in your network with Wireshark, or for example if unbound is doing its job.
+
+```
+sudo docker-compose up -d #port 3000 by default
 ```
 
 ## VPN's
@@ -129,6 +115,19 @@ sudo nano /var/log/fail2ban.log
 
 https://geekland.eu/instalar-configurar-y-usar-fail2ban-para-evitar-ataques-de-fuerza-bruta/
 
+```
+#!/bin/sh
+
+#wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2ban > f2b.sh && chmod 775 f2b.sh && sudo ./f2b.sh
+
+mkdir Docker
+cd Docker
+mkdir fail2ban
+cd fail2ban
+wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2ban_docker-compose.yaml > docker-compose.yaml
+sudo docker-compose up -d
+```
+
 ## Proxies
 
 ### Cloudflare - zero trust :heavy_check_mark:
@@ -185,6 +184,8 @@ docker network connect nginx_default your_new_container_to_go_on_nginx_network
 https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
 
 
+## DNS
+
 #### PiHole :heavy_check_mark:
 
 ```
@@ -223,12 +224,7 @@ sudo docker run --name my-unbound-dns -d -p 5335:53/udp -p 5335:53/tcp \
 --restart=always mvance/unbound-rpi:latest
 ```
 
-#### Wireshark :heavy_check_mark:
-You can check what is going on in your network with Wireshark, or for example if unbound is doing its job.
 
-```
-sudo docker-compose up -d #port 3000 by default
-```
 
 #### Watchtower :heavy_check_mark:
 ```
@@ -302,8 +298,10 @@ nano docker-compose.yml #modify it to your preferences
 
 #### Piped
 
-#### Whoogle
+#### Whoogle :heavy_check_mark:
 
 ```
 docker run --publish 5000:5000 --detach --name whoogle-search benbusby/whoogle-search:latest
 ```
+
+#### SearX :heavy_check_mark:
