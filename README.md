@@ -188,7 +188,9 @@ Everything needed to run a software application successfully can be stored in a 
     * Tiddlywiki
     * Dev
       * VSCode
+      * Gitbucket
       * Gitea
+      * OneDev #includes kanban board
       * SnippetBox :heavy_check_mark:
     * Firefox
     * Webtops
