@@ -2,14 +2,15 @@ version: '2'
 services:
   focalboard:
     image: mattermost/focalboard:latest
+    container_name: focalboard
     volumes:
       - ~/Docker/focalboard/data:/data
     ports:
-      - "807:8000"
+      - "8008:8000"     #machine port can be changed as required
     networks:
-      - own_nginx    
+      - nginx_default    #your nginx network name
     restart: always 
     
 networks:
-    own_nginx:
+    nginx_default:       #your nginx network name
         external: true
