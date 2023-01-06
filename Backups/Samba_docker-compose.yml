@@ -17,6 +17,8 @@ services:
     
     
 #vi /etc/samba/smb.conf
+#Exit and save => Esc + :wq
+#Exit no save => Esc + :q!
 
 #host_allows remember to check this one
 
