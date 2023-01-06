@@ -31,3 +31,4 @@ services:
 #Esc, then :wq
 
 #windows ---> \\192.168.private.ip
+#ubuntu ---> smb://192.168.private.ip/RpiShared
