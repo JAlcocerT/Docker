@@ -1,5 +1,4 @@
-# Repository Structure
-
+# Docker and Self-Hosting Setup Guides
 
 Public repository that serves as a pillar for self-hosting pourposes, a companion for:
 
@@ -7,15 +6,16 @@ Public repository that serves as a pillar for self-hosting pourposes, a companio
 * The Linux GH page: <https://github.com/JAlcocerT/Linux>
 * The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/) entries in my blog <https://fossengineer.com/>
 
-* [Introduction: Why Docker?](#Intro)
-* [Back-up related containers](#Backups)
-* [Business apps related containers](#business)
-* [Communication apps related containers](#communication)
-* [IoT Containers](#iot)
-* [Media Containers](#media)
-* [Security and Privacy related Containers](#security)
-* [Web related Containers](#Web)
-* [Ways to Contribute](#contribute)
+Repository Structure:
+  * [Introduction: Why Docker?](#Intro)
+  * [Back-up related containers](#Backups)
+  * [Business apps related containers](#business)
+  * [Communication apps related containers](#communication)
+  * [IoT Containers](#iot)
+  * [Media Containers](#media)
+  * [Security and Privacy related Containers](#security)
+  * [Web related Containers](#Web)
+  * [Ways to Contribute](#contribute)
 
 ## Intro
 
