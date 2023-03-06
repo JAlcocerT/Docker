@@ -1,14 +1,20 @@
-Public repo that serves as a pillar for self-hosting pourposes, a companion for:
+# Repository Structure
+
+
+Public repository that serves as a pillar for self-hosting pourposes, a companion for:
 * Github Page built on: <https://jalcocert.github.io/RPi/#Prerequisites>
 * The Linux GH page: <https://github.com/JAlcocerT/Linux>
+* The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/) entries in my blog <https://fossengineer.com/>
 
-This document is done in markdown [(try it! :black_nib:).](https://github.com/JAlcocerT/Docker/edit/main/README.md)
 
-### Intro: Why Docker?
 
-Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.
 
-Containers allow us to package up an application with all of the parts it needs to work properly -  such as libraries and other dependencies, and deploy it as one package.
+## Intro
+## Why Docker?
+
+Docker is a tool designed to make it easier to **create, deploy, and run applications by using containers.**
+
+Containers allow us to **package up an application with all of the parts it needs to work properly** -  such as libraries and other dependencies, and deploy it as one package.
 By doing this, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
 
 Containers remain lightweight by sharing the OS they run on while isolating processes within user space.
@@ -16,9 +22,9 @@ Containers remain lightweight by sharing the OS they run on while isolating proc
 Everything needed to run a software application successfully can be stored in a container to make development and deployment more efficient. For this reason, containers are perfect for running microservices.
 
 
-## Repo's Content Structure:
+## Folders Content Structure:
 
-* Backups:
+### Backups:
     * Duplicati :heavy_check_mark:
     * Duplicity
     * Urbackup
@@ -44,7 +50,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Syncthing :heavy_check_mark:
     * Webdav
     
-* Business:
+### Business:
    * Drawio
    * ERPs:
        * ERPNext
@@ -57,7 +63,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Management:
        * Vikunja :heavy_check_mark:
        * Leantime (x86 & ARM, :heavy_check_mark:)
-* Communication:
+### Communication:
    * Chats:
        * Discourse 
        * Jitsi
@@ -74,7 +80,7 @@ Everything needed to run a software application successfully can be stored in a 
        * Postfix
    * FreshRSS :heavy_check_mark:
     
-* IoT:
+### IoT:
    * Automations:
         * Domoticz
         * Home Assistant :heavy_check_mark:
@@ -102,7 +108,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Flame :heavy_check_mark:   
     * Homer
     
-* Media
+### Media
     * E-Books/Podcasts
        * Calibre :heavy_check_mark:
        * Kavita
@@ -136,7 +142,7 @@ Everything needed to run a software application successfully can be stored in a 
       * Navidrome :heavy_check_mark:
     * Mumble
 
-* Security:
+### Security:
     * Authelia  
     * Blocky
     * Cloudflare - zero trust tunnel :heavy_check_mark:
@@ -172,7 +178,7 @@ Everything needed to run a software application successfully can be stored in a 
       * Windscribe 
     * Watchtower :heavy_check_mark:
     
-*  Others:
+###  Others:
     * Management:
       * Bookstack
       * Focalboard :heavy_check_mark:
@@ -193,7 +199,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Firefox
     * Webtops
 
-* Web
+### Web
     * Analytics
        * Matomo
        * Plausible
@@ -226,7 +232,19 @@ Everything needed to run a software application successfully can be stored in a 
       * Keila
       * Mailtrain
     * Moodle
- * Dev
+ ### Dev
     * Gitea :heavy_check_mark:
     * Python apps
     * Shiny dashboards
+
+
+    This document is done in markdown [(try it! :black_nib:).](https://github.com/JAlcocerT/Docker/edit/main/README.md)
+
+    If you enjoy self-hosting any of the apps listed, I would show appreciation directly to their creators. Please check the specific project for more details on that.
+
+    If any of the docker-compose files or associated tutorials was helpful and you want to show gratitude:
+
+    * Consider leaving feedback if you found some improvement / something can be explained better
+    * Support additional weekends of self-hosting tinkering to bring new services to the list:
+
+    [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/FossEngineer)
