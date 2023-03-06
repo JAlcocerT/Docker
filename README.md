@@ -7,15 +7,15 @@ Public repository that serves as a pillar for self-hosting pourposes, a companio
 * The Linux GH page: <https://github.com/JAlcocerT/Linux>
 * The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/) entries in my blog <https://fossengineer.com/>
 
-[Introduction: Why Docker?](#Intro)
-[Back-up related containers](#Backups)
-[Business apps related containers](#business)
-[Communication apps related containers](#communication)
-[IoT Containers](#iot)
-[Media Containers](#media)
-[Security and Privacy related Containers](#security)
-[Web related Containers](#Web)
-[Ways to Contribute](#contribute)
+* [Introduction: Why Docker?](#Intro)
+* [Back-up related containers](#Backups)
+* [Business apps related containers](#business)
+* [Communication apps related containers](#communication)
+* [IoT Containers](#iot)
+* [Media Containers](#media)
+* [Security and Privacy related Containers](#security)
+* [Web related Containers](#Web)
+* [Ways to Contribute](#contribute)
 
 ## Intro
 
@@ -30,7 +30,7 @@ Everything needed to run a software application successfully can be stored in a 
 
 ## Folders Content Structure:
 
-### Backups:
+### [Backups:](https://github.com/JAlcocerT/Docker/tree/main/Backups)
   * Duplicati :heavy_check_mark:
   * Duplicity
   * Urbackup
@@ -56,7 +56,7 @@ Everything needed to run a software application successfully can be stored in a 
   * Syncthing :heavy_check_mark:
   * Webdav
     
-### Business:
+### [Business:](https://github.com/JAlcocerT/Docker/tree/main/Business)
    * Drawio
    * ERPs:
        * ERPNext
@@ -69,7 +69,7 @@ Everything needed to run a software application successfully can be stored in a 
     * Management:
        * Vikunja :heavy_check_mark:
        * Leantime (x86 & ARM, :heavy_check_mark:)
-### Communication:
+### [Communication:](https://github.com/JAlcocerT/Docker/tree/main/Communication)
    * Chats:
        * Discourse 
        * Jitsi
@@ -85,8 +85,11 @@ Everything needed to run a software application successfully can be stored in a 
        * Poste
        * Postfix
    * FreshRSS :heavy_check_mark:
-    
-### IoT:
+### [Dev](https://github.com/JAlcocerT/Docker/tree/main/Dev)
+* Gitea :heavy_check_mark:
+* Python apps
+* Shiny dashboards    
+### [IoT:](https://github.com/JAlcocerT/Docker/tree/main/IoT)
 * Automations:
   * Domoticz
   * Home Assistant :heavy_check_mark:
@@ -114,7 +117,7 @@ Everything needed to run a software application successfully can be stored in a 
   * Flame :heavy_check_mark:   
   * Homer
     
-### Media
+### [Media](https://github.com/JAlcocerT/Docker/tree/main/Media)
 * E-Books/Podcasts
   * Calibre :heavy_check_mark:
   * Kavita
@@ -148,7 +151,7 @@ Everything needed to run a software application successfully can be stored in a 
   * Navidrome :heavy_check_mark:
 * Mumble
 
-### Security:
+### [Security:](https://github.com/JAlcocerT/Docker/tree/main/Security)
 * Authelia  
 * Blocky
 * Cloudflare - zero trust tunnel :heavy_check_mark:
@@ -207,7 +210,7 @@ Everything needed to run a software application successfully can be stored in a 
 * Firefox
 * Webtops
 
-### Web
+### [Web](https://github.com/JAlcocerT/Docker/tree/main/Web)
 * Analytics
   * Matomo
   * Plausible
@@ -240,10 +243,6 @@ Everything needed to run a software application successfully can be stored in a 
    * Keila
    * Mailtrain
    * Moodle
- ### Dev
-  * Gitea :heavy_check_mark:
-  * Python apps
-  * Shiny dashboards
 
 
 ## Contribute
