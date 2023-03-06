@@ -7,11 +7,17 @@ Public repository that serves as a pillar for self-hosting pourposes, a companio
 * The Linux GH page: <https://github.com/JAlcocerT/Linux>
 * The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/) entries in my blog <https://fossengineer.com/>
 
-
-
+[Introduction: Why Docker?](#Intro)
+[Back-up related containers](#Backups)
+[Business apps related containers](#business)
+[Communication apps related containers](#communication)
+[IoT Containers](#iot)
+[Media Containers](#media)
+[Security and Privacy related Containers](#security)
+[Web related Containers](#Web)
+[Ways to Contribute](#contribute)
 
 ## Intro
-## Why Docker?
 
 Docker is a tool designed to make it easier to **create, deploy, and run applications by using containers.**
 
@@ -240,7 +246,9 @@ Everything needed to run a software application successfully can be stored in a 
   * Shiny dashboards
 
 
-  This document is done in markdown [(try it! :black_nib:).](https://github.com/JAlcocerT/Docker/edit/main/README.md)
+## Contribute
+
+This document is done in markdown [(try it! :black_nib:).](https://github.com/JAlcocerT/Docker/edit/main/README.md)
 
 If you enjoy self-hosting any of the apps listed, I would show appreciation directly to their creators. Please check the specific project for more details on that.
 
