@@ -17,6 +17,8 @@ services:
     
     
 #vi /etc/samba/smb.conf
+#Exit and save => Esc + :wq
+#Exit no save => Esc + :q!
 
 #host_allows remember to check this one
 
@@ -27,7 +29,10 @@ services:
 #writable = yes
 #browseable = yes #if no ===> \\192.168.private.ip\RpiShared
 #public = yes
+#guest = yes                                                           
+#users = all 
 
 #Esc, then :wq
 
 #windows ---> \\192.168.private.ip
+#ubuntu ---> smb://192.168.private.ip/RpiShared

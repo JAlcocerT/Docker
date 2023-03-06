@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   duplicati:
-    image: ghcr.io/linuxserver/duplicati #:arm32v7-v2.0.6.1-2.0.6.1_beta_2021-05-03-ls101
+    image: lscr.io/linuxserver/duplicati #ghcr.io/linuxserver/duplicati #:arm32v7-v2.0.6.1-2.0.6.1_beta_2021-05-03-ls101
     container_name: duplicati
     environment:
       - PUID=1000
