@@ -88,7 +88,11 @@ Everything needed to run a software application successfully can be stored in a 
 ### [Dev](https://github.com/JAlcocerT/Docker/tree/main/Dev)
 * Gitea :heavy_check_mark:
 * Python apps
-* Shiny dashboards    
+* Shiny dashboards 
+* VSCode
+* Gitbucket
+* OneDev #includes kanban board
+* SnippetBox :heavy_check_mark:   
 ### [IoT:](https://github.com/JAlcocerT/Docker/tree/main/IoT)
 * Automations:
   * Domoticz
@@ -193,22 +197,21 @@ Everything needed to run a software application successfully can be stored in a 
   * Focalboard :heavy_check_mark:
   * Joplin (x86 only)
   * Kanboard :heavy_check_mark:
+  * Logseq
   * OpenProject (Asana alternative)
   * Personal management system
   * Trilium :heavy_check_mark:
+  * Tiddlywiki
   * Wecan (Kanban board)
 * Youtube
   * MeTube :heavy_check_mark:
 * Grocy :heavy_check_mark:
-* Tiddlywiki
-* Dev
-  * VSCode
-  * Gitbucket
-  * Gitea
-  * OneDev #includes kanban board
-  * SnippetBox :heavy_check_mark:
 * Firefox
 * Webtops
+* Libretranslate
+* Design
+  * penpotapp
+
 
 ### [Web](https://github.com/JAlcocerT/Docker/tree/main/Web)
 * Analytics
@@ -216,6 +219,9 @@ Everything needed to run a software application successfully can be stored in a 
   * Plausible
   * Posthog
   * Umami :heavy_check_mark:
+* Comment Engine
+  * remark42
+  * Isso
 * Dynamic DNS
   * DuckDNS :heavy_check_mark:
   * No-IP
