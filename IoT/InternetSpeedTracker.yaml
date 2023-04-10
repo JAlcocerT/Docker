@@ -1,20 +1,18 @@
 version: '3.3'
 services:
-    speedtest:
-        container_name: speedtest
-        image: henrywhitaker3/speedtest-tracker
+    speedtest-tracker:
+        container_name: speedtest-tracker
         ports:
-            - 8765:80
-        volumes:
-            - ~/Docker/SpeedTest/config:/config
+            - '8080:80'
+            - '8443:443'
         environment:
-            - TZ=Europe/Warsaw
-            - PGID=1000
             - PUID=1000
-            - OOKLA_EULA_GDPR=true
-        logging:
-            driver: "json-file"
-            options:
-                max-file: "10"
-                max-size: "200k"
+            - PGID=1000
+        volumes:
+            - '/path/to/directory:/config'
+        image: 'ghcr.io/alexjustesen/speedtest-tracker:latest'
         restart: unless-stopped
+
+#https://github.com/alexjustesen/speedtest-tracker
+#authentication: https://docs.speedtest-tracker.dev/settings/authentication
+#previously https://github.com/henrywhitaker3/Speedtest-Tracker
