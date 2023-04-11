@@ -17,6 +17,10 @@ Repository Structure:
   * [Web related Containers](#Web)
   * [Ways to Contribute](#contribute)
 
+Legend:
+  * :heavy_check_mark: -> self-hosting instructions available in this repository
+  * :page_with_curl: -> detailed instructions available in my blog: <https://fossengineer.com/>
+
 ## Intro
 
 Docker is a tool designed to make it easier to **create, deploy, and run applications by using containers.**
@@ -57,11 +61,10 @@ Everything needed to run a software application successfully can be stored in a 
   * Webdav
     
 ### [Business:](https://github.com/JAlcocerT/Docker/tree/main/Business)
-   * Drawio
    * ERPs:
-       * ERPNext
-     * Dolibarr :heavy_check_mark:
-       * Odoo (ex- OpenERP) :heavy_check_mark:
+      * ERPNext
+      * Dolibarr :heavy_check_mark:
+      * Odoo (ex- OpenERP) :heavy_check_mark:
     * Invoicing:
       * Crater Invoices
       * Invoice Ninja
@@ -163,7 +166,7 @@ Everything needed to run a software application successfully can be stored in a 
 * DNS:
   * CoreDNS
   * Unbound :heavy_check_mark:
-  * Pihole :heavy_check_mark:
+  * [Pihole :page_with_curl:](https://fossengineer.com/selfhosting-PiHole-docker/) :heavy_check_mark: 
   * PiHole + Cloudflare (DNS over HTTPs)      
 * EndleSSH
 * Fail2ban 
@@ -199,6 +202,7 @@ Everything needed to run a software application successfully can be stored in a 
   * Kanboard :heavy_check_mark:
   * Logseq
   * OpenProject (Asana alternative)
+  * [Leantime :page_with_curl:](https://fossengineer.com/selfhosting-Leantime-docker/) :heavy_check_mark:
   * Personal management system
   * Trilium :heavy_check_mark:
   * Tiddlywiki
@@ -210,7 +214,8 @@ Everything needed to run a software application successfully can be stored in a 
 * Webtops
 * Libretranslate
 * Design
-  * penpotapp
+  * Penpotapp
+  * Drawio
 
 
 ### [Web](https://github.com/JAlcocerT/Docker/tree/main/Web)
