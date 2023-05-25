@@ -1,0 +1,21 @@
+---
+version: "2.1"
+
+volumes:
+  firefox:
+
+services:
+  firefox:
+    image: ghcr.io/linuxserver/firefox
+    container_name: firefox
+    environment:
+      - PUID=1026 #change this to for your settings
+      - PGID=100 #change this to for your settings
+      - TZ=Europe/Paris  #change this to for your location
+    volumes:
+      - /home/Docker/firefox:/config
+    network_mode: "container:vpn" #change gluetun to your VPN container name
+    #ports: we wont be needing these 2 lines, as we are routing the traffic through the VPN container
+    #  - 3000:3000
+    shm_size: "1gb"
+    restart: unless-stopped
