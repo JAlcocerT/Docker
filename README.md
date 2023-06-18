@@ -4,7 +4,8 @@ Public repository that serves as a pillar for self-hosting pourposes, a companio
 
 * Github Page built on: <https://jalcocert.github.io/RPi/#Prerequisites>
 * The Linux GH page: <https://github.com/JAlcocerT/Linux>
-* The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/) entries in my blog <https://fossengineer.com/>
+* The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/) entries in my blog <https://fossengineer.com/>.
+  * [Install Portainer and get ready to deploy docker containers with a UI.](https://fossengineer.com/selfhosting-portainer-docker/)
 
 Repository Structure:
   * [Introduction: Why Docker?](#Intro)
@@ -17,13 +18,13 @@ Repository Structure:
   * [Web related Containers](#Web)
   * [Ways to Contribute](#contribute)
 
-Legend:
-  * :heavy_check_mark: -> self-hosting instructions available in this repository
-  * :page_with_curl: -> detailed instructions available in my blog: <https://fossengineer.com/>
+**Legend:**
+  * :heavy_check_mark: -> Self-hosting instructions available in this repository
+  * :page_with_curl: -> Detailed instructions available in my blog: <https://fossengineer.com/>
 
 ## Intro
 
-Docker is a tool designed to make it easier to **create, deploy, and run applications by using containers.**
+[Docker is a tool](https://fossengineer.com/docker-first-steps-guide-for-data-analytics/) designed to make it easier to **create, deploy, and run applications by using *containers*.**
 
 Containers allow us to **package up an application with all of the parts it needs to work properly** -  such as libraries and other dependencies, and deploy it as one package.
 By doing this, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
@@ -43,14 +44,14 @@ Everything needed to run a software application successfully can be stored in a 
     * RPI :heavy_check_mark:
   * Nextcloud
     * Ubuntu :heavy_check_mark:
-    * RPI :heavy_check_mark:
+    * [RPI](https://jalcocert.github.io/RPi/projects/nextcloud_with_rpi/) :heavy_check_mark:
     * Recommended apps: cospend (moneybuster android)
   * Photos: 
     * LibrePhotos
     * Lychee 
     * Photonix
     * Photoprism
-    * Photoview :heavy_check_mark: -> file system friendly
+    * [Photoview :page_with_curl:](https://fossengineer.com/selfhosting-Photoview-docker/) :heavy_check_mark: -> file system friendly
     * Piwigo
   * RClone :heavy_check_mark:
   * RSync
@@ -58,7 +59,6 @@ Everything needed to run a software application successfully can be stored in a 
   * Samba :heavy_check_mark:
   * Seafile
   * Syncthing :heavy_check_mark:
-  * Webdav
     
 ### [Business:](https://github.com/JAlcocerT/Docker/tree/main/Business)
    * ERPs:
@@ -76,7 +76,7 @@ Everything needed to run a software application successfully can be stored in a 
    * Chats:
        * Discourse 
        * Jitsi
-       * Matrix with synapse :heavy_check_mark:
+       * [Matrix with Synapse :page_with_curl:](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
        * Revolt
        * RocketChat
    * Mail:
@@ -90,8 +90,8 @@ Everything needed to run a software application successfully can be stored in a 
    * FreshRSS :heavy_check_mark:
 ### [Dev](https://github.com/JAlcocerT/Docker/tree/main/Dev)
 * Gitea :heavy_check_mark:
-* Python apps
-* Shiny dashboards 
+* [Python DASH Apps :page_with_curl:](https://fossengineer.com/dash-docker-gcr/)
+* Shiny Dashboards 
 * VSCode
 * Gitbucket
 * OneDev #includes kanban board
@@ -120,7 +120,7 @@ Everything needed to run a software application successfully can be stored in a 
   * Redash
   * GOtify
   * Ntfy (notify)
-  * Uptime Kuma :heavy_check_mark:
+  * [Uptime Kuma :page_with_curl:](https://fossengineer.com/selfhosting-uptime-Kuma-docker/) :heavy_check_mark:
   * Flame :heavy_check_mark:   
   * Homer
     
@@ -147,7 +147,7 @@ Everything needed to run a software application successfully can be stored in a 
   * P2P
     * Transmission :heavy_check_mark:
     * rTorrent :heavy_check_mark:
-    * Qbittorrent :heavy_check_mark:
+    * [Qbittorrent]() :heavy_check_mark:
     * Radarr :heavy_check_mark:
     * Sonarr :heavy_check_mark:
     * Bazar :heavy_check_mark:
@@ -161,7 +161,7 @@ Everything needed to run a software application successfully can be stored in a 
 ### [Security:](https://github.com/JAlcocerT/Docker/tree/main/Security)
 * Authelia  
 * Blocky
-* Cloudflare - zero trust tunnel :heavy_check_mark:
+* [Cloudflare - Zero Trust Tunnel :page_with_curl:](https://fossengineer.com/selfhosting-cloudflared-tunnel-docker/) :heavy_check_mark:
 * Crowdsec 
 * DNS:
   * CoreDNS
@@ -175,18 +175,18 @@ Everything needed to run a software application successfully can be stored in a 
   * Wireshark :heavy_check_mark:
   * Pi-Alert  
 * Privacy:
-  * Whoogle :heavy_check_mark:
+  * [Whoogle :page_with_curl:](https://fossengineer.com/selfhosting-whoogle-docker/) :heavy_check_mark:
   * SearX :heavy_check_mark:
 * Proxies
   * Caddy 
-  * NGINX + SSL :heavy_check_mark:
+  * [NGINX + SSL :page_with_curl:](https://fossengineer.com/selfhosting-nginx-proxy-manager-docker/) :heavy_check_mark:
   * NGINX + SSL + Fail2ban
   * NGINX + SSL + Fail2ban + Authelia
   * NGINX + SSL + Fail2ban + Authelia + DuckDNS
   * Traefik
   * Traefik + failban
 * VPN's
-  * Gluetun
+  * [Gluetun :page_with_curl:](https://fossengineer.com/using-bard-selfhosting-firefox-with-vpn-docker/)
   * OpenVPN
   * Tailscale
   * Wirehole
@@ -210,8 +210,8 @@ Everything needed to run a software application successfully can be stored in a 
 * Youtube
   * MeTube :heavy_check_mark:
 * Grocy :heavy_check_mark:
-* Firefox
-* Webtops
+* [Firefox :page_with_curl:](https://fossengineer.com/using-bard-selfhosting-firefox-with-vpn-docker/)
+* [WebTops](https://fossengineer.com/selfhosting-webtops-with-docker/)
 * Libretranslate
 * Design
   * Penpotapp
@@ -227,18 +227,15 @@ Everything needed to run a software application successfully can be stored in a 
 * Comment Engine
   * remark42
   * Isso
+  * Giscus
 * Dynamic DNS
   * DuckDNS :heavy_check_mark:
   * No-IP
 * CMS/Sites
   * Bludit
-  * HUGO 
-  * Wordpress Ubuntu single site :heavy_check_mark:
-  * Wordpress Ubuntu multi site
-  * Wordpress RPi single site :heavy_check_mark:
-  * Wordpress RPi single sites X NginX --> multi sites
-  * Wix
-  * Ghost
+  * [HUGO :page_with_curl:](https://fossengineer.com/web-guide-Hugo/) 
+  * [Wordpress :page_with_curl:](https://fossengineer.com/selfhosting-wordpress-docker/) :heavy_check_mark:
+  * [Ghost :page_with_curl:](https://fossengineer.com/selfhosting-ghost-docker/)
 * Forms (HTML)
   * Alpaca
   * Drupal
@@ -248,7 +245,7 @@ Everything needed to run a software application successfully can be stored in a 
   * Pixelfed
   * Vero
 * Static Web Server
-  * Apache
+  * [Apache :page_with_curl:](https://fossengineer.com/Selfhosting-Static-Webs-with-Apache-in-Docker/) 
   * NginX
 * Subscriptions
    * Keila

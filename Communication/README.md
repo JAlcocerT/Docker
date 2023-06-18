@@ -21,20 +21,10 @@ sudo ./discourse-setup
 /var/docker/launcher start app
 ```
 
-#### Jitsi
+#### [Matrix with Synapse](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
 
-```
-```
+First step - generate the configuration with:
 
-#### Mattermost
-
-
-```
-```
-
-#### Matrix with synapse :heavy_check_mark:
-
-First step - generate the configuration with
 ```
 sudo docker run -it --rm -v ~/Docker/synapse/data:/data -e SYNAPSE_SERVER_NAME=matrix.yourdomain.com -e SYNAPSE_REPORT_STATS=yes matrixdotorg/synapse:latest generate
 
@@ -44,6 +34,7 @@ sudo docker run -it --rm -v ~/Docker/synapse/data:/data -e SYNAPSE_SERVER_NAME=m
 ```
 
 * Creating a new nginx proxy for this  :heavy_check_mark:
+
 ```
 mkdir reverse-proxy && cd reverse-proxy
 
@@ -90,32 +81,8 @@ networks:
 ```
 Then, use nginx portal to add the domain + name of the docker container (synapse) + the port as 8008 (as defined here).
 
-#### Revolt
 
 
-```
-```
-
-
-
-#### Rocket.Chat
-
-
-```
-```
-
-## Mails: (mail tester: <https://www.mail-tester.com/>)
-
-### iredmail
-
-### mailcow
-
-```
-#in /opt
-sudo git clone https://github.com/mailcow/mailcow-dockerized
-sudo bash generate_config.sh 
-sudo nano mailcow.conf
-```
 
 #### FreshRSS :heavy_check_mark:
 
