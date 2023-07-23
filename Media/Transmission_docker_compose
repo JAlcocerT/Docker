@@ -4,16 +4,16 @@ services:
   transmission:
     image: ghcr.io/linuxserver/transmission
     container_name: transmission
-     environment:
+    environment:
       - PUID=1000 
       - PGID=1000 
       - TZ=Europe/Madrid 
-     ports:
+    ports:
       - 9091:9091 
       - 51413:51413 
       - 51413:51413/udp 
-     volumes:
+    volumes:
       - ~/Docker/Torrents/Transmission/config:/config
       - ~/Downloads:/downloads
       - ~/Downloads/Transmission_watch:/watch
-     restart: unless-stopped
+    restart: unless-stopped

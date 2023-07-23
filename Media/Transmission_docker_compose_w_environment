@@ -4,16 +4,16 @@ services:
   transmission:
     image: ghcr.io/linuxserver/transmission
     container_name: transmission
-     environment:
+    environment:
       - PUID=1000 
       - PGID=1000 
-      - TZ=${TZ_set}
-     ports:
-      - ${transmission_app_port}:9091 #9090
-      - 51413:51413 
-      - 51413:51413/udp 
-     volumes:
-      - ~/Docker/Torrents/Transmission/config:/config
-      - ${Media}:/downloads
-      - ~/Downloads/Tranmission/watch:/watch
-     restart: unless-stopped
+      - TZ=${TIME_ZONE}
+    ports:
+      - ${Transmission_Port}:9091 #9090
+      - ${Trnamission_Port2}:51413 
+      - ${Trnamission_Port2}:51413/udp 
+    volumes:
+      - ${docker_configs_path}/Transmission/config:/config
+      - ${Media_Path}/Tranmission:/downloads
+      - ${Media_Path}/Tranmission/watch:/watch
+    restart: unless-stopped

@@ -1,13 +1,13 @@
-docker run -d \
-  --name=firefox \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Europe/Madrid \
-  -p 3000:3000 \
-  -v /home/pi/Docker/Firefox/config:/config \
-  --shm-size="1gb" \
-  --restart unless-stopped \
-  ghcr.io/linuxserver/firefox
+# docker run -d \
+#   --name=firefox \
+#   -e PUID=1000 \
+#   -e PGID=1000 \
+#   -e TZ=Europe/Madrid \
+#   -p 3000:3000 \
+#   -v /home/pi/Docker/Firefox/config:/config \
+#   --shm-size="1gb" \
+#   --restart unless-stopped \
+#   ghcr.io/linuxserver/firefox
   
   
 ---

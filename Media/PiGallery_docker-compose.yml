@@ -50,6 +50,3 @@ services:
 
 volumes:
   db-data:
-  
-  
-  
