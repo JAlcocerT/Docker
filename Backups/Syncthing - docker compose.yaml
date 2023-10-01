@@ -4,15 +4,16 @@ services:
   syncthing:
     image: ghcr.io/linuxserver/syncthing
     container_name: syncthing
-    hostname: syncthing #optional
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Warsaw
+      - TZ=Europe/Rome
     volumes:
       - ~/Docker/Syncthing/config:/config
       - ~/user/Sync-Folder-Data:/data1
-      - /media/user/TOSHIBA\ EXT/A-SYNC-CLOUD:/data2
+      - /media/user/TOSHIBA\ EXT/A-SYNC-CLOUD:/data2 #You can add more than one folder, even if different disk
+      #- "C:\\DOCKER\\Syncthing\\config:/config" #Example for Windows
+      #- "D:\\Z_Sync:/dataD" ##Example for Windows
     ports:
       - 8384:8384
       - 22000:22000/tcp
