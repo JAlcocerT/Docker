@@ -1,13 +1,13 @@
 # Docker and Self-Hosting Setup Guides
 
-Public repository that serves as a pillar for self-hosting pourposes, a companion for:
+A pillar for self-hosting pourposes and anyone starting their journey with Docker, a companion for:
 
-* Github Page built on: <https://jalcocert.github.io/RPi/#Prerequisites>
-* The Linux GH page: <https://github.com/JAlcocerT/Linux>
+* My RPi guide: <https://jalcocert.github.io/RPi/#Prerequisites>
+* My Linux guide: <https://github.com/JAlcocerT/Linux>
 * The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/) entries in my blog <https://fossengineer.com/>.
   * [Install Portainer and get ready to deploy docker containers with a UI.](https://fossengineer.com/selfhosting-portainer-docker/)
 
-Repository Structure:
+## Repository Structure:
   * [Introduction: Why Docker?](#Intro)
   * [Back-up related containers](#Backups)
   * [Business apps related containers](#business)
@@ -18,11 +18,7 @@ Repository Structure:
   * [Web related Containers](#Web)
   * [Ways to Contribute](#contribute)
 
-**Legend:**
-  * :heavy_check_mark: -> Self-hosting instructions available in this repository
-  * :page_with_curl: -> Detailed instructions available in my blog: <https://fossengineer.com/>
-
-## Intro
+## Why Docker?
 
 [Docker is a tool](https://fossengineer.com/docker-first-steps-guide-for-data-analytics/) designed to make it easier to **create, deploy, and run applications by using *containers*.**
 
@@ -33,7 +29,13 @@ Containers remain lightweight by sharing the OS they run on while isolating proc
  
 Everything needed to run a software application successfully can be stored in a container to make development and deployment more efficient. For this reason, containers are perfect for running microservices.
 
-## Folders Content Structure:
+## Docker and your favourite Apps
+
+I have been collecting the config files to install with Docker several Apps and consolidated it on this repository for anyone that might find it helpful.
+
+<details>
+  <summary>Click to know which Apps</summary>
+  &nbsp;
 
 ### [Backups:](https://github.com/JAlcocerT/Docker/tree/main/Backups)
   * Duplicati :heavy_check_mark:
@@ -252,16 +254,25 @@ Everything needed to run a software application successfully can be stored in a 
    * Mailtrain
    * Moodle
 
+**Legend:**
+  * :heavy_check_mark: -> Self-hosting instructions available in this repository
+  * :page_with_curl: -> Detailed instructions available in my blog: <https://fossengineer.com/>
 
-## Contribute
+</details>
 
-This document is done in markdown [(try it! :black_nib:).](https://github.com/JAlcocerT/Docker/edit/main/README.md)
+## Powered Thanks To :heart:
+
+* Markdown
+* The fantastic community on the internet from where I learn all of this.
+
+## :loudspeaker: Ways to Contribute 
+
+Please feel free to fork the repository - try it out the guide for yourself and improve or add other config files.
 
 If you enjoy self-hosting any of the apps listed, I would show appreciation directly to their creators. Please check the specific project for more details on that.
 
-If any of the docker-compose files or associated tutorials was helpful and you want to show gratitude:
-
-* Consider leaving feedback if you found some improvement / something can be explained better
-* Support additional weekends of self-hosting tinkering to bring new services to the list:
+* If any of the docker-compose files or associated tutorials was helpful and you want to show gratitude:
+ * Consider leaving feedback if you found some improvement / something can be explained better
+ * Support additional weekends of self-hosting tinkering to bring new services to the list
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/FossEngineer)
