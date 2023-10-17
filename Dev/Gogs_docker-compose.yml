@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  gogs:
+    image: gogs/gogs:latest
+    container_name: gogs
+    ports:
+      - "3090:3000"
+    volumes:
+      - gogs-data:/home/git/gogs-repositories
+
+volumes:
+  gogs-data:
