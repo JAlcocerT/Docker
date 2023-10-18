@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  adguardhome:
+    image: adguard/adguardhome
+    container_name: adguardhome
+    ports:
+      - "59:53/udp"
+      - "59:53/tcp"
+      - "89:80/tcp"
+      - "449:443/tcp"
+      - "3009:3000/tcp" #UI      
+      # Additional ports you may need:
+      # - "67:67/udp"
+      # - "68:68/tcp"
+      # - "68:68/udp"
+      # - "853:853/tcp"
+    volumes:
+      - /home/Docker/Adguard/config:/config
+      - /home/Docker/Adguard/logs:/var/log/adguardhome
+    restart: always
+
+networks:
+  default:
+    name: adguardhome_network
