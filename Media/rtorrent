@@ -1,2 +1,0 @@
-#curl -cO https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent_docker_compose > docker-compose.yaml
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent_docker_compose > docker-compose.yaml

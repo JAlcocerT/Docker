@@ -1,0 +1,37 @@
+#curl -cO https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent_docker_compose > docker-compose.yaml
+#wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent_docker_compose > docker-compose.yaml
+
+
+version: "2"
+
+services:
+
+  rtorrent:
+    image: pablokbs/rutorrent-armhf
+    ports:
+      - 85:80 #web port
+      - 51415:51413
+      - 6881:6881/udp
+    volumes:
+      - ~/Downloads/rtorrent:/config/rtorrent
+      - /media/pi/Nowy/DOWNLOADS:/downloads
+    restart: always
+
+
+## docker-compose para correr rtorrent sobre raspberry
+## from PeladoNerd https://youtu.be/pZArt1yEw_o with tweaks
+
+# ---
+# version: "2"
+# services:
+#   rtorrent:
+#     container_name: rtorrent_Nowy
+#     image: pablokbs/rutorrent-armhf
+#     ports:
+#       - ${rtorrent_webport}:80 #web port
+#       - ${rtorrent_port2}:51413
+#       - ${rtorrent_port}:6881/udp
+#     volumes:
+#       - ~/Downloads/rtorrent:/config/rtorrent
+#       - {Media}/DOWNLOADS:/downloads
+#     restart: always
