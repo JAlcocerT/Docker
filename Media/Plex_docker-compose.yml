@@ -1,0 +1,43 @@
+https://hub.docker.com/r/linuxserver/plex
+
+
+
+#subzero
+#webisodes
+#iptv
+
+
+version: "3.9"
+
+services:
+  plex:
+    image: plexinc/pms-docker:public
+    container_name: plex
+    restart: unless-stopped
+    networks:
+      - default
+    ports:
+      - "32400:32400/tcp"
+      - "3005:3005/tcp"
+      - "8324:8324/tcp"
+      - "32469:32469/tcp"
+      - "1900:1900/udp" 
+      - "32410:32410/udp"
+      - "32412:32412/udp"
+      - "32413:32413/udp"
+      - "32414:32414/udp"
+    volumes:
+      - /home/Docker/Plex/config:/config
+      - ~/Downloads/media:/media
+      - /dev/shm:/transcode
+    environment:
+      TZ: "Your_Time_Zone"
+      PLEX_CLAIM: "Your_Plex_Claim"
+      PLEX_UID: "Your_PUID"
+      PLEX_GID: "Your_PGID"
+      ADVERTISE_IP: "http://localhost:32400/"
+      ALLOWED_NETWORKS: "Your_Local_Network_Subnet"
+
+networks:
+  default:
+    driver: bridge

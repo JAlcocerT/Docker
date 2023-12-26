@@ -8,6 +8,7 @@ services:
       - 50000:50000
     volumes:
       - jenkins_home:/var/jenkins_home
+      #- /home/Docker/jenkins:/var/jenkins_home      
     restart: always
 
 volumes:

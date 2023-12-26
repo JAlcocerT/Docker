@@ -17,7 +17,7 @@ services:
 volumes:
   gitlab-config:
   gitlab-logs:
-  gitlab-data:
+  gitlab-data:  
 
 ### user root & pass -> docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password  ###
 
