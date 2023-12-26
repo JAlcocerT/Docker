@@ -1,3 +1,5 @@
+#https://fossengineer.com/selfhosting-Leantime-docker/
+
 version: '3.3'
 services:
     db_leantime:
