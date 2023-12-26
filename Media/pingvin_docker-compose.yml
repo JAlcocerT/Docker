@@ -1,0 +1,21 @@
+#https://github.com/stonith404/pingvin-share/blob/main/docker-compose.yml
+
+
+version: '3.8'
+services:
+  pingvin:
+    image: stonith404/pingvin-share
+    container_name: pingvin
+    restart: unless-stopped
+    ports:
+      - 3055:3000
+    volumes:
+      - "/home/Docker/pingvin/data:/opt/app/backend/data"
+      - "/home/Docker/pingvin/data/images:/opt/app/frontend/public/img"
+    networks:
+      - cloudflare_tunnel
+    #restart: always     
+
+networks:
+  cloudflare_tunnel:
+    external: true              

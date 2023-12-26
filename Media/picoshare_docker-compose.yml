@@ -1,0 +1,23 @@
+version: '2'
+services:
+  picoshare:
+    environment:
+      - PORT=3002
+      - PS_SHARED_SECRET=yosuacerdo
+    ports:
+      - 3002:3002
+    volumes:
+      - picoshare:/data
+    container_name: picoshare
+    image: mtlynch/picoshare:latest
+    networks:
+      - cloudflare_tunnel
+    #restart: always     
+      
+
+volumes:
+  picoshare:
+
+networks:
+  cloudflare_tunnel:
+    external: true  
