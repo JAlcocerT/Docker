@@ -41,12 +41,9 @@ I have been collecting the config files to install with Docker several Apps and 
   * Duplicati :heavy_check_mark:
   * Duplicity
   * Urbackup
-  * Filerun
-    * Ubuntu :heavy_check_mark:
-    * RPI :heavy_check_mark:
+  * Filerun :heavy_check_mark:
   * Nextcloud
-    * Ubuntu :heavy_check_mark:
-    * [RPI](https://jalcocert.github.io/RPi/projects/nextcloud_with_rpi/) :heavy_check_mark:
+    * [RPI](https://jalcocert.github.io/RPi/posts/selfhosting-nextcloud/) :heavy_check_mark:
     * Recommended apps: cospend (moneybuster android)
   * Photos: 
     * LibrePhotos
@@ -58,7 +55,7 @@ I have been collecting the config files to install with Docker several Apps and 
   * RClone :heavy_check_mark:
   * RSync
   * RSnapshot
-  * Samba :heavy_check_mark:
+  * [Samba](https://fossengineer.com/selfhosting-samba/) :heavy_check_mark:
   * Seafile
   * Syncthing :heavy_check_mark:
     
@@ -91,25 +88,33 @@ I have been collecting the config files to install with Docker several Apps and 
        * Postfix
    * FreshRSS :heavy_check_mark:
 ### [Dev](https://github.com/JAlcocerT/Docker/tree/main/Dev)
-* Gitea :heavy_check_mark:
-* [Python DASH Apps :page_with_curl:](https://fossengineer.com/dash-docker-gcr/)
-* Shiny Dashboards 
-* VSCode
+* [Gitea](https://fossengineer.com/selfhosting-Gitea-docker/) :heavy_check_mark:
+* [Gogs](https://fossengineer.com/selfhosting-Gogs-with-Docker/)
+* Gitlab CE
+* VSCode Server
+* [Jenkins](https://fossengineer.com/selfhosting-jenkins-ci-cd/)
+* Airflow
 * Gitbucket
 * OneDev #includes kanban board
-* SnippetBox :heavy_check_mark:   
+* SnippetBox :heavy_check_mark:
+* [Python DASH Apps :page_with_curl:](https://fossengineer.com/dash-docker-gcr/)
+* [Shiny Dashboards](https://fossengineer.com/building-r-shiny-apps-container-image-with-docker/)   
 ### [IoT:](https://github.com/JAlcocerT/Docker/tree/main/IoT)
 * Automations:
   * Domoticz
-  * Home Assistant :heavy_check_mark:
+  * [Home Assistant](https://jalcocert.github.io/RPi/posts/rpi-iot-dht11-influxdb/#how-can-i-install-home-assistant) :heavy_check_mark:
   * Home Bridge
   * OpenHab
-* Internet speed tracker :heavy_check_mark:
-* OpenSpeedTest :heavy_check_mark:
+* [Internet speed tracker](https://jalcocert.github.io/RPi/posts/self-internet-monit/#speedtest-tracker) :heavy_check_mark:
+* [OpenSpeedTest](https://jalcocert.github.io/RPi/posts/self-internet-monit/#openspeedtest) :heavy_check_mark:
 * GPIO
+  * TIO: https://github.com/tio/tio
+* BI:
+  * [Metabase](https://jalcocert.github.io/RPi/posts/rpi-iot-dht1122-mongo/#metabase)
+  * [Apache Superset](https://jalcocert.github.io/RPi/posts/rpi-gps-superset/#apache-superset-setup)
+  * Redash
 * Dashboards:
-  * cAdvisor :heavy_check_mark: 
-  * NetData :heavy_check_mark:
+  * [NetData](https://fossengineer.com/selfhosting-server-monitoring-with-netdata-and-docker/) :heavy_check_mark:
   * Grafana with Prometheus (internet speed) :heavy_check_mark:
   * Grafana with Prometheus (internet + device with node exporter)
   * Grafana with Graphite StatsD
@@ -117,14 +122,14 @@ I have been collecting the config files to install with Docker several Apps and 
   * Grafana with Proxmox and InfluxDB
   * Grafana with Proxmox and Graphite
   * Grafana with Node-Red
+  * Grafana + cAdvisor
   * EFK stack for logs(Elastic search, Fluentd, Kibana)
   * ELK stack (ES, Logstash, Kibana)
-  * Redash
   * GOtify
   * Ntfy (notify)
   * [Uptime Kuma :page_with_curl:](https://fossengineer.com/selfhosting-uptime-Kuma-docker/) :heavy_check_mark:
   * Flame :heavy_check_mark:   
-  * Homer
+  * Homerr
     
 ### [Media](https://github.com/JAlcocerT/Docker/tree/main/Media)
 * E-Books/Podcasts
@@ -149,10 +154,11 @@ I have been collecting the config files to install with Docker several Apps and 
   * P2P
     * Transmission :heavy_check_mark:
     * rTorrent :heavy_check_mark:
-    * [Qbittorrent]() :heavy_check_mark:
+    * [Qbittorrent](https://fossengineer.com/selfhosting-qBittorrent-with-docker-and-VPN) :heavy_check_mark:
     * Radarr :heavy_check_mark:
     * Sonarr :heavy_check_mark:
     * Bazar :heavy_check_mark:
+    * JDownloader
 * ArchiveBox
 * Music
   * Ampache
@@ -173,7 +179,7 @@ I have been collecting the config files to install with Docker several Apps and 
 * EndleSSH
 * Fail2ban 
 * LAN:
-  * Watchyourlan :heavy_check_mark:
+  * [Watchyourlan](https://fossengineer.com/selfhosting-WatchYourLAN-docker/) :heavy_check_mark:
   * Wireshark :heavy_check_mark:
   * Pi-Alert  
 * Privacy:
@@ -181,32 +187,32 @@ I have been collecting the config files to install with Docker several Apps and 
   * SearX :heavy_check_mark:
 * Proxies
   * Caddy 
-  * [NGINX + SSL :page_with_curl:](https://fossengineer.com/selfhosting-nginx-proxy-manager-docker/) :heavy_check_mark:
+  * [NGINX + SSL + DuckDNS :page_with_curl:](https://fossengineer.com/selfhosting-nginx-proxy-manager-docker/) :heavy_check_mark:
   * NGINX + SSL + Fail2ban
   * NGINX + SSL + Fail2ban + Authelia
-  * NGINX + SSL + Fail2ban + Authelia + DuckDNS
   * Traefik
   * Traefik + failban
 * VPN's
   * [Gluetun :page_with_curl:](https://fossengineer.com/using-bard-selfhosting-firefox-with-vpn-docker/)
   * OpenVPN
-  * Tailscale
+  * [Tailscale]()
+  * Headscale
   * Wirehole
   * Wireguard :heavy_check_mark:
-  * Windscribe 
 * Watchtower :heavy_check_mark:
     
 ###  Others:
 * Management:
   * Bookstack
-  * Focalboard :heavy_check_mark:
+  * [Focalboard](https://fossengineer.com/focalboard-docker/) :heavy_check_mark:
   * Joplin (x86 only)
   * Kanboard :heavy_check_mark:
   * Logseq
   * OpenProject (Asana alternative)
   * [Leantime :page_with_curl:](https://fossengineer.com/selfhosting-Leantime-docker/) :heavy_check_mark:
+  * [Timtelite](https://fossengineer.com/selfhosting-timelite-free-tracking-tool-with-docker/)
   * Personal management system
-  * Trilium :heavy_check_mark:
+  * [Trilium](https://fossengineer.com/selfhosting-Trilium-docker/) :heavy_check_mark:
   * Tiddlywiki
   * Wecan (Kanban board)
 * Youtube
@@ -217,14 +223,14 @@ I have been collecting the config files to install with Docker several Apps and 
 * Libretranslate
 * Design
   * Penpotapp
-  * Drawio
+  * [Drawio](https://fossengineer.com/selfhosting-drawio-with-docker/)
 
 
 ### [Web](https://github.com/JAlcocerT/Docker/tree/main/Web)
 * Analytics
   * Matomo
   * Plausible
-  * Posthog
+  * Posthog <https://posthog.com/docs/self-host>
   * Umami :heavy_check_mark:
 * Comment Engine
   * remark42
@@ -243,7 +249,7 @@ I have been collecting the config files to install with Docker several Apps and 
   * Drupal
   * OhMyForm
 * Instagram alternatives
-  * Chevereto
+  * [Chevereto](https://fossengineer.com/selfhosting-chevereto-docker/)
   * Pixelfed
   * Vero
 * Static Web Server
@@ -256,14 +262,21 @@ I have been collecting the config files to install with Docker several Apps and 
 
 **Legend:**
   * :heavy_check_mark: -> Self-hosting instructions available in this repository
-  * :page_with_curl: -> Detailed instructions available in my blog: <https://fossengineer.com/>
+  * :page_with_curl: -> Detailed instructions available in [my tech blog](https://fossengineer.com/).
 
 </details>
+
+### AI-Gen
+
+* [Ollama with Docker](https://fossengineer.com/selfhosting-llms-ollama/)
+* [PrivateGPT with Docker](https://fossengineer.com/selfhosting-local-llms-with-privateGPT/)
+* [TextGenWebUI with Docker](https://fossengineer.com/Generative-AI-LLMs-locally-with-cpu/)
+
 
 ## Powered Thanks To :heart:
 
 * Markdown
-* The fantastic community on the internet from where I learn all of this.
+* The fantastic community on the internet from where I've learnt the basis to put together all of this.
 
 ## :loudspeaker: Ways to Contribute 
 
