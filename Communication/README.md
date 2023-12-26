@@ -1,31 +1,12 @@
 ## Chats:
 
-#### Discourse
 
-```
-sudo apt update && sudo apt upgrade -y && sudo apt-get install docker.io docker-compose -y
-mkdir discourse && cd discourse/
-
-git clone https://github.com/discourse/discourse_docker
-cd discourse_docker/
-cp samples/standalone.yml containers/app.yml && sudo nano containers/app.yml
-```
-
-https://github.com/discourse/discourse/blob/main/docs/INSTALL-email.md
-
-```
-#install discourse
-sudo ./discourse-setup
-#./launcher bootstrap app
-#Start Discourse
-/var/docker/launcher start app
-```
 
 #### [Matrix with Synapse](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
 
 First step - generate the configuration with:
 
-```
+```sh
 sudo docker run -it --rm -v ~/Docker/synapse/data:/data -e SYNAPSE_SERVER_NAME=matrix.yourdomain.com -e SYNAPSE_REPORT_STATS=yes matrixdotorg/synapse:latest generate
 
 #or if the latest does not generate a proper configfile, try a previous one:
@@ -35,7 +16,7 @@ sudo docker run -it --rm -v ~/Docker/synapse/data:/data -e SYNAPSE_SERVER_NAME=m
 
 * Creating a new nginx proxy for this  :heavy_check_mark:
 
-```
+```sh
 mkdir reverse-proxy && cd reverse-proxy
 
 docker network create server
@@ -57,7 +38,7 @@ docker-compose up -d
 
 If there is already an instance of [nginx running](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml), you can deploy the below docker compose file (nginx_default is the name of nginx network that is already created by default, but you could have named it in another way).
 
-```
+```sh
 version: "3.3"
 
 services:
@@ -81,25 +62,23 @@ networks:
 ```
 Then, use nginx portal to add the domain + name of the docker container (synapse) + the port as 8008 (as defined here).
 
-
-
-
-#### FreshRSS :heavy_check_mark:
+#### Discourse
 
 ```
----
-version: "2.1"
-services:
-  freshrss:
-    image: lscr.io/linuxserver/freshrss
-    container_name: freshrss
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - /path/to/data:/config
-    ports:
-      - 70:80
-    restart: unless-stopped
- ```
+sudo apt update && sudo apt upgrade -y && sudo apt-get install docker.io docker-compose -y
+mkdir discourse && cd discourse/
+
+git clone https://github.com/discourse/discourse_docker
+cd discourse_docker/
+cp samples/standalone.yml containers/app.yml && sudo nano containers/app.yml
+```
+
+https://github.com/discourse/discourse/blob/main/docs/INSTALL-email.md
+
+```
+#install discourse
+sudo ./discourse-setup
+#./launcher bootstrap app
+#Start Discourse
+/var/docker/launcher start app
+```

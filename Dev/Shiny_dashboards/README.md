@@ -1,4 +1,6 @@
-How to create a container of an existing shiny dashboard.
+## R Shiny 2 Container
+
+How to create a container of [an existing shiny dashboard](https://fossengineer.com/building-r-shiny-apps-container-image-with-docker).
 
 
 ```

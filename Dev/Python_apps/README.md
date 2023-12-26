@@ -1,6 +1,8 @@
-How to create a container for an existing python app.
+## Python 2 Container
 
-```
+How to create a container for [an existing python app](https://fossengineer.com/building-docker-container-images/#building-images-locally-x86-arm32-arm64).
+
+```Dockerfile
 # set base image (host OS)
 FROM python:3.8
 
@@ -18,5 +20,4 @@ COPY src/ .
 
 # command to run on container start
 CMD [ "python", "./server.py" ]
-
 ```
