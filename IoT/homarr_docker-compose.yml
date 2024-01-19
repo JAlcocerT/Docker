@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  homarr:
+    image: ghcr.io/ajnart/homarr:latest
+    container_name: homarr
+    restart: unless-stopped
+    ports:
+      - "7575:7575"
+    volumes:
+      - /home/reisipi/Docker/homarr/configs:/app/data/configs
+      - /home/reisipi/Docker/homarr/icons:/app/public/icons

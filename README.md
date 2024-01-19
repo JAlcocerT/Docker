@@ -35,17 +35,16 @@ Everything needed to run a software application successfully can be stored in a 
 I have been **collecting/adapting the config files** to install with Docker several Apps and consolidated it on this repository for anyone that might find it helpful.
 
 <details>
-  <summary>Click to know which Apps</summary>
+  <summary>Click to know which Apps 👈</summary>
   &nbsp;
 
 ### [Backups:](https://github.com/JAlcocerT/Docker/tree/main/Backups)
   * Duplicati :heavy_check_mark:
-  * Duplicity
-  * Urbackup
   * Filerun :heavy_check_mark:
   * Nextcloud
     * [RPI](https://jalcocert.github.io/RPi/posts/selfhosting-nextcloud/) :heavy_check_mark:
-    * Recommended apps: cospend (moneybuster android)
+    * Recommended Apps: cospend (moneybuster Android)
+  * Others: Duplicity, Urbackup
   * Photos: 
     * LibrePhotos
     * Lychee 
@@ -58,7 +57,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * RSnapshot
   * [Samba](https://fossengineer.com/selfhosting-samba/) :heavy_check_mark:
   * Seafile
-  * Syncthing :heavy_check_mark:
+  * [Syncthing](https://fossengineer.com/selfhosting-filebrowser-docker) :heavy_check_mark:
     
 ### [Business:](https://github.com/JAlcocerT/Docker/tree/main/Business)
    * ERPs:
@@ -71,14 +70,11 @@ I have been **collecting/adapting the config files** to install with Docker seve
       * Solid Invoice (x86 only)
     * Management:
        * Vikunja :heavy_check_mark:
-       * Leantime (x86 & ARM, :heavy_check_mark:)
+       * [Leantime](https://fossengineer.com/selfhosting-Leantime-docker/) (x86 & ARM, :heavy_check_mark:)
 ### [Communication:](https://github.com/JAlcocerT/Docker/tree/main/Communication)
    * Chats:
-       * Discourse 
-       * Jitsi
        * [Matrix with Synapse :page_with_curl:](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
-       * Revolt
-       * RocketChat
+       * Others: Revolt, RocketChat, Jitsi, Discourse
    * Mail:
        * iRedMail
        * Mailcow
@@ -92,10 +88,10 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * [WebTops](https://fossengineer.com/selfhosting-webtops-with-docker/)
 * [Gitea](https://fossengineer.com/selfhosting-Gitea-docker/) :heavy_check_mark:
 * [Gogs](https://fossengineer.com/selfhosting-Gogs-with-Docker/)
-* Gitlab CE
-* VSCode Server
+* [Gitlab CE](https://fossengineer.com/selfhosting-Gitlab-with-Docker)
+* VSCode Server :heavy_check_mark:
 * [Jenkins](https://fossengineer.com/selfhosting-jenkins-ci-cd/)
-* Airflow
+* [Airflow](https://fossengineer.com/selfhosting-airflow-with-docker)
 * Gitbucket
 * OneDev #includes kanban board
 * SnippetBox :heavy_check_mark:
@@ -103,9 +99,9 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * [Python DASH Apps :page_with_curl:](https://fossengineer.com/dash-docker-gcr/)
   * [Shiny Dashboards](https://fossengineer.com/building-r-shiny-apps-container-image-with-docker/)   
 * SSGs -> Static Webs
-  * HUGO
-  * Jekyll
-  * Astro  
+  * [HUGO](https://fossengineer.com/web-guide-Hugo/)
+  * [Jekyll](https://fossengineer.com/jekyll-ssg-selfhosting-static-website/)
+  * [Astro](https://fossengineer.com/astro-ssg/)
 ### [IoT:](https://github.com/JAlcocerT/Docker/tree/main/IoT)
 * Automations:
   * Domoticz
@@ -136,7 +132,8 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * Ntfy (notify)
   * [Uptime Kuma :page_with_curl:](https://fossengineer.com/selfhosting-uptime-Kuma-docker/) :heavy_check_mark:
   * Flame :heavy_check_mark:   
-  * Homerr
+  * Homarr :heavy_check_mark:
+  * Dockge :heavy_check_mark:
     
 ### [Media](https://github.com/JAlcocerT/Docker/tree/main/Media)
 * E-Books/Podcasts
@@ -151,6 +148,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * Anonupload
   * Picoshare
   * Pingvin
+  * [FileBrowser](https://fossengineer.com/selfhosting-filebrowser-docker)
 * Entertainment  
   * Jellyfin :heavy_check_mark:
   * Kodi
@@ -169,12 +167,12 @@ I have been **collecting/adapting the config files** to install with Docker seve
     * Radarr :heavy_check_mark:
     * Sonarr :heavy_check_mark:
     * Bazar :heavy_check_mark:
-    * JDownloader
+    * JDownloader :heavy_check_mark:
 * ArchiveBox
 * Music
   * Ampache
   * Supysonic :heavy_check_mark:
-  * Navidrome :heavy_check_mark:
+  * Navidrome :heavy_check_mark: it has synergy with [youtube-dl](https://jalcocert.github.io/RPi/posts/youtube-video-download/#youtube-dl-material)
 * Mumble
 
 ### [Security:](https://github.com/JAlcocerT/Docker/tree/main/Security)
@@ -218,7 +216,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * [Focalboard](https://fossengineer.com/focalboard-docker/) :heavy_check_mark:
   * Joplin (x86 only)
   * Kanboard :heavy_check_mark:
-  * Logseq
+  * [Logseq](https://fossengineer.com/selfhosting-logseq/)
   * OpenProject (Asana alternative)
   * [Leantime :page_with_curl:](https://fossengineer.com/selfhosting-Leantime-docker/) :heavy_check_mark:
   * [Timtelite](https://fossengineer.com/selfhosting-timelite-free-tracking-tool-with-docker/)
@@ -241,11 +239,12 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * Matomo
   * Plausible
   * Posthog <https://posthog.com/docs/self-host>
-  * Umami :heavy_check_mark:
+  * [Umami](https://fossengineer.com/selfhosting-umami-with-docker/) :heavy_check_mark:
 * Comment Engine
   * remark42
   * Isso
   * Giscus
+  * Discus
 * Dynamic DNS
   * DuckDNS :heavy_check_mark:
   * No-IP
@@ -281,7 +280,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * [Ollama with Docker](https://fossengineer.com/selfhosting-llms-ollama/)
 * [PrivateGPT with Docker](https://fossengineer.com/selfhosting-local-llms-with-privateGPT/)
 * [TextGenWebUI with Docker](https://fossengineer.com/Generative-AI-LLMs-locally-with-cpu/)
-
+* [CrewAi with Docker](https://fossengineer.com/ai-agents-crewai/)
 
 ## Powered Thanks To :heart:
 
@@ -298,4 +297,5 @@ If you enjoy self-hosting any of the apps listed, I would **show appreciation di
  * Consider leaving feedback if you found some improvement / something can be explained better
  * Support additional weekends of self-hosting tinkering to bring new services to the list
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/FossEngineer)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z1QPGUM)
