@@ -1,8 +1,16 @@
 ## Analytics
 
+* PostHog
+* Umami
+
+#### OpenReplay
+
 #### Matomo
 
 #### Open web analytics
+
+
+
 
 #### Plausible
 
@@ -154,3 +162,5 @@ https://raw.githubusercontent.com/JAlcocerT/Docker/main/Web/DuckDNS_docker_compo
 #### Traefik
 https://geekland.eu/instalar-y-configurar-el-proxy-inverso-traefik-en-docker/
 https://geekland.eu/limitar-acceso-servicio-o-web-por-ip-con-traefik/
+
+#### Caddy
