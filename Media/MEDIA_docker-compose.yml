@@ -1,0 +1,46 @@
+version: "3"
+services:
+  metube:
+    image: ghcr.io/alexta69/metube
+    container_name: metube
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    volumes:
+      - /home/jalcocert/Downloads/Music:/downloads
+  navidrome:
+    image: deluan/navidrome:latest
+    ports:
+      - "4533:4533"
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_BASEURL: ""
+    volumes:
+      - "/home/Docker/navidrome/data:/data"
+      - "/home/jalcocert/Downloads/Music:/music:ro"
+  jdownloader-2:
+    image: jlesage/jdownloader-2
+    ports:
+      - "5800:5800"
+    volumes:
+      - "/home/docker/jdownloader/appdata:/config:rw"
+      - "/home/jalcocert/Downloads/Music:/output:rw"
+  qbittorrent:
+    image: ghcr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - WEBUI_PORT=6011
+    volumes:
+      - /home/Docker/qbittorrent/config:/config
+      - /home/jalcocert/Downloads/Music:/downloads
+    #network_mode: "service:your_gluetun_service_name" #change gluetun to your VPN service name  
+    ports: #you wont need the ports in this configuration file, you will need to include them in the Gluetun container
+      - 6081:6881
+      - 6081:6881/udp
+      - 6011:6011  
+    restart: unless-stopped
