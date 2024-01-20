@@ -44,3 +44,7 @@ services:
       - 6081:6881/udp
       - 6011:6011  
     restart: unless-stopped
+
+# https://github.com/JAlcocerT/Docker/blob/main/Media/navidrome_docker-compose.yml
+# https://github.com/JAlcocerT/Docker/blob/main/Media/jdownloader_docker-compose.yml
+# https://github.com/JAlcocerT/Docker/blob/main/Media/Qbittorrent_docker-compose.yaml
