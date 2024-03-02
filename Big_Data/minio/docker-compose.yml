@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  minio:
+    image: minio/minio
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: <YOUR_ACCESS_KEY>
+      MINIO_ROOT_PASSWORD: <YOUR_SECRET_KEY>
+    command: server /data --console-address ":9001"
+
+volumes:
+  minio_data:
+
+
+# docker run -p 9000:9000 -p 9001:9001 --name minio1 \
+#   -v minio_data:/data \
+#   -e "MINIO_ROOT_USER=<YOUR_ACCESS_KEY>" \
+#   -e "MINIO_ROOT_PASSWORD=<YOUR_SECRET_KEY>" \
+#   minio/minio server /data --console-address ":9001"
+
+#http://localhost:9001/buckets
+
+#https://github.com/minio/mc

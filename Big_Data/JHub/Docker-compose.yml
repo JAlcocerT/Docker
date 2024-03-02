@@ -1,0 +1,18 @@
+version: '3'
+services:
+  jupyterhub:
+    image: jupyterhub/jupyterhub:latest
+    volumes:
+      - ./jupyterhub_data:/srv/jupyterhub
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8000:8000"
+    environment:
+      DOCKER_NETWORK_NAME: "${COMPOSE_PROJECT_NAME}_default"
+      DOCKER_NOTEBOOK_IMAGE: "jupyter/minimal-notebook"
+      JUPYTERHUB_CRYPT_KEY: "$(openssl rand -hex 32)" #optional
+    command: jupyterhub --Spawner.default_url=/lab
+
+
+#docker-compose run --rm jupyterhub jupyterhub --generate-config
+#sudo docker-compose up -d
