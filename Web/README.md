@@ -2,6 +2,7 @@
 
 * PostHog
 * Umami
+* [Umami](https://fossengineer.com/selfhosting-umami-with-docker/)
 
 #### OpenReplay
 
@@ -16,9 +17,25 @@
 
 ## CMS
 
-#### Wordpress
+* [Ghost](https://fossengineer.com/selfhosting-ghost-docker/)
+  * Ghost + Gatsby SSG
+  * Ghost + Astro SSG
 
-* Wordpress Ubuntu single site :heavy_check_mark:
+* Strapi
+  * Strapi + Astro - https://docs.astro.build/en/guides/cms/strapi/
+
+* SaleOR - https://github.com/JAlcocerT/Docker/tree/main/Business
+
+* [Grav](https://fossengineer.com/selfhosting-grav-docker/)
+
+* [Wordpress](https://fossengineer.com/selfhosting-wordpress-docker/)
+
+<details>
+  <summary>Wordpress with Docker 👈</summary>
+  &nbsp;
+
+*  Ubuntu single site :heavy_check_mark:
+
 
 ```
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Web/Wordpress > wp.sh && chmod 775 wp.sh && sudo ./wp.sh
@@ -51,6 +68,12 @@ Edit wp-config.php file
 #Wordpress RPi Docker compose.yml
 sudo docker-compose up -d
 ```
+
+</details>
+
+You might be interested in SSG's: HUGO, Jekyll, Astro... 🤘
+
+## Social Media
 
 #### Pixelfed
 
