@@ -16,3 +16,14 @@ services:
 #https://github.com/alexjustesen/speedtest-tracker
 #authentication: https://docs.speedtest-tracker.dev/settings/authentication
 #previously https://github.com/henrywhitaker3/Speedtest-Tracker
+
+
+#NOT for ARM!
+
+# docker run \
+#       --name=speedtest \
+#       -p 8765:80 \
+#       -v ~/Docker/InternetSpeedTest/config:/config \
+#       -e OOKLA_EULA_GDPR=true \
+#       --restart unless-stopped \
+#       henrywhitaker3/speedtest-tracker

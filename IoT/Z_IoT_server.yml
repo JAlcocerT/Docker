@@ -1,0 +1,72 @@
+# version: '3'
+
+# services:
+#   emqx:
+#     image: emqx/emqx
+#     container_name: emqx
+#     ports:
+#       - "1883:1883"
+#       - "8083:8083"
+#       - "8883:8883"
+#       - "8084:8084"
+#       - "18083:18083"
+#     restart: always
+    
+#   nodered:
+#     image: nodered/node-red
+#     container_name: nodered
+#     ports:
+#       - "1880:1880"
+#     restart: always
+
+#   influxdb:
+#     image: influxdb:1.8
+#     container_name: influxdbnodered
+#     ports:
+#       - "8036:8086"    
+
+
+version: '3'
+
+services:
+  emqx:
+    image: emqx/emqx
+    container_name: emqx
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "8883:8883"
+      - "8084:8084"
+      - "18083:18083"
+    restart: always
+
+  nodered:
+    image: nodered/node-red
+    container_name: nodered
+    ports:
+      - "1880:1880"
+    restart: always
+
+
+  influxdb:
+    image: influxdb:1.8 #for arm32
+    container_name: influxdbnodered
+    ports:
+      - "8036:8086"
+    volumes:
+      - influxdb_nodereddata:/var/lib/influxdb
+
+
+  grafana:
+    image: grafana/grafana #:9.5.7 was using this one instead of latest for stability
+    container_name: grafana
+    ports:
+      - "3003:3000"
+    depends_on:
+      - influxdb
+    volumes:
+      - grafana_nodereddata:/var/lib/grafana  # Add this line to specify the volume
+
+volumes:
+  influxdb_nodereddata:
+  grafana_nodereddata:  # Define the volume for Grafana    

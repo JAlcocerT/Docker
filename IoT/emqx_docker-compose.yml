@@ -1,0 +1,18 @@
+version: '3'
+services:
+  emqx:
+    image: emqx/emqx:5.0.0 # Adjust version here if needed
+    container_name: emqx
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "8084:8084"
+      - "8883:8883"
+      - "18083:18083"
+    restart: unless-stopped
+
+
+#docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8084:8084 -p 8883:8883 -p 18083:18083 emqx/emqx:5.0.0 #5.5.0
+
+#https://github.com/emqx/MQTTX
+#https://github.com/thomasnordquist/MQTT-Explorer
