@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+    ports:
+      - "8096:8096"
+    volumes:
+      - "~/Docker/Jellyfin:/config"
+      - "/media/pi/Nowy:/data/tvshows"
+      - "/media/pi/Nowy:/data/movies"
+    restart: unless-stopped
+
+#https://f-droid.org/en/packages/org.jellyfin.androidtv/index.html
+#https://docs.linuxserver.io/images/docker-jellyfin/

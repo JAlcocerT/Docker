@@ -4,6 +4,7 @@
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/kodi_docker_compose > docker-compose.yaml
 
 #### Plex
+
 ```
 ---
 version: "2.1"
@@ -19,14 +20,15 @@ services:
       - VERSION=docker
     volumes:
       - ~/Docker/Plex/config:/config
-      - /media/pi/Nowy:/media #(Ruta donde tenéis montado vuestro disco duro)
+      #- /media/pi/Nowy:/media #(Ruta donde tenéis montado vuestro disco duro)
+      #- /home/jalcocert/Downloads:/media
     restart: unless-stopped
 ```
 Port 32400
 
 #### Jellyfin
 
-```
+```sh
 docker run -d \
   --name=jellyfin \
   -e PUID=1000 \

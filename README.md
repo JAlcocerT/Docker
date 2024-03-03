@@ -1,6 +1,6 @@
 # Docker and Self-Hosting Setup Guides
 
-A pillar for self-hosting pourposes and anyone starting their journey with Docker, a companion for:
+A reference for Self-Hosting pourposes and for anyone starting their journey with Docker. A companion for:
 
 * My [RPi guide]()https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/
 * My [Linux guide](https://jalcocert.github.io/Linux/docs/debian/docker/)

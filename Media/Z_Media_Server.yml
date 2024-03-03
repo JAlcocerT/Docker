@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+    ports:
+      - "8096:8096"
+    volumes:
+      - "~/Docker/Jellyfin:/config"
+      - "/home/jalcocert/Downloads:/data"
+      # - "/media/pi/Nowy:/data/tvshows"
+      # - "/media/pi/Nowy:/data/movies"
+    restart: unless-stopped
+
+  qbittorrent:
+    image: ghcr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - WEBUI_PORT=6011
+    volumes:
+      - "/home/Docker/qbittorrent/config:/config"
+      - "/home/jalcocert/Downloads:/downloads"
+    ports:
+      - 6081:6881
+      - 6081:6881/udp
+      - 6011:6011  
+    restart: unless-stopped
+
+  metube:
+    image: ghcr.io/alexta69/metube
+    container_name: metube
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    volumes:
+      - "/home/jalcocert/Downloads:/downloads"
+
+  jdownloader-2:
+    image: jlesage/jdownloader-2
+    container_name: jdownloader-2
+    ports:
+      - "5800:5800"
+    volumes:
+      - "/home/docker/jdownloader/appdata/jdownloader-2:/config:rw"
+      - "/home/jalcocert/Downloads:/output:rw"
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - "/home/Docker/radarr/config:/config"
+    ports:
+      - 7878:7878
+    restart: unless-stopped
