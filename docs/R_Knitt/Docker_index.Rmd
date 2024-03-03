@@ -1,0 +1,141 @@
+---
+title: "Docker A-Z"
+author: "JAT"
+date: "Updated on: `r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    css: styles.css
+    toc: true
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE} 
+a = knitr::asis_output("\U2714")
+```
+
+```{r klippy, echo=FALSE, include=TRUE}
+#It allows the clipboard button to be available in the html output
+klippy::klippy()
+
+#install.packages("remotes")
+#remotes::install_github("rlesur/klippy")
+```
+
+# Intro [^1]
+
+Nowadays there are a lot of businesses doing their transformation towards data, cloud, AI and so on. Once you dig in a little bit, you find a fundamental pillar on all of this are very powerful servers that can do the heavy lifting on the computational power required to run all of this.
+
+Linux and specifically docker containers that will be discussed here are an inevitable topic through this journey and with this really simple web I would like to make it as simple as possible for new people trying out this technologies.
+
+I would like to give a reference for my other website that covers linux topics, since its closely related on how docker/cloud works: <https://jalcocert.github.io/Linux/> 
+
+Remember that whatever application you get to run in Docker in your PC, you could make it run in a small low power device such a raspberry pi [^2], or to the mentioned powerful super computers that will train our latest algorithms on the cloud.
+
+ 
+
+# Docker
+
+To install docker, docker compose and portainer, simply copy the following code chunks in your terminal:
+
+
+Option 1:
+
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
+### INSTALL DOCKER
+
+sudo apt update & \
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+sudo apt update -y
+
+apt-cache policy docker-ce
+sudo apt install docker-ce
+
+sudo systemctl status docker
+
+## INSTALL DOCKER COMPOSE ##
+
+sudo apt install docker-compose -y
+
+## INSTALL PORTAINER
+sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+#Test that docker works with this image:
+#docker run hello-world
+```
+
+
+Option 2:
+
+On [this github repository](https://github.com/jalcocert/docker/blob/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer), there is the possibility to download and install directly a bash program with all the previous commands by typing only this on the terminal:
+
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
+wget  -cO - https://raw.githubusercontent.com/jalcocert/docker/main/1%20Docker%20%26%20%20Docker%20compose%20%26%20Portainer > docker_install.sh && chmod 775 docker_install.sh && sudo ./docker_install.sh
+```
+
+It will be useful to check you uid and gid with:
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
+grep $USER /etc/passwd
+```
+
+
+
+
+# Cloud - Terraform in GCP (IaC)
+
+### Infrastructure as a code intro
+
+It should be clear for now the power that sits on properly managing containerized applications, the next logical step would be: how can we make remote servers to run our apps?
+
+After investing some time, we can find that cloud providers have grapfical user interfaces that we can use to set the specific type of machine that we would like our containers to be ran. It is a simple process, but manual, therefore not escalable. Here is where terraform's job starts.
+
+Terraform is an [open source tool](https://github.com/hashicorp/terraform) for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions. It is part of the so called **Infrastructure as Code*:** where the infrastructure is described using a high-level configuration syntax. This allows a blueprint of your datacenter to be versioned and treated as you would any other code. Additionally, infrastructure can be shared and re-used.
+
+
+### Terraform
+
+Terraform manage the infraestructure and the services that run on it. It uses **declarative language**, we just have to define the end result of what we want to achieve and it will handle internally the steps to get us there.
+
+There are 2 clear steps to deploy our app the the cloud:
+* Provisioning the infrastructure (dev-ops part, Terraform comes in play here)
+* Deploying the application (software developer)
+
+The core has 2 input sources, with them it figures out what needs to be create/updated/destroyed to make it happen:
+* TF-config - desired configuration
+* State - current state
+
+
+#### GCP provider
+
+As per the [official documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
+
+Example:
+
+```{r, include=TRUE, eval=FALSE, class.source=".TheCode"}
+
+```
+
+```{r, include=FALSE, echo=FALSE, class.source=".TheCode"}
+
+# Cloud - Kubernetes (PaaS)
+
+
+
+# Cloud - Ansible
+
+#Ansible is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes
+
+
+```
+
+
+[^1]: All the files that I use to configure the servers(your old laptop or an RaspberryPi would do the job too to test it out), including this web as well, are in the public repository: <https://github.com/jalcocert/docker>  
+
+[^2]: Recommended setups and projects (for example self-hosting) for the RPi (involving Docker as well) on <https://jalcocert.github.io/RPi/>

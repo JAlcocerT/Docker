@@ -1,0 +1,46 @@
+<style>
+
+#TOC {
+  color: #6cf542;
+  font-family: Calibri;
+  font-size: 26px; 
+  border-color: #e6f1fa;
+}
+h1.title {
+  color: #0f03ab;
+  background-color: #e6f1fa;
+  opacity: 0.6;
+  font-family: Calibri;
+  font-size: 40px;
+  text-align: center;
+}
+h4.author {
+  color: #0f03ab;
+  font-family: Calibri;
+  background-color: #e6f1fa;
+  text-align: center;
+}
+h4.date {
+  color: #02c73a;  
+  font-family: Calibri;
+  background-color: #e6f1fa;
+  text-align: center;
+}
+body {
+  color: #708090;
+  font-family: Calibri;
+  background-color: #e6f1fa
+}
+pre {
+  color: #708090;
+  background-color: #e6f1fa;
+}
+h5 {
+color: #02c73a;
+}
+
+.TheCode {
+background-color: #f0f4f7
+}
+
+</style>
