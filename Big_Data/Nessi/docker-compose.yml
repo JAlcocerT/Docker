@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  nessie:
+    image: projectnessie/nessie:latest
+    ports:
+      - "19120:19120"
