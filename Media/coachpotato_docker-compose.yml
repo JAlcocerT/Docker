@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  couchpotato:
+    image: linuxserver/couchpotato
+    container_name: couchpotato
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    ports:
+      - 5050:5050
+    volumes:
+      - ~/Docker/couchpotato/config:/config
+      - ~/Downloads/couchpotato/downloads:/downloads
+      - ~/Downloads/couchpotato/movies:/movies
+    restart: unless-stopped
+
+
+# ```sh
+# docker run -d --name=couchpotato \
+#   -e PUID=1000 \
+#   -e PGID=1000 \
+#   -e TZ=Europe/Madrid \
+#   -p 5050:5050 \
+#   -v ~/Docker/couchpotato/config:/config \
+#   -v ~/Downloads/couchpotato/downloads:/downloads \
+#   -v ~/Downloads/couchpotato/movies:/movies \
+#   --restart unless-stopped \
+#   linuxserver/couchpotato
+  
+#   #ghcr.io/linuxserver/couchpotato
+# ```

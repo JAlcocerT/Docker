@@ -2,7 +2,8 @@
 version: "2.1"
 services:
   transmission:
-    image: ghcr.io/linuxserver/transmission
+    image: ghcr.io/linuxserver/transmission #lscr.io/linuxserver/transmission:latest #linuxserver/transmission:latest
+
     container_name: transmission
     environment:
       - PUID=1000 
@@ -17,3 +18,26 @@ services:
       - ~/Downloads:/downloads
       - ~/Downloads/Transmission_watch:/watch
     restart: unless-stopped
+
+  
+#https://hub.docker.com/r/linuxserver/transmission/
+
+#https://fossengineer.com/torrent-with-transmission-and-VPN
+
+
+# ```sh
+# docker run -d --name=transmission \
+#   -e PUID=1000 \
+#   -e PGID=1000 \
+#   -e TZ=Europe/Madrid \
+#   -e USER=username `#optional` \
+#   -e PASS=password `#optional` \
+#   -p 9091:9091 \
+#   -p 51413:51413 \
+#   -p 51413:51413/udp \
+#   -v ~/Docker/Transmission/config:/config \
+#   -v ~/Downloads/Torrents/Transmission:/downloads \
+#   -v ~/Downloads/Torrents/watch:/watch \
+#   --restart unless-stopped \
+#   ghcr.io/linuxserver/transmission
+# ```

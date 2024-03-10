@@ -2,20 +2,35 @@
 #wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Media/rtorrent_docker_compose > docker-compose.yaml
 
 
-version: "2"
 
-services:
+```
+docker run -d --name=rutorrent\
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -p 8087:80 \
+  -p 5007:5000 \
+  -p 51417:51413 \
+  -p 6887:6881/udp \
+  -v ~/Docker/rutorrent:/config \
+  -v /media/pi/Nowy/DOWNLOADS:/downloads \
+  --restart unless-stopped \
+  ghcr.io/linuxserver/rutorrent
+```
 
-  rtorrent:
-    image: pablokbs/rutorrent-armhf
-    ports:
-      - 85:80 #web port
-      - 51415:51413
-      - 6881:6881/udp
-    volumes:
-      - ~/Downloads/rtorrent:/config/rtorrent
-      - /media/pi/Nowy/DOWNLOADS:/downloads
-    restart: always
+# version: "2"
+
+# services:
+
+#   rtorrent:
+#     image: pablokbs/rutorrent-armhf
+#     ports:
+#       - 85:80 #web port
+#       - 51415:51413
+#       - 6881:6881/udp
+#     volumes:
+#       - ~/Downloads/rtorrent:/config/rtorrent
+#       - /media/pi/Nowy/DOWNLOADS:/downloads
+#     restart: always
 
 
 ## docker-compose para correr rtorrent sobre raspberry

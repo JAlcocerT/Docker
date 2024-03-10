@@ -22,3 +22,36 @@ services:
 networks:
     nginx_default:
         external: true    
+
+
+# ```
+# docker run -d \
+#   --name=calibre \
+#   -e PUID=1000 \
+#   -e PGID=1000 \
+#   -e TZ=Europe/Rome \
+#   -e PASSWORD= `#optional` \
+#   -e CLI_ARGS= `#optional` \
+#   -p 8070:8080 \
+#   -p 8071:8081 \
+#   -v ~/Docker/Calibre:/config \
+#   --restart unless-stopped \
+#   lscr.io/linuxserver/calibre #:arch tag for arm processors
+# ```
+
+# Calibre Web
+
+# ```
+# docker run -d \
+#   --name=calibre-web \
+#   -e PUID=1000 \
+#   -e PGID=1000 \
+#   -e TZ=Europe/London \
+#   -e DOCKER_MODS=linuxserver/calibre-web:calibre `#optional` \
+#   -e OAUTHLIB_RELAX_TOKEN_SCOPE=1 `#optional` \
+#   -p 8073:8083 \
+#   -v ~/Docker/CalibreWeb:/config \
+#   -v ~/Docker/CalibreWeb/library:/books \
+#   --restart unless-stopped \
+#   lscr.io/linuxserver/calibre-web
+# ```

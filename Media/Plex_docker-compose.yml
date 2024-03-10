@@ -1,4 +1,4 @@
-https://hub.docker.com/r/linuxserver/plex
+#https://hub.docker.com/r/linuxserver/plex
 
 
 
@@ -41,3 +41,24 @@ services:
 networks:
   default:
     driver: bridge
+
+
+# ---
+# version: "2.1"
+# services:
+#   plex:
+#     #image: linuxserver/plex:arm64v8-latest #for RPi
+#     #image: linuxserver/plex:amd64-latest #for am64
+#     container_name: plex
+#     network_mode: host
+#     environment:
+#       - PUID=1000
+#       - PGID=1000
+#       - VERSION=docker
+#     volumes:
+#       - ~/Docker/Plex/config:/config
+#       #- /media/pi/Nowy:/media #(Ruta donde tenéis montado vuestro disco duro)
+#       #- /home/jalcocert/Downloads:/media
+#     restart: unless-stopped
+
+# Port 32400

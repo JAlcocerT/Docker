@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  bazarr:
+    image: linuxserver/bazarr
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    ports:
+      - 6780:6767
+    volumes:
+      - ~/Docker/Bazarr/config:/config
+      - ~/Downloads:/movies
+      - ~/Downloads:/tv
+    restart: unless-stopped
+
+
+
+
+
+# ```sh
+# docker run -d --name=bazarr \
+#   -e PUID=1000 \
+#   -e PGID=1000 \
+#   -e TZ=Europe/Madrid \
+#   -p 6780:6767 \
+#   -v ~/Docker/Bazarr/config:/config \
+#   -v ~/Downloads:/movies `#optional` \
+#   -v ~/Downloads:/tv `#optional` \
+#   --restart unless-stopped \
+#   linuxserver/bazarr
+  
+#   #ghcr.io/linuxserver/bazarr
+# ```
