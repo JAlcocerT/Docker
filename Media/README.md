@@ -23,12 +23,13 @@ wget https://github.com/xe-nvdk/awesome-docker/raw/main/calibre-web/metadata.db
 
 #### P2P
 
-* qBittorrent [:heavy_check_mark:](https://fossengineer.com/selfhosting-qBittorrent-with-docker-and-VPN/)
+* [qBittorrent :heavy_check_mark:](https://fossengineer.com/selfhosting-qBittorrent-with-docker-and-VPN/)
 
 <details>
   <summary>Click to know How 👈</summary>
   &nbsp;
-```
+
+```sh
 docker run -d --name=qbittorrent\
   -e PUID=1000 \
   -e PGID=1000 \
@@ -43,11 +44,9 @@ docker run -d --name=qbittorrent\
   ghcr.io/linuxserver/qbittorrent
 ```
 
-OR:
+OR: :heavy_check_mark: *Jul 2022*
 
-(:heavy_check_mark: Jul 2022)
-
-```
+```sh
 sudo wget -c https://raw.githubusercontent.com/JAlcocerT/Docker/main/Media/Qbittorrent_docker-compose.yaml -O docker-compose.yaml
 
 wget  -cO - https://raw.githubusercontent.com/JAlcocerT/docker/main/Media/Qbittorrent_docker-compose_wenvironment.yaml > docker-compose.yaml
@@ -59,7 +58,7 @@ wget  -cO - https://raw.githubusercontent.com/JAlcocerT/Ubuntu/main/variables.en
 
 Remember: the default username/password is admin/adminadmin
 
-* [Transmission]() :heavy_check_mark:
+* [Transmission](https://fossengineer.com/torrent-with-transmission-and-VPN) :heavy_check_mark:
 * ruTorrent :heavy_check_mark:
 * Bazarr :heavy_check_mark:
 * Couchpotato :heavy_check_mark:
