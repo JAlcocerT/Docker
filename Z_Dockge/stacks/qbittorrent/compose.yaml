@@ -10,7 +10,7 @@ services:
       - TZ=Europe/Madrid
       - WEBUI_PORT=8080
     volumes:
-      - ~/Docker/qbittorrent/config:/config
+      - ~/DOCKER/qbittorrent/config:/config
       - ~/Downloads:/downloads
     ports:
       - 6881:6881
