@@ -20,8 +20,8 @@ services:
       # ⚠️ 2. Left Stacks Path === Right Stacks Path (MUST)
       
       #- /opt/stacks:/opt/stacks
-      - /home/jalcocert/Desktop/Docker/Z_Dockge/stacks:/opt/stacks
+      - /home/jalcocert/Docker/Z_Dockge/stacks:/opt/stacks
     environment:
       # Tell Dockge where is your stacks directory
       #- DOCKGE_STACKS_DIR=/opt/stacks
-      - DOCKGE_STACKS_DIR=/home/jalcocert/Desktop/Docker/Z_Dockge/stacks
+      - DOCKGE_STACKS_DIR=/home/jalcocert/Docker/Z_Dockge/stacks
