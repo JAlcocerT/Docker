@@ -19,3 +19,8 @@ services:
       - 22000:22000/udp
       - 21027:21027/udp
     restart: unless-stopped
+
+#sudo chown -R jalcocert:jalcocert /home/jalcocert/DOCKER
+#sudo chown -R jalcocert:jalcocert /home/jalcocert/Z_BACKUP_DATA/data1
+
+#make sure to add the folder like: /data1/any_folder_you_want

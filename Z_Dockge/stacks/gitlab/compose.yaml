@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: 'gitlab'
+    restart: always
+    ports:
+      - '8028:80'
+      - '443:443'
+      - '23:22'
+    volumes:
+      - 'gitlab-config:/etc/gitlab'
+      - 'gitlab-logs:/var/log/gitlab'
+      - 'gitlab-data:/var/opt/gitlab'
+
+volumes:
+  gitlab-config:
+  gitlab-logs:
+  gitlab-data:  
+
+#then go to port 8028 and ...
+#### user root & pass -> docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password  ###
+#then just use: root/the_pass_you_got
+
+
+#https://hub.docker.com/r/gitlab/gitlab-ce

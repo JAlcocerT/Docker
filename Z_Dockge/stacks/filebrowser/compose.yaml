@@ -1,0 +1,12 @@
+---
+version: "2.1"
+services:
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: filebrowser
+    ports:
+      - 8081:80
+    volumes:
+      - /home/DOCKER/FileBrowser/config:/config
+      - /home/jalcocert/Z_BACKUP_DATA/data1:/srv
+    restart: unless-stopped    
