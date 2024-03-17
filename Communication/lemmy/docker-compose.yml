@@ -1,0 +1,53 @@
+version: '2.2'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=lemmy
+      - POSTGRES_PASSWORD=lemmylemmy
+      - POSTGRES_DB=lemmy
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+    restart: always
+
+  lemmy:
+    image: dessalines/lemmy:0.16.4
+    ports:
+      - "8536:8536"
+      - "6669:6669"
+    restart: always
+    environment:
+      - RUST_LOG="warn,lemmy_server=info,lemmy_api=info,lemmy_api_common=info,lemmy_api_crud=info,lemmy_apub=info,lemmy_db_schema=info,lemmy_db_views=info,lemmy_db_views_actor=info,lemmy_db_views_moderator=info,lemmy_routes=info,lemmy_utils=info,lemmy_websocket=info"
+    volumes:
+      - ./lemmy.hjson:/config/config.hjson
+    depends_on:
+      - postgres
+      - pictrs
+
+  lemmy-ui:
+    image: dessalines/lemmy-ui:0.16.5
+    ports:
+      - "1235:1234"
+    restart: always
+    environment:
+      - LEMMY_INTERNAL_HOST=lemmy:8536
+      - LEMMY_EXTERNAL_HOST=http://192.168.3.103:8536
+      - LEMMY_HTTPS=false
+    depends_on:
+      - lemmy
+
+  pictrs:
+    image: asonix/pictrs:0.3.1
+    ports:
+      - "8537:8080"
+      - "6670:6669"
+    user: 991:991
+    volumes:
+      - ./volumes/pictrs:/mnt
+    restart: always
+
+
+#https://github.com/LemmyNet/lemmy
+
+###https://wiki.opensourceisawesome.com/books/lemmy-reddit-alternative/page/lemmy-a-self-hosted-open-source-alternative-to-reddit

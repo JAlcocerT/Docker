@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  py_app:
+    image:  py_app:v1.5a #fossengineer/py_routetracker:v1.0
+    container_name: python_app_containername
+    ports:
+      - "8509:8501"
+    working_dir: /app
+    command: streamlit run Py_Stocks_APP.py
+    #command: python3 app.py
+    #command: tail -f /dev/null #keep it running
+    # networks:
+    #   - cloudflare_tunnel
+    restart: always     
+
+# networks:
+#   cloudflare_tunnel:
+#     external: true    

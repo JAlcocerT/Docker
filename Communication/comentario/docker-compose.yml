@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: comentario
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  app:
+    image: registry.gitlab.com/comentario/comentario:v3.0.0-rc1
+    environment:
+      BASE_URL: http://localhost:8080/
+      SECRETS_FILE: "/secrets.yaml"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./secrets.yaml:/secrets.yaml:ro
+
+
+#https://edge.docs.comentario.app/en/getting-started/docker-compose/

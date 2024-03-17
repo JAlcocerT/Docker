@@ -1,0 +1,40 @@
+{
+  # for more info about the config, check out the documentation
+  # https://join-lemmy.org/docs/en/administration/configuration.html
+
+  # This is a minimal lemmy config for the dev / main branch. Do not use for a 
+  # release / stable version.
+
+  setup: {
+    admin_username: "lemmy"
+    admin_password: "lemmylemmy"
+    site_name: "lemmy-dev"
+  }
+  database: {
+    host: postgres
+    # name of the postgres database for lemmy
+    database: "lemmy"
+    # username to connect to postgres
+    user: lemmy
+    # password to connect to postgres
+    password: lemmylemmy
+    # host where postgres is running
+    # host: "postgres"
+    # port where postgres can be accessed
+    port: 5432
+    # maximum number of active sql connections
+    pool_size: 5    
+  }
+
+  hostname: "localhost"
+  bind: "0.0.0.0"
+  port: 8536
+
+  pictrs: {
+    url: "http://pictrs:8080/"
+    # api_key: "API_KEY"
+    image_mode: None
+  }
+
+  #opentelemetry_url: "http://otel:4137"
+}
