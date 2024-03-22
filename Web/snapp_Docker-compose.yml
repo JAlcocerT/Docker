@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  snapp:
+    image: uraniadev/snapp:latest
+    ports:
+      - "8000:3000"
+    environment:
+      - ORIGIN=http://refurbished:8000
+      - PUBLIC_URL=http://refurbished:8000
+      - NODE_ENV=development
+
+
+
+# docker run \
+# -p 8000:3000 \
+# -e ORIGIN=http://refurbished:8000 \
+# -e PUBLIC_URL=http://refurbished:8000 \
+# -e NODE_ENV=development \
+# uraniadev/snapp:latest
