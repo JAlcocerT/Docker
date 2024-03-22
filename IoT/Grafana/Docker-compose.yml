@@ -1,0 +1,24 @@
+version: '3.6'
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana-server
+    restart: always
+    # depends_on:
+    #   - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    # links:
+    #   - influxdb
+    ports:
+      - '3003:3000' #UI
+    volumes:
+      - grafana_data:/var/lib/grafana
+      #- /home/Docker/Monitoring_TIG/grafana_data:/var/lib/grafana   
+volumes:
+  grafana_data:      
+#  influxdb_data:
+
+
+# localhost:3003

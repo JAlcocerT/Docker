@@ -1,0 +1,32 @@
+version: '3.6'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.0
+    container_name: kibana
+    ports:
+      - "5601:5601" #UI
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+
+volumes:
+  elasticsearch_data:
+
+
+#https://hub.docker.com/_/kibana
+#https://hub.docker.com/_/elasticsearch/tags
+
+
+#https://www.emqx.io/docs/en/latest/data-integration/elasticsearch.html
+
+#https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-mqtt.html

@@ -1,0 +1,33 @@
+# version: '3'
+
+# services:
+#   namesrv:
+#     image: apache/rocketmq-namesrv:4.9.1
+#     container_name: rocketmq_namesrv
+#     ports:
+#       - "9876:9876"
+
+#   broker:
+#     image: apache/rocketmq-broker:4.9.1
+#     container_name: rocketmq_broker
+#     ports:
+#       - "10911:10911"
+#       - "10909:10909"
+#     depends_on:
+#       - namesrv
+#     environment:
+#       - "NAMESRV_ADDR=rocketmq_namesrv:9876"
+
+#   console:
+#     image: styletang/rocketmq-console-ng:2.0.0
+#     container_name: rocketmq_console
+#     ports:
+#       - "8080:8080"
+#     depends_on:
+#       - namesrv
+#     environment:
+#       - "JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq_namesrv:9876"
+
+
+
+#https://rocketmq.apache.org/

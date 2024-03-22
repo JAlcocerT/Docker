@@ -1,0 +1,20 @@
+version: '3.6'
+
+services:
+  hivemq-ce:
+    image: hivemq/hivemq-ce
+    container_name: hivemq-ce
+    ports:
+      - "1883:1883"  # MQTT
+      #- "8080:8080"  # Control Center
+    restart: always
+
+
+
+#https://hub.docker.com/r/hivemq/hivemq-ce
+
+#https://docs.hivemq.com/hivemq/latest/user-guide/getting-started.html
+#admin/hivemq
+
+
+#https://www.hivemq.com/blog/real-time-analytics-of-mqtt-messages-using-elasticsearch-kibana-hivemq/

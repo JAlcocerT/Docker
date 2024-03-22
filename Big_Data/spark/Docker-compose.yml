@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  spark-master:
+    image: bitnami/spark:3
+    container_name: spark-master
+    ports:
+      - "8080:8080"  # Spark Master UI
+      - "7077:7077"  # Spark Master RPC
+    environment:
+      - SPARK_MODE=master
+    volumes:
+      - spark-data:/bitnami/spark
+
+  spark-worker:
+    image: bitnami/spark:3
+    container_name: spark-worker
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    volumes:
+      - spark-data:/bitnami/spark
+
+volumes:
+  spark-data:
+    driver: local

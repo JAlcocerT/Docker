@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  drone-server:
+    image: drone/drone:latest
+    container_name: drone-server
+    ports:
+      - "89:80"
+      - "449:443"
+    restart: always
+    environment:
+      - DRONE_SERVER_HOST=your.domain.com
+      - DRONE_SERVER_PROTO=https
+      - DRONE_RPC_SECRET=your_rpc_secret
+      # - DRONE_GITHUB_CLIENT_ID=your_github_client_id
+      # - DRONE_GITHUB_CLIENT_SECRET=your_github_client_secret
+      - DRONE_GITEA_SERVER=https://your-gitea-domain.com
+      - DRONE_GITEA_CLIENT_ID=your_gitea_client_id
+      - DRONE_GITEA_CLIENT_SECRET=your_gitea_client_secret      
+      - DRONE_RUNNER_CAPACITY=2
+    volumes:
+      - ./drone:/data
+
+  drone-agent:
+    image: drone/drone-runner-docker:latest
+    container_name: drone-agent
+    restart: always
+    depends_on:
+      - drone-server
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DRONE_RPC_PROTO=https
+      - DRONE_RPC_HOST=drone-server
+      - DRONE_RPC_SECRET=your_rpc_secret
+      - DRONE_RUNNER_CAPACITY=2

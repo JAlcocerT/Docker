@@ -1,0 +1,27 @@
+version: '3.6'
+
+services:
+  emqx:
+    image: emqx/emqx:5.0.0
+    container_name: emqx
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "8084:8084"
+      - "8883:8883"
+      - "18083:18083" #UI
+    restart: always
+    # environment:
+    #   - EMQX_ADMIN_USERNAME=myadmin
+    #   - EMQX_ADMIN_PASSWORD=mysecretpassword
+
+#by default: admin/public
+
+#docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8084:8084 -p 8883:8883 -p 18083:18083 emqx/emqx:5.0.0 #5.5.0
+
+# localhost:18083
+
+
+##https://www.emqx.io/docs/en/latest/data-integration/webhook.html
+#https://www.emqx.io/docs/en/latest/data-integration/elasticsearch.html
+https://www.emqx.io/docs/en/latest/data-integration/data-bridge-mongodb.html
