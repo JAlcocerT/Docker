@@ -1,9 +1,28 @@
----
-version: "2"
+version: '3.8'
+
 services:
-  whoogle:
-    image: mvance/unbound-rpi:latest
-    container_name: unbound-dns
+  unbound:
+    image: mvance/unbound:latest  # Using Matthew Vance's Unbound Docker image
+    container_name: unbound
     ports:
-      - 5000:5000
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - /your/path/to/unbound_conf/unbound.conf:/opt/unbound/etc/unbound/unbound.conf:ro
     restart: unless-stopped
+
+#https://hub.docker.com/r/mvance/unbound/
+#https://github.com/MatthewVance/unbound-docker
+
+#https://github.com/MatthewVance/unbound-docker-rpi
+
+
+# ---
+# version: "2"
+# services:
+#   whoogle:
+#     image: mvance/unbound-rpi:latest
+#     container_name: unbound-dns
+#     ports:
+#       - 5000:5000
+#     restart: unless-stopped

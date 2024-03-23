@@ -21,6 +21,17 @@ volumes:
 
 ### user root & pass -> docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password  ###
 
+#https://hub.docker.com/r/gitlab/gitlab-ce/tags
+
+#https://docs.gitlab.com/runner/register/index.html?tab=Docker
+#https://docs.gitlab.com/runner/install/docker.html
+
+#https://hub.docker.com/r/gitlab/gitlab-runner/tags
+
+#docker run --rm -it -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register
+#ping gitlab.bmaxb4.duckdns.org
+
+
 #version: '3'
 
 # services:

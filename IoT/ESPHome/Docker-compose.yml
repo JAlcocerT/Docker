@@ -1,0 +1,17 @@
+# version: '3'
+# services:
+#   esphome:
+#     image: esphome/esphome
+#     container_name: esphome
+#     volumes:
+#       - /home/Docker/esphome_config:/config  # Maps the local esphome_config directory to the container's config directory
+#       - /etc/localtime:/etc/localtime:ro  # Optional: for time synchronization
+#     ports:
+#       - "6052:6052"  # ESPHome API
+#       - "6123:6123"  # ESPHome Dashboard
+#     restart: unless-stopped
+#     network_mode: host  # Optional: Use host networking for mDNS discovery
+
+
+
+#https://esphome.io/guides/getting_started_command_line.html

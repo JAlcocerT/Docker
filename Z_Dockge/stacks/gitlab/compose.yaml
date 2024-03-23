@@ -7,13 +7,16 @@ services:
     restart: always
     ports:
       - '8028:80'
-      - '443:443'
+      - '4430:443'
       - '23:22'
     volumes:
       - 'gitlab-config:/etc/gitlab'
       - 'gitlab-logs:/var/log/gitlab'
       - 'gitlab-data:/var/opt/gitlab'
-
+    networks: ["nginx_default"]    
+networks:
+    nginx_default:
+        external: true 
 volumes:
   gitlab-config:
   gitlab-logs:

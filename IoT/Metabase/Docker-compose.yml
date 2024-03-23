@@ -1,0 +1,13 @@
+version: '3'
+services:
+  metabase:
+    image: metabase/metabase
+    container_name: metabase
+    ports:
+      - "3000:3000"
+    volumes:
+      - metabase_data:/metabase-data
+    restart: always
+
+volumes:
+  metabase_data:
