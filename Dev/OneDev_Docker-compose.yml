@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  onedev:
+    image: 1dev/server
+    container_name: onedev
+    ports:
+      - "6610:6610"  # OneDev main web interface (UI)
+      - "6611:6611"  # Additional OneDev port, adjust as needed
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Docker socket
+      - /home/Docker/onedev:/opt/onedev  # Data persistence
+    restart: unless-stopped
+
+
+
+#https://docs.onedev.io/tutorials/package/working-with-packages
+#docker login localhost:6610
