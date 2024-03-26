@@ -1,0 +1,10 @@
+
+
+
+
+
+# ClickHouse is a high-performance, column-oriented SQL database management system (DBMS) for online analytical processing (OLAP). 
+
+# It excels in handling large datasets for complex analytical queries, offering rapid query responses. In ClickHouse, data is stored by columns rather than rows, which makes it more efficient for OLAP scenarios where queries typically involve a large number of rows but only a few columns.
+
+# This columnar data organization enables significantly faster processing for most queries compared to row-oriented databases, primarily due to reduced I/O and efficient use of CPU resources​​.

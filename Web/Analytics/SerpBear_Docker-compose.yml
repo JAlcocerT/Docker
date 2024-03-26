@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  serpbear:
+    image: towfiqi/serpbear
+    container_name: serpbear
+    ports:
+      - "3000:3000"
+    volumes:
+      - serpbear_data:/app/data
+    environment:
+      - NEXT_PUBLIC_APP_URL=http://localhost:3000
+      - USER=admin
+      - PASSWORD=0123456789
+      - SECRET=some-secret #openssl rand -base64 12
+      - APIKEY=some-api-key #openssl rand -hex 32
+    restart: unless-stopped
+
+volumes:
+  serpbear_data:
+
+
+
+
+#https://github.com/towfiqi/serpbear
+#https://docs.serpbear.com/deployment/running-locally-with-docker
+#https://docs.serpbear.com/miscellaneous/environment-variables
+
+
+### Setup a Proxy

@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  bind:
+    image: ubuntu/bind9
+    container_name: bind9
+    volumes:
+      - /home/Docker/bind/config:/etc/bind
+      - /home/Docker/bind/cache:/var/cache/bind
+      - /home/Docker/bind/records:/var/lib/bind
+    ports:
+      - "59:53/tcp" #if not specified its just TCP
+      - "59:53/udp"
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+
+#https://bind9.readthedocs.io/en/latest/chapter3.html
+
+#https://www.youtube.com/watch?v=syzwLwE3Xq4
