@@ -1,0 +1,29 @@
+# version: '3.8'
+
+# services:
+#   surrealdb:
+#     image: surrealdb/surrealdb:latest
+#     container_name: surrealdb
+#     ports:
+#       - "8010:8000"
+#     command: start
+#     restart: unless-stopped # Remove if you want to mimic the '--rm' behavior
+#     pull_policy: always
+
+#docker run --rm --pull always --name surrealdb -p 8000:8000 surrealdb/surrealdb:latest start
+
+###
+
+#https://surrealdb.com/
+# https://github.com/surrealdb/surrealdb
+
+# https://hub.docker.com/r/surrealdb/surrealdb/tags
+
+#https://surrealdb.com/docs/surrealdb/integration/sdks/python
+
+# The SurrealDB SDK for Python enables simple and advanced querying of a remote database 
+# from a browser or from server-side code. By default connections to SurrealDB are made over WebSockets,
+#  and automatically reconnect when the connection is terminated.
+
+
+#https://surrealdb.com/docs/surrealdb/embedding/python

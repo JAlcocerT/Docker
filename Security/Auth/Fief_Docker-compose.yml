@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  fief-server:
+    image: ghcr.io/fief-dev/fief:latest
+    container_name: fief-server
+    ports:
+      - "8011:8000"
+    environment:
+      SECRET: "XXX"
+      FIEF_CLIENT_ID: "XXX" #openssl rand -base64 32
+      FIEF_CLIENT_SECRET: "XXX" #openssl rand -base64 32
+      ENCRYPTION_KEY: "XXX"  #Must be Fernet ->
+      #python3 -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+      #this wont help => #openssl rand -hex 32
+      PORT: "8000"
+      FIEF_DOMAIN: "localhost:8011"
+      CSRF_COOKIE_SECURE: "False"
+      LOGIN_SESSION_COOKIE_SECURE: "False"
+      SESSION_COOKIE_SECURE: "False"
+      FIEF_ADMIN_SESSION_COOKIE_SECURE: "False"
+      FIEF_MAIN_USER_EMAIL: "admin@test.com"
+      FIEF_MAIN_USER_PASSWORD: "changeme_testingfief"
+      #EMAIL_PROVIDER: "NULL"
+    restart: unless-stopped
+
+
+
+#https://docs.fief.dev/self-hosting/environment-variables/
+#https://docs.fief.dev/self-hosting/deployment/docker-compose/
+
+###
+
+#https://www.fief.dev/
+#https://docs.fief.dev/
+
+#MaOcBMBKPUMYfnztPN-z1LV7fQplLRlnxOci0IpjaSA=

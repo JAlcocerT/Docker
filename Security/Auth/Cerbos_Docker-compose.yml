@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  cerbos:
+    image: ghcr.io/cerbos/cerbos:0.34.0
+    container_name: cerbos
+    volumes:
+      - ./cerbos-quickstart/policies:/policies
+    ports:
+      - "3592:3592"
+      - "3593:3593"
+    restart: unless-stopped
+
+
+
+#https://github.com/cerbos/cerbos
+#https://www.cerbos.dev/
+#https://docs.cerbos.dev/cerbos/latest/quickstart.html
