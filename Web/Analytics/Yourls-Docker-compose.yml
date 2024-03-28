@@ -1,0 +1,46 @@
+# version: '3.1'
+
+# services:
+#   yourls:
+#     image: yourls:latest
+#     container_name: yourls
+#     depends_on:
+#       - db
+#     ports:
+#       - "8080:80" # Expose YOURLS on port 8080 of the host
+#     environment:
+#       YOURLS_SITE: http://localhost:8080
+#       YOURLS_DB_PASS: yourlsdbpassword
+#       YOURLS_DB_USER: yourls
+#       YOURLS_DB_NAME: yourls
+#       # You can set the following to "true" to skip the install if this is a re-deployment
+#       YOURLS_SKIP_INIT: "false"
+#     volumes:
+#       - yourls-data:/var/www/html # Persist your data here
+
+#   db:
+#     image: mysql:5.7
+#     container_name: yourls-db
+#     environment:
+#       MYSQL_ROOT_PASSWORD: rootpassword
+#       MYSQL_DATABASE: yourls
+#       MYSQL_USER: yourls
+#       MYSQL_PASSWORD: yourlsdbpassword
+#     volumes:
+#       - yourls-db-data:/var/lib/mysql # Persist database data here
+#     command: '--default-authentication-plugin=mysql_native_password' # Needed for MySQL 8+
+
+# volumes:
+#   yourls-data:
+#   yourls-db-data:
+
+
+#https://github.com/YOURLS/YOURLS
+#self hosted URL shortener in PHP 
+#https://yourls.org/
+#https://hub.docker.com/_/yourls
+
+#https://github.com/YOURLS/awesome
+
+#https://www.youtube.com/watch?v=tXM-csqijdw
+#https://www.youtube.com/watch?v=WNVVlV75hs4 #one DB multiple containers
