@@ -7,16 +7,45 @@ services:
       - 53:53/tcp
       - 53:53/udp
       - 67:67/udp
-      - 86:80/tcp
-      - 446:443/tcp
+      - 80:80/tcp #UI for http
+      - 443:443/tcp
     environment:
       TZ: Europe/Madrid
       WEBPASSWORD: password_change_me #optional
+      TEMPERATUREUNIT: C
+      DNSMASQ_LISTENING: all #local #single #you can get DNSMASQ_WARN if not allowed are trying to query
+      DNSSEC: true #false
+      PIHOLE_DNS_: 9.9.9.9;149.112.112.112 #127.0.0.1#5053
     # Volumes store your data between container upgrades
     volumes:
-      - ~/DOCKER/pihole/:/etc/pihole/
-      - ~/DOCKER/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+      - /home/Docker/pihole/:/etc/pihole/
+      - /home/Docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
     # Recommended but not required (DHCP needs NET_ADMIN)
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
+
+#https://quad9.net/service/service-addresses-and-features/
+
+# version: "3"
+# services:
+#   pihole:
+#     container_name: pihole
+#     image: pihole/pihole:latest
+#     ports:
+#       - 53:53/tcp
+#       - 53:53/udp
+#       - 67:67/udp
+#       - 86:80/tcp
+#       - 446:443/tcp
+#     environment:
+#       TZ: Europe/Madrid
+#       WEBPASSWORD: password_change_me #optional
+#     # Volumes store your data between container upgrades
+#     volumes:
+#       - ~/DOCKER/pihole/:/etc/pihole/
+#       - ~/DOCKER/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+#     # Recommended but not required (DHCP needs NET_ADMIN)
+#     cap_add:
+#       - NET_ADMIN
+#     restart: unless-stopped
