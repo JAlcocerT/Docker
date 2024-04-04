@@ -1,0 +1,24 @@
+version: "3"
+services:
+  ohmyform:
+    image: ohmyform/ohmyform
+    volumes:
+#      - "./data:/data"
+      - ohmyform_data:/app/data      
+    environment:
+      CREATE_ADMIN: "TRUE"
+      ADMIN_EMAIL: admin@local.host
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin
+      DATABASE_DRIVER: sqlite
+      DATABASE_URL: "sqlite:///data/data.sqlite"
+      MAILER_URI: smtp://local.host
+      LOGIN_NOTE: "Either login with admin:admin or create your own account to test OhMyForm"
+    ports:
+      - "8037:3000"
+    restart: unless-stopped
+volumes:
+  ohmyform_data:
+
+# * https://github.com/ohmyform/ohmyform
+#   * https://hub.docker.com/r/ohmyform/ohmyform

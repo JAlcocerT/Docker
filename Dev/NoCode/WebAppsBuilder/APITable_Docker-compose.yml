@@ -1,0 +1,28 @@
+
+
+#https://github.com/apitable/apitable
+
+#https://github.com/apitable/apitable#installation
+#https://aitable.ai/roadmap/
+
+#https://apitable.getoutline.com/s/82e078fc-1a8d-4616-b69d-fcdbb18ef715/doc/docker-images-BMU5u8B3Q5
+
+#docker pull docker.io/apitable/apitable
+
+version: '3.7'
+
+services:
+  apitable:
+    image: apitable/all-in-one:latest
+    container_name: apitable
+    ports:
+      - "80:80"
+    volumes:
+      - apitable_data:/apitable
+      - ${PWD}/.data:/apitable
+
+volumes:
+  apitable_data:
+
+
+#create and account for testing and explore
