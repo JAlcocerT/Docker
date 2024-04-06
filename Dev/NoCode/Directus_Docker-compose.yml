@@ -1,0 +1,24 @@
+#https://github.com/directus/directus
+#https://docs.directus.io/getting-started/quickstart.html
+
+version: '3.7'
+
+services:
+  directus:
+    image: directus/directus
+    container_name: directus
+    ports:
+      - "8055:8055"
+    environment:
+      - KEY=replace-with-random-value
+      - SECRET=replace-with-random-value
+
+
+#https://docs.directus.io/self-hosted/quickstart.html
+
+# docker run \
+# -p 8055:8055 \
+# -e KEY=replace-with-random-value \
+# -e SECRET=replace-with-random-value \
+# directus/directus
+

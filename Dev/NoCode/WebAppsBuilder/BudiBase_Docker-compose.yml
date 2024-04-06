@@ -1,0 +1,18 @@
+
+
+
+#https://docs.budibase.com/docs/docker-compose
+
+
+#https://raw.githubusercontent.com/Budibase/budibase/master/hosting/docker-compose.yaml
+#https://raw.githubusercontent.com/Budibase/budibase/master/hosting/.env
+
+
+#https://docs.budibase.com/docs/webhook
+#https://budibase.com/blog/inside-it/webhook-vs-api/
+
+### websocket <-> BE -> webhook
+
+#https://docs.budibase.com/docs/line-chart
+
+#https://docs.budibase.com/docs/public-forms
