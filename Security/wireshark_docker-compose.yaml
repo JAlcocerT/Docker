@@ -19,3 +19,6 @@ services:
     restart: unless-stopped
 
 #user & pass by default is abc
+
+#https://docs.linuxserver.io/images/docker-wireshark/
+#https://docs.linuxserver.io/images/docker-remmina/
