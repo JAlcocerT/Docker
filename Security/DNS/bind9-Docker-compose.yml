@@ -5,9 +5,12 @@ services:
     image: ubuntu/bind9
     container_name: bind9
     volumes:
-      - /home/Docker/bind/config:/etc/bind
-      - /home/Docker/bind/cache:/var/cache/bind
-      - /home/Docker/bind/records:/var/lib/bind
+      - ./config:/etc/bind
+      - ./cache:/var/cache/bind
+      - ./records:/var/lib/bind    
+      # - /home/Docker/bind/config:/etc/bind
+      # - /home/Docker/bind/cache:/var/cache/bind
+      # - /home/Docker/bind/records:/var/lib/bind
     ports:
       - "59:53/tcp" #if not specified its just TCP
       - "59:53/udp"
@@ -17,4 +20,27 @@ services:
 
 #https://bind9.readthedocs.io/en/latest/chapter3.html
 
+# Thanks to Christian Lempa:
 #https://www.youtube.com/watch?v=syzwLwE3Xq4
+
+
+
+#docker-compose -f bind9-Docker-compose.yml up -d
+#named.conf needs to be at /etc/bind
+
+
+# cat <<EOF > ./config/named.conf
+# acl internal {
+#     10.10.0.0/16;
+#     10.11.0.0/16;
+#     10.20.0.0/16;
+#     192.168.3.0/24; # Assuming you've added this for your home LAN
+# };
+
+# options {
+#     forwarders {
+#         9.9.9.9;       # Quad9 primary DNS
+#         149.112.112.112; # Quad9 secondary DNS
+#     };
+# };
+# EOF

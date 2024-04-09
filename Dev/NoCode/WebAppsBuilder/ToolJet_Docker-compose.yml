@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  tooljet:
+    image: tooljet/try:latest
+    container_name: tooljet
+    restart: unless-stopped
+    # platforms:
+    #   - linux/amd64
+    ports:
+      - "89:80"
+    volumes:
+      - tooljet_data:/var/lib/postgresql/13/main
+
+volumes:
+  tooljet_data:
+
+#https://github.com/tooljet/tooljet
+#https://github.com/ToolJet/ToolJet?tab=readme-ov-file#try-using-docker

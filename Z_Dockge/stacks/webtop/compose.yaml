@@ -1,0 +1,34 @@
+---
+version: "2.1"
+services:
+  webtop:
+    image: lscr.io/linuxserver/webtop:ubuntu-kde #latest #choose the one you want
+    container_name: webtop
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SUBFOLDER=/ #optional
+      - TITLE=Webtop #optional
+    volumes:
+      - /home/Docker/webtop:/config
+      - /var/run/docker.sock:/var/run/docker.sock #optional
+    ports:
+      - 2003:3000 #UI
+      - 2033:3001
+    devices:
+      - /dev/dri:/dev/dri #optional
+    shm_size: "2gb" #optional
+    restart: unless-stopped
+    networks:  #optional
+      nginx_nginx_network:       #optional
+
+networks:  #optional
+  nginx_nginx_network:  #optional
+    external: true         #optional
+
+
+
+#https://docs.linuxserver.io/images/docker-webtop/
