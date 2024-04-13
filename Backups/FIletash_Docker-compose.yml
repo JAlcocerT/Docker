@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  filestash:
+    image: machines/filestash
+    ports:
+      - "8334:8334"
+    volumes:
+      - /home/Docker/filetash:/app/data/state
+
+
+
+#chown -R 1000:1000 /home/Docker/filetash
+#https://www.filestash.app/

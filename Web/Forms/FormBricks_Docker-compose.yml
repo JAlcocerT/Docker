@@ -16,6 +16,12 @@
 #https://formbricks.com/docs/integrations/n8n
 
 
+#https://formbricks.com/docs/introduction/what-is-formbricks
+#https://formbricks.com/docs/best-practices/feedback-box
+#https://formbricks.com/docs/best-practices/docs-feedback
+
+#https://formbricks.com/docs/integrations/slack#setup-in-self-hosted-formbricks
+
 version: "3.3"
 x-environment: &environment
   environment:
