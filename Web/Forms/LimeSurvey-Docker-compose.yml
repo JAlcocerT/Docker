@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+
+  limesurvey:
+    image: adamzammit/limesurvey
+    ports:
+      - 8082:80
+    environment:
+      LIMESURVEY_DB_PASSWORD: example
+      LIMESURVEY_ADMIN_USER: admin
+      LIMESURVEY_ADMIN_PASSWORD: password
+      LIMESURVEY_ADMIN_NAME: Lime Administrator
+      LIMESURVEY_ADMIN_EMAIL: lime@lime.lime
+    volumes:
+      - ./plugins:/var/www/html/plugins
+      - ./upload:/var/www/html/upload
+      - ./config:/var/www/html/application/config
+      - ./sessions:/var/lime/sessions
+
+  mysql:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  
+#http://192.168.3.200:8082/index.php/admin
+
+#https://github.com/adamzammit/limesurvey-docker
+
+# http://192.168.3.200:8082/index.php/admin/globalsettings#security -->activate iframe support
+
+#<iframe id="enid" title="My Survey"  src="http://192.168.3.200:8082/index.php/297834?lang=en"></iframe>
