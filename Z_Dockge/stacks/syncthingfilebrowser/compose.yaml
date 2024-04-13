@@ -1,0 +1,38 @@
+---
+version: "2.1"
+services:
+  syncthing:
+    image: syncthing/syncthing #ghcr.io/linuxserver/syncthing
+    container_name: syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+    volumes:
+      - /home/Docker/Syncthing/config:/config
+      - /mnt/usb/Z_BackUP_HD-SDD:/data1 #sudo mount /dev/sda2 /mnt/usb
+      #You can add more than one folder, even if different disk
+    ports:
+      - 8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
+    restart: unless-stopped
+    networks:
+      - nginx_default     
+
+  filebrowser:
+    image: filebrowser/filebrowser #https://hub.docker.com/r/filebrowser/filebrowser/tags
+    container_name: filebrowser
+    ports:
+      - 8008:80
+    volumes:
+      - /home/Docker/FileBrowser/config:/config
+      - /mnt/usb/Z_BackUP_HD-SDD:/srv
+    restart: unless-stopped    
+    networks:
+      - nginx_default  
+  
+networks:
+  nginx_default:
+    external: true
