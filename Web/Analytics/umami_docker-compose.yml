@@ -26,8 +26,8 @@ services:
 volumes:
   umami-db-data:
    
-networks:
-    nginx_default:
-        external: true     
+# networks:
+#     nginx_default:
+#         external: true     
 
 ##admin // umami

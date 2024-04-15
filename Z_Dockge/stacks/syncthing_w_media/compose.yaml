@@ -1,7 +1,39 @@
-version: "3"
-
+---
+version: "2.1"
 services:
-  db:
+  syncthing:
+    image: syncthing/syncthing #ghcr.io/linuxserver/syncthing
+    container_name: syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+    volumes:
+      - /home/Docker/Syncthing/config:/config
+      - /mnt/usb/Z_BackUP_HD-SDD:/data1 #sudo mount /dev/sda2 /mnt/usb
+      #You can add more than one folder, even if different disk
+    ports:
+      - 8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
+    restart: unless-stopped
+    networks:
+      - nginx_default     
+##########
+  filebrowser:
+    image: filebrowser/filebrowser #https://hub.docker.com/r/filebrowser/filebrowser/tags
+    container_name: filebrowser
+    ports:
+      - 8008:80
+    volumes:
+      - /home/Docker/FileBrowser/config:/config
+      - /mnt/usb/Z_BackUP_HD-SDD:/srv
+    restart: unless-stopped    
+    networks:
+      - nginx_default  
+#########
+  dbphotoview:
     image: linuxserver/mariadb
     restart: always
     environment:
@@ -18,18 +50,15 @@ services:
     ports:
       - "8099:80"
     depends_on:
-      - db
-
+      - dbphotoview
     environment:
       - PHOTOVIEW_DATABASE_DRIVER=mysql
       - PHOTOVIEW_MYSQL_URL=photoview:photosecret@tcp(db)/photoview
       - PHOTOVIEW_LISTEN_IP=photoview
       - PHOTOVIEW_LISTEN_PORT=80
       - PHOTOVIEW_MEDIA_CACHE=/app/cache
-      
     volumes:
       - api_cache:/app/cache
-
       # Change This: to the directory where your photos are located on your server.
       # If the photos are located at `/home/user/photos`, then change this value
       # to the following: `/home/user/photos:/photos:ro`.
@@ -39,3 +68,7 @@ services:
 volumes:
   db_data:
   api_cache:
+  
+networks:
+  nginx_default:
+    external: true
