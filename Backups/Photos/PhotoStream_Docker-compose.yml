@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  photo-stream:
+    container_name: photo-stream
+    image: waschinski/photo-stream:latest
+    environment:
+      - TITLE=maxvoltar.photo
+      - EMAIL=tim@maxvoltar.be
+      - AUTHOR_NAME=Tim Van Damme
+      - AUTHOR_EMAIL=tim@maxvoltar.be
+      - AUTHOR_WEBSITE=https://maxvoltar.com
+      - DESCRIPTION=@maxvoltars minimalistic, self-hosted photo stream.
+      - BASEURL=
+      - URL=http://34.138.234.181/
+
+    volumes:
+      - ~/Docker/photostream:/photo-stream/photos
+    ports:
+      - "8448:4000"
+    restart: unless-stopped

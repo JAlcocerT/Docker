@@ -35,3 +35,28 @@ services:
 #   --privileged \
 #   --device=/dev/kmsg \
 #   gcr.io/cadvisor/cadvisor:$VERSION
+
+
+
+
+# ---
+# version: "2.1"
+# services:
+#   cadvisor:
+#     image: gcr.io/cadvisor/cadvisor:v0.46.0
+#     container_name: cadvisor
+#     environment:
+#       - PUID=1000
+#       - PGID=1000
+#       - TZ=Europe/Madrid
+#     volumes:
+#       - /:/rootfs:ro
+#       - /var/run:/var/run:ro
+#       - /sys:/sys:ro
+#       - /var/lib/docker/:/var/lib/docker:ro
+#       - /dev/disk/:/dev/disk:ro
+#     ports:
+#       - 3000:8000 #webgui
+#     privileged: true
+#     restart: unless-stopped
+

@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+
+  openproject:
+    image: openproject/community:11
+    container_name: openproject
+    restart: unless-stopped
+    ports:
+      - "8200:80"
+    environment:
+      - PUID=998
+      - PGID=100
+      - SECRET_KEY_BASE=abc!23 #generate one
+    volumes:
+      - /home/Docker/openproject/pgdata:/var/openproject/pgdata
+      - /home/Docker/openproject/assets:/var/openproject/assets

@@ -1,0 +1,15 @@
+---
+version: "2.1"
+services:
+  cadvisor:
+    image: hascheksolutions/pictshare #https://github.com/HaschekSolutions/pictshare
+    container_name: pictshare
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - TITLE=My own PictShare
+      - URL=http://34.138.234.181/
+    ports:
+      - 8448:80 #webgui
+    restart: unless-stopped
