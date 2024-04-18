@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   ghost:
-    image: ghost:4-alpine
+    image: ghost:4-alpine #https://hub.docker.com/_/ghost/
     container_name: ghost_rpi
     restart: always
     ports:
