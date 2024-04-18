@@ -11,7 +11,7 @@ version: "3.9"
 
 services:
   plex:
-    image: plexinc/pms-docker:public
+    image: plexinc/pms-docker:public #https://hub.docker.com/r/linuxserver/plex
     container_name: plex
     restart: unless-stopped
     networks:

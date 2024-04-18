@@ -31,3 +31,12 @@
     * HDFS
 
 [YT Reference](https://www.youtube.com/watch?v=aMOycqeqlmM).
+
+---
+
+## Other Tools
+
+* https://github.com/wix-incubator/quix
+* https://github.com/pinterest/querybook
+* https://github.com/quixio/quix-streams
+    * https://quix.io/templates/ai-customer-support

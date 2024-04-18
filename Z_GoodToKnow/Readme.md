@@ -8,6 +8,15 @@
 sudo apt install docker.io -y 
 sudo docker version
 
+#Make sure you are about to install from the Docker repo instead of the default Ubuntu repo (sudo apt install docker.io):
+
+# apt-cache policy docker-ce
+# sudo apt install docker-ce -y
+
+#sudo systemctl status docker
+#sudo docker ps // list all containers
+
+
 #sudo apt-get install docker-compose -y
 sudo apt install docker-compose -y
 sudo docker-compose --version
@@ -26,9 +35,19 @@ hostname -i
 
 ### Install Yacht (Portainer alternative)
 
-```
+```sh
 docker run -d -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock -v ~/Dockeryacht:/config selfhostedpro/yacht
 ```
+
+### How to reset Portainer Pass
+
+```sh
+docker stop "id-portainer-container"
+docker run --rm -v portainer_data:/data portainer/helper-reset-password
+docker start "id-portainer-container"
+```
+
+---
 
 ### Useful Docker commands
 

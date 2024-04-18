@@ -1,0 +1,17 @@
+#https://hub.docker.com/r/poma/docker-telegram-notifier
+#https://www.youtube.com/watch?v=rW4V-14p05s
+
+---
+version: 2
+services:
+  docker-telegram-notifier:
+    image: poma/docker-telegram-notifier #https://hub.docker.com/r/poma/docker-telegram-notifier
+    container_name: docker-telegram-notifier
+    environment:
+      - PUID=998
+      - PGID=100
+      - TELEGRAM_NOTIFIER_BOT_TOKEN=1539690693:AAG9OxPJCdMlA0N2KEpR76I2VDFYoGIsM6o
+      - TELEGRAM_NOTIFIER_CHAT_ID=1508112898
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: always
