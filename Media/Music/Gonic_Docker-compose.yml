@@ -1,0 +1,29 @@
+version: "3"
+services:
+  gonic_web:
+    image: sentriz/gonic:latest #https://hub.docker.com/r/sentriz/gonic
+    container_name: gonic
+    ports:
+      - 88:80
+    volumes:
+      # - /home/docker/gonic/musica:/music:ro
+      - /media/jalcocert/BackUp/Z_BackUP_HD-SDD/Musica:/music:ro
+      # - /home/docker/gonic/podcasts:/podcasts
+      - /home/Docker/gonic/data:/data
+      - /home/Docker/gonic/cache:/cache
+
+
+#https://hub.docker.com/r/sentriz/gonic
+#https://github.com/sentriz/gonic
+#https://ugeek.github.io/blog/post/2020-05-06-gonic-el-mejor-y-mas-ligero-servidor-de-musica-con-api-subsonic.html
+
+# docker create \
+#   --name=gonic \
+#   -p 88:80 \
+#   -v $HOME/media/musica:/music:ro \
+#   -v $HOME/docker/gonic/data:/data  \
+#   -v $HOME/docker/gonic/cache:/cache \
+#   -v $HOME/docker/gonic/podcasts:/podcasts \
+#   sentriz/gonic:latest
+
+#

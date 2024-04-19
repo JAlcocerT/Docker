@@ -22,3 +22,6 @@ networks:
         
  #sudo docker exec -it supysonic sh
  #supysonic-cli user add "chosen_user" -a -p "your_pass"
+
+
+ #https://github.com/uGeek/docker-supysonic
