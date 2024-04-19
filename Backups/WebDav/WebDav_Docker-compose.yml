@@ -2,7 +2,7 @@ version: '3.8'  # Use version 3.8 or higher if possible, adjust depending on you
 
 services:
   webdav:
-    image: #ugeek/webdav:amd64
+    image: my-webdav-server #docker build -t my-webdav-server . #ugeek/webdav:amd64
     container_name: webdav
     restart: unless-stopped
     ports:
@@ -25,3 +25,5 @@ networks:
 
 #https://hub.docker.com/r/ugeek/webdav
 #https://github.com/uGeek/docker-webdav --> https://github.com/sashgorokhov/docker-nginx-webdav -->
+
+### docker build -t my-webdav-server .
