@@ -12,6 +12,9 @@ services:
       ND_BASEURL: ""
     volumes:
       - "/home/Docker/navidrome/data:/data"
-      - "/home/Docker/Syncthing/config/Aficiones/Musica:/music:ro"
+      #- "/home/Docker/Syncthing/config/Aficiones/Musica:/music:ro"
+      - "/media/jalcocert/BackUp/Z_BackUP_HD-SDD/Musica/music:ro"
 
 #https://github.com/navidrome/navidrome
+
+#http://192.168.3.236:4533/app/#/login

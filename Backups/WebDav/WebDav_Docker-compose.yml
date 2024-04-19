@@ -1,0 +1,27 @@
+version: '3.8'  # Use version 3.8 or higher if possible, adjust depending on your Docker Compose version
+
+services:
+  webdav:
+    image: #ugeek/webdav:amd64
+    container_name: webdav
+    restart: unless-stopped
+    ports:
+      - "90:80"
+    volumes:
+      - "/webdav:/media"
+    environment:
+      - USERNAME=webdav
+      - PASSWORD=webdav
+      - TZ=Europe/Madrid
+      - UID=1000  # Ensure this is 'UID' not 'UDI' if you are mapping the user ID
+      - GID=1000
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
+
+
+#https://hub.docker.com/r/ugeek/webdav
+#https://github.com/uGeek/docker-webdav --> https://github.com/sashgorokhov/docker-nginx-webdav -->
