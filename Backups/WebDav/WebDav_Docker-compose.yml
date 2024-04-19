@@ -24,6 +24,10 @@ networks:
 
 
 #https://hub.docker.com/r/ugeek/webdav
-#https://github.com/uGeek/docker-webdav --> https://github.com/sashgorokhov/docker-nginx-webdav -->
+#https://github.com/uGeek/docker-webdav --> https://github.com/sashgorokhov/docker-nginx-webdav
+
+#https://ugeek.github.io/blog/post/2021-01-03-mi-alternativa-a-nextcloud-como-nube-filebrowser-webdav-y-syncthing.html
 
 ### docker build -t my-webdav-server .
+
+#dav://192.168.3.236:90
