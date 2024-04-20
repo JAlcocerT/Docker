@@ -1,0 +1,12 @@
+#https://hub.docker.com/r/jitesoft/lighttpd
+
+# version: '3.8'
+
+# services:
+#   lighttpd:
+#     image: jitesoft/lighttpd
+#     ports:
+#       - "8080:80"
+#     volumes:
+#       - ./html:/var/www/html
+#     restart: always

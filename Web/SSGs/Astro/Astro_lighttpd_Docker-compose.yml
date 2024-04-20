@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  astro-dev:
+    image: astro_ssg:latest
+    container_name: web-astro
+    ports:
+      - "4321:4321"
+    volumes:
+      - /home/Docker/Webs/proy1:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+
+  lighttpd:
+    image: jitesoft/lighttpd
+    ports:
+      - "8080:80"
+    volumes:
+      - /home/Docker/Webs/proy1/dist:/var/www/html
+      #- ./html:/var/www/html
+    restart: always
+
+volumes:
+  node_modules:
+  #app_data:
