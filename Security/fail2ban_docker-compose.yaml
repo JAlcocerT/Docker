@@ -12,6 +12,12 @@ services:
     - ~/Docker/fail2ban/data:/data
     env_file:
       - ./fail2ban.env
+    # volumes:
+    #   - "/home/docker/fail2ban/data:/data"
+    #   - "/var/log/auth.log:/var/log/auth.log:ro"
+    #   - "/home/jesalctag/Docker/Nginx/data/logs/:/log/npm/:ro"
+    restart: always
+
 
 
 

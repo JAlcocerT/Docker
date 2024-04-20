@@ -4,6 +4,13 @@
 # echo "COMPOSE_PORT_HTTP=8020" >> .env
 # not needed echo "COMPOSE_PORT_HTTPS=443" >> .env
 
+### THANKS TO JIMSGARAGE =>>
+#https://github.com/JamesTurland/JimsGarage/tree/main/Authentik
+#https://www.youtube.com/watch?v=enwFWELCYJo&t=438s
+###
+
+#http://192.168.3.200:7000/if/flow/initial-setup
+
 ---
 version: "3.4"
 

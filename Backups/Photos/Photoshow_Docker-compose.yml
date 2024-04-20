@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  photoshow:
+    image: lscr.io/linuxserver/photoshow:48aabb98-ls154
+    container_name: photoshow
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ~/Docker/photoshow:/config
+      - ~/Docker/photoshow:/Pictures:ro
+      - ~/Docker/photoshow:/Thumbs
+    ports:
+      - 8448:80
+    restart: unless-stopped

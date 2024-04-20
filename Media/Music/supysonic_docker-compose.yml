@@ -1,12 +1,12 @@
 ---
 version: "2.1"
 services:
-  audiobookshelf:
+  supysonic:
     image: ugeek/supysonic:amd64-0.5.0
     container_name: supysonic 
-    environment:
-      - AUDIOBOOKSHELF_UID=1000
-      - AUDIOBOOKSHELF_GID=1000
+    # environment:
+    #   - AUDIOBOOKSHELF_UID=1000
+    #   - AUDIOBOOKSHELF_GID=1000
     #ports:
     #  - 8080:8080
     expose:
@@ -22,3 +22,6 @@ networks:
         
  #sudo docker exec -it supysonic sh
  #supysonic-cli user add "chosen_user" -a -p "your_pass"
+
+
+ #https://github.com/uGeek/docker-supysonic

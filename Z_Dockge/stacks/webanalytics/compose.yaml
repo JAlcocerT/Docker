@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+  matomo:
+    image: matomo:latest
+    container_name: matomo
+    ports:
+      - "850:80"    # Change to desired port if not using SSL
+    environment:
+      - MATOMO_DATABASE_HOST=db
+      - MATOMO_DATABASE_NAME=matomo
+      - MATOMO_DATABASE_USER=matomo
+      - MATOMO_DATABASE_PASSWORD=password
+      - MATOMO_ENABLE_TRUSTED_HOST_CHECK=0    # Disable trusted host check if accessing Matomo from different domains
+    volumes:
+      - ./matomo-data:/var/www/html
+    depends_on:
+      - dbmatomo
+  dbmatomo:
+    image: mysql:5.7
+    container_name: matomo-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=matomo
+      - MYSQL_USER=matomo
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+##################
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:umami@db:5432/umami
+      DATABASE_TYPE: postgresql
+      HASH_SALT: replace-me-with-a-random-string
+    depends_on:
+      - db
+    restart: always
+    networks: ["nginx_default"] 
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: umami
+    volumes:
+      - /home/jesalctag/Docker/umami/sql/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro
+      - /home/jesalctag/Docker/umamiumami-db-data:/var/lib/postgresql/data
+      - umami-db-data:
+    restart: unless-stopped
+    # networks:
+    #   - cloudflare_tunnel
+    #   - nginx_default
+   
+# networks:
+#     nginx_default:
+#         external: true  
+   
+
+# networks:
+#   cloudflare_tunnel:
+#     external: true    

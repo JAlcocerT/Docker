@@ -1,0 +1,28 @@
+---
+version: "3.7"
+
+services:
+  searxng:
+    image: searxng/searxng
+    container_name: searxng
+    ports:
+      - "3003:8080"
+    volumes:
+      - "/home/Docker/searxng:/etc/searxng"
+    environment:
+      - BASE_URL=http://localhost:3003/
+      - INSTANCE_NAME=my-instance
+    restart: unless-stopped
+    networks: ["nginx_default"] #optional
+
+  whoogle:
+    image: benbusby/whoogle-search:latest
+    container_name: whoogle
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+    networks: ["nginx_default"] #optional 
+ 
+networks: #optional
+  nginx_nginx_network: #optional
+    external: true #optional    

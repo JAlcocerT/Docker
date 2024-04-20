@@ -3,22 +3,51 @@
 
 ### Install docker & docker compose & portainer
 
-```
+```sh
 #sudo apt update & apt upgrade
-sudo apt install docker.io -y & sudo docker version
+sudo apt install docker.io -y 
+sudo docker version
 
-sudo apt-get install docker-compose -y & sudo docker-compose --version
+#Make sure you are about to install from the Docker repo instead of the default Ubuntu repo (sudo apt install docker.io):
+
+# apt-cache policy docker-ce
+# sudo apt install docker-ce -y
+
+#sudo systemctl status docker
+#sudo docker ps // list all containers
+
+
+#sudo apt-get install docker-compose -y
+sudo apt install docker-compose -y
+sudo docker-compose --version
 
 sudo docker run -d -p 9000:9000 -p 8000:8000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v ~/Docker/portainer:/data portainer/portainer-ce
+#sudo docker run hello-world
 ```
 
-To get to know what's the private address of your device and access portainer, simply use: ifconfig, then privateipserver:9000
+To get to know what's the private address of your device and access portainer, simply use: ifconfig, then `privateipserver:9000`
+
+```sh
+sudo apt install net-tools -y
+ifconfig
+hostname -i
+```
 
 ### Install Yacht (Portainer alternative)
 
-```
+```sh
 docker run -d -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock -v ~/Dockeryacht:/config selfhostedpro/yacht
 ```
+
+### How to reset Portainer Pass
+
+```sh
+docker stop "id-portainer-container"
+docker run --rm -v portainer_data:/data portainer/helper-reset-password
+docker start "id-portainer-container"
+```
+
+---
 
 ### Useful Docker commands
 
