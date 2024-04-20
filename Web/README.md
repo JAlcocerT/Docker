@@ -15,6 +15,8 @@
 
 #### Plausible
 
+---
+
 ## CMS
 
 * [Ghost](https://fossengineer.com/selfhosting-ghost-docker/)
@@ -72,6 +74,8 @@ sudo docker-compose up -d
 </details>
 
 You might be interested in SSG's: HUGO, Jekyll, Astro... 🤘
+
+---
 
 ## Social Media
 
@@ -172,6 +176,8 @@ https://raw.githubusercontent.com/JAlcocerT/Docker/main/Web/DuckDNS_docker_compo
 
 
 #### NginX
+
+---
 
 ## Others
 
