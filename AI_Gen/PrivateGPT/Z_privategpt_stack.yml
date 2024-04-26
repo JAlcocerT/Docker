@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  ai-privategpt:
+    image: privategpt  # Replace with your image name and tag
+    container_name: privategpt2
+    ports:
+      - "8002:8001"
+    volumes:
+      - ai-privategpt:/app
+    # environment:
+    #   - SOME_ENV_VAR=value  # Set any environment variables if needed
+    #command: tail -f /dev/null
+    # environment:
+    #   - PGPT_PROFILES=local
+    command: /bin/bash -c "poetry run python scripts/setup && tail -f /dev/null" 
+    
+volumes:
+  ai-privategpt:
+
+#Go to the container and execute => PGPT_PROFILES=local make run
+
+# version: '3'
+
+# services:
+#   my-python-app:
+#     build: .  # Use the Dockerfile in the current directory
+#     container_name: privategpt
+#     ports:
+#       - "8001:8001"
+#     volumes:
+#       - python_dev:/app
+
+# volumes:
+#   python_dev:
+
+#docker-compose build
+#docker-compose up -d

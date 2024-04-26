@@ -1,0 +1,9 @@
+streamlit==1.12.0
+# altair==4.2.0
+
+# pandas==1.2.4
+# numpy==1.22.4
+
+# plotly==5.11.0
+
+# scipy==1.7.3
