@@ -1,0 +1,2 @@
+#https://pypi.org/project/chainlit/
+chainlit==1.0.505

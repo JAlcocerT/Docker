@@ -1,0 +1,2 @@
+#https://pypi.org/project/gradio/
+gradio==4.28.0
