@@ -1,0 +1,72 @@
+# #https://github.com/Chocobozzz/PeerTube
+# #https://raw.githubusercontent.com/Chocobozzz/PeerTube/develop/support/docker/production/docker-compose.yml
+
+# # DOMAIN=mydomain.com
+# # EMAIL=admin@mydomain.com
+# # DB_PASSWORD=choose-a-strong-password
+# # DB_ROOT_PASSWORD=another-strong-password
+# # PEERTUBE_ADMIN_EMAIL=admin@mydomain.com
+# # PEERTUBE_SECRET='your-generated-secret' #openssl rand -hex 32
+# # DATABASE_HOSTNAME=postgres
+# # DATABASE_USERNAME=peertube
+# # DATABASE_PASSWORD=your_database_password
+# # DATABASE_NAME=peertube
+
+# # POSTGRES_PASSWORD=your_database_password
+# # DATABASE_PASSWORD=your_database_password
+
+
+
+# version: "3.3"
+
+# services:
+#   peertube:
+#     image: chocobozzz/peertube:production-bookworm
+#     env_file:
+#       - .env
+#     ports:
+#       - "9009:9000" # Port for web interface
+#       - "1935:1935" # Port for live streaming feature
+#     volumes:
+#       - ./docker-volume/data:/data
+#       - ./docker-volume/config:/config
+#     depends_on:
+#       - postgres
+#       - redis
+#     restart: "always"
+#     environment:
+#       - PEERTUBE_SECRET=${PEERTUBE_SECRET}    
+#       - DATABASE_HOSTNAME=postgres
+#       - DATABASE_USERNAME=peertube
+#       - DATABASE_PASSWORD=your_database_password
+#       - DATABASE_NAME=peertube
+ 
+#     networks:
+#       - peertube-net      
+
+#   postgres:
+#     image: postgres:13-alpine
+#     env_file:
+#       - .env
+#     volumes:
+#       - ./docker-volume/db:/var/lib/postgresql/data
+#     restart: "always"
+#     networks:
+#       - peertube-net
+#     environment:
+#       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}     
+
+#   redis:
+#     image: redis:6-alpine
+#     volumes:
+#       - ./docker-volume/redis:/data
+#     restart: "always"
+#     networks:
+#       - peertube-net    
+
+# volumes:
+#   assets: {}
+
+# networks:
+#   peertube-net:
+#     driver: bridge

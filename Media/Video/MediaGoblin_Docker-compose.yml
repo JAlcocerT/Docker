@@ -1,0 +1,33 @@
+
+
+#https://git.sr.ht/~mediagoblin/mediagoblin
+
+#https://mediagoblin.org/
+
+
+#  docker run \
+#    --tty \
+#    --detach \
+#    --publish 8080:6543 \
+#    --name mediagoblin \
+#    mtlynch/mediagoblin
+
+
+version: '3.8'
+services:
+  mediagoblin:
+    image: mtlynch/mediagoblin
+    container_name: mediagoblin
+    tty: true
+    ports:
+      - "8080:6543"
+    restart: unless-stopped
+
+#admin/admin 
+
+#https://wiki.mediagoblin.org/EasyDeployment
+#https://docs.mediagoblin.org/en/master/siteadmin/deploying.html
+
+#https://github.com/mtlynch/mediagoblin-docker
+
+# docker build --tag mediagoblin .
