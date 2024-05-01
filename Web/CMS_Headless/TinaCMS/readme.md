@@ -1,3 +1,6 @@
+* https://github.com/tinacms/tinacms
+    * https://github.com/tinacms/tinacms?tab=Apache-2.0-1-ov-file#readme
+
 ## Tina + NextJS Example
 
 #https://github.com/tinacms/tina-self-hosted-demo
