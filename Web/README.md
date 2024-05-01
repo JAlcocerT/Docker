@@ -23,8 +23,7 @@
   * Ghost + Gatsby SSG
   * Ghost + Astro SSG
 
-* Strapi
-  * Strapi + Astro - https://docs.astro.build/en/guides/cms/strapi/
+
 
 * SaleOR - https://github.com/JAlcocerT/Docker/tree/main/Business
 
