@@ -6,6 +6,8 @@
 
 ```sh
 git clone https://github.com/tinacms/tina-self-hosted-demo
+#rm -rf .git
+
 #yarn install
 npm install
 npm run dev
