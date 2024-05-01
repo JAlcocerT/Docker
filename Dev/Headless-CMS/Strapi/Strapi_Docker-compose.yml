@@ -1,0 +1,39 @@
+# https://strapi.io/
+# https://github.com/strapi/strapi?tab=License-1-ov-file#readme
+
+# version: '3.8'
+
+# services:
+#   strapi:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "1337:1337"
+#     environment:
+#       - NODE_ENV=production
+#     command: tail -f /dev/null
+
+version: '3.8'
+
+services:
+  strapi:
+    container_name: my-strapi-container      
+    image: my-strapi-app_v2
+    ports:
+      - "1337:1337"
+    environment:
+      - NODE_ENV=production
+    # command: tail -f /dev/null
+    command: /bin/bash -c "/scripts/start_strapi.sh && tail -f /dev/null"
+    volumes:
+      - ./scripts:/scripts    
+
+#sudo docker-compose -f Strapi_Docker-compose.yml up -d
+
+
+#docker build -t my-strapi-app .
+#docker run -p 1337:1337 my-strapi-app
+
+#docker exec -it <container_name_or_id> sh
+#docker exec -it my-strapi-container sh
