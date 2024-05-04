@@ -21,3 +21,6 @@ export GROQ_API_KEY=***
 pip install -r cookbook/llms/groq/video_summary/requirements.txt
 streamlit run cookbook/llms/groq/video_summary/app.py
 ```
+
+sed -i 's/numpy==1\.26\.4/numpy==1.24.4/' requirements.txt
+sed -i 's/numpy==1\.26\.4/numpy==1.24.4/; s/pandas==2\.2\.2/pandas==2.0.2/' requirements.txt

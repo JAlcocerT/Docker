@@ -1,0 +1,14 @@
+# https://blog.bartzz.com/setting-up-kiwix-with-docker-compose/
+
+services:
+  kiwix:
+    image: kiwix/kiwix-serve
+    container_name: kiwix
+    ports:
+      - 8000:8080
+    volumes:
+      - /srv/kiwix/data:/data
+    command: "*.zim"
+    restart: unless-stopped
+
+#https://kiwix.org/en/
