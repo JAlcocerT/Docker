@@ -12,6 +12,7 @@
 #open-source headless CMS. It’s 100% JavaScript/TypeScript, fully customizable and developer-first. 
 
 * Strapi
+    * https://strapi.io/blog/how-to-self-host-your-headless-cms-using-docker-compose
   * Strapi + Astro - https://docs.astro.build/en/guides/cms/strapi/
 
 

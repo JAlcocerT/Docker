@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  phidata_service:
+    image: phidata_yt_groq
+    container_name: phidata_yt_groq
+    ports:
+      - "8501:8501"    
+    environment:
+      - GROQ_API_KEY=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 #your_api_key_here
+    command: streamlit run cookbook/llms/groq/video_summary/app.py 
+    #command: tail -f /dev/null # Keep the container running
+
+#sudo docker-compose up -d
+#docker-compose -f phidata_groq_videosum_Docker-compose.yml up -d
+
+
+#docker exec -it phidata_yt_groq /bin/bash
