@@ -16,3 +16,8 @@ docker compose build
 
 #docker-compose up -d #or just from saleor-platform
 ```
+
+### Hotel Management
+
+https://qloapps.com/
+https://github.com/Qloapps/QloApps

@@ -242,9 +242,6 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * [Umami](https://fossengineer.com/selfhosting-umami-with-docker/) :heavy_check_mark:
 * Comment Engine
   * remark42
-  * Isso
-  * Giscus
-  * Discus
 * Dynamic DNS
   * DuckDNS :heavy_check_mark:
   * No-IP

@@ -1,5 +1,7 @@
 ## Open Data HUB
 
+https://opendatahub.io/docs/getting-started-with-open-data-hub/
+
 *The Metadata Platform for your Data Stack*
 
 * <https://github.com/datahub-project/datahub>

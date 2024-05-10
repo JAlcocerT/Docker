@@ -7,7 +7,7 @@ services:
     ports:
       - "8501:8501"    
     environment:
-      - GROQ_API_KEY=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 #your_api_key_here
+      - GROQ_API_KEY=your_api_key_here #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 🖕 #your_api_key_here
     command: streamlit run cookbook/llms/groq/video_summary/app.py 
     #command: tail -f /dev/null # Keep the container running
 
