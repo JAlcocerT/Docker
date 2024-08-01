@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   jellyfin:
-    image: lscr.io/linuxserver/jellyfin
+    image: lscr.io/linuxserver/jellyfin #https://hub.docker.com/r/jellyfin/jellyfin
     container_name: jellyfin
     environment:
       - PUID=1000

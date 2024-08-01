@@ -1,6 +1,11 @@
 
 ## Good to know
 
+
+By doing this, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
+
+Containers remain lightweight by sharing the OS they run on while isolating processes within user space.
+
 ### Install docker & docker compose & portainer
 
 ```sh

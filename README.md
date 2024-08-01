@@ -23,10 +23,6 @@ A reference for Self-Hosting pourposes and for anyone starting their journey wit
 [Docker is a tool](https://fossengineer.com/docker-first-steps-guide-for-data-analytics/) designed to make it easier to **create, deploy, and run applications by using *containers*.**
 
 Containers allow us to **package up an application with all of the parts it needs to work properly** -  such as libraries and other dependencies, and deploy it as one package.
-
-By doing this, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
-
-Containers remain lightweight by sharing the OS they run on while isolating processes within user space.
  
 Everything needed to run a software application successfully can be stored in a container to **make development and deployment more efficient**.
 
@@ -286,13 +282,12 @@ I have been **collecting/adapting the config files** to install with Docker seve
 
 ## :loudspeaker: Ways to Contribute 
 
-Please feel free to fork the repository - try it out the guide for yourself and improve or add other config files.
+Try it out the guide for yourself and improve or add other config files.
 
 If you enjoy self-hosting any of the apps listed, I would **show appreciation directly to their creators**. Please check the specific project for more details on that.
 
 * If any of the docker-compose files or associated tutorials was helpful and you want to show gratitude:
  * Consider leaving feedback if you found some improvement / something can be explained better
  * Support additional weekends of self-hosting tinkering to bring new services to the list
-
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z1QPGUM)
