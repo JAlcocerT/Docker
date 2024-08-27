@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  py_trip_planner:
+    image: fossengineer/trip_planner:v2-arm64 #https://github.com/JAlcocerT/Py_Trip_Planner
+    container_name: py_trip_planner
+    ports:
+      - "8050:8050"
+    networks:
+      - cloudflare_tunnel
+    restart: always     
+
+networks:
+  cloudflare_tunnel:
+    external: true
+
+#   stocksshiny:
+#     image: r_stocks_arm64 #https://github.com/JAlcocerT/R_Stocks
+#     container_name: r_stocksshiny
+#     ports:
+#       - 3838:3838
+#     networks:
+#       - cloudflare_tunnel
+#     restart: unless-stopped      
+
+# networks:
+#   cloudflare_tunnel:
+#     external: true

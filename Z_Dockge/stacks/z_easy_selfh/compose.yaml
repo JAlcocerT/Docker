@@ -1,6 +1,61 @@
 version: '3'
-
 services:
+
+  homarr:
+    image: ghcr.io/ajnart/homarr:latest #https://homarr.dev/docs/integrations/torrent/
+    container_name: homarr
+    restart: unless-stopped
+    ports:
+      - "7575:7575"
+    volumes:
+      - /home/Docker/homarr/configs:/app/data/configs
+      - /home/Docker/homarr/icons:/app/public/icons
+
+
+# version: '2'
+
+volumes:
+  nextcloud:
+  db:
+
+# services:
+  db:
+    image: linuxserver/mariadb
+    restart: always
+    container_name: nextclouddb
+    volumes:
+      - /home/Docker/nextcloud/db:/var/lib/mysql
+    environment:
+      - MYSQL_INITDB_SKIP_TZINFO=1
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    networks: ["nginx_nginx_network"] #optional 
+
+  app:
+    image: nextcloud:27.0.0 #latest
+    container_name: nextcloud
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - /home/Docker/nextcloud/html:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.3.200:8080 http://0.0.0.0:8080 nextcloud.reisikei.duckdns.org https://nextcloud.reisikei.duckdns.org/ http://:192.168.3.38:8080
+    networks: ["nginx_nginx_network"] #optional 
+ 
+networks: #optional
+  nginx_nginx_network: #optional
+    external: true #optional
+
+
   cosmos-server:
     image: azukaar/cosmos-server:latest #https://cosmos-cloud.io/blog/getting-started-with-cosmos-cloud-a-beginners-guide-to-self-hosting.html
     container_name: cosmos-server

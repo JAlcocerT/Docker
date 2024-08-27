@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   phidata_service:
-    image: ghcr.io/jalcocert/phidata:yt-groq #phidata:yt_summary_groq
+    image: ghcr.io/jalcocert/phidata:yt-groq #https://github.com/JAlcocerT/phidata
     container_name: phidata_yt_groq
     ports:
       - "8502:8501"    
@@ -14,7 +14,7 @@ services:
       - cloudflare_tunnel
 
   streamlit_multichat:
-    image: ghcr.io/jalcocert/streamlit-multichat:latest
+    image: ghcr.io/jalcocert/streamlit-multichat:latest #https://github.com/JAlcocerT/Streamlit-MultiChat
     container_name: streamlit_multichat
     volumes:
       - ai_streamlit_multichat:/app
@@ -31,6 +31,31 @@ services:
       - cloudflare_tunnel
     restart: always
       # - nginx_default      
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama #docker exec -it ollama /bin/bash
+    ports:
+      - "11434:11434" #Ollama API - https://ollama.com/library/phi3:3.8bo
+    volumes:
+      #- ollama_data:/root/.ollama
+      - /home/Docker/AI/Ollama:/root/.ollama #ollama run phi3:3.8b
+
+  ollama-webui:
+    image: ghcr.io/ollama-webui/ollama-webui:main
+    container_name: ollama-webui
+    ports:
+      - "3000:8080" # 3000 is the UI port
+    environment:
+      - OLLAMA_BASE_URL=http://127.0.0.1:11434      
+    # add-host:
+    #   - "host.docker.internal:host-gateway"
+    volumes:
+      - /home/Docker/AI/OllamaWebUI:/app/backend/data
+    restart: always      
+
+# volumes:
+#   ollama_data:      
 
 networks:
   cloudflare_tunnel:
