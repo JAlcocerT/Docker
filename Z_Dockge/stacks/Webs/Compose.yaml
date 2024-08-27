@@ -1,9 +1,8 @@
 version: '3.1'
-
 services:
 
   ghost:
-    image: ghost:5-alpine
+    image: ghost:5-alpine #GHOST
     container_name: ghost_rpi
     restart: always
     ports:

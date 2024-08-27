@@ -1,0 +1,158 @@
+---
+version: "2.1"
+services:
+  netdata:
+    container_name: netdata #NETDATA
+    image: netdata/netdata
+    environment:
+      - UID=1000
+      - GID=100
+      - TZ=Europe/Berlin
+    ports:
+      - 19999:19999
+    volumes:
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor=unconfined
+    restart: always
+## UMAMI WEB ANALYTICS
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    container_name: umami
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:umami@db:5432/umami
+      DATABASE_TYPE: postgresql
+      HASH_SALT: replace-me-with-a-random-string
+    depends_on:
+      - db
+    restart: always
+    networks: ["umami_network","cloudflare_tunnel"] 
+  db:
+    image: postgres:12-alpine
+    container_name: umami-db
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: umami
+    volumes:
+      - /home/jesalctag/Docker/umami/sql/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro
+      - /home/jesalctag/Docker/umamiumami-db-data:/var/lib/postgresql/data
+      - umami-db-data:
+    restart: unless-stopped
+    networks:
+      #- cloudflare_tunnel
+      - umami_network
+
+###UPTIMEKUMA
+  uptimekuma:
+    container_name: uptimekuma
+    image: 'louislam/uptime-kuma:1'
+    ports:
+      - '3001:3001'
+    volumes:
+      - /home/Docker/uptime-kuma/data:/app/data
+    restart: unless-stopped
+#     networks:
+#       - cloudflare_tunnel
+#       - nginx_default
+
+##Web Info
+  webcheck:
+    container_name: Web-Check
+    image: lissy93/web-check
+    mem_limit: 4g
+    cpu_shares: 768
+    security_opt:
+      - no-new-privileges:true
+    restart: on-failure:5
+    ports:
+      - 6160:3000
+
+### INTERNET TRACKER            
+    speedtest-tracker:
+        image: ghcr.io/alexjustesen/speedtest-tracker:latest    
+        container_name: speedtest-tracker
+        ports:
+            - 6050:80
+            - 6443:443
+        networks: ["nginx_default"]       
+        environment:
+            - PUID=1000
+            - PGID=1000
+        volumes:
+            - /home/Docker/speedtest:/config
+        restart: unless-stopped
+
+  openspeedtest:
+    image: openspeedtest/latest
+    container_name: openspeedtest
+    ports:
+      - "6040:3000" # THIS IS THE UI FOR OPENSPEEDTEST
+      - "6041:3001"
+    networks: #optional
+      nginx_default:      #optional
+    restart: unless-stopped
+
+  myspeed:
+    container_name: MySpeed
+    image: 'germannewsmaker/myspeed'
+    restart: unless-stopped
+    ports:
+      - '5216:5216'
+    volumes:
+      - data_myspeed:/myspeed/data
+
+  wyp:
+    image: aceberg/watchyourports
+    container_name: watchyourports
+    restart: unless-stopped
+    ports:
+    - 8853:8853
+    volumes:
+    - /home/Docker/WatchYourPorts:/data/WatchYourPorts
+    environment:
+      TZ: Asia/Novosibirsk    # required, default: ""
+      HOST: "0.0.0.0"         # optional, default: 0.0.0.0
+      PORT: "8853"            # optional, default: 8853
+      THEME: "grass"          # optional, default: grass
+      COLOR: "dark"           # optional, default: dark
+
+  wyl:
+    image: aceberg/watchyourlan
+    container_name: watchyourlan	
+    network_mode: "host"        
+    volumes:
+    - /home/Docker/watchyourlan/wyl:/data
+    environment:
+      TZ: Europe/Paris              # required: needs your TZ for correct time
+      IFACE: "eth0"                     # required: 1 or more interface, use the command 'ip link conf' and use the second entry
+      DBPATH: "/data/db.sqlite"         # optional, default: /data/db.sqlite
+      GUIIP: "0.0.0.0"                  # optional, default: localhost
+      GUIPORT: "9840"                   # optional, default: 8840
+      TIMEOUT: "120"                    # optional, time in seconds, default: 60
+      SHOUTRRR_URL: ""                  # optional, set url to notify
+      THEME: "darkly"                   # optional
+    # networks:
+    #   nginx_nginx_network:
+        #ipv4_address: 172.26.0.19
+    restart: unless-stopped   
+
+volumes:
+  data_myspeed:    
+
+networks:
+  nginx_default:
+    external: true    
+  cloudflare_tunnel:
+    external: true        
+  umami_network:
+    external: false      

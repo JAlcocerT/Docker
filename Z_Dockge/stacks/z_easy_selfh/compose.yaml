@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  cosmos-server:
+    image: azukaar/cosmos-server:latest #https://cosmos-cloud.io/blog/getting-started-with-cosmos-cloud-a-beginners-guide-to-self-hosting.html
+    container_name: cosmos-server
+    hostname: cosmos-server
+    privileged: true
+    restart: always
+    ports:
+      - "800:80"
+      - "4433:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /:/mnt/host
+      - cosmos2-config:/config
+    networks:
+      - cosmos_default
+
+  it-tools:
+      image: 'corentinth/it-tools:latest'
+      ports:
+          - '8080:80'
+      restart: unless-stopped
+      container_name: it-tools      
+
+networks:
+  cosmos_default:
+
+volumes:
+  cosmos2-config:

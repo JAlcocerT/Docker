@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel --no-autoupdate run --token fill_your_token_here_please
+    networks:
+      - tunnel
+    restart: unless-stopped
+
+networks:
+  tunnel:

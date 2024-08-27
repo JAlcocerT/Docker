@@ -1,0 +1,49 @@
+version: '3'
+services:
+  piwigo:
+    container_name: piwigo
+    image: lscr.io/linuxserver/piwigo:latest #piwigo-docker
+    restart: always
+    networks:
+      - piwigo
+    ports:
+      - "84:80"
+    volumes:
+      - /home/Docker/piwigo/config:/config
+      - /mnt/data_ext_2tb/Syncthing_Pixel8/Camera/gallery:/gallery
+  piwigodb:
+    image: linuxserver/mariadb
+    restart: always
+    container_name: piwigo_mysql
+    volumes:
+      - /home/Docker/piwigo/db:/var/lib/mysql
+    networks:
+      - piwigo
+    environment:
+      - MYSQL_ROOT_PASSWORD=piwigo
+      - MYSQL_PASSWORD=piwigo
+      - MYSQL_DATABASE=piwigo
+      - MYSQL_USER=piwigo
+
+  pigallery2:
+    image: bpatrik/pigallery2:latest
+    container_name: pigallery2
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - "/home/Docker/pigallery/config:/app/data/config" # CHANGE ME
+      - "/home/Docker/pigallery/tmp:/app/data/tmp" # CHANGE ME      
+      - "db-data:/app/data/db"
+      - "/mnt/data_ext_2tb/Z_BackUP_HD-SDD/Z_FOTOS:/app/data/images:ro"
+      #- "/mnt/ext4_drive/Syncthing_Pixel8:/app/data/images:ro"
+      #- "/home/Docker/:/app/data/images:ro" # CHANGE ME, ':ro' mean read-only
+
+    ports:
+      - 100:80
+    restart: "no"
+
+volumes:
+  db-data:
+
+networks:
+  piwigo:

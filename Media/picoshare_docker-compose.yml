@@ -9,7 +9,7 @@ services:
     volumes:
       - picoshare:/data
     container_name: picoshare
-    image: mtlynch/picoshare:latest
+    image: mtlynch/picoshare:latest #https://github.com/mtlynch/picoshare
     networks:
       - cloudflare_tunnel
     #restart: always     

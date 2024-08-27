@@ -12,8 +12,8 @@ services:
       # Add any other Stream port you want to expose
       # - '21:21' # FTP
     volumes:
-      - ~/Docker/Nginx/data:/data
-      - ~/Docker/Nginx/letsencrypt:/etc/letsencrypt
+      - /home/Docker/Nginx/data:/data
+      - /home/Docker/Nginx/letsencrypt:/etc/letsencrypt
 #     volumes:
 #       - nginx_data:/data #  - ~/Docker/Nginx/data:/data
 #       - nginx_letsencrypt:/etc/letsencrypt #  - ~/Docker/Nginx/letsencrypt:/etc/letsencrypt    
