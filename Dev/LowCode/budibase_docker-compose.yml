@@ -1,0 +1,126 @@
+# #https://github.com/budibase/budibase
+
+
+#https://docs.budibase.com/docs/docker-compose
+
+version: "3"
+
+services:
+  budibase:
+    restart: unless-stopped
+    image: budibase/budibase:latest
+    ports:
+      - "8080:80"
+    environment:
+      JWT_SECRET: <secret>
+      MINIO_ACCESS_KEY: <secret>
+      MINIO_SECRET_KEY: <secret>
+      REDIS_PASSWORD: <secret>
+      COUCHDB_USER: <secret>
+      COUCHDB_PASSWORD: <secret>
+      INTERNAL_API_KEY: <secret>
+    volumes:
+      - budibase_data:/data
+
+volumes:
+  budibase_data:
+    driver: local
+
+
+
+# #https://raw.githubusercontent.com/Budibase/budibase/master/hosting/portainer/template.json
+
+# {
+#   "version": "2",
+#   "templates": [
+#     {
+#       "type": 3,
+#       "title": "Budibase",
+#       "categories": ["Tools"],
+#       "description": "Build modern business apps in minutes",
+#       "logo": "https://budibase.com/favicon.ico",
+#       "platform": "linux",
+#       "repository": {
+#         "url": "https://github.com/Budibase/budibase",
+#         "stackfile": "hosting/docker-compose.yaml"
+#       },
+#       "env": [
+#         {
+#           "name": "MAIN_PORT",
+#           "label": "Main port",
+#           "default": "10000"
+#         },
+#         {
+#           "name": "JWT_SECRET",
+#           "label": "JWT secret",
+#           "default": "change-me"
+#         },
+#         {
+#           "name": "MINIO_ACCESS_KEY",
+#           "label": "MinIO access key",
+#           "default": "change-me"
+#         },
+#         {
+#           "name": "MINIO_SECRET_KEY",
+#           "label": "MinIO secret key",
+#           "default": "change-me"
+#         },
+#         {
+#           "name": "COUCH_DB_USER",
+#           "default": "budibase",
+#           "preset": true
+#         },
+#         {
+#           "name": "COUCH_DB_PASSWORD",
+#           "label": "Couch DB password",
+#           "default": "change-me"
+#         },
+#         {
+#           "name": "REDIS_PASSWORD",
+#           "label": "Redis password",
+#           "default": "change-me"
+#         },
+#         {
+#           "name": "INTERNAL_API_KEY",
+#           "label": "Internal API key",
+#           "default": "change-me"
+#         },
+#         {
+#           "name": "APP_PORT",
+#           "default": "4002",
+#           "preset": true
+#         },
+#         {
+#           "name": "WORKER_PORT",
+#           "default": "4003",
+#           "preset": true
+#         },
+#         {
+#           "name": "MINIO_PORT",
+#           "default": "4004",
+#           "preset": true
+#         },
+#         {
+#           "name": "COUCH_DB_PORT",
+#           "default": "4005",
+#           "preset": true
+#         },
+#         {
+#           "name": "REDIS_PORT",
+#           "default": "6379",
+#           "preset": true
+#         },
+#         {
+#           "name": "WATCHTOWER_PORT",
+#           "default": "6161",
+#           "preset": true
+#         },
+#         {
+#           "name": "BUDIBASE_ENVIRONMENT",
+#           "default": "PRODUCTION",
+#           "preset": true
+#         }
+#       ]
+#     }
+#   ]
+# }

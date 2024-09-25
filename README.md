@@ -246,10 +246,11 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * [HUGO :page_with_curl:](https://fossengineer.com/web-guide-Hugo/) 
   * [Wordpress :page_with_curl:](https://fossengineer.com/selfhosting-wordpress-docker/) :heavy_check_mark:
   * [Ghost :page_with_curl:](https://fossengineer.com/selfhosting-ghost-docker/)
-* Forms (HTML)
+* [Forms (HTML)](https://jalcocert.github.io/JAlcocerT/blog/dev-forms/#forms)
   * Alpaca
   * Drupal
   * OhMyForm
+  * https://github.com/formbricks/formbricks
 * Instagram alternatives
   * [Chevereto](https://fossengineer.com/selfhosting-chevereto-docker/)
   * Pixelfed
@@ -257,7 +258,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * Static Web Server
   * [Apache :page_with_curl:](https://fossengineer.com/Selfhosting-Static-Webs-with-Apache-in-Docker/) 
   * NginX
-* Subscriptions
+* [Subscriptions](https://jalcocert.github.io/JAlcocerT/blog/dev-forms/#newsletters)
    * Keila
    * Mailtrain
    * Moodle
