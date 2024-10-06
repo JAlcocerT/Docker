@@ -1,0 +1,42 @@
+version: '2'
+
+# volumes:
+#   nextcloud:
+#   db:
+
+services:
+  nextclouddb:
+    image: linuxserver/mariadb:10.11.8
+    restart: always
+    container_name: nextclouddb
+    volumes:
+      - /home/Docker/nextcloud/db:/var/lib/mysql
+    environment:
+      - MYSQL_INITDB_SKIP_TZINFO=1
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+#    networks: ["nginx_nginx_network"] #optional 
+
+  nextcloudapp:
+    image: nextcloud:30.0.0 #latest
+    container_name: nextcloud
+    restart: always
+    ports:
+      - 8035:80
+    links:
+      - nextclouddb
+    volumes:
+      - /home/Docker/nextcloud/html:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      - NEXTCLOUD_TRUSTED_DOMAINS= http://orangepi5.blablabla.ts.net:8035 #http://0.0.0.0:8050 #https://nextcloud.yourduckdnsubdomain.duckdns.org/
+#    networks: ["nginx_nginx_network"] #optional 
+ 
+# networks: #optional
+#   nginx_nginx_network: #optional
+#     external: true #optional
