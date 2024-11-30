@@ -1,10 +1,12 @@
 # Docker and Self-Hosting Setup Guides
 
-A reference for Self-Hosting pourposes and for anyone starting their journey with Docker. A companion for:
+A reference for Self-Hosting pourposes and for anyone starting their journey with Docker.
 
-* My [RPi guide]()https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/
+A companion for:
+
+* My [Raspberry Pi guide](https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/)
 * My [Linux guide](https://jalcocert.github.io/Linux/docs/debian/docker/)
-* The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/) entries in my blog <https://fossengineer.com/>.
+* The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/)
   * [Install Portainer and get ready to deploy docker containers with a UI.](https://fossengineer.com/selfhosting-portainer-docker/)
 
 ## Repository Structure:
