@@ -1,0 +1,1 @@
+* Combined few personal AI projects as commented [here](https://jalcocert.github.io/RPi/posts/raspberry-ai-projects/).

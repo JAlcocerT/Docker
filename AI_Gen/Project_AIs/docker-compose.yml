@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  streamlit-chat-pdfs:
+    image: ghcr.io/jalcocert/ask-multiple-pdfs:v1.0 
+    container_name: chat_multiple_pdf
+    volumes:
+      - ai_chat_multiple_pdf:/app
+    working_dir: /app  # Set the working directory to /app
+    command: /bin/sh -c "export OPENAI_API_KEY='your_api_key_here' && streamlit run appv3_pass.py"    
+    #command: tail -f /dev/null
+    ports:
+      - "8501:8501"    
+    restart: unless-stopped
+
+  streamlit-multichat:
+    image: ghcr.io/jalcocert/streamlit-multichat #:v1.0
+    container_name: streamlit_multichat
+    volumes:
+      - ai_streamlit_multichat:/app
+    working_dir: /app
+    command: /bin/sh -c "\
+      mkdir -p /app/.streamlit && \
+      echo 'OPENAI_API_KEY = \"sk-proj-openaiAPIhere\"' > /app/.streamlit/secrets.toml && \
+      echo 'GROQ_API_KEY = \"gsk_groqAPIhere\"' >> /app/.streamlit/secrets.toml && \
+      echo 'ANTHROPIC_API_KEY = \"sk-ant-yourANTHROPICapihere\"' >> /app/.streamlit/secrets.toml && \      
+      streamlit run Z_multichat.py"
+    ports:
+      - "8501:8501"
+    restart: always
+    environment:
+      MODEL_API_KEY: sk-proj-openaiAPIhere
+      MODEL: gpt-4o-mini      #gpt-4 
+      TEMPERATURE: 0 #dont be creative :)    
+    #restart: always   
+
+  phidata_yt_groq:
+    image: ghcr.io/jalcocert/phidata:yt-groq #phidata:yt_summary_groq
+    container_name: phidata_yt_groq
+    ports:
+      - "8502:8501"    
+    environment:
+      - GROQ_API_KEY=your_api_key_here # your_api_key_here 🖕
+    command: tail -f /dev/null #streamlit run cookbook/llms/groq/video_summary/app.py
+    restart: unless-stopped
+
+volumes:
+  ai_streamlit_multichat:
+
+volumes:
+  ai_chat_multiple_pdf:

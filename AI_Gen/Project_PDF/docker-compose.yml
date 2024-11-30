@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  streamlit-embeddings-pdfs:
+    image: ghcr.io/jalcocert/ask-multiple-pdfs:v1.0 #https://github.com/JAlcocerT/ask-multiple-pdfs/pkgs/container/ask-multiple-pdfs
+    container_name: chat_multiple_pdf
+    volumes:
+      - ai_chat_multiple_pdf:/app
+    working_dir: /app  # Set the working directory to /app
+    command: /bin/sh -c "export OPENAI_API_KEY='your_api_key_here' && streamlit run appv3_pass.py"    
+    #command: streamlit run appv2.py # tail -f /dev/null
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+
+volumes:
+  ai_chat_multiple_pdf:

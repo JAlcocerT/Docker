@@ -1,7 +1,7 @@
 ## CrewAI
 
 
-Framework for orchestrating role-playing, autonomous AI agents. AutoGen Alternative.
+[Framework for orchestrating](https://fossengineer.com/ai-agents-crewai/) role-playing, autonomous AI agents. AutoGen Alternative.
 
 * 👉  <https://www.youtube.com/watch?v=GKr5URJvNDQ&t=12s>
 

@@ -1,13 +1,20 @@
-# Docker and Self-Hosting Setup Guides
+<div align="center">
+  <h1>Docker and Self-Hosting Setup Guides</h1>
+</div>
 
-A reference for Self-Hosting pourposes and for anyone starting their journey with Docker.
+<div align="center">
+  <h3>A reference for Self-Hosting pourposes and for anyone starting their journey with Docker</h3>
+</div>
+
+---
 
 A companion for:
 
-* My [Raspberry Pi guide](https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/)
-* My [Linux guide](https://jalcocert.github.io/Linux/docs/debian/docker/)
-* The [self-hosting](https://fossengineer.com/tags/self-hosting/) and [docker](https://fossengineer.com/tags/docker/)
-  * [Install Portainer and get ready to deploy docker containers with a UI.](https://fossengineer.com/selfhosting-portainer-docker/)
+* My [**Raspberry Pi** guide](https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/)
+* My [**Linux** guide](https://jalcocert.github.io/Linux/docs/debian/docker/)
+* [Self-hosting](https://jalcocert.github.io/Linux/docs/linux__cloud/selfhosting/) and [docker](https://fossengineer.com/tags/docker/)
+  * [Install **Portainer** and get ready to deploy docker containers with a UI.](https://fossengineer.com/selfhosting-portainer-docker/)
+  * You can also [build **MultiArch** container images](https://github.com/JAlcocerT/Streamlit-MultiChat/blob/main/.github/workflows/Streamlit_GHA_MultiArch.yml) for your projects with GHActions. [Example Blog](https://github.com/JAlcocerT/Streamlit-MultiChat)
 
 ## Repository Structure:
   * [Introduction: Why Docker?](#Intro)
@@ -276,7 +283,9 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * [Ollama with Docker](https://fossengineer.com/selfhosting-llms-ollama/)
 * [PrivateGPT with Docker](https://fossengineer.com/selfhosting-local-llms-with-privateGPT/)
 * [TextGenWebUI with Docker](https://fossengineer.com/Generative-AI-LLMs-locally-with-cpu/)
-* [CrewAi with Docker](https://fossengineer.com/ai-agents-crewai/)
+* [CrewAI with Docker](https://fossengineer.com/ai-agents-crewai/)
+
+You can also do [**AI Projects** with a Raspberry Pi](https://jalcocert.github.io/RPi/posts/raspberry-ai-projects/).
 
 ## Powered Thanks To :heart:
 
