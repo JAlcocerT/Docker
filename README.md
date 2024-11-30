@@ -315,6 +315,9 @@ If you enjoy self-hosting any of the apps listed, I would **show appreciation di
  * Consider leaving feedback if you found some improvement / something can be explained better
  * Support additional weekends of self-hosting tinkering to bring new services to the list
 
-<div align="center">
-  [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z1QPGUM)
-</div>
+
+<p align="center">
+  <a href="https://ko-fi.com/Z8Z1QPGUM">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi" />
+  </a>
+</p>
