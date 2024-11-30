@@ -6,6 +6,19 @@
   <h3>A reference for Self-Hosting pourposes and for anyone starting their journey with Docker</h3>
 </div>
 
+
+<p align="center">
+  <a href="https://github.com/JAlcocerT/RPi?tab=MIT-1-ov-file#readme" style="margin-right: 5px;">
+    <img alt="Code License" src="https://img.shields.io/badge/License-MIT-blue.svg" />
+  </a>
+  <a href="https://youtube.com/@JAlcocerTech">
+    <img alt="YouTube Channel" src="https://img.shields.io/badge/YouTube-Channel-red" />
+  </a>
+  <a href="https://GitHub.com/JAlcocerT/RPi/graphs/commit-activity" style="margin-right: 5px;">
+    <img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+</p>
+
 ---
 
 A companion for:
@@ -302,4 +315,6 @@ If you enjoy self-hosting any of the apps listed, I would **show appreciation di
  * Consider leaving feedback if you found some improvement / something can be explained better
  * Support additional weekends of self-hosting tinkering to bring new services to the list
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z1QPGUM)
+<div align="center">
+  [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z1QPGUM)
+</div>
