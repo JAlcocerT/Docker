@@ -1,2 +1,1 @@
-* Next.js is a very popular React framework
-
+* [Next.js](https://fossengineer.com/nextjs-ssg/) is a very popular React framework

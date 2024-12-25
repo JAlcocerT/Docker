@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mariadb:
+    image: mariadb:10.5
+    container_name: mariadb-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=chinook
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=mypassword
+    volumes:
+      - ./mariadb-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+#docker-compose up -d
+
+#docker exec -it mariadb-db bash
+#mysql -u root -p
+
+# CREATE DATABASE chinook;
+# USE chinook;
+# SOURCE /path/to/chinook.sql; -- Update this path to your SQL file
+# SOURCE /path/to/Chinook_MySql.sql; -- Update this path to your SQL file if needed
+
+#SHOW TABLES;

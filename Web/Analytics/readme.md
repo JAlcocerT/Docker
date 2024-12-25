@@ -1,0 +1,1 @@
+1. Setup [Umami Web Analytics](https://fossengineer.com/selfhosting-umami-with-docker/)

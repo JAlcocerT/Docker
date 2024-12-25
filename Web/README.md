@@ -1,19 +1,9 @@
 ## Analytics
 
 * PostHog
-* Umami
+* Open Web Analytics
 * [Umami](https://fossengineer.com/selfhosting-umami-with-docker/)
 
-#### OpenReplay
-
-#### Matomo
-
-#### Open web analytics
-
-
-
-
-#### Plausible
 
 ---
 
@@ -30,6 +20,8 @@
 * [Grav](https://fossengineer.com/selfhosting-grav-docker/)
 
 * [Wordpress](https://fossengineer.com/selfhosting-wordpress-docker/)
+
+---
 
 <details>
   <summary>Wordpress with Docker 👈</summary>

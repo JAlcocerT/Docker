@@ -1,9 +1,9 @@
 ## R Shiny 2 Container
 
-How to create a container of [an existing shiny dashboard](https://fossengineer.com/building-r-shiny-apps-container-image-with-docker).
+How to create a container of [an existing **shiny dashboard**](https://jalcocert.github.io/JAlcocerT/building-r-shiny-apps-container-image-with-docker/).
 
 
-```
+```dockerfile
 # Example shiny app docker file
 # https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/
 
@@ -34,5 +34,4 @@ COPY ./shiny-app/* /srv/shiny-server/
 
 # run app
 CMD ["/usr/bin/shiny-server"]
-
 ```

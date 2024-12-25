@@ -1,10 +1,16 @@
+> https://jalcocert.github.io/RPi/tags/iot/
+
+
+---
+
+
 ### Monitoring
 
 #### NetData :heavy_check_mark:
 
 <https://github.com/JAlcocerT/Docker/blob/main/IoT/NetData_docker-compose.yaml>
 
-```
+```sh
 docker run -d --name=netdata \
   -p 19997:19999 \
   -v ~/Docker/netdata/passwd:/host/etc/passwd:ro \
@@ -35,7 +41,7 @@ netdata/netdata
 #### Internet Speed :heavy_check_mark:
 ##### With Graphana, Promotheus,  SpeedTest, Nodeexp
 
-```
+```sh
 cd ~/Docker
 git clone https://github.com/geerlingguy/internet-monitoring MonitoringInternet
 cd MonitoringInternet
@@ -55,14 +61,15 @@ docker-compose up -d
 
 #### open Speed test :heavy_check_mark:
 
-```
+```sh
 docker run --restart=unless-stopped --name openspeedtest -d -p 3000:3000 -p 3001:3001 openspeedtest/latest
 ```
 
 #### Internet Speed Tracker (X86 only, :heavy_check_mark:)
 
 It works with a UI, whcih you can query any time that you need to make the internet test locally.
-```
+
+```sh
 wget -cO - https://raw.githubusercontent.com/JAlcocerT/docker/main/IoT/InternetSpeedTracker.yaml > docker-compose.yaml
 docker-compose up -d
 ```
@@ -76,7 +83,8 @@ It can store the metrics in the disk, but not in the cloud by default.
 
 
 #### Grafana InfluxDB SpeedTest
-```
+
+```sh
 sudo git clone https://github.com/frdmn/docker-speedtest-grafana grafana_speedtest #clone the repo to the folder grafana_speedtest
 sudo cp .env.sample .env
 sudo nano .env
@@ -84,9 +92,10 @@ sudo docker-compose up -d
 ```
 
 ### Server Monitoring
+
 ##### Using Grafana, Prometheus & Node Exporter :heavy_check_mark:
 
-```
+```yml
 version: '3'
 
 volumes:
@@ -122,7 +131,8 @@ services:
     restart: unless-stopped
 ```
 Below file must be created with the proper name and location, as specified by the upper yaml file:
-```
+
+```sh
 global: 
   scrape_interval:     15s # By default, scrape targets every 15 seconds.
 
@@ -141,9 +151,12 @@ scrape_configs:
     static_configs:
       - targets: ['node_exporter:9100'] #container_name
 ```
+
 ##### Using Grafana, InfluxDB & Telegraph (x86 for now :heavy_check_mark:)
-The following telegraf.conf file is required:
-```
+
+The following `telegraf.conf` file is required:
+
+```sh
 #Grafana_InfluxDB_Telegraf_docker-compose.yaml
 #docker compose up -d
 
@@ -196,7 +209,8 @@ The following telegraf.conf file is required:
 ##### Using Grafana, Prometheus, Cadvisor, NodeExp
 
 <https://grafana.com/grafana/dashboards/15120-docker-and-os-metrics-for-raspberry-pi/>
-It requires the following prometheus.yml as a config file:
+It requires the following `prometheus.yml` as a config file:
+
 ```
 #Grafana_Prometheus_Cadvisor_NodeExp_docker-compose.yaml
 #sudo docker-compose up -d
@@ -218,7 +232,7 @@ scrape_configs:
 
 ### Home Assistant :heavy_check_mark:
 
-```
+```sh
 docker run -d \
   --name=homeassistant \
   --net=host \
@@ -230,4 +244,5 @@ docker run -d \
   --restart unless-stopped \
   lscr.io/linuxserver/homeassistant
 ```
+
 https://hub.docker.com/r/linuxserver/homeassistant

@@ -1,3 +1,5 @@
+> Blog Post about [Big Data Tools](https://jalcocert.github.io/JAlcocerT/big-data-tools-for-data-analytics/)
+
 ## Open Lake House
 
 * Compute
