@@ -23,7 +23,6 @@ services:
     networks:
       - cloudflare_tunnel
       # - nginx_default   
-    restart: unless-stopped   
 
 # networks:
 #   cloudflare_tunnel:

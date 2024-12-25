@@ -25,9 +25,9 @@ A companion for:
 
 * My [**Raspberry Pi** guide](https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/)
 * My [**Linux** guide](https://jalcocert.github.io/Linux/docs/debian/docker/)
-* [Self-hosting](https://jalcocert.github.io/Linux/docs/linux__cloud/selfhosting/) and [docker](https://fossengineer.com/tags/docker/)
-  * [Install **Portainer** and get ready to deploy docker containers with a UI.](https://fossengineer.com/selfhosting-portainer-docker/)
-  * You can also [build **MultiArch** container images](https://github.com/JAlcocerT/Streamlit-MultiChat/blob/main/.github/workflows/Streamlit_GHA_MultiArch.yml) for your projects with GHActions. [Example Blog](https://github.com/JAlcocerT/Streamlit-MultiChat)
+* [Self-hosting](https://jalcocert.github.io/Linux/docs/linux__cloud/selfhosting/)
+  * [Install **Portainer/Dockge** and get ready to deploy docker containers with a UI.](https://fossengineer.com/understanding-containers-for-selfhosting/)
+  * You can also [build **MultiArch** container images](https://jalcocert.github.io/JAlcocerT/github-actions-use-cases/) for your projects with GHActions. [Example Project](https://github.com/JAlcocerT/Streamlit-MultiChat)
 
 ## Repository Structure:
   * [Introduction: Why Docker?](#Intro)
