@@ -2,9 +2,13 @@
 ## Good to know
 
 
-By doing this, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
+By bundling an app into a container, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
 
-Containers remain lightweight by sharing the OS they run on while isolating processes within user space.
+**Containers** remain lightweight by sharing the OS they run on while isolating processes within user space.
+
+* https://github.com/containers/podman
+
+---
 
 ### Install docker & docker compose & portainer
 
@@ -231,13 +235,13 @@ docker run --tty --interactive kalilinux/kali-rolling
 
 * With CLI:
 
-```
-    docker run -d --name example --env-file vars_file.env ubuntu:latest --restart unless-stopped
+```sh
+docker run -d --name example --env-file vars_file.env ubuntu:latest --restart unless-stopped
 ```
 
 * With Docker compose:
 
-```
+```yml
     ---
     version: "2.1"
     services:

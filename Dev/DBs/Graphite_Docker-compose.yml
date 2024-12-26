@@ -1,0 +1,67 @@
+#
+version: "3.9"  # Use the latest version for compatibility
+
+services:
+  graphite-web:
+    image: graphiteapp/graphite-web
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./conf:/opt/graphite/conf
+      - ./storage/whisper:/opt/graphite/storage/whisper
+      - ./storage/log:/opt/graphite/storage/log
+    depends_on:
+      - graphite-carbon
+
+  graphite-carbon:
+    image: graphiteapp/graphite-carbon
+    ports:
+      - "2003:2003/udp"  # For plain text
+      - "2004:2004/tcp"  # For pickle
+    volumes:
+      - ./storage/whisper:/opt/graphite/storage/whisper
+      - ./storage/log:/opt/graphite/storage/log
+
+volumes:
+  storage/whisper:
+  storage/log:
+
+
+# import socket
+# import time
+
+# # Configuration
+# GRAPHITE_SERVER = 'your_graphite_server_ip_address'
+# GRAPHITE_PORT = 2003  # Plaintext port
+
+# def send_data_to_graphite(metric, value):
+#     """
+#     Sends data to the Graphite server.
+
+#     Args:
+#         metric (str): The name of the metric.
+#         value (float): The value of the metric.
+#     """
+#     try:
+#         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#         sock.connect((GRAPHITE_SERVER, GRAPHITE_PORT))
+#         timestamp = int(time.time())
+#         message = f"{metric} {value} {timestamp}\n"
+#         sock.sendall(message.encode('utf-8'))
+#         sock.close()
+#         print(f"Sent {metric}={value} to Graphite at {time.ctime()}")
+#     except Exception as e:
+#         print(f"Error sending data to Graphite: {e}")
+
+# if __name__ == "__main__":
+#     while True:
+#         # Generate some sample data (replace with your actual data source)
+#         data = {
+#             'my_metric1': 123.45,
+#             'my_metric2': 67.89
+#         }
+
+#         for metric, value in data.items():
+#             send_data_to_graphite(metric, value)
+
+#         time.sleep(1)  # Send data every second

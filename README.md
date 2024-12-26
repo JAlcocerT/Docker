@@ -302,8 +302,12 @@ You can also do [**AI Projects** with a Raspberry Pi](https://jalcocert.github.i
 
 ## Powered Thanks To :heart:
 
-* Markdown
+* Markdown/OCI
 * The fantastic community on the internet from where I've learnt the basis to put together all of this.
+
+
+> [!IMPORTANT]
+> Share it with someone it could help!
 
 ## :loudspeaker: Ways to Contribute 
 
