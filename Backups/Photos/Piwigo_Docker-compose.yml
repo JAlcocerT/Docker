@@ -9,9 +9,38 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /path/to/appdata/config:/config
-      - /path/to/appdata/gallery:/gallery
+      - /home/Docker/piwigo/config:/config
+      - /home/Docker/piwigo/gallery:/gallery
     ports:
       - 8448:80
     restart: unless-stopped
 
+# version: '3'
+# services:
+#   piwigo:
+#     container_name: piwigo
+#     image: lscr.io/linuxserver/piwigo:latest #piwigo-docker
+#     restart: always
+#     networks:
+#       - piwigo
+#     ports:
+#       - "84:80"
+#     volumes:
+#       - /home/Docker/piwigo/config:/config
+#       - /mnt/ext4_drive/Some/Path/Gallery:/gallery
+#   piwigodb:
+#     image: linuxserver/mariadb #supports x86 and ARM64->>https://github.com/xmanyou/piwigo-docker
+#     restart: always
+#     container_name: piwigo_mysql
+#     volumes:
+#       - /home/Docker/piwigo/db:/var/lib/mysql
+#     networks:
+#       - piwigo
+#     environment: #make sure to change these!!!
+#       - MYSQL_ROOT_PASSWORD=piwigo
+#       - MYSQL_PASSWORD=piwigo
+#       - MYSQL_DATABASE=piwigo
+#       - MYSQL_USER=piwigo
+
+# networks:
+#   piwigo:

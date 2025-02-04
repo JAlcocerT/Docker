@@ -6,18 +6,25 @@
   <h3>A reference for Self-Hosting pourposes and for anyone starting their journey with Docker</h3>
 </div>
 
-
 <p align="center">
-  <a href="https://github.com/JAlcocerT/RPi?tab=MIT-1-ov-file#readme" style="margin-right: 5px;">
+  <a href="https://github.com/JAlcocerT/Docker?tab=MIT-1-ov-file#readme" style="margin-right: 5px;">
     <img alt="Code License" src="https://img.shields.io/badge/License-MIT-blue.svg" />
   </a>
   <a href="https://youtube.com/@JAlcocerTech">
     <img alt="YouTube Channel" src="https://img.shields.io/badge/YouTube-Channel-red" />
   </a>
-  <a href="https://GitHub.com/JAlcocerT/RPi/graphs/commit-activity" style="margin-right: 5px;">
+  <a href="https://GitHub.com/JAlcocerT/Docker/graphs/commit-activity" style="margin-right: 5px;">
     <img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
+  <a href="https://github.com/JAlcocerT/Docker">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/JAlcocerT/Docker" />
+  </a>
+  <a href="https://github.com/JAlcocerT/Docker">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/JAlcocerT/Docker" />
+  </a>
 </p>
+
+
 
 ---
 
@@ -29,7 +36,7 @@ A companion for:
   * [Install **Portainer/Dockge** and get ready to deploy docker containers with a UI.](https://fossengineer.com/understanding-containers-for-selfhosting/)
   * You can also [build **MultiArch** container images](https://jalcocert.github.io/JAlcocerT/github-actions-use-cases/) for your projects with GHActions. [Example Project](https://github.com/JAlcocerT/Streamlit-MultiChat)
 
-## Repository Structure:
+## Repository Structure
   * [Introduction: Why Docker?](#Intro)
   * [Back-up related containers](#Backups)
   * [Business apps related containers](#business)
@@ -53,7 +60,7 @@ Everything needed to run a software application successfully can be stored in a 
 I have been **collecting/adapting the config files** to install with Docker several Apps and consolidated it on this repository for anyone that might find it helpful.
 
 <details>
-  <summary>Click to know which Apps 👈</summary>
+  <summary>Click to know which Apps 🐋👈</summary>
   &nbsp;
 
 ### [Backups:](https://github.com/JAlcocerT/Docker/tree/main/Backups)
