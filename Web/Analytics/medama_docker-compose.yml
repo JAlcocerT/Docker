@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  medama:
+    image: ghcr.io/medama-io/medama:latest
+    container_name: medama
+    restart: unless-stopped
+    environment:
+      - LOGGER=pretty
+    ports:
+      - "8085:8080"
+    volumes:
+      - ./data:/app/data
+
+#https://oss.medama.io/deployment/docker

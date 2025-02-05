@@ -1,4 +1,6 @@
-> Tested some [here](https://jalcocert.github.io/JAlcocerT/software-for-weddings/)
+> Tested some of these, [here](https://jalcocert.github.io/JAlcocerT/software-for-weddings/)
+
+* https://medevel.com/os-photo-collection-self-hosted/
 
 ---
 
