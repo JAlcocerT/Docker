@@ -123,7 +123,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * Bunddle your Apps
   * [Python DASH Apps :page_with_curl:](https://fossengineer.com/dash-docker-gcr/)
   * [Shiny Dashboards](https://fossengineer.com/building-r-shiny-apps-container-image-with-docker/)   
-* SSGs -> Static Webs
+* SSGs -> Static Webs Generators
   * [HUGO](https://fossengineer.com/web-guide-Hugo/)
   * [Jekyll](https://fossengineer.com/jekyll-ssg-selfhosting-static-website/)
   * [Astro](https://fossengineer.com/astro-ssg/)
@@ -137,7 +137,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * [OpenSpeedTest](https://jalcocert.github.io/RPi/posts/self-internet-monit/#openspeedtest) :heavy_check_mark:
 * GPIO
   * TIO: https://github.com/tio/tio
-* BI:
+* BI Tools:
   * [Metabase](https://jalcocert.github.io/RPi/posts/rpi-iot-dht1122-mongo/#metabase)
   * [Apache Superset](https://jalcocert.github.io/RPi/posts/rpi-gps-superset/#apache-superset-setup)
   * Redash

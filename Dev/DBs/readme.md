@@ -1,9 +1,10 @@
 These Databases can be useful for:
 
 * IoT Projects: <https://jalcocert.github.io/RPi/tags/sensors/>
-* Data projects: 
-* AI Projects: <https://jalcocert.github.io/JAlcocerT/langchain-chat-with-sensor-data/>
-
+* Data projects 
+* AI Projects: 
+    * <https://jalcocert.github.io/JAlcocerT/langchain-chat-with-sensor-data/>
+    * <https://jalcocert.github.io/JAlcocerT/langchain-chat-with-database/>
 ---
 
 1. TimeScale - Timescale is Postgres made powerful
@@ -17,3 +18,5 @@ https://github.com/JAlcocerT/Docker/tree/main/AI_Gen/Z_VectorDBs
 
 > [!IMPORTANT]
 > You might be looking for [VectorDBs](https://github.com/JAlcocerT/Docker/tree/main/AI_Gen/Z_VectorDBs)
+
+---
