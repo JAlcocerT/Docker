@@ -231,7 +231,6 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * OpenVPN
   * [Tailscale](https://jalcocert.github.io/Linux/docs/debian/linux_vpn_setup/)
   * Headscale
-  * Wirehole
   * Wireguard :heavy_check_mark:
 * Watchtower :heavy_check_mark:
     
