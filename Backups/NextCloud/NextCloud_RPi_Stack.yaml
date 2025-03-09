@@ -1,7 +1,6 @@
-version: '2'
-
+#version: '2'
 volumes:
-  nextcloud:
+  #nextcloud:
   db:
 
 services:
@@ -10,7 +9,7 @@ services:
     restart: always
     container_name: nextclouddb
     volumes:
-      - ~/Docker/nextcloud/db:/var/lib/mysql
+      - db:/var/lib/mysql
     environment:
       - MYSQL_INITDB_SKIP_TZINFO=1
       - MYSQL_ROOT_PASSWORD=rootpass
@@ -27,10 +26,10 @@ services:
     links:
       - db
     volumes:
-      - ~/Docker/nextcloud/html:/var/www/html
+      - /home/jalcocert/Docker/nextcloud/html:/var/www/html
     environment:
       - MYSQL_PASSWORD=ncpass
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_HOST=db
-      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.3.31:8080 http://0.0.0.0:8080
+      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.0.12:8080 http://0.0.0.0:8080 #https://somedomain.duckdns.org
