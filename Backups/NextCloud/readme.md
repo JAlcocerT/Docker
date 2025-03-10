@@ -60,6 +60,8 @@ to make it read from an external drive
 92C269FAC269E2C9
 
 To get this UUID, run this command:
+
+```sh
 sudo ls -l /dev/disk/by-uuid/
 
 
@@ -68,3 +70,4 @@ sudo fdisk -l
 sudo umount /mnt/usb
 
 sudo mount /dev/sda1 /mnt/usb -o uid=pi,gid=pi
+```

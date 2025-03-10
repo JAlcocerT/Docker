@@ -1,0 +1,19 @@
+#version: "3.7"
+services:
+  pialert:
+    image: jokobsk/pi.alert
+    container_name: pialert
+    ports:
+      - "80:80"
+    volumes:
+      - "./config:/etc/pi.alert"
+      - "./database:/var/lib/pi.alert"
+      - "./logs:/var/log/pi.alert"
+
+networks:
+  pialert_net:
+    name: pialert_net
+
+depends_on:
+  pialert:
+    - pialert_scanner

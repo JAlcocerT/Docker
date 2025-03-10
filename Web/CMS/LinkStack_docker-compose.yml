@@ -1,0 +1,21 @@
+services:
+  linkstack:
+    image: linkstackorg/linkstack
+    container_name: linkstack
+    hostname: linkstack
+    environment:
+      HTTP_SERVER_NAME: "192.168.0.12" #"www.example.xyz"
+      HTTPS_SERVER_NAME: "192.168.0.12"
+      SERVER_ADMIN: "admin@example.xyz"
+      TZ: "Europe/Berlin"
+      PHP_MEMORY_LIMIT: "512M"
+      UPLOAD_MAX_FILESIZE: "16M"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - linkstack:/htdocs
+    restart: unless-stopped
+
+volumes:
+  linkstack:
