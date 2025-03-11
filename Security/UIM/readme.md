@@ -11,6 +11,6 @@
     * https://github.com/RyzeKit/astro-logto-auth-example?tab=readme-ov-file
 
 
-### admidio
+### AdmidIO
 
 * https://github.com/Admidio/admidio

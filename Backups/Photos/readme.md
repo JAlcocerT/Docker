@@ -1,4 +1,4 @@
-> Tested some of these, [**here**](https://jalcocert.github.io/JAlcocerT/photo-management-tools/) [here](https://jalcocert.github.io/JAlcocerT/software-for-weddings/)
+> Tested some of these, [**here**](https://jalcocert.github.io/JAlcocerT/photo-management-tools/), also [here](https://jalcocert.github.io/JAlcocerT/software-for-weddings/)
 
 * https://medevel.com/os-photo-collection-self-hosted/
 
@@ -16,3 +16,7 @@
 wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
 wget -O .env https://github.com/immich-app/immich/releases/latest/download/example.env
 ```
+
+2. [PhotoView](https://fossengineer.com/selfhosting-Photoview-docker/)
+
+3. PiGallery

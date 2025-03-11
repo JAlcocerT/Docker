@@ -1,8 +1,27 @@
-version: '3.9'
+#version: '3.9'
 services:
-    it-tools:
-        image: 'corentinth/it-tools:latest'
-        ports:
-            - '8035:80'
-        restart: unless-stopped
-        container_name: it-tools
+  it-tools:
+    image: 'corentinth/it-tools:latest' #https://github.com/CorentinTh/it-tools
+    ports:
+      - '8035:80'
+    restart: unless-stopped
+    container_name: it-tools
+
+# version: "3.8"
+# services:
+  omni-tools: #x86 only
+    image: iib0011/omni-tools:latest #https://github.com/iib0011/omni-tools
+    container_name: omni-tools
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+#services:
+dumbdrop:
+    ports:
+        - 3000:3000
+    volumes:
+        - /docker/dumbdrop:/app/uploads
+    environment:
+        - DUMBDROP_PIN=123456
+    image: abite3/dumbdrop:latest
