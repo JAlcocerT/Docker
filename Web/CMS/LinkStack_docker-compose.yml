@@ -1,5 +1,5 @@
 services:
-  linkstack:
+  linkstack: #https://code.dbt3ch.com/vdimomWF
     image: linkstackorg/linkstack
     container_name: linkstack
     hostname: linkstack
@@ -16,6 +16,12 @@ services:
     volumes:
       - linkstack:/htdocs
     restart: unless-stopped
+    # networks:
+    #   - cloudflaretunnel_tunnel
 
 volumes:
   linkstack:
+
+# networks:
+#   cloudflaretunnel_tunnel:
+#   external: true
