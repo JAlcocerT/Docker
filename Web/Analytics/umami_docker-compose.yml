@@ -1,33 +1,73 @@
----
-version: '3'
+#version: '3'
 services:
   umami:
-    image: ghcr.io/umami-software/umami:postgresql-latest
+    image: ghcr.io/umami-software/umami:postgresql-latest ## ##admin // umami
     ports:
       - "3000:3000"
     environment:
       DATABASE_URL: postgresql://umami:umami@db:5432/umami
       DATABASE_TYPE: postgresql
-      HASH_SALT: replace-me-with-a-random-string
+      HASH_SALT: "your-very-strong-and-long-random-string" # Important!
     depends_on:
       - db
     restart: always
-    networks: ["nginx_default"] 
+    networks:
+      - umami_network # Use a dedicated network
+      - cloudflare_tunnel
   db:
     image: postgres:12-alpine
     environment:
       POSTGRES_DB: umami
       POSTGRES_USER: umami
       POSTGRES_PASSWORD: umami
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256 --auth-local=scram-sha-256" #Stronger authentication
     volumes:
-      - /home/jesalctag/Docker/umami/sql/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro
-      - /home/jesalctag/Docker/umamiumami-db-data:/var/lib/postgresql/data
+      - ./sql/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro #Relative path
+      - umami-db-data:/var/lib/postgresql/data
     restart: unless-stopped
+    networks:
+      - umami_network #Use a dedicated network
 volumes:
   umami-db-data:
-   
-# networks:
-#     nginx_default:
-#         external: true     
+networks:
+  umami_network:
+    driver: bridge #Explicitly define the network driver.
+  # nginx_default:
+  #   external: true     
+  # cloudflare_tunnel:
+  #   external: true
 
-##admin // umami
+
+# ---
+# version: '3'
+# services:
+#   umami:
+#     image: ghcr.io/umami-software/umami:postgresql-latest
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       DATABASE_URL: postgresql://umami:umami@db:5432/umami
+#       DATABASE_TYPE: postgresql
+#       HASH_SALT: replace-me-with-a-random-string
+#     depends_on:
+#       - db
+#     restart: always
+#     networks: ["nginx_default"] 
+#   db:
+#     image: postgres:12-alpine
+#     environment:
+#       POSTGRES_DB: umami
+#       POSTGRES_USER: umami
+#       POSTGRES_PASSWORD: umami
+#     volumes:
+#       - /home/jesalctag/Docker/umami/sql/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro
+#       - /home/jesalctag/Docker/umamiumami-db-data:/var/lib/postgresql/data
+#     restart: unless-stopped
+# volumes:
+#   umami-db-data:
+   
+# # networks:
+# #     nginx_default:
+# #         external: true     
+
+# ##admin // umami

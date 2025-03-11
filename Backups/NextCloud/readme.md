@@ -1,3 +1,8 @@
+> See how I [selfhosted NC with a Pi](https://jalcocert.github.io/RPi/posts/selfhosting-nextcloud/)
+
+
+---
+
 ```sh
 sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_container nextcloud 
 ```

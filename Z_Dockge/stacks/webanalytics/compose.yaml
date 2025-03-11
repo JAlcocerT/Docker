@@ -1,6 +1,6 @@
-version: '3'
+#version: '3'
 
-services:
+services: #MATOMO, UMAMI, TIANJI, MEDAMA
   matomo:
     image: matomo:latest
     container_name: matomo
@@ -62,3 +62,55 @@ services:
 # networks:
 #   cloudflare_tunnel:
 #     external: true    
+
+############
+#services:
+  tianji:
+    image: moonrailgun/tianji
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "12345:12345"
+    environment:
+      DATABASE_URL: postgresql://tianji:tianji@postgres:5432/tianji
+      JWT_SECRET: replace-me-with-a-random-string
+      ALLOW_REGISTER: "false"
+      ALLOW_OPENAPI: "true"
+    depends_on:
+      - postgres
+    restart: always
+  postgres:
+    image: postgres:15.4-alpine
+    environment:
+      POSTGRES_DB: tianji
+      POSTGRES_USER: tianji
+      POSTGRES_PASSWORD: tianji
+    volumes:
+      - tianji-db-data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  tianji-db-data:
+
+#admin/admin
+#https://raw.githubusercontent.com/msgbyte/tianji/master/docker-compose.yml
+
+######
+
+# version: '3.9'
+# services:
+  medama:
+    image: ghcr.io/medama-io/medama:latest
+    container_name: medama
+    restart: unless-stopped
+    environment:
+      - LOGGER=pretty
+    ports:
+      - "8085:8080"
+    volumes:
+      - ./data:/app/data

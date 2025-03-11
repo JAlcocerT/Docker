@@ -1,5 +1,5 @@
 ## SelfHosted Search
 
-* SearX / SearXNG
+* [SearX](https://jalcocert.github.io/RPi/posts/selfh-internet-better/) / SearXNG
 * Whoogle
-* https://gitlab.metager.de/open-source/MetaGer
+* [MetaGer](https://gitlab.metager.de/open-source/MetaGer)
