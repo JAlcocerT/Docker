@@ -1,5 +1,5 @@
-> https://jalcocert.github.io/RPi/tags/iot/
-
+> [!IMPORTANT]
+> If you want to learn more about IoT, see these [Raspberry Pi Projects](https://jalcocert.github.io/RPi/tags/iot/)
 
 ---
 

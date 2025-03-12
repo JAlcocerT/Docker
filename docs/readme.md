@@ -1,0 +1,1 @@
+A quick docs page can be generated with: R Knitt or with SlidevJS.

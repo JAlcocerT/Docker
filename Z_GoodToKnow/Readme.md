@@ -1,12 +1,13 @@
 
-## Good to know
+## Good to know about Docker
 
+1. By **bundling an app into a container**, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
 
-By bundling an app into a container, the application will run on any other Linux machine (also windows or ios) regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
+2. Containers > Docker
 
-**Containers** remain lightweight by sharing the OS they run on while isolating processes within user space.
+3. **Containers** remain lightweight by sharing the OS they run on while isolating processes within user space.
 
-* https://github.com/containers/podman
+* See also Podman, a container alternative to Docker: https://github.com/containers/podman
 
 ---
 

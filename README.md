@@ -118,7 +118,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * [Jenkins](https://fossengineer.com/selfhosting-jenkins-ci-cd/)
 * [Airflow](https://fossengineer.com/selfhosting-airflow-with-docker)
 * Gitbucket
-* OneDev #includes kanban board
+* OneDev: includes kanban board
 * SnippetBox :heavy_check_mark:
 * Bunddle your Apps
   * [Python DASH Apps :page_with_curl:](https://fossengineer.com/dash-docker-gcr/)
@@ -141,6 +141,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * [Metabase](https://jalcocert.github.io/RPi/posts/rpi-iot-dht1122-mongo/#metabase)
   * [Apache Superset](https://jalcocert.github.io/RPi/posts/rpi-gps-superset/#apache-superset-setup)
   * Redash
+  * Grafana
 * Dashboards:
   * [NetData](https://fossengineer.com/selfhosting-server-monitoring-with-netdata-and-docker/) :heavy_check_mark:
   * Grafana with Prometheus (internet speed) :heavy_check_mark:
@@ -181,10 +182,8 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * Emby
   * Couchpotato :heavy_check_mark:
   * Jacket :heavy_check_mark:
-  * Mylar3
-  * Midarr      
+  * Others: Mylar3, Midarr, Readarr
   * Calibre :heavy_check_mark:
-  * Readarr
   * P2P
     * Transmission :heavy_check_mark:
     * rTorrent :heavy_check_mark:
