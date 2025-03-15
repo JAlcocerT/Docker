@@ -8,12 +8,17 @@
 services:
   hugo_gallery_instance:
     image: hugo_gallery
-    container_name: hugo_gallery_instance
+    container_name: hugo_gallery_instance #docker exec -it hugo_gallery_instance /bin/bash
     ports:
       - "1319:1319"
     restart: unless-stopped
     #command: tail -f /dev/null
     command: hugo server --bind="0.0.0.0" --baseURL="http://192.168.0.12" --port=1319
+    volumes:
+      - /home/Docker/FileBrowser/HUGO:/hugo-theme-gallery/exampleSite
+      #- hugo_gallery_data:/usr/src/app/public # Mount a volume to the generated site's 'public' directory
+    networks:
+      - hugo_gallery_net
 
   filebrowser:
     image: filebrowser/filebrowser
@@ -22,8 +27,15 @@ services:
       - 8080:80
     volumes:
       - /home/Docker/FileBrowser/config:/config
-      - /home/Docker/FileBrowser/data:/srv
+      - /home/Docker/FileBrowser/HUGO:/srv
     restart: unless-stopped    
+
+
+# volumes:
+#   hugo_gallery_data:
+
+networks:
+  hugo_gallery_net:    
 
 #docker build -t hugo_gallery .
 #see the hugo theme at: http://localhost:1319/ or http://0.0.0.0:1319/ or http://192.168.0.124:1319/
