@@ -1,0 +1,3 @@
+multichat.jalcocertech.com { # Replace with your domain
+    reverse_proxy streamlit-multichat:8501
+}

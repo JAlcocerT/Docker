@@ -1,5 +1,6 @@
-version: '3'
-
+#version: '3'
+#github.com/JAlcocerT/Streamlit-MultiChat
+#https://jalcocert.github.io/JAlcocerT/create-streamlit-chatgpt/
 services:
   streamlit-multichat:
     image: ghcr.io/jalcocert/streamlit-multichat #:v1.0

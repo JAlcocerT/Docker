@@ -1,0 +1,23 @@
+#https://github.com/JAlcocerT/R_Stocks
+#https://github.com/JAlcocerT/R_Stocks/blob/main/Z_Deploy_Me/Docker-compose.yml
+
+#version: '3.8'
+services:
+  stocks-rshiny:
+    image: ghcr.io/jalcocert/r-stocks:latest #r_stocks
+    container_name: RStocks_Container
+    ports:
+      - "3838:3838"
+    volumes:
+      - stock-data:/app
+    # networks:                   #optional
+    #   - cloudflare_tunnel       #optional
+    restart: unless-stopped
+
+# networks:             #optional
+#   cloudflare_tunnel:  #optional
+#     external: true    #optional
+
+volumes:
+  stock-data:
+    name: stock_data_volume

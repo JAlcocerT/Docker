@@ -1,0 +1,8 @@
+#> [!IMPORTANT]
+# > Forked from https://github.com/ClaperCo/Claper 
+
+# [Working with https and Traefik as seen on this **blog post** →](https://jalcocert.github.io/JAlcocerT/creating-presentations-with-ai/#selfhosting-cool-ppt-software)
+
+# Fill the `.env` file and spin the container.
+
+#https://github.com/JAlcocerT/Claper

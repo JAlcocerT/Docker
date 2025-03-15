@@ -1,0 +1,66 @@
+#version: '3'
+#github.com/JAlcocerT/Streamlit-MultiChat
+#https://jalcocert.github.io/JAlcocerT/create-streamlit-chatgpt/
+
+
+#docker run -p 8501:8501 -v ai_streamlit_multichat:/app --name streamlitmultichat streamlitmultichat:latest /bin/sh -c "cd /app && streamlit run streamlit-multichat.py"
+#podman run -p .....
+
+#dig multichat.jalcocertech.com
+
+#docker-compose up -d
+
+#version: '3'
+services:
+  streamlit-multichat:
+    image: ghcr.io/jalcocert/streamlit-multichat
+    container_name: streamlit_multichat
+    volumes:
+      - ai_streamlit_multichat:/app
+    working_dir: /app
+    command: /bin/sh -c "\
+      mkdir -p /app/.streamlit && \
+      echo 'OPENAI_API_KEY = \"sk-proj-openaiAPIhere\"' > /app/.streamlit/secrets.toml && \
+      echo 'GROQ_API_KEY = \"gsk_groqAPIhere\"' >> /app/.streamlit/secrets.toml && \
+      echo 'ANTHROPIC_API_KEY = \"sk-ant-yourANTHROPICapihere\"' >> /app/.streamlit/secrets.toml && \      
+      streamlit run Z_multichat.py"
+    ports:
+      - "8501:8501"
+    restart: always
+    environment:
+      MODEL_API_KEY: sk-proj-openaiAPIhere
+      MODEL: gpt-4o-mini      #gpt-4 
+      TEMPERATURE: 0 #dont be creative :)    
+    networks:
+      - traefik-net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.streamlit.rule=Host(`multichat.jalcocertech.com`)" # Replace with your domain
+      - "traefik.http.routers.streamlit.entrypoints=websecure"
+      - "traefik.http.routers.streamlit.tls.certresolver=myresolver"
+      - "traefik.http.services.streamlit.loadbalancer.server.port=8501"
+  traefik:
+    image: traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=your_email_here@gmail.com" # Replace with your email!!!
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - traefik-net
+
+networks:
+  traefik-net:
+    driver: bridge
+
+volumes:
+  ai_streamlit_multichat:
