@@ -1,17 +1,34 @@
 #https://homarr.dev/docs/integrations/containers/
 
-#---------------------------------------------------------------------#
-#     Homarr - A simple, yet powerful dashboard for your server.      #
-#---------------------------------------------------------------------#
+
 services:
   homarr:
     container_name: homarr
     image: ghcr.io/homarr-labs/homarr:latest
     restart: unless-stopped
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # <--- add this line here!
-      - ./homarr/appdata:/appdata
-    environment:
-      - SECRET_ENCRYPTION_KEY=your_64_character_hex_string # <--- can be generated with `openssl rand -hex 32`
+      - /var/run/docker.sock:/var/run/docker.sock
+      - homarr_appdata:/appdata # Mount the named volume
+    environment: #can be generated with `openssl rand -hex 32`
+      - SECRET_ENCRYPTION_KEY=your_64_character_hex_string # Replace with your secret key 
     ports:
       - '7575:7575'
+
+volumes:
+  homarr_appdata: # Define the named volume
+
+#---------------------------------------------------------------------#
+#     Homarr - A simple, yet powerful dashboard for your server.      #
+#---------------------------------------------------------------------#
+# services:
+#   homarr:
+#     container_name: homarr
+#     image: ghcr.io/homarr-labs/homarr:latest
+#     restart: unless-stopped
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock # <--- add this line here!
+#       - ./homarr/appdata:/appdata
+#     environment:
+#       - SECRET_ENCRYPTION_KEY=your_64_character_hex_string # <--- can be generated with `openssl rand -hex 32`
+#     ports:
+#       - '7575:7575'
