@@ -1,8 +1,7 @@
-version: '3.3'
-
+#version: '3.3'
 services:
   db:
-    image: hypriot/rpi-mysql
+    image: mariadb #hypriot/rpi-mysql
     volumes:
       - ./db_data:/var/lib/mysql
     restart: always
@@ -48,7 +47,7 @@ services:
       - traefik-net
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wordpress.rule=Host(`wordpress.jalcocertech.com`)" # Replace with your domain
+      - "traefik.http.routers.wordpress.rule=Host(`wp.jalcocertech.com`)" # Replace with your domain
       - "traefik.http.routers.wordpress.entrypoints=websecure"
       - "traefik.http.routers.wordpress.tls.certresolver=myresolver"
       - "traefik.http.services.wordpress.loadbalancer.server.port=80"

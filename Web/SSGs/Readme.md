@@ -1,4 +1,4 @@
-Use any of this SSG's to generate content.
+Use any of these SSG's to generate content.
 
 ## Publish SSG Content
 
