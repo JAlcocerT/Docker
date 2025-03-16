@@ -1,19 +1,57 @@
----
-version: "2.1"
+#requires a DB - https://gist.github.com/pcnoic/8aa4f67fc3b18f572474e7bce592e48c
+#https://github.com/Piwigo/Piwigo
+
+
 services:
   piwigo:
-    image: lscr.io/linuxserver/piwigo:latest
+    image: ghcr.io/linuxserver/piwigo #https://github.com/Piwigo/Piwigo
     container_name: piwigo
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/London
+      - TZ=Europe/Paris
     volumes:
       - /home/Docker/piwigo/config:/config
-      - /home/Docker/piwigo/gallery:/gallery
+      #- /home/Docker/piwigo/gallery:/gallery
+      - /home/jalcocert/Desktop/pixel8pro:/gallery      
+    # volumes:
+    #   - ./config:/config
+    #   - ./photos:/gallery
     ports:
-      - 8448:80
+      - 90:80
     restart: unless-stopped
+  db:
+    image: mysql:5.7
+    volumes:
+      - /home/Docker/piwigo/db:/var/lib/mysql
+      #- ./db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: piwigo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+
+###########
+#---
+#version: "2.1"
+# services:
+#   piwigo:
+#     image: lscr.io/linuxserver/piwigo:latest #https://github.com/Piwigo/Piwigo
+#     container_name: piwigo
+#     environment:
+#       - PUID=1000
+#       - PGID=1000
+#       - TZ=Europe/London
+#     volumes:
+#       - /home/Docker/piwigo/config:/config
+#       #- /home/Docker/piwigo/gallery:/gallery
+#       - /home/jalcocert/Desktop/pixel8pro:/gallery
+#     ports:
+#       - 8448:80
+#     restart: unless-stopped
+
+###########
 
 # version: '3'
 # services:

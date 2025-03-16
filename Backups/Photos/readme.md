@@ -1,9 +1,12 @@
 > [!IMPORTANT]
 > Tested some of these, [**here**](https://jalcocert.github.io/JAlcocerT/photo-management-tools/), also [here](https://jalcocert.github.io/JAlcocerT/software-for-weddings/)
 
-* https://medevel.com/os-photo-collection-self-hosted/
+* Thanks to
+    * https://medevel.com/os-photo-collection-self-hosted/
 
 ---
+
+## Selfhosted Photo Tools
 
 * Photoview - https://github.com/photoview/photoview
 * Piwigo - https://github.com/Piwigo/Piwigo
@@ -20,4 +23,4 @@ wget -O .env https://github.com/immich-app/immich/releases/latest/download/examp
 
 2. [PhotoView](https://fossengineer.com/selfhosting-Photoview-docker/)
 
-3. PiGallery
+3. [PiGallery](https://github.com/JAlcocerT/Docker/blob/main/Backups/Photos/PiGallery_docker-compose.yml)

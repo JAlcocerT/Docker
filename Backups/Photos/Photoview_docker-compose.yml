@@ -1,8 +1,11 @@
-version: "3"
+#https://github.com/photoview/photoview
+
+#version: "3"
 
 services:
   db:
     image: linuxserver/mariadb
+    #container_name: photoview2mariadb
     restart: always
     environment:
       - MYSQL_DATABASE=photoview
@@ -10,32 +13,55 @@ services:
       - MYSQL_PASSWORD=photosecret
       - MYSQL_RANDOM_ROOT_PASSWORD=1
     volumes:
-      - db_data:/var/lib/mysql
+      - /root/photoview2/db_data:/var/lib/mysql # Explicit bind mount for db_data
+      #- db_data:/var/lib/mysql
 
   photoview:
     image: viktorstrate/photoview:2 #https://github.com/photoview/photoview
+    #container_name: photoview2   
     restart: always
     ports:
       - "8099:80"
     depends_on:
       - db
-
     environment:
       - PHOTOVIEW_DATABASE_DRIVER=mysql
       - PHOTOVIEW_MYSQL_URL=photoview:photosecret@tcp(db)/photoview
       - PHOTOVIEW_LISTEN_IP=photoview
       - PHOTOVIEW_LISTEN_PORT=80
       - PHOTOVIEW_MEDIA_CACHE=/app/cache
-      
     volumes:
-      - api_cache:/app/cache
+      - /root/photoview2/api_cache:/app/cache # Explicit bind mount for api_cache
+      #- api_cache:/app/cache
 
       # Change This: to the directory where your photos are located on your server.
       # If the photos are located at `/home/user/photos`, then change this value
       # to the following: `/home/user/photos:/photos:ro`.
       # You can mount multiple paths, if your photos are spread across multiple directories.
-      - /home/your/path/with/files/photos:/photos:ro #it respects your file system photo organization & remember to mention /photos/whatever_path in the initial setup 
+      - /root/Docker/FileBrowser/data:/photos:ro
+      #- /home/your/path/with/files/photos:/photos:ro #it respects your file system photo organization & remember to mention /photos/whatever_path in the initial setup 
+
+# volumes:
+#   db_data:
+#   api_cache:
+
+###PIGALLERY
+
+  pigallery2:
+    image: bpatrik/pigallery2:latest #https://github.com/bpatrik/pigallery2
+    container_name: pigallery2
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /home/Docker/pigallery/config:/app/data/config
+      - /home/Docker/pigallery/tmp:/app/data/tmp
+      - db_data:/app/data/db
+      - /home/jalcocert/Desktop/pixel8pro:/app/data/images:ro #your images folder
+      #- /mnt/ext4_drive/Syncthing_Pixel8:/app/data/images:ro #your images folder
+      #- "/mnt/ext4_drive/Syncthing_Pixel8:/app/data/images:ro"
+    ports:
+      - 8088:80
+    restart: unless-stopped
 
 volumes:
   db_data:
-  api_cache:

@@ -1,22 +1,22 @@
 services:
-  ghostcyclingv2:
+  ghost:
     image: ghost:5-alpine
-    container_name: ghostciclyng_containerv2
+    container_name: ghostwebsite
     environment:
       database__client: mysql
-      database__connection__host: dbciclyingv2
+      database__connection__host: dbghost
       database__connection__user: ghostuser
       database__connection__password: example_change_this #should match the DB
       database__connection__database: ghost
-      url: https://ghost.jalcocertech.com # Changed to https and your domain
+      url: https://ghost.jalcocertech.com # Changed to https and your domain MATCH the traefik record below!
     restart: always
     networks:
-      - ghost_network_ciclyingv2
+      - ghost_network
       - traefik-net
     volumes:
       - ghost_data_ciclyingv2:/var/lib/ghost/content
     depends_on:
-      - dbciclyingv2
+      - dbghost
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.ghost.rule=Host(`ghost.jalcocertech.com`)" # Your domain
@@ -24,8 +24,8 @@ services:
       - "traefik.http.routers.ghost.tls.certresolver=myresolver"
       - "traefik.http.services.ghost.loadbalancer.server.port=2368" # ghost internal port
 
-  dbciclyingv2:
-    container_name: ghostciclyng_dbv2 #
+  dbghost:
+    container_name: ghostdb #
     image: mariadb:10.5
     restart: always
     environment:
@@ -34,7 +34,7 @@ services:
       MYSQL_PASSWORD: example_change_this #change it and should match with ghost container
       MYSQL_ROOT_PASSWORD: also_change_this ##change it
     networks:
-      - ghost_network_ciclyingv2
+      - ghost_network
       - traefik-net
     volumes:
       - db_ghost_data_ciclyingv2:/var/lib/mysql
@@ -63,6 +63,6 @@ volumes:
   db_ghost_data_ciclyingv2:
 
 networks:
-  ghost_network_ciclyingv2:
+  ghost_network:
   traefik-net:
     driver: bridge
