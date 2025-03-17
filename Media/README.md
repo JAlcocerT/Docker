@@ -12,7 +12,9 @@ wget  -cO - https://raw.githubusercontent.com/JAlcocerT/Docker/main/Media/kodi_d
 * Jellyfin
 * Calibre :heavy_check_mark:
 
-By default: admin and admin123.
+By default: `kodi` and `kodi`
+
+`admin` and `admin123`.
 
 Remember to add the following file to the library location to be able to select the location of your books and save it (restart the container):
 

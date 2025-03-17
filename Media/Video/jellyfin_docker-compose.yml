@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 
 services:
   jellyfin:
@@ -12,8 +12,9 @@ services:
       - "8096:8096"
     volumes:
       - "~/Docker/Jellyfin:/config"
-      - "/media/pi/Nowy:/data/tvshows"
-      - "/media/pi/Nowy:/data/movies"
+      #- "/media/pi/Nowy:/data/tvshows"
+      - "/home/jalcocert/Desktop/CAM4:/data/tvshows"
+      - "/home/jalcocert/Desktop/CAM4:/data/movies"
     restart: unless-stopped
 
 #https://f-droid.org/en/packages/org.jellyfin.androidtv/index.html

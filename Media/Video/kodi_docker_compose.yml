@@ -1,17 +1,20 @@
----
-version: "2.1"
+#---
+#version: "2.1"
 services:
   kodi:
     container_name: kodi
-    image: linuxserver/kodi-headless
+    image: linuxserver/kodi-headless #https://hub.docker.com/r/linuxserver/kodi-headless
     restart: always
     environment:
       - PGID=1000
       - PUID=1000
       - TZ=Europe/Berlin
     volumes:
-      - ~/Docker/kodi:/config/.kodi
+      #- ~/Docker/kodi:/config/.kodi
+      - /home/jalcocert/Docker/kodi:/config/.kodi
     ports:
       - 8088:8080
       - 9098:9090
       - "9777:9777/udp"
+
+#kodi / kodi
