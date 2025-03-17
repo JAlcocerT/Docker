@@ -8,12 +8,17 @@
 # The compose file on main may not be compatible with the latest release.
 #https://immich.app/docs/install/docker-compose/
 
+#https://github.com/immich-app/immich
+#https://immich.app/docs/install/docker-compose
+#https://github.com/immich-app/immich/blob/main/docker/docker-compose.yml
+#https://github.com/immich-app/immich/blob/main/docker/example.env
+
 name: immich
 
 services:
   immich-server:
     container_name: immich_server
-    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release} #https://github.com/immich-app/immich
     # extends:
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
@@ -22,7 +27,7 @@ services:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     env_file:
-      - .env
+      - .env #change this to stack.env if you are using PORTAINER (!!!!)
     ports:
       - '2283:2283'
     depends_on:

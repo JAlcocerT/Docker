@@ -21,6 +21,8 @@ wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/
 wget -O .env https://github.com/immich-app/immich/releases/latest/download/example.env
 ```
 
+> Thanks to [TechHut](https://www.youtube.com/watch?v=s1ufPvO0BVE)
+
 2. [PhotoView](https://fossengineer.com/selfhosting-Photoview-docker/)
 
 3. [PiGallery](https://github.com/JAlcocerT/Docker/blob/main/Backups/Photos/PiGallery_docker-compose.yml)
