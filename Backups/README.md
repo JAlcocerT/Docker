@@ -2,7 +2,7 @@
 
 * Raspberry Pi version (ARM): :heavy_check_mark:
 
- ```
+ ```sh
  sudo wget -c https://raw.githubusercontent.com/JAlcocerT/Docker/main/Backups/Filerun_rpi.yaml -O docker-compose.yaml
  ```
 
@@ -17,11 +17,8 @@
 
 ### NextCloud :heavy_check_mark:
 
-* Ubuntu version:
+> Nextcloud can be your webdav as seen [here](https://jalcocert.github.io/JAlcocerT/selfhosted-apps-spring-2025/#nextcloud)
 
-```sh
-wget -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2ban > f2b.sh && chmod 775 f2b.sh && sudo ./f2b.sh
-```
 
 * Raspberry Pi version (ARM): :heavy_check_mark:
    * <https://github.com/JAlcocerT/Docker/blob/main/Backups/NextCloud%20RPi.yaml>

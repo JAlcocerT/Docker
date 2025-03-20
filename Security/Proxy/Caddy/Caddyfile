@@ -1,1 +1,33 @@
-#
+{
+        admin 0.0.0.0:2019
+}
+
+*.jalcocertech.xyz{
+        tls {
+                dns cloudflare {env.CF_API_TOKEN}
+                propagation_delay 2m
+                resolvers 1.1.1.1
+        }
+
+        @caddy host caddy.jalcocertech.xyz
+        handle @caddy {
+                root * /usr/share/caddy
+                php_fastcgi localhost:80
+                file_server
+        }
+
+        @pigallery2 host pigallery.jalcocertech.xyz
+        handle @pigallery2 {
+                reverse_proxy 192.168.0.12:8088
+        }
+
+        @portainer host pi-portainer.jalcocertech.xyz
+        handle @portainer {
+                reverse_proxy https://portainer:9443 {
+                    transport http {
+                            tls
+                            tls_insecure_skip_verify
+                    }
+                }
+        }
+}
