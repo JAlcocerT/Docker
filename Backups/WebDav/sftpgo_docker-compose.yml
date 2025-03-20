@@ -1,0 +1,24 @@
+#https://sftpgo.com/
+#https://github.com/drakkan/sftpgo
+
+#https://docs.sftpgo.com/latest/
+#https://github.com/jmlcas/sftpgo/blob/main/docker-compose.yaml
+
+#docker run --name some-sftpgo -p 8080:8080 -p 2022:2022 -d "drakkan/sftpgo:tag"
+
+
+#version: "3.8" # Or your desired Compose file version
+services:
+  sftpgo:
+    image: drakkan/sftpgo:latest # Or specify a specific tag
+    ports:
+      - "8066:8080" # Web UI and REST API
+      - "2022:2022" # SFTP
+    volumes:
+      - /home/jalcocert/Desktop:/srv
+      #- sftpgo_data:/srv # Persist data (configuration, users, files)
+    restart: unless-stopped # Automatically restart the container
+# volumes:
+#   sftpgo_data: # Define the named volume
+
+#Add it with sftp://jalcocert@192.168.0.12:2022

@@ -1,4 +1,4 @@
-version: '3.8'  # Use version 3.8 or higher if possible, adjust depending on your Docker Compose version
+#version: '3.8'  # Use version 3.8 or higher if possible, adjust depending on your Docker Compose version
 
 services:
   webdav:

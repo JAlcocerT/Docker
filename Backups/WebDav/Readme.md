@@ -5,4 +5,6 @@
 * https://github.com/duxlong/webdav
 * https://github.com/docker-projects/docker-webdav-alpine
 
-> Covered them here: 
+* https://github.com/drakkan/sftpgo
+
+> Covered them [here](https://jalcocert.github.io/JAlcocerT/sync-file-tools/#webdavs) 
