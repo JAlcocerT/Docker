@@ -96,6 +96,8 @@ wget https://raw.githubusercontent.com/posthog/posthog/HEAD/bin/deploy-hobby
 
 9. UserTour
 
-https://github.com/usertour/usertour?ref=selfh.st
+* https://github.com/usertour/usertour?ref=selfh.st
+* https://github.com/usertour/usertour/blob/main/.env.example
+* https://docs.usertour.io/open-source/self-hosting#create-a-docker-compose-yml
 
 >  Usertour is an open-source user onboarding platform designed for developers. It allows you to create in-app product tours, checklists, and launchers in minutes—effortlessly and with full control.The open-source alternative to Userflow and Appcues 
