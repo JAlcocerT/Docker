@@ -1,7 +1,7 @@
-version: "3.8"
+#version: "3.8"
 services:
   dockge:
-    image: louislam/dockge:1
+    image: louislam/dockge:1 #https://github.com/louislam/dockge
     restart: unless-stopped
     ports:
       - 5001:5001

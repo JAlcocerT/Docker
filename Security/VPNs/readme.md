@@ -16,7 +16,7 @@ sudo docker-compose up -d --force-recreate wireguard #to relaunch wireguard, for
 cd config
 ls
 
-
+```yml
 version: "2.1"
 services:
   wireguard:
@@ -42,7 +42,7 @@ services:
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
-
+```
 
 
 

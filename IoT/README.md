@@ -246,3 +246,7 @@ docker run -d \
 ```
 
 https://hub.docker.com/r/linuxserver/homeassistant
+
+```sh
+flatpak install flathub com.cassidyjames.butler
+```

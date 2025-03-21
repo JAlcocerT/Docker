@@ -1,0 +1,54 @@
+# https://blog.lasall.dev/post/hugo-and-comments-with-remark42/
+# https://www.devbitsandbytes.com/setting-up-remark42-from-scratch/
+
+#version: "2"
+
+services:
+  remark:
+    # remove the next line in case you want to use this docker-compose separately
+    # as otherwise it would complain for absence of Dockerfile
+    #build: .
+    image: umputun/remark42:latest
+    container_name: "remark42"
+    hostname: "remark42"
+    restart: always
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+    #uncomment to expose directly (no proxy)
+    ports:
+     - "8044:8080"
+     - "8443:8443"
+
+    environment:
+      - REMARK_URL=https://remark42.fossengineer.com  # url pointing to your remark42 server. Depending on your configuration you might not need www
+      - SITE=remark42fossengineer   #id for the site which will also be used in the script we embed on our website
+      - SECRET=somepasswordhere   #shared secret key used to sign JWT, should be a random, long, hard-to-guess string    
+      #- REMARK_URL = comments.fossengineer.com
+      #- SECRET = 1dAg46i4UgaHvkN67Ep9Kh34sL6EZFxTOpaNjh/Be4E=
+      - DEBUG=true
+      - AUTH_ANON=true  # enable anonymous commenting
+      - AUTH_GOOGLE_CID
+      - AUTH_GOOGLE_CSEC
+      - AUTH_GITHUB_CID
+      - AUTH_GITHUB_CSEC
+      - AUTH_FACEBOOK_CID
+      - AUTH_FACEBOOK_CSEC
+      - AUTH_DISQUS_CID
+      - AUTH_DISQUS_CSEC
+      # Enable it only for the initial comment import or for manual backups.
+      # Do not leave the server running with the ADMIN_PASSWD set if you don't have an intention
+      # to keep creating backups manually!
+      # - ADMIN_PASSWD=<your secret password>
+    volumes:
+      - ./var:/srv/var
+#     networks:
+#       - cloudflare_tunnel
+
+# networks:
+#   cloudflare_tunnel:
+#     external: true

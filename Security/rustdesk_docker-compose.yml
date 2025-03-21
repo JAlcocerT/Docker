@@ -1,0 +1,27 @@
+services:
+  rustdesk:
+    image: rustdesk/rustdesk-server-s6:1.1.7-1 #https://github.com/DoTheEvo/selfhosted-apps-docker/tree/master/rustdesk
+    container_name: rustdesk
+    hostname: rustdesk
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "21116:21116"
+      - "21115:21115"
+      - "21116:21116/udp"
+      - "21117:21117"
+      - "21118:21118"
+      - "21119:21119"
+    volumes:
+      - ./rustdesk_data:/data
+
+# ```env
+# # GENERAL
+# TZ=Europe/Bratislava
+
+# # RUSTDESK
+# RELAY=rust.example.com:21117
+# ENCRYPTED_ONLY=1
+# # KEY_PRIV=<put here content of ./rustdesk_data/id_ed25519>
+# # KEY_PUB=<put here content of ./rustdesk_data/id_ed25519.pub>
+# ```
