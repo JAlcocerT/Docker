@@ -1,0 +1,8 @@
+services:
+  zola:
+    image: ghcr.io/getzola/zola:v0.17.2  # Specify the latest version
+    volumes:
+      - .:/app
+    ports:
+      - "1111:1111"
+    command: "serve --interface 0.0.0.0"
