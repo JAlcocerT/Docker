@@ -30,4 +30,4 @@ services:
 volumes:
   db_data:
 
-#admin/admin
+#admin/admin (Change them later for something secure)
