@@ -1,7 +1,7 @@
-version: '3'
+#version: '3'
 services:
-  jupyterhub:
-    image: jupyterhub/jupyterhub:latest
+  jupyterhub: #https://jupyterhub.readthedocs.io/en/latest/tutorial/getting-started/authenticators-users-basics.html
+    image: jupyterhub/jupyterhub:latest #https://github.com/jupyterhub/jupyterhub
     volumes:
       - ./jupyterhub_data:/srv/jupyterhub
       - /var/run/docker.sock:/var/run/docker.sock
@@ -11,8 +11,12 @@ services:
       DOCKER_NETWORK_NAME: "${COMPOSE_PROJECT_NAME}_default"
       DOCKER_NOTEBOOK_IMAGE: "jupyter/minimal-notebook"
       JUPYTERHUB_CRYPT_KEY: "$(openssl rand -hex 32)" #optional
+      JUPYTERHUB_ADMIN_USERS: admin
+      JUPYTERHUB_USERS: test
     command: jupyterhub --Spawner.default_url=/lab
 
 
 #docker-compose run --rm jupyterhub jupyterhub --generate-config
 #sudo docker-compose up -d
+
+#docker run -p 8000:8000 -d --name jupyterhub quay.io/jupyterhub/jupyterhub jupyterhub

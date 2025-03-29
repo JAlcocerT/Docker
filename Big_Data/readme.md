@@ -1,5 +1,7 @@
 > Blog Post about [Big Data Tools](https://jalcocert.github.io/JAlcocerT/big-data-tools-for-data-analytics/)
 
+---
+
 ## Open Lake House
 
 * Compute
@@ -23,7 +25,7 @@
     * Hudi
 
 * File Formats
-    * Parquet
+    * Parquet, Delta, avro,...
     * ORC
     * csv, json...
 
@@ -31,6 +33,8 @@
     * s3 -> minio
     * ADLS
     * HDFS
+
+[![MINio](https://img.youtube.com/vi/aMOycqeqlmM/0.jpg)](https://www.youtube.com/watch?v=aMOycqeqlmM)
 
 [YT Reference](https://www.youtube.com/watch?v=aMOycqeqlmM).
 

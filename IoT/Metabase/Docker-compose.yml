@@ -1,8 +1,7 @@
-version: '3'
+#version: '3'
 services:
   metabase:
-    image: metabase/metabase
-    container_name: metabase
+    image: metabase/metabase #https://github.com/metabase/metabase
     ports:
       - "3000:3000"
     volumes:

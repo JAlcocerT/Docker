@@ -1,7 +1,7 @@
-version: '3.6'
+#version: '3.6'
 services:
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana #https://github.com/grafana/grafana
     container_name: grafana-server
     restart: always
     # depends_on:
