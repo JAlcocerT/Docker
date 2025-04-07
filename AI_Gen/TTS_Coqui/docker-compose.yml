@@ -1,0 +1,28 @@
+
+
+services:
+  tts-cpu:
+    image: ghcr.io/coqui-ai/tts-cpu
+    container_name: coquitts
+    ports:
+      - "5002:5002"
+    entrypoint: python3
+    command: ["TTS/server/server.py", "--model_name", "tts_models/en/vctk/vits"]
+    tty: true # Keep tty if you still want interactive access for debugging
+    stdin_open: true # Keep stdin_open for interactive access
+    # Optional: Mount a volume to persist data or access local files
+    # volumes:
+    #   - ./local_data:/data
+
+# services:
+#   tts-cpu:
+#     image: ghcr.io/coqui-ai/tts-cpu
+#     container_name: coquitts
+#     ports:
+#       - "5002:5002"
+#     entrypoint: /bin/bash
+#     tty: true
+#     stdin_open: true
+#     # Optional: Mount a volume to persist data or access local files
+#     # volumes:
+#     #   - ./local_data:/data
