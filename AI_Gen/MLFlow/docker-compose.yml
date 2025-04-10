@@ -1,0 +1,36 @@
+#version: '3'
+
+services:
+  mlflowcontainer:
+    image: mlflow
+    container_name: mlflow_container
+    volumes:
+      - vol_mlflow:/app
+    working_dir: /app
+    command: /bin/sh -c "\
+      mlflow server --host 0.0.0.0 --port 8080"
+    #command: tail -f /dev/null 
+    ports:
+      - "8080:8080"
+    restart: always
+    # networks:
+    #   - cloudflare_tunnel
+      # - nginx_default   
+    #restart: always   
+
+# networks:
+#   cloudflare_tunnel:
+#     external: true
+  # nginx_default:
+  #   external: true
+
+volumes:
+  vol_mlflow:
+
+
+#docker-compose up -d
+
+#docker exec -it mlflow_container /bin/bash 
+
+#mlflow server --host 0.0.0.0 --port 8080
+#outside container: #mlflow server --host 127.0.0.1 --port 8080
