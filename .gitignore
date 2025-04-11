@@ -1,3 +1,4 @@
 .env
 
 *_venv/
+*_data/

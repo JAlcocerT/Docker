@@ -6,8 +6,21 @@
 
 ```sh
 git clone https://github.com/mudler/LocalAI
-
 docker-compose up -d
 ```
 
+
+```sh
+
+```
+
 * Available after build at: `localhost:8080`
+
+
+```sh
+curl http://192.168.0.12:8081/v1/completions -H "Content-Type: application/json" -d '{
+     "model": "your-model.gguf",
+     "prompt": "A long time ago in a galaxy far, far away",
+     "temperature": 0.7
+   }'
+```

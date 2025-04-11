@@ -1,0 +1,20 @@
+#version: '3.8'
+
+services:
+  local-ai:
+    image: localai/localai:latest-cpu
+    container_name: local-ai
+    ports:
+      - "8081:8080"
+    volumes:
+      - local-ai-data:/data
+    #environment:
+      # Optional: Specify the models to download on startup
+      # MODELS_URL: "https://localai.io/models/ggml-vicuna-7b-q4_0.bin,https://localai.io/models/ggml-gpt4all-j-v1.3-groovy.bin"
+      # Optional: Set the number of threads to use
+      # THREADS: 4
+      # Optional: Enable debug logging
+      # DEBUG: "true"
+
+volumes:
+  local-ai-data:

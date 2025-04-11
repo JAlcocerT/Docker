@@ -14,6 +14,8 @@ Some of the container mentioned are build from personal/forked projects:
 
 > Other Projects using AI: [Scrap_Tools](https://jalcocert.github.io/JAlcocerT/scrap-and-chat-with-the-web/), [AIssistant](https://jalcocert.github.io/JAlcocerT/ai-useful-yet-simple/), [InsightChAIn](https://jalcocert.github.io/JAlcocerT/understading-crypto-with-ai/),...
 
+---
+
 ## Other AI Tools
 
 * https://github.com/LargeWorldModel/LWM
