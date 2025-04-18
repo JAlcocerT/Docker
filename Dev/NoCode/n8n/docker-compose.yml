@@ -1,0 +1,59 @@
+# #https://docs.n8n.io/hosting/installation/docker/#updating
+# ##https://github.com/n8n-io/n8n/tree/master/docker/images/n8n
+
+# #https://www.mailerlite.com/integrations/n8n
+
+
+#version: '3.8'
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
+#    external: true
+
+
+# #version: '3.8'
+# services:
+#   n8n:
+#     image: n8nio/n8n
+#     container_name: n8n
+#     restart: always
+#     ports:
+#       - "5678:5678"
+#     volumes:
+#       - n8n_data:/home/node/.n8n
+#     environment:
+#       - N8N_HOST=192.168.0.124
+#       - N8N_PORT=5678
+#       - N8N_PROTOCOL=http
+#       - N8N_ENCRYPTION_KEY # It's highly recommended to set a strong encryption key
+#       - DB_TYPE=postgres
+#       - DB_POSTGRESQL_HOST=n8n_db
+#       - DB_POSTGRESQL_PORT=5432
+#       - DB_POSTGRESQL_DATABASE=n8n
+#       - DB_POSTGRESQL_USER=n8n
+#       - DB_POSTGRESQL_PASSWORD # Set a strong password for PostgreSQL
+#     depends_on:
+#       - n8n_db
+
+#   n8n_db:
+#     image: postgres:13
+#     restart: always
+#     volumes:
+#       - n8n_db_data:/var/lib/postgresql/data
+#     environment:
+#       - POSTGRES_USER=n8n
+#       - POSTGRES_PASSWORD # Set a strong password for PostgreSQL
+#       - POSTGRES_DB=n8n
+
+# volumes:
+#   n8n_data:
+#   n8n_db_data:

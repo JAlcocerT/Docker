@@ -20,4 +20,4 @@ EXPOSE 8501
 
 #CMD python ./app/app.py
 
-ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+#ENTRYPOINT ["streamlit", "run", "st_test.py", "--server.port=8501", "--server.address=0.0.0.0"]

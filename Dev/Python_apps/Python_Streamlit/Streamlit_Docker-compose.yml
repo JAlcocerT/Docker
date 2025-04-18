@@ -1,12 +1,13 @@
-version: '3.8'
+#version: '3.8'
 
 services:
   your_streamlit_app:
-    image: py_routetracker #ghcr.io/jalcocert/py_routetracker:v1.0 #jalcocert/py_routetracker:v1.0
-    container_name: py_routetracker
+    image: streamlit_webapp #ghcr.io/jalcocert/py_routetracker:v1.0 #jalcocert/py_routetracker:v1.0
+    container_name: st_web_app
     ports:
       - "8509:8501"
     working_dir: /app
-    command: streamlit run app.py
+    command: streamlit run st_test.py
     #command: python3 app.py
     #command: tail -f /dev/null #keep it running
+
