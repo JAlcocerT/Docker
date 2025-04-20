@@ -1,0 +1,25 @@
+#version: '3.8'
+services:
+  app:
+    image: python-codex # Use the image name from your Dockerfile build
+    build: . # Build the image using the Dockerfile in the current directory
+    # volumes:
+    #   - ./app:/app # Mount the current directory to /app in the container
+    volumes:
+      - source_code:/app/your-project # Mount the named volume to /app/your-project in the container    
+    environment:
+      - OPENAI_API_KEY=your-api-key-here # Replace with your actual API key
+    working_dir: /app
+    command: >
+      bash -c "
+      git clone https://github.com/JAlcocerT/Py_Trip_Planner.git /app/your-project &&
+      tail -f /dev/null
+      "    
+    # command: >
+    #   bash -c "
+    #   git clone https://github.com/your-repo/your-project.git /app/your-project &&
+    #   tail -f /dev/null
+    #   "
+
+volumes:
+  source_code: # Declare the named volume    
