@@ -1,4 +1,4 @@
-version: '2'
+#version: '2'
 
 # volumes:
 #   nextcloud:
@@ -6,11 +6,13 @@ version: '2'
 
 services:
   nextclouddb:
-    image: linuxserver/mariadb:10.11.8
+    image: linuxserver/mariadb:alpine #https://www.reddit.com/r/docker/comments/lef14j/armv7_mariadb_mysql_container_available_for/?rdt=49709
+    #image: linuxserver/mariadb:10.11.8 #https://hub.docker.com/_/mariadb/tags
     restart: always
-    container_name: nextclouddb
+    container_name: nextclouddatabase
     volumes:
       - /home/Docker/nextcloud/db:/var/lib/mysql
+      #- db:/var/lib/mysql
     environment:
       - MYSQL_INITDB_SKIP_TZINFO=1
       - MYSQL_ROOT_PASSWORD=rootpass
@@ -20,7 +22,7 @@ services:
 #    networks: ["nginx_nginx_network"] #optional 
 
   nextcloudapp:
-    image: nextcloud:30.0.0 #latest
+    image: nextcloud:30.0.0 #latest #https://hub.docker.com/_/nextcloud/tags
     container_name: nextcloud
     restart: always
     ports:
@@ -32,9 +34,9 @@ services:
     environment:
       - MYSQL_PASSWORD=ncpass
       - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
-      - MYSQL_HOST=db
-      - NEXTCLOUD_TRUSTED_DOMAINS= http://orangepi5.blablabla.ts.net:8035 #http://0.0.0.0:8050 #https://nextcloud.yourduckdnsubdomain.duckdns.org/
+      - MYSQL_USER=nc
+      - MYSQL_HOST=nextclouddb #
+      - NEXTCLOUD_TRUSTED_DOMAINS= http://192.168.0.233:8035 #http://orangepi5.blablabla.ts.net:8035 #http://0.0.0.0:8050 #https://nextcloud.yourduckdnsubdomain.duckdns.org/
 #    networks: ["nginx_nginx_network"] #optional 
  
 # networks: #optional

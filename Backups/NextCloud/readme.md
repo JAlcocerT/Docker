@@ -1,7 +1,15 @@
-> See how I [selfhosted NC with a Pi](https://jalcocert.github.io/RPi/posts/selfhosting-nextcloud/)
+> See how I [selfhosted NC with a Pi](https://jalcocert.github.io/RPi/posts/selfhosting-nextcloud/) and recap [here](https://jalcocert.github.io/JAlcocerT/selfhosted-apps-spring-2025/)
+
+
+```sh
+sudo docker compose -f NextCloud_RPi_Stack.yaml up -d #working for x86
+sudo docker compose -f nc_mariadb.yml up -d #working for arm32
+```
 
 
 ---
+
+## Nextcloud CLIs
 
 ```sh
 sudo docker run -d -v ~/nextcloud:/var/www/html -p 8080:80 --name nextcloud_container nextcloud 
