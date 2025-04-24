@@ -21,7 +21,7 @@ services:
       - MYSQL_USER=nextcloud
 #    networks: ["nginx_nginx_network"] #optional 
 
-  nextcloudapp:
+  nextcloudapp: #https://hub.docker.com/layers/library/nextcloud/30/images/sha256-dcc9232ed2311ea0605298c2f06fd259a4ace812b686a3e74adfedf3ba001572
     image: nextcloud:30.0.0 #latest #https://hub.docker.com/_/nextcloud/tags
     container_name: nextcloud
     restart: always

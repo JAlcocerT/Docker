@@ -1,4 +1,4 @@
-vibe coding stuff...
+[vibe coding stuff](https://jalcocert.github.io/JAlcocerT/vide-coding/)...
 
 
 1. Codex
@@ -12,3 +12,5 @@ docker build -t python-codex .
 #export OPENAI_API_KEY="your-api-key-here"
 docker run -it -e OPENAI_API_KEY="your-api-key-here" python-codex
 ```
+
+2. Claude Code
