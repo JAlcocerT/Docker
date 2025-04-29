@@ -1,5 +1,6 @@
-DSC Tools for D&A Project [Post](https://jalcocert.github.io/JAlcocerT/big-data-tools-for-data-analytics/#dsc-tools-for-da-projects)
+I tinkered with LangFuse at the DSC Tools for D&A Project [Post](https://jalcocert.github.io/JAlcocerT/big-data-tools-for-data-analytics/#dsc-tools-for-da-projects)
 
+This is how to set it up with Docker containers: https://raw.githubusercontent.com/langfuse/langfuse/refs/heads/main/docker-compose.yml
 
 ```sh
 # Get a copy of the latest Langfuse repository
