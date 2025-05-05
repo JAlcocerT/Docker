@@ -1,6 +1,6 @@
 # Vector Admin
 
-GUI for vector DB's like: **Qdrant, ChromaDB** or Pinecone
+**GUI for vector DB**'s like: **Qdrant, ChromaDB** or Pinecone...
 
 The universal tool suite for vector database management. Manage Pinecone, Chroma, Qdrant, Weaviate and more vector databases with ease. 
 
@@ -33,6 +33,7 @@ cd vector-admin
 cd docker
 cp .env.example .env. #and adjust
 ```
+
 #5432 will be ok as it is in the same stack
 
 JWT_SECRET="some-random-string"

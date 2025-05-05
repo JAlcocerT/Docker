@@ -1,7 +1,7 @@
-[vibe coding stuff](https://jalcocert.github.io/JAlcocerT/vide-coding/)...
+[Blog **here** vibe coding stuff →](https://jalcocert.github.io/JAlcocerT/vide-coding/) 
 
 
-1. Codex
+1. [Codex](https://jalcocert.github.io/JAlcocerT/vide-coding/#openai)
 
 ```sh
 docker build -t python-codex .
