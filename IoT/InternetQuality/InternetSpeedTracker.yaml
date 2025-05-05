@@ -1,17 +1,47 @@
-version: '3.3'
+#https://docs.speedtest-tracker.dev/
+#https://docs.speedtest-tracker.dev/getting-started/installation/using-docker-compose
+#https://docs.speedtest-tracker.dev/getting-started/environment-variables
+
+#https://fleet.linuxserver.io/image?name=linuxserver/speedtest-tracker
+#https://docs.speedtest-tracker.dev/security/authentication#default-user-account
+#admin@example.com
+#password
 services:
     speedtest-tracker:
+        image: lscr.io/linuxserver/speedtest-tracker:latest
+        restart: unless-stopped
         container_name: speedtest-tracker
         ports:
-            - '8080:80'
-            - '8443:443'
+            - 8065:80
+            - 8443:443
         environment:
             - PUID=1000
             - PGID=1000
+            - APP_KEY= #echo -n 'base64:'; openssl rand -base64 32;
+            - DB_CONNECTION=sqlite
         volumes:
-            - '/path/to/directory:/config'
-        image: 'ghcr.io/alexjustesen/speedtest-tracker:latest'
-        restart: unless-stopped
+            - config:/config
+
+volumes:
+    config:
+
+
+
+
+# version: '3.3'
+# services:
+#     speedtest-tracker:
+#         container_name: speedtest-tracker
+#         ports:
+#             - '8080:80'
+#             - '8443:443'
+#         environment:
+#             - PUID=1000
+#             - PGID=1000
+#         volumes:
+#             - '/path/to/directory:/config'
+#         image: 'ghcr.io/alexjustesen/speedtest-tracker:latest'
+#         restart: unless-stopped
 
 #https://github.com/alexjustesen/speedtest-tracker
 #authentication: https://docs.speedtest-tracker.dev/settings/authentication
