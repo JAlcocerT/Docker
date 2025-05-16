@@ -1,20 +1,32 @@
+* [See this related **blog post** →](https://jalcocert.github.io/JAlcocerT/how-to-use-wg-easy-with-a-vps/)
+
+
+---
+
+
 ### WIREGUARD ###
 
 https://hub.docker.com/r/linuxserver/wireguard
 
+
+```sh
 cd /home/pi/Docker
 mkdir wireguard-server
 sudo chown pi:pi /home/pi/Docker/wireguard-server
 sudo nano docker-compose.yaml
 
 sudo docker-compose up -d
+```
 
+```sh
 
 docker exec -it wireguard /app/show-peer 1 #to show QR
 sudo docker-compose up -d --force-recreate wireguard #to relaunch wireguard, for example after adding more pairs to docker compose file
 
 cd config
 ls
+```
+
 
 ```yml
 version: "2.1"

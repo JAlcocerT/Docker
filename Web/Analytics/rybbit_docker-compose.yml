@@ -1,0 +1,118 @@
+#https://github.com/rybbit-io/rybbit/blob/master/docker-compose.yml
+#rybbit_docker-compose.yml
+#https://www.rybbit.io/docs
+#https://www.rybbit.io/docs/self-hosting
+# NOTE: HTTPS is currently disabled in this compose file.
+
+# To enable HTTPS/TLS, uncomment the 443 port mappings under the caddy service below.
+
+services:
+  caddy:
+    image: caddy:2.10.0
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"               # HTTP (unencrypted)
+      # HTTPS ports (uncomment to enable TLS/certificates)
+      # - "443:443"           # HTTPS (TCP)
+      # - "443:443/udp"       # HTTPS (QUIC/HTTP3)
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile # Mount Caddy config file
+      - caddy_data:/data # Mount persistent data volume for certs etc.
+      - caddy_config:/config # Mount persistent config volume
+    environment:
+      # Hardcoded domain name for Caddy to serve locally
+      - DOMAIN_NAME=localhost
+    depends_on:
+      - backend
+      - client
+
+  clickhouse:
+    container_name: clickhouse
+    image: clickhouse/clickhouse-server:25.4.2
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - ./clickhouse_config:/etc/clickhouse-server/config.d
+    environment:
+      # Hardcoded ClickHouse credentials
+      - CLICKHOUSE_DB=analytics
+      - CLICKHOUSE_USER=analytics_user
+      - CLICKHOUSE_PASSWORD=supersecurepassword
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8123/ping"]
+      interval: 3s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:17.4
+    container_name: postgres
+    environment:
+      # Hardcoded Postgres credentials
+      - POSTGRES_USER=rybbit_user
+      - POSTGRES_PASSWORD=supersecurepassword
+      - POSTGRES_DB=analytics
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  backend:
+    image: ghcr.io/rybbit-io/rybbit-backend:${IMAGE_TAG:-latest}
+    container_name: backend
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"  # Hardcoded host:container port for backend
+    environment:
+      # Hardcoded backend environment variables
+      - NODE_ENV=production
+      - CLICKHOUSE_HOST=http://clickhouse:8123
+      - CLICKHOUSE_DB=analytics
+      - CLICKHOUSE_PASSWORD=supersecurepassword
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=analytics
+      - POSTGRES_USER=rybbit_user
+      - POSTGRES_PASSWORD=supersecurepassword
+      - BETTER_AUTH_SECRET=mysecretkey
+      - BASE_URL=http://localhost:4000
+      - DISABLE_SIGNUP=false
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+      postgres:
+        condition: service_started
+    restart: unless-stopped
+
+  client:
+    image: ghcr.io/rybbit-io/rybbit-client:${IMAGE_TAG:-latest}
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        # Hardcoded client build args for local development
+        NEXT_PUBLIC_BACKEND_URL: "http://localhost:4000"
+        NEXT_PUBLIC_DISABLE_SIGNUP: "false"
+    ports:
+      - "3000:3000"  # Hardcoded host:container port for client
+    environment:
+      # Hardcoded client environment variables for local development
+      - NODE_ENV=production
+      - NEXT_PUBLIC_BACKEND_URL="http://localhost:4000"
+      - NEXT_PUBLIC_DISABLE_SIGNUP="false"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  clickhouse-data:
+  postgres-data:
+  caddy_data:     # Persistent volume for Caddy's certificates and state
+  caddy_config:   # Persistent volume for Caddy's configuration cache (optional but good practice)

@@ -1,0 +1,18 @@
+#https://fossengineer.com/selfhosting-cloudflared-tunnel-docker/
+
+#sudo docker network create --driver bridge cloudflare_tunnel
+#sudo docker network cloudflare_tunnel
+
+#version: '3.8'
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel --no-autoupdate run --token yourfantastictoken
+    ##openssl rand -base64 32
+    networks:
+      - cloudflare_tunnel #a name for the Cloudflare Network
+    restart: unless-stopped
+
+networks:
+  cloudflare_tunnel: #a name for the Cloudflare Network

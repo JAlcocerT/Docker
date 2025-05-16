@@ -23,8 +23,6 @@ services:
 
 #https://github.com/electerious/Ackee
 
-
-
 #https://github.com/electerious/Ackee/blob/master/docs/Get%20started.md#with-docker-compose
 
 ###.env

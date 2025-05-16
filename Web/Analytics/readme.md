@@ -1,21 +1,22 @@
 1. Setup [**Umami** Web Analytics](https://fossengineer.com/selfhosting-umami-with-docker/)
 
+```sh
+docker-compose -f umami_docker-compose.yml up -d
+```
+
 2. Fathom WebAn - https://hub.docker.com/r/usefathom/fathom/
 
-See also: https://github.com/geerlingguy/fathom-container
+> See also: https://github.com/geerlingguy/fathom-container
 
 3. [Tianji](https://fossengineer.com/setup-tianji-with-docker/)
 
 4. Medama
 
-
-https://oss.medama.io/deployment/docker
-
 ```yml
-version: '3.9'
+#version: '3.9'
 services:
   medama:
-    image: ghcr.io/medama-io/medama:latest
+    image: ghcr.io/medama-io/medama:latest #https://oss.medama.io/deployment/docker
     container_name: medama
     restart: unless-stopped
     environment:
@@ -54,6 +55,21 @@ For that, you can use NGINX!
 
 5. Matomo
 
+6. OpenReplay
+
+```sh
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/openreplay/openreplay/main/scripts/docker-compose/docker-install.sh)"
+
+wget https://raw.githubusercontent.com/openreplay/openreplay/main/scripts/docker-compose/docker-install.sh -O docker-install.sh
+/bin/bash docker-install.sh
+```
+
+7. Rybbit
+
+```sh
+docker-compose -f rybbit_docker-compose.yml up -d
+```
+
 1. [Umami](https://fossengineer.com/selfhosting-umami-with-docker/)
 2. [Tianji](https://fossengineer.com/setup-tianji-with-docker/)
 3. https://github.com/Swetrix/swetrix
@@ -67,37 +83,3 @@ For that, you can use NGINX!
 https://docs.ackee.electerious.com/#/docs/Get%20started#with-docker
 
 > MIT | Self-hosted, Node.js based analytics tool for those who care about privacy.
-
-
-
-[![Star History Chart](https://api.star-history.com/svg?repos=langchain-ai/langchain,run-llama/llama_index,deepset-ai/haystack,Sinaptik-AI/pandas-ai&type=Date)](https://star-history.com/#langchain-ai/langchain&run-llama/llama_index&deepset-ai/haystack&Sinaptik-AI/pandas-ai&type=Date)
-
----
-
-**PRODUCT TOOLS**
-
-
-6. **Posthog**
-
-* https://posthog.com/docs/self-host
-* https://posthog.com/docs/how-posthog-works
-
-```sh
-#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/posthog/posthog/HEAD/bin/deploy-hobby)"
-
-wget https://raw.githubusercontent.com/posthog/posthog/HEAD/bin/deploy-hobby
-/bin/bash deploy-hobby
-```
-
-
-7. Countly
-
-8. GuideFox
-
-9. UserTour
-
-* https://github.com/usertour/usertour?ref=selfh.st
-* https://github.com/usertour/usertour/blob/main/.env.example
-* https://docs.usertour.io/open-source/self-hosting#create-a-docker-compose-yml
-
->  Usertour is an open-source user onboarding platform designed for developers. It allows you to create in-app product tours, checklists, and launchers in minutes—effortlessly and with full control.The open-source alternative to Userflow and Appcues 
