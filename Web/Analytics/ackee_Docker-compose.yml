@@ -1,7 +1,7 @@
 #version: "2"
 services:
   ackee:
-    image: electerious/ackee
+    image: electerious/ackee #https://github.com/electerious/Ackee
     container_name: ackee #https://docs.ackee.electerious.com/#/docs/Get%20started#with-docker
     restart: always
     ports:
@@ -21,7 +21,6 @@ services:
       - ./data:/data/db#
 
 
-#https://github.com/electerious/Ackee
 
 #https://github.com/electerious/Ackee/blob/master/docs/Get%20started.md#with-docker-compose
 

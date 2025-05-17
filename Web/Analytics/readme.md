@@ -41,10 +41,11 @@ docker-compose -f rybbit_docker-compose.yml up -d
 docker-compose -f liwan_docker-compose.yml up -d
 ```
 
-9. Swetrix https://github.com/Swetrix/swetrix
+9. [Swetrix](https://fossengineer.com/swetrix-webanalytics-selfhosting/) 
 
 ```sh
-docker-compose -f liwan_docker-compose.yml up -d
+#.env.swetrix
+docker-compose -f swetrix_docker-compose.yml up -d
 ```
 
 10. https://github.com/Litlyx/litlyx
