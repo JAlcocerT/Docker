@@ -1,10 +1,7 @@
-
-
-
 #https://matomo.org/matomo-on-premise/
 #https://www.reddit.com/r/webdev/comments/111e0hg/selfhosted_web_analytics_plausible_umami_matomo/
 
-version: '3'
+#version: '3'
 
 services:
   matomo:

@@ -1,3 +1,5 @@
+> Example [langgraph project](https://github.com/JAlcocerT/local-deep-researcher/tree/main/), covered at [this post](https://jalcocert.github.io/JAlcocerT/understanding-langgraph-local-deep-researcher/).
+
 LangGraph is ais a **low-level orchestration framework** for building controllable agents.
  
 While langchain provides integrations and composable components to streamline LLM application development, the LangGraph library enables agent orchestration — offering customizable architectures, long-term memory, and human-in-the-loop to reliably handle complex tasks.
