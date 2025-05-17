@@ -1,8 +1,8 @@
-version: "2"
+#version: "2"
 services:
   ackee:
     image: electerious/ackee
-    container_name: ackee
+    container_name: ackee #https://docs.ackee.electerious.com/#/docs/Get%20started#with-docker
     restart: always
     ports:
       - "3000:3000"

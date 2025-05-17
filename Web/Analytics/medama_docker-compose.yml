@@ -1,14 +1,85 @@
-version: '3.9'
-services:
-  medama:
-    image: ghcr.io/medama-io/medama:latest
-    container_name: medama
+#docker-compose -f medama_docker-compose.yml up -d
+#sudo docker logs medama
+#sudo docker stats medama
+
+#version: '3.9'
+services: #https://github.com/medama-io/medama
+  medama: #https://github.com/medama-io/medama/pkgs/container/medama
+    image: ghcr.io/medama-io/medama:latest #https://oss.medama.io/deployment/docker
+    container_name: medama #https://oss.medama.io/introduction
     restart: unless-stopped
     environment:
       - LOGGER=pretty
     ports:
       - "8085:8080"
     volumes:
-      - ./data:/app/data
+      - medama_data:/app/data
+      #- ./data:/app/data
+#     networks:
+#       - nginx_nginx_default #for https
 
-#https://oss.medama.io/deployment/docker
+# networks:
+#   nginx_nginx_default:
+#     external: true  
+
+volumes:
+  medama_data:
+
+# version: '3.9'
+# services:
+#   medama:
+#     image: ghcr.io/medama-io/medama:latest
+#     container_name: medama
+#     restart: unless-stopped
+#     environment:
+#       - LOGGER=pretty
+#     ports:
+#       - "8085:8080"
+#     volumes:
+#       - ./data:/app/data
+
+# #https://oss.medama.io/deployment/docker
+
+
+
+# version: '3.9'
+# services:
+#   medama:
+#     image: ghcr.io/medama-io/medama:latest
+#     container_name: medama
+#     restart: unless-stopped
+#     environment:
+#       - LOGGER=pretty
+#     ports:
+#       - "8085:8080"
+#     volumes:
+#       - ./data:/app/data
+
+
+
+
+# #version: '3.8'
+# services:
+#   medama:
+#     image: medama-analytics:latest
+#     container_name: medama
+#     restart: unless-stopped
+#     ports:
+#       - "8080:8080"
+#     environment:
+#       - ANALYTICS_DATABASE_HOST=/app/data/me_analytics.db
+#       - APP_DATABASE_HOST=/app/data/me_app.db
+#     volumes:
+#       - ./data:/app/data
+
+
+#version: "3.9"
+# services:
+#   medama:
+#     container_name: Medama
+#     image: ghcr.io/medama-io/medama:latest #https://oss.medama.io/deployment/docker
+#     volumes:
+#       - /home/youruser/docker/medama:/app/data:rw
+#     ports:
+#       - 6900:8080
+#     restart: on-failure:5

@@ -1,0 +1,20 @@
+#sudo docker logs liwan
+#docker-compose -f liwan_docker-compose.yml up -d
+#sudo docker stats liwan
+
+#version: "3.8"
+
+services:
+  liwan:
+    image: ghcr.io/explodingcamera/liwan:1.1  #https://liwan.dev/install/docker-compose/
+    container_name: liwan #https://github.com/explodingcamera/liwan
+    ports:
+        - "127.0.0.1:80:9042"
+    volumes:
+        - liwan-data:/data
+    # See https://liwan.dev/reference/configuration for all configuration options
+    environment:
+        - LIWAN_BASE_URL=http://localhost #https://a.example.com
+
+volumes:
+  liwan-data: #https://www.npmjs.com/package/liwan-tracker
