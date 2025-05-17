@@ -1,6 +1,10 @@
 #https://fossengineer.com/selfhosting-umami-with-docker/
 # ##admin // umami
+
 #https://fossengineer.com/selfhosting-cloudflared-tunnel-docker/
+#https://github.com/umami-software/umami/releases
+
+#sudo docker stats $(docker ps --filter "name=umami" --format "{{.ID}}")
 
 #version: '3'
 services:

@@ -1,8 +1,11 @@
 1. Setup [**Umami** Web Analytics](https://fossengineer.com/selfhosting-umami-with-docker/)
 
 ```sh
+openssl rand -base64 32 #tweak the HASH_SALT first
 docker-compose -f umami_docker-compose.yml up -d
 ```
+
+> Which can be run with cloudflare
 
 2. Fathom WebAn - https://hub.docker.com/r/usefathom/fathom/
 
@@ -27,7 +30,10 @@ docker-compose -f medama_docker-compose.yml up -d
 
 5. Matomo
 
-6. 
+6. Aptabase
+
+https://github.com/aptabase/aptabase
+https://github.com/aptabase/aptabase?tab=AGPL-3.0-1-ov-file#readme
 
 7. [Rybbit](https://fossengineer.com/rybbit-web-analytics-selfhosted/)
 
@@ -65,3 +71,19 @@ docker-compose -f litlyx_docker-compose.yml up -d
 ```sh
 docker-compose -f vince_docker-compose.yml up -d
 ```
+
+
+13. https://github.com/pirsch-analytics/pirsch
+
+
+14. Dashflare
+
+https://github.com/jorgelbg/dashflare
+
+>  🕵🏼‍♀️ Open Source and privacy-focused analytics solution. 📊 Advanced monitoring for your website behind Cloudflare 
+
+15. GoatCounter
+
+* https://github.com/arp242/goatcounter
+
+> Lightweight tracker (<1KB) without cookies, IP addresses, or additional identifiers, ensuring compliance with GDPR, PECR, and other regulations.

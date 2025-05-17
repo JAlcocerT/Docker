@@ -1,3 +1,29 @@
+#### Product Analytics
+
+https://github.com/usefathom/fathom
+https://github.com/openreplay/openreplay
+https://docs.openreplay.com/en/deployment/deploy-ubuntu/
+
+
+
+https://github.com/openreplay/openreplay
+
+Focus on what your customer wants - https://fider.io/#get-started
+
+
+
+POSTHOG EU SERVER: https://github.com/JAlcocerT/Docker/blob/main/Web/posthog_docker-compose.md
+
+https://github.com/posthog/posthog
+https://posthog.com/docs/session-replay/installation
+https://posthog.com/docs/webhooks --> slack/discord/others?
+
+
+copy the js to the head section
+
+https://www.youtube.com/watch?v=yZmDcH1_KuQ
+
+
 
 **PRODUCT TOOLS**
 
@@ -9,6 +35,10 @@
 wget https://raw.githubusercontent.com/openreplay/openreplay/main/scripts/docker-compose/docker-install.sh -O docker-install.sh
 /bin/bash docker-install.sh
 ```
+
+2. RRWeb
+
+https://github.com/rrweb-io/rrweb
 
 6. **Posthog**
 
