@@ -78,9 +78,9 @@ docker-compose -f vince_docker-compose.yml up -d
 
 14. Dashflare
 
-https://github.com/jorgelbg/dashflare
-
->  🕵🏼‍♀️ Open Source and privacy-focused analytics solution. 📊 Advanced monitoring for your website behind Cloudflare 
+```sh
+docker-compose -f dashflare_docker-compose.yml up -d
+```
 
 15. GoatCounter
 

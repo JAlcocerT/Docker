@@ -1,5 +1,7 @@
 * [See this related **blog post** →](https://jalcocert.github.io/JAlcocerT/how-to-use-wg-easy-with-a-vps/)
 
+1. Wireguard
+2. [OpenVPN](#openvpn)
 
 ---
 
@@ -67,7 +69,7 @@ https://www.youtube.com/watch?v=Ulew2JHUHfE&t=444s
 
 apt-get update && apt-get install docker.io docker-compose -y
 vim docker-compose.yaml
-
+```yml
 version: '2'
 services:
   openvpn:
@@ -80,8 +82,10 @@ services:
     restart: always
     volumes:
      - ./openvpn-data/conf:/etc/openvpn
+```
 
 
+```sh
 #to generate the default configuration, include the server public ip address
 docker-compose run --rm openvpn ovpn_genconfig -u udp://209...
 #create the certifies (main key for the server vpn)
@@ -111,5 +115,4 @@ docker-compose run --rm openvpn ovpn_getclient $CLIENTNAME > $CLIENTNAME.ovpn
 docker-compose run --rm openvpn ovpn_revokeclient $CLIENTNAME
 # Borrando los correspondientes archivos crt, key y req.
 docker-compose run --rm openvpn ovpn_revokeclient $CLIENTNAME remove
-
-
+```

@@ -1,0 +1,28 @@
+#https://github.com/jorgelbg/dashflare
+##https://github.com/jorgelbg/dashflare/blob/master/docker-compose.yaml
+
+#version: "3"
+
+networks:
+  loki:
+
+services:
+  loki:
+    image: grafana/loki:1.5.0
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki
+
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-worldmap-panel
+    volumes:
+       - "./grafana/provisioning:/etc/grafana/provisioning"
+       - "./grafana/dashboards:/etc/dashboards"
+    ports:
+      - "3000:3000"
+    networks:
+      - loki

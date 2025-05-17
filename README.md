@@ -66,10 +66,10 @@ I have been **collecting/adapting the config files** to install with Docker seve
 ### [Backups:](https://github.com/JAlcocerT/Docker/tree/main/Backups)
   * Duplicati :heavy_check_mark:
   * Filerun :heavy_check_mark:
-  * Nextcloud
+  * Nextcloud :heavy_check_mark:
     * [RPI](https://jalcocert.github.io/RPi/posts/selfhosting-nextcloud/) :heavy_check_mark:
     * Recommended Apps: cospend (moneybuster Android)
-  * Others: Duplicity, Urbackup
+  * Others: Duplicity, Urbackup, Seafile, RSnapshot
   * Photos: 
     * LibrePhotos
     * Lychee 
@@ -78,10 +78,8 @@ I have been **collecting/adapting the config files** to install with Docker seve
     * [Photoview :page_with_curl:](https://fossengineer.com/selfhosting-Photoview-docker/) :heavy_check_mark: -> file system friendly
     * Piwigo
   * RClone :heavy_check_mark:
-  * RSync
-  * RSnapshot
+  * RSync :heavy_check_mark:
   * [Samba](https://fossengineer.com/selfhosting-samba/) :heavy_check_mark:
-  * Seafile
   * [Syncthing](https://fossengineer.com/selfhosting-filebrowser-docker) :heavy_check_mark:
     
 ### [Business:](https://github.com/JAlcocerT/Docker/tree/main/Business)
@@ -117,16 +115,9 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * VSCode Server :heavy_check_mark:
 * [Jenkins](https://fossengineer.com/selfhosting-jenkins-ci-cd/)
 * [Airflow](https://fossengineer.com/selfhosting-airflow-with-docker)
-* Gitbucket
 * OneDev: includes kanban board
 * SnippetBox :heavy_check_mark:
-* Bunddle your Apps
-  * [Python DASH Apps :page_with_curl:](https://fossengineer.com/dash-docker-gcr/)
-  * [Shiny Dashboards](https://fossengineer.com/building-r-shiny-apps-container-image-with-docker/)   
-* SSGs -> Static Webs Generators
-  * [HUGO](https://fossengineer.com/web-guide-Hugo/)
-  * [Jekyll](https://fossengineer.com/jekyll-ssg-selfhosting-static-website/)
-  * [Astro](https://fossengineer.com/astro-ssg/)
+* [SSGs](https://github.com/JAlcocerT/Docker/tree/main/Web/SSGs)
 ### [IoT:](https://github.com/JAlcocerT/Docker/tree/main/IoT)
 * Automations:
   * Domoticz
@@ -137,7 +128,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * [OpenSpeedTest](https://jalcocert.github.io/RPi/posts/self-internet-monit/#openspeedtest) :heavy_check_mark:
 * GPIO
   * TIO: https://github.com/tio/tio
-* BI Tools:
+* [BI Tools](https://jalcocert.github.io/JAlcocerT/setup-bi-tools-docker/):
   * [Metabase](https://jalcocert.github.io/RPi/posts/rpi-iot-dht1122-mongo/#metabase)
   * [Apache Superset](https://jalcocert.github.io/RPi/posts/rpi-gps-superset/#apache-superset-setup)
   * Redash
@@ -164,8 +155,6 @@ I have been **collecting/adapting the config files** to install with Docker seve
 ### [Media](https://github.com/JAlcocerT/Docker/tree/main/Media)
 * E-Books/Podcasts
   * Calibre :heavy_check_mark:
-  * Kavita
-  * Koodo reader
   * Audiobookshelf :heavy_check_mark:
   * Podgrab :heavy_check_mark:
 * Photos: 
@@ -194,7 +183,6 @@ I have been **collecting/adapting the config files** to install with Docker seve
     * JDownloader :heavy_check_mark:
 * ArchiveBox
 * Music
-  * Ampache
   * Supysonic :heavy_check_mark:
   * Navidrome :heavy_check_mark: it has synergy with [youtube-dl](https://jalcocert.github.io/RPi/posts/youtube-video-download/#youtube-dl-material)
 * Mumble
@@ -227,7 +215,6 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * Traefik + failban
 * VPN's
   * [Gluetun :page_with_curl:](https://fossengineer.com/using-bard-selfhosting-firefox-with-vpn-docker/)
-  * OpenVPN
   * [Tailscale](https://jalcocert.github.io/Linux/docs/debian/linux_vpn_setup/)
   * Headscale
   * Wireguard :heavy_check_mark:
@@ -237,15 +224,13 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * Management:
   * Bookstack
   * [Focalboard](https://fossengineer.com/focalboard-docker/) :heavy_check_mark:
-  * Joplin (x86 only)
-  * Kanboard :heavy_check_mark:
+  * Joplin
+  * Kanboard
   * [Logseq](https://fossengineer.com/selfhosting-logseq/)
-  * OpenProject (Asana alternative)
+  * OpenProject
   * [Leantime :page_with_curl:](https://fossengineer.com/selfhosting-Leantime-docker/) :heavy_check_mark:
   * [Timtelite](https://fossengineer.com/selfhosting-timelite-free-tracking-tool-with-docker/)
-  * Personal management system
   * [Trilium](https://fossengineer.com/selfhosting-Trilium-docker/) :heavy_check_mark:
-  * Tiddlywiki
   * Wecan (Kanban board)
 * Youtube
   * MeTube :heavy_check_mark:

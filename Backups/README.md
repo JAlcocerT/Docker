@@ -70,11 +70,16 @@ On a given folder, check the timestamp with:
 ls -la --time-style=full-iso
 ```    
 
-### RClone :heavy_check_mark:
+### RClone
 
 ```sh
-docker run -it -v ~/.config/rclone:/config/rclone  rclone/rclone:beta config
+#docker run -it -v ~/.config/rclone:/config/rclone  rclone/rclone:beta config
 ```
+
+```sh
+docker-compose -f rclone_docker-compose.yml up -d
+```
+
 
 
 ## Container volumes backup

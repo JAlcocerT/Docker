@@ -1,0 +1,18 @@
+#docker run -it -v ~/.config/rclone:/config/rclone  rclone/rclone:beta config
+#https://rclone.org/protondrive/#configurations
+
+#version: '3.8'
+services:
+  rclone:
+    image: rclone/rclone:beta
+    container_name: rclone-protondrive # Optional, but good for clarity
+    volumes:
+      - rclone_config:/config/rclone
+      #- ~/.config/rclone:/config/rclone
+    tty: true
+    stdin_open: true
+    command: config
+    restart: unless-stopped
+volumes:
+  rclone_config:
+    driver: local    
