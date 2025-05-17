@@ -1,0 +1,24 @@
+#https://github.com/vinceanalytics/vince
+#docker pull ghcr.io/vinceanalytics/vince
+#docker-compose -f vince_docker-compose.yml up -d
+#sudo docker stats vince
+#sudo docker logs vince
+
+#docker manifest inspect ghcr.io/vinceanalytics/vince | jq -r '.manifests[].platform.architecture' | sort -u
+
+#❯ docker run --rm  -p 8080:8080 -v ./vince-data:/vince-data ghcr.io/vinceanalytics/vince serve  --adminName acme --adminPassword 1234 --domains vinceanalytics.com --profile
+
+services:
+  vince:
+    image: ghcr.io/vinceanalytics/vince
+    container_name: vince #https://www.vinceanalytics.com/blog/deploy-docker/
+    ports:
+      - "8080:8080"
+    volumes:
+      - vince_data:/vince-data
+    #command: serve --adminName acme --adminPassword 1234 --domains vinceanalytics.com --profile #change the password accordingly  
+    command: serve --adminName yourusername --adminPassword change1234this --domains yourdomain.com --profile #change the passwordaccordingly
+    restart: unless-stopped
+
+volumes:
+  vince_data:

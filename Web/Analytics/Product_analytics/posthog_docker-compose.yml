@@ -2,3 +2,53 @@
 # * https://github.com/PostHog/posthog?tab=License-1-ov-file#readme
 
 # >  🦔 PostHog provides open-source web & product analytics, session recording, feature flagging and A/B testing that you can self-host. Get started - free. 
+
+
+##https://posthog.com/
+
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/posthog/posthog/HEAD/bin/deploy-hobby)"
+
+#version: '3'
+
+services:
+  posthog:
+    image: posthog/posthog
+    ports:
+      - "8010:8000"
+    environment:
+      - DATABASE_URL=postgresql://posthog:posthogpassword@db:5432/posthog
+      - CLICKHOUSE_HOST=clickhouse
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=albertoyhermosin123
+    depends_on:
+      - db
+      - clickhouse
+      - redis
+    networks:
+      - posthog-net
+
+  db:
+    image: postgres:12
+    environment:
+      - POSTGRES_DB=posthog
+      - POSTGRES_USER=posthog
+      - POSTGRES_PASSWORD=posthogpassword34567
+    networks:
+      - posthog-net
+
+  clickhouse:
+    image: yandex/clickhouse-server:latest
+    ports:
+      - "8123:8123"
+    networks:
+      - posthog-net
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
+    networks:
+      - posthog-net
+
+networks:
+  posthog-net:

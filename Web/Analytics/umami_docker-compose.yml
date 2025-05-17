@@ -4,7 +4,7 @@
 
 #version: '3'
 services:
-  umami:
+  umami: #https://github.com/umami-software/umami/releases
     image: ghcr.io/umami-software/umami:postgresql-latest ## ##admin // umami
     ports:
       - "3000:3000"

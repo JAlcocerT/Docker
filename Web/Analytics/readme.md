@@ -6,31 +6,28 @@ docker-compose -f umami_docker-compose.yml up -d
 
 2. Fathom WebAn - https://hub.docker.com/r/usefathom/fathom/
 
-> See also: https://github.com/geerlingguy/fathom-container
+```sh
+docker-compose -f fathom_docker-compose.yml up -d
+```
 
-3. [Tianji](https://fossengineer.com/setup-tianji-with-docker/)
+3. [Tianji](https://fossengineer.com/setup-tianji-with-docker/) - You get web analytics and [hardware monitoring](https://jalcocert.github.io/JAlcocerT/how-to-setup-beszel-monitoring/)
 
 ```sh
 docker-compose -f Tianji_docker-compose.yml up -d
 ```
 
-4. Medama
+> Which I covered at: https://jalcocert.github.io/JAlcocerT/how-to-setup-beszel-monitoring/#tianji as not just web analytics solution!
+
+
+4. [Medama](https://fossengineer.com/medama-web-analytics-selfhosting)
 
 ```sh
 docker-compose -f medama_docker-compose.yml up -d
 ```
 
-
 5. Matomo
 
-6. OpenReplay
-
-```sh
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/openreplay/openreplay/main/scripts/docker-compose/docker-install.sh)"
-
-wget https://raw.githubusercontent.com/openreplay/openreplay/main/scripts/docker-compose/docker-install.sh -O docker-install.sh
-/bin/bash docker-install.sh
-```
+6. 
 
 7. [Rybbit](https://fossengineer.com/rybbit-web-analytics-selfhosted/)
 
@@ -52,8 +49,9 @@ docker-compose -f liwan_docker-compose.yml up -d
 
 10. https://github.com/Litlyx/litlyx
 
-
-> Powerful Analytics Solution. Setup in 30 seconds. Display all your data on a Simple, AI-powered dashboard. Fully self-hostable and GDPR compliant. Alternative to Google Analytics, MixPanel, Plausible, Umami & Matomo.
+```sh
+docker-compose -f litlyx_docker-compose.yml up -d
+```
 
 11. https://github.com/electerious/Ackee
 
@@ -61,4 +59,8 @@ docker-compose -f liwan_docker-compose.yml up -d
 > MIT | Self-hosted, Node.js based analytics tool for those who care about privacy.
 
 
-12. 
+12. [Vince](https://fossengineer.com/selfhosting-vince-webanalytics/)
+
+```sh
+docker-compose -f vince_docker-compose.yml up -d
+```

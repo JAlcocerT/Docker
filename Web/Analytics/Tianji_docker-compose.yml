@@ -1,3 +1,6 @@
+#https://jalcocert.github.io/JAlcocerT/how-to-setup-beszel-monitoring/#tianji
+#https://fossengineer.com/setup-tianji-with-docker/
+
 #version: '3'
 services:
   tianji:
