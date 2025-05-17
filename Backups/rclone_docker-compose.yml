@@ -4,10 +4,10 @@
 #version: '3.8'
 services:
   rclone:
-    image: rclone/rclone:beta
+    image: rclone/rclone:beta #https://hub.docker.com/r/rclone/rclone
     container_name: rclone-protondrive # Optional, but good for clarity
     volumes:
-      - rclone_config:/config/rclone
+      - rclone_config:/config/rclone #https://blog.otterlord.dev/posts/proton-drive-rclone/
       #- ~/.config/rclone:/config/rclone
     tty: true
     stdin_open: true

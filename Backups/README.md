@@ -73,14 +73,30 @@ ls -la --time-style=full-iso
 ### RClone
 
 ```sh
+#sudo apt install rclone
+
+#sudo -v ; curl https://rclone.org/install.sh | sudo bash
+#rclone v1.69.2 has successfully installed.
+#rclone config
+
+#protondrive
+#https://blog.otterlord.dev/posts/proton-drive-rclone/
+rclone lsd protondrive: #list all directories, providing that you named the remote also protondrive
+rclone lsd protondrive:13-Sync
+rclone ls protondrive:x13-Sync
+
+#rclone sync --dry-run <my_remote>:<protondrivedirectory> <localdirectory> -v
+rclone sync --dry-run protondrive:x13-Sync /home/jalcocert/Desktop/ProtonDrive -v
+
+rclone sync protondrive:x13-Sync /home/jalcocert/Desktop/ProtonDrive #from cloud to local (one time)
+rclone mount protondrive:x13-Sync /home/jalcocert/Desktop/ProtonDrive --vfs-cache-mode full #this makes it bidirectional
+
 #docker run -it -v ~/.config/rclone:/config/rclone  rclone/rclone:beta config
 ```
 
 ```sh
 docker-compose -f rclone_docker-compose.yml up -d
 ```
-
-
 
 ## Container volumes backup
 
