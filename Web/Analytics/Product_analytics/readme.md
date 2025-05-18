@@ -1,12 +1,16 @@
-#### Product Analytics
-
-https://github.com/usefathom/fathom
-https://github.com/openreplay/openreplay
-https://docs.openreplay.com/en/deployment/deploy-ubuntu/
+> These can be useful for your [Pricing Strategy](https://jalcocert.github.io/JAlcocerT/real-estate-website/#pricing-strategy) and [product mindset](https://jalcocert.github.io/JAlcocerT/product-skills-for-data-analytics/)
 
 
+[![Star History Chart](https://api.star-history.com/svg?repos=posthog/posthog,usefathom/fathom,openreplay/openreplay,rrweb-io/rrweb&type=Date)](https://star-history.com/#posthog/posthog&usefathom/fathom&openreplay/openreplay&rrweb-io/rrweb&type=Date)
 
-https://github.com/openreplay/openreplay
+
+## Product Analytics
+
+* https://github.com/usefathom/fathom
+* https://github.com/openreplay/openreplay
+    * https://docs.openreplay.com/en/deployment/deploy-ubuntu/
+* https://github.com/posthog/posthog
+
 
 Focus on what your customer wants - https://fider.io/#get-started
 
@@ -19,10 +23,9 @@ https://posthog.com/docs/session-replay/installation
 https://posthog.com/docs/webhooks --> slack/discord/others?
 
 
-copy the js to the head section
+copy the js to the head section of your website
 
 https://www.youtube.com/watch?v=yZmDcH1_KuQ
-
 
 
 **PRODUCT TOOLS**
@@ -52,6 +55,9 @@ wget https://raw.githubusercontent.com/posthog/posthog/HEAD/bin/deploy-hobby
 /bin/bash deploy-hobby
 ```
 
+---
+
+## Others
 
 7. Countly
 
@@ -60,14 +66,10 @@ wget https://raw.githubusercontent.com/posthog/posthog/HEAD/bin/deploy-hobby
 9. UserTour
 
 * https://github.com/usertour/usertour?ref=selfh.st
-* https://github.com/usertour/usertour/blob/main/.env.example
-* https://docs.usertour.io/open-source/self-hosting#create-a-docker-compose-yml
+    * https://github.com/usertour/usertour/blob/main/.env.example
+    * https://docs.usertour.io/open-source/self-hosting#create-a-docker-compose-yml
 
 >  Usertour is an open-source user onboarding platform designed for developers. It allows you to create in-app product tours, checklists, and launchers in minutes—effortlessly and with full control.The open-source alternative to Userflow and Appcues 
-
----
-
-## Others
 
 1. **SerpBear** is an open-source **Search Engine Position Tracking App**. It's a tool that allows you to monitor your website's keyword rankings in Google search results.
 
