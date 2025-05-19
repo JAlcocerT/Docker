@@ -14,8 +14,6 @@
 
 Focus on what your customer wants - https://fider.io/#get-started
 
-
-
 POSTHOG EU SERVER: https://github.com/JAlcocerT/Docker/blob/main/Web/posthog_docker-compose.md
 
 https://github.com/posthog/posthog

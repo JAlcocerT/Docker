@@ -1,4 +1,4 @@
-Some container for your travel / trips / adventures.
+**Some container for your travel / trips / adventures**.
 
 > See also [tech for a trip](https://jalcocert.github.io/JAlcocerT/tech-for-a-trip/)
 

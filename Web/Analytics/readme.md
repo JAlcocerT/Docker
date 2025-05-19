@@ -72,9 +72,7 @@ docker-compose -f litlyx_docker-compose.yml up -d
 docker-compose -f vince_docker-compose.yml up -d
 ```
 
-
 13. https://github.com/pirsch-analytics/pirsch
-
 
 14. Dashflare
 
