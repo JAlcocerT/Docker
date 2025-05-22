@@ -1,0 +1,42 @@
+#https://fossengineer.com/selfhosting-silverbullet/
+
+#version: '3.8'
+
+services:
+  silverbullet:
+    image: ghcr.io/silverbulletmd/silverbullet:v2 # Using the official SilverBullet Docker image
+    container_name: silverbullet #https://github.com/silverbulletmd/silverbullet
+    restart: unless-stopped
+    environment:
+      # Set a default user/password for the web interface.
+      # IMPORTANT: CHANGE THIS TO SOMETHING SECURE!
+      # Format is 'username:password'
+      - SB_USER=admin:your_strong_silverbullet_password
+      # Optional: Override the default port (3000) if needed
+      # - SB_PORT=3001
+    volumes:
+      # This maps a local directory (./space) to the container's /space directory.
+      # This is where all your SilverBullet notes (markdown files) will be stored.
+      # Ensure this directory exists on your host machine.
+      - ./space:/space
+    ports:
+      # Maps host port 3000 to container port 3000.
+      # You can change the host port (e.g., "80:3000" or "8080:3000")
+      # if you want to access it on a different port or the standard HTTP port.
+      - "3007:3000"
+    # SilverBullet also automatically sets the UID/GID to match the volume's owner for permissions.
+    # If you need to explicitly set them, you can use:
+    # user: "1001:1001" # Example UID:GID
+    # environment:
+    #   - PUID=1001
+    #   - PGID=1001
+
+  # Optional: Watchtower for automatic updates of the SilverBullet container
+  # watchtower:
+  #   image: containrrr/watchtower
+  #   container_name: watchtower
+  #   restart: unless-stopped
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   # Optional: Schedule updates (e.g., daily at 3 AM)
+  #   # command: --interval 86400 --cleanup --schedule "0 0 3 * * *" silverbullet

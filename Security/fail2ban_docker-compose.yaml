@@ -1,4 +1,4 @@
-version: '2'
+#version: '2'
 services:
   fail2ban:
     image: crazymax/fail2ban:latest
@@ -17,9 +17,6 @@ services:
     #   - "/var/log/auth.log:/var/log/auth.log:ro"
     #   - "/home/jesalctag/Docker/Nginx/data/logs/:/log/npm/:ro"
     restart: always
-
-
-
 
 #wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Security/fail2ban > f2b.sh && chmod 775 f2b.sh && sudo ./f2b.sh
 

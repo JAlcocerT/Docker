@@ -1,0 +1,18 @@
+#https://fossengineer.com/selfhosting-logseq/
+
+#version: '3.8'
+
+services:
+  logseq:
+    image: ghcr.io/logseq/logseq-webapp:latest
+    ports:
+      - "3000:3000"  # Expose Logseq on port 3000
+    environment:
+      - LOGSEQ_SERVER_PORT=3000  # Set the Logseq server port
+    restart: unless-stopped
+    # volumes:
+      # - logseq_data:/path/to/data  # Uncomment and set the path if you need persistent storage
+
+# Uncomment the following lines if you need persistent storage
+# volumes:
+  # logseq_data:

@@ -1,0 +1,14 @@
+#https://fossengineer.com/selfhosting-Trilium-docker/
+
+#version: "3.3"
+services:
+  trilium:
+    image: zadam/trilium:latest
+    restart: unless-stopped
+    ports:
+      - "9999:8080"
+    volumes:
+      - trilium-data:/home/node/trilium-data
+
+volumes:
+  trilium-data:

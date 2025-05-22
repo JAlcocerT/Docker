@@ -1,0 +1,85 @@
+#version: "3"
+
+services:
+  wireguard:
+    image: ghcr.io/wg-easy/wg-easy # This image includes WireGuard and a web UI
+    container_name: wireguard
+    environment:
+      # !! REQUIRED !! Set your VPN password for the wg-easy web UI
+      - WG_EASY_PASSWORD=your_secure_password_here 
+      # !! REQUIRED !! Set your external IP address or domain name
+      - WG_HOST=your_external_ip_or_domain.com 
+      # Optional: Set the network interface for WireGuard to listen on
+      # - WG_INTERFACE=eth0 
+      # Optional: Set the DNS server for WireGuard clients to use (e.g., Pi-hole's IP)
+      # This assumes Pi-hole's IP will be 172.18.0.2 in the default bridge network if 'wirehole' custom network is not used.
+      # If using a custom network like 'wirehole', you can use the service name 'pihole'
+      - WG_DEFAULT_DNS=172.18.0.2 # Or 'pihole' if using 'wirehole' network
+      # Optional: Set allowed IPs for full tunnel (0.0.0.0/0, ::/0) or split tunnel (e.g., 192.168.1.0/24)
+      - WG_ALLOWED_IPS=0.0.0.0/0, ::/0 
+      # Optional: Persist data on host filesystem
+      - WG_PERSISTENT_KEEPALIVE=25
+    volumes:
+      - ./wireguard-data:/etc/wireguard
+    ports:
+      # WireGuard VPN port (UDP)
+      - "51820:51820/udp" 
+      # wg-easy web UI port (TCP)
+      - "51821:51821/tcp" 
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_lables=1
+    restart: unless-stopped
+    networks:
+      - wirehole # Connect to the custom network for internal communication
+
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    environment:
+      # !! REQUIRED !! Set a strong password for Pi-hole's web interface
+      - WEBPASSWORD=your_pihole_admin_password
+      # Optional: Set your timezone
+      - TZ=Europe/Warsaw # Set your actual timezone
+      # Optional: Use Unbound as the upstream DNS server
+      # If using 'unbound' service on the same custom network, use its service name
+      - PIHOLE_DNS_=127.0.0.1#5335 # Using Unbound directly in the Pi-hole container
+      - DNSMASQ_LISTENING=all
+    volumes:
+      - ./pihole/etc-pihole:/etc/pihole
+      - ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+    # You might want to remove these if you only access Pi-hole via the custom network
+    # and don't need direct host access.
+    # ports: 
+    #   - "53:53/tcp"
+    #   - "53:53/udp"
+    #   - "80:80/tcp" # For Pi-hole admin interface if not using WG-Easy
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      - wirehole # Connect to the custom network for internal communication
+
+  unbound:
+    image: mvance/unbound:latest
+    container_name: unbound
+    # Unbound is configured to listen on port 5335 for Pi-hole
+    command: -c /opt/unbound/etc/unbound/unbound.conf
+    volumes:
+      - ./unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf
+    # Unbound typically doesn't need external ports if only Pi-hole uses it.
+    # ports:
+    #   - "5335:5335/udp" # Only expose if you need to access Unbound directly from host
+    restart: unless-stopped
+    networks:
+      - wirehole # Connect to the custom network for internal communication
+
+networks:
+  wirehole:
+    driver: bridge
+    # You can specify a subnet if you want predictable IPs for your containers.
+    # config:
+    #   - subnet: 172.18.0.0/24
