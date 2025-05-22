@@ -1,4 +1,4 @@
-version: '2'
+#version: '2'
 services:
   focalboard:
     image: mattermost/focalboard:latest

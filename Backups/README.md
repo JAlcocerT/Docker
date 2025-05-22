@@ -72,6 +72,8 @@ ls -la --time-style=full-iso
 
 ### RClone
 
+It can be used with ProtonDrive as per [Otterlod](https://blog.otterlord.dev/posts/proton-drive-rclone/) and this post
+
 ```sh
 #sudo apt install rclone
 

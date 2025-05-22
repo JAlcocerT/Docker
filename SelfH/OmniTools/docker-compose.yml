@@ -1,0 +1,8 @@
+# version: "3.8"
+# services:
+  omni-tools: #x86 only
+    image: iib0011/omni-tools:latest #https://github.com/iib0011/omni-tools
+    container_name: omni-tools
+    ports:
+      - "8080:80"
+    restart: unless-stopped

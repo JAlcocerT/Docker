@@ -2,6 +2,8 @@
 
 > See also [tech for a trip](https://jalcocert.github.io/JAlcocerT/tech-for-a-trip/)
 
+---
+
 1. [AdventureLog](https://fossengineer.com/selfhosting-adventurelog/)
 
 ```sh

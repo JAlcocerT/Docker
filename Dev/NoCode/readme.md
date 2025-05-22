@@ -2,5 +2,5 @@
     * https://gitlab.com/baserow/baserow
 
 
-    * others
-    * https://marsx.dev/
+* others
+* https://marsx.dev/

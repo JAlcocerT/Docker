@@ -1,0 +1,1 @@
+> See [blog post](https://jalcocert.github.io/JAlcocerT/cms-for-static-websites/)

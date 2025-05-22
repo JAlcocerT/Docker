@@ -1,5 +1,8 @@
 > Blog Post about [Big Data Tools](https://jalcocert.github.io/JAlcocerT/big-data-tools-for-data-analytics/)
 
+> [!IMPORTANT]
+> You can also check [PySpark](https://jalcocert.github.io/JAlcocerT/guide-python-PySpark/) or this post [about D&A architect](https://jalcocert.github.io/JAlcocerT/data-analytics-architecture/)
+
 ---
 
 ## Open Lake House

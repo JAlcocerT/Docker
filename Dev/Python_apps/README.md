@@ -4,3 +4,10 @@ How to create a container for [an existing python app](https://fossengineer.com/
 
 
 * Streamlit Apps - https://github.com/jrieke/best-of-streamlit
+
+---
+
+REST APIs:
+
+* Flask
+* Django

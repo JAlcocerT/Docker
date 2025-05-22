@@ -1,4 +1,4 @@
-version: '3.2'
+#version: '3.2'
 services:
   rancher:
     image: rancher/rancher:latest
@@ -6,4 +6,3 @@ services:
     ports:
       - "980:80"
       - "9443:443"
-```

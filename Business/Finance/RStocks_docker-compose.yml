@@ -5,7 +5,7 @@
 services:
   stocks-rshiny:
     image: ghcr.io/jalcocert/r-stocks:latest #r_stocks
-    container_name: RStocks_Container
+    container_name: RStocks_Container #https://github.com/JAlcocerT/R_Stocks
     ports:
       - "3838:3838"
     volumes:
