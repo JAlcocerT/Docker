@@ -1,1 +1,0 @@
-* MailInaBox - https://www.maketecheasier.com/create-email-server-linux-with-mail-in-a-box/

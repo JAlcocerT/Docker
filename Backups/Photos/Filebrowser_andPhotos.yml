@@ -9,7 +9,7 @@ services:
       - /root/Docker/FileBrowser/data:/srv #should match the photo tools
     restart: unless-stopped    
     networks:
-      - nginx_default #this will allow communication between chevereto service and the existing nginx service  
+      - nginx_default #this will allow communication between this service and the existing nginx service  
 
 ###PHOTOVIEW
   db:

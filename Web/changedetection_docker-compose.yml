@@ -1,0 +1,18 @@
+#version: "2.1"
+services:
+  changedetection:
+    image: lscr.io/linuxserver/changedetection.io:latest
+    container_name: changedetection
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - BASE_URL= #optional
+    volumes:
+      - /home/Docker/changedetection/config:/config
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+
+#https://docs.linuxserver.io/images/docker-changedetection.io/#application-setup
+#https://github.com/dgtlmoon/changedetection.io

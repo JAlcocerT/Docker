@@ -1,4 +1,4 @@
-version: "2"
+#version: "2"
 services:
   duckdns:
     image: linuxserver/duckdns
@@ -13,3 +13,17 @@ services:
     volumes:
       - ~/Docker/duckdns/config:/config #optional
     restart: unless-stopped
+
+# docker run -d \
+#   --name=duckdns \
+#   --net=host `#optional` \
+#   -e PUID=1000 `#optional` \
+#   -e PGID=1000 `#optional` \
+#   -e TZ=Etc/UTC `#optional` \
+#   -e SUBDOMAINS=subdomain1,subdomain2 \
+#   -e TOKEN=token \
+#   -e UPDATE_IP=ipv4 `#optional` \
+#   -e LOG_FILE=false `#optional` \
+#   -v /path/to/appdata/config:/config `#optional` \
+#   --restart unless-stopped \
+#   lscr.io/linuxserver/duckdns:latest

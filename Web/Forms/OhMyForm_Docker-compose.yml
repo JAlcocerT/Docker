@@ -1,4 +1,4 @@
-version: "3"
+#version: "3"
 services:
   ohmyform:
     image: ohmyform/ohmyform

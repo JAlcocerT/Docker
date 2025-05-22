@@ -9,7 +9,7 @@
 * Thanks to https://github.com/Boston343/landingpad
     * https://github.com/JAlcocerT/landingpad
 
-* Thanks to https://github.com/JAlcocerT/barebones-starter
+* Thanks to https://github.com/JAlcocerT/barebones-starter for TinaCMS example
 
 
 ---
@@ -52,6 +52,7 @@ Here’s the minimal set-up:
 npm install @keystatic/core @keystatic/astro
 # or pnpm add -D @keystatic/core @keystatic/astro
 ```
+
 2. Create `keystatic.config.ts` at your project root:
 
         import { config, collection, singleton, fields } from "@keystatic/core";
@@ -80,6 +81,7 @@ npm install @keystatic/core @keystatic/astro
             }),
             },
         });
+        
 3. Hook it into your Astro config (`astro.config.ts`):
 
         import { defineConfig } from "astro/config";

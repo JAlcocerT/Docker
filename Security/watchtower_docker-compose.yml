@@ -1,0 +1,11 @@
+#version: '3.8'
+
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - com.example.update=true
+    restart: unless-stopped # Recommended for Watchtower to ensure it restarts with Docker

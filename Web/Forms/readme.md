@@ -1,9 +1,6 @@
 ## Other FORMs
 
 
-
-
-
 * FormBricks
     * https://formbricks.com/pricing
     * https://app.formbricks.com/environments/cm0vgwasu00061484bqmicsbm/settings/profile
@@ -13,16 +10,16 @@
 
 ### qillforms
 
-#https://github.com/QuillForms/quillforms
+* https://github.com/QuillForms/quillforms
 
-#Open Source Typeform Alternative based on React and Typescript - Now supports Next JS
+> Open Source Typeform Alternative based on React and Typescript - Now supports Next JS
 
 ### formaloo
 
 ### formtools
 
-https://github.com/formtools/core
+* https://github.com/formtools/core
 
 ### surveyjs
 
-https://surveyjs.io/create-free-survey
+* https://surveyjs.io/create-free-survey

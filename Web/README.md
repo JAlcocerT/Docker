@@ -2,7 +2,7 @@
 
 * PostHog
 * Open Web Analytics
-* [Umami](https://fossengineer.com/selfhosting-umami-with-docker/)
+* [Umami](https://fossengineer.com/selfhosting-umami-with-docker/) :heavy_check_mark:
 
 
 ---
@@ -18,7 +18,6 @@
 * SaleOR - https://github.com/JAlcocerT/Docker/tree/main/Business
 
 * [Grav](https://fossengineer.com/selfhosting-grav-docker/)
-
 * [Wordpress](https://fossengineer.com/selfhosting-wordpress-docker/)
 
 ---
@@ -30,7 +29,7 @@
 *  Ubuntu single site :heavy_check_mark:
 
 
-```
+```sh
 wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Web/Wordpress > wp.sh && chmod 775 wp.sh && sudo ./wp.sh
 ```
 
@@ -70,78 +69,62 @@ You might be interested in SSG's: HUGO, Jekyll, Astro... 🤘
 
 ## Social Media
 
-#### Pixelfed
+1. PostIz
 
-```
+* https://github.com/gitroomhq/postiz-app
+
+### Pixelfed
+
+```sh
 git clone https://github.com/pixelfed/pixelfed && cd pixelfed
 git config --global --add safe.directory /home/reisikei/Docker/pixelfed
 git tag
 git checkout tags/v0.11.2
 ```
 
-#### Chevereto
+### Chevereto
 
-```
+[Setup Chevereto](https://fossengineer.com/selfhosting-chevereto-docker/) with docker compose:
+
+```sh
 #sudo mkdir ~/Docker/chevereto/chevereto_images/
 #sudo chmod -R a+rwx ~/Docker/chevereto/chevereto_images/
 #pwd
 #sudo chmod -R a+rwx /home/jesalctag/Docker/chevereto/chevereto_images/
 #sudo chmod -R a+rwx chevereto_images/
 #docker pull linuxserver/chevereto:1.6.2
-
-version: '2'
-
-services:
-  db:
-    image: mariadb
-    volumes:
-      - ~/Docker/chevereto/database:/var/lib/mysql:rw # I haven't had good luck putting this database in a different directory
-    restart: unless-stopped
-    networks:
-      - nginx_default
-    environment:
-      MYSQL_ROOT_PASSWORD: chevereto_root
-      MYSQL_DATABASE: chevereto
-      MYSQL_USER: chevereto
-      MYSQL_PASSWORD: chevereto
-
-  chevereto:
-    depends_on:
-      - db
-    image: nmtan/chevereto:latest
-    restart: unless-stopped
-    networks:
-      - nginx_default
-    environment:
-      CHEVERETO_DB_HOST: db
-      CHEVERETO_DB_USERNAME: chevereto
-      CHEVERETO_DB_PASSWORD: chevereto
-      CHEVERETO_DB_NAME: chevereto
-      CHEVERETO_DB_PREFIX: chv_
-    volumes:
-      - ~/Docker/chevereto/chevereto_images:/var/www/html/images:rw
-      - ~/Docker/chevereto/conf/php.ini:/usr/local/etc/php/php.ini:ro
-    ports:
-      - 8686:80
-
-networks:
-  nginx_default:
-volumes:
-  database:
-  chevereto_images:
-
-
-
-
 ```
 
-#### Dynamic DNS
+## DNS
+
+### Dynamic DNS
 
 They can work in combination with [Nginx](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml)
 
-#### DuckDNS :heavy_check_mark:
+### DuckDNS 
 
+```sh
+https://raw.githubusercontent.com/JAlcocerT/Docker/main/Web/DuckDNS_docker_compose.yaml
 ```
+
+
+```sh
+docker run -d \
+  --name=duckdns \
+  --net=host `#optional` \
+  -e PUID=1000 `#optional` \
+  -e PGID=1000 `#optional` \
+  -e TZ=Etc/UTC `#optional` \
+  -e SUBDOMAINS=subdomain1,subdomain2 \
+  -e TOKEN=token \
+  -e UPDATE_IP=ipv4 `#optional` \
+  -e LOG_FILE=false `#optional` \
+  -v /path/to/appdata/config:/config `#optional` \
+  --restart unless-stopped \
+  lscr.io/linuxserver/duckdns:latest
+```
+
+```sh
 docker run \
   --name=duckdns \
   -e PUID=1000 \
@@ -153,34 +136,5 @@ docker run \
   linuxserver/duckdns
   ```
 
-https://raw.githubusercontent.com/JAlcocerT/Docker/main/Web/DuckDNS_docker_compose.yaml
 
-#### No-IP
-
-```
-
-```
-
-## Static web servers:
-
-#### Apache
-
-
-#### NginX
-
----
-
-## Others
-
-
-
-#### Firefox :heavy_check_mark:
-
-#### NGINX :heavy_check_mark:
-<https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml>
-
-#### Traefik
-https://geekland.eu/instalar-y-configurar-el-proxy-inverso-traefik-en-docker/
-https://geekland.eu/limitar-acceso-servicio-o-web-por-ip-con-traefik/
-
-#### Caddy
+### No-IP

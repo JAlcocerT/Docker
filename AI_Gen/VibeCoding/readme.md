@@ -5,8 +5,6 @@
 
 ```sh
 docker build -t python-codex .
-#
-
 
 #docker run -it python-codex
 #export OPENAI_API_KEY="your-api-key-here"

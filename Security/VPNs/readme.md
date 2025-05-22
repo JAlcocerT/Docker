@@ -21,7 +21,6 @@ sudo docker-compose up -d
 ```
 
 ```sh
-
 docker exec -it wireguard /app/show-peer 1 #to show QR
 sudo docker-compose up -d --force-recreate wireguard #to relaunch wireguard, for example after adding more pairs to docker compose file
 
@@ -30,45 +29,17 @@ ls
 ```
 
 
-```yml
-version: "2.1"
-services:
-  wireguard:
-    image: linuxserver/wireguard
-    container_name: wireguard
-    cap_add:
-      - NET_ADMIN
-      - SYS_MODULE
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Madrid
-      - SERVERURL=auto #optional
-      - SERVERPORT=51820 #optional
-      - PEERS=1 #optional
-      - PEERDNS=auto #optional
-      - INTERNAL_SUBNET=10.13.13.0 #optional
-    volumes:
-      - /opt/wireguard-server/config:/config
-      - /lib/modules:/lib/modules
-    ports:
-      - 51820:51820/udp
-    sysctls:
-      - net.ipv4.conf.all.src_valid_mark=1
-    restart: unless-stopped
-```
-
-
-
-
 ### OpenVPN ###
 
-https://hub.docker.com/r/kylemanna/openvpn
-https://github.com/pablokbs/peladonerd/tree/master/varios/6
-https://www.youtube.com/watch?v=Ulew2JHUHfE&t=444s
+* https://hub.docker.com/r/kylemanna/openvpn
+* https://github.com/pablokbs/peladonerd/tree/master/varios/6
+* https://www.youtube.com/watch?v=Ulew2JHUHfE&t=444s
 
+```sh
 apt-get update && apt-get install docker.io docker-compose -y
 vim docker-compose.yaml
+```
+
 ```yml
 version: '2'
 services:

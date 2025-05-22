@@ -25,7 +25,7 @@ Check if it worked with `curl ifconfig.io`
 
 ## Proxies
 
-* **Cloudflared** - zero trust :heavy_check_mark:
+1. **Cloudflared** - zero trust :heavy_check_mark:
 
 Tunnels allow you to easily and securely connect your environment to Cloudflare so that your users can reach public or private resources.
 
@@ -33,13 +33,13 @@ Tunnels allow you to easily and securely connect your environment to Cloudflare 
 
 Create a tunnel and you will get a docker run command like:
 
-```
+```sh
 sudo docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token whatevertokencloudflarewillassigntoyou
 ```
 
-* NginX :heavy_check_mark:
+2. NginX :heavy_check_mark:
 
-```
+```sh
 #curl https://raw.githubusercontent.com/JAlcocerT/Docker/main/Security/nginx_docker_compose.yaml -O 
 wget -c https://raw.githubusercontent.com/JAlcocerT/Docker/main/Security/nginx_docker_compose.yaml -O docker-compose.yml
 sudo docker-compose up -d
@@ -62,13 +62,20 @@ networks:
         external: true
 ```
 
-Example <https://github.com/JAlcocerT/Docker/blob/main/Media/podgrab_docker-compose.yml>
+> Example <https://github.com/JAlcocerT/Docker/blob/main/Media/podgrab_docker-compose.yml>
 
 By CLI with:
 
 ```sh
 docker network connect nginx_default your_new_container_to_go_on_nginx_network
 ```
+
+3. Traefik
+
+https://geekland.eu/instalar-y-configurar-el-proxy-inverso-traefik-en-docker/
+https://geekland.eu/limitar-acceso-servicio-o-web-por-ip-con-traefik/
+
+4. Caddy
 
 ### DNS
 
@@ -111,16 +118,12 @@ sudo docker run --name my-unbound-dns -d -p 5335:53/udp -p 5335:53/tcp \
 --restart=always mvance/unbound-rpi:latest
 ```
 
-
-
-* Watchtower
-
+* Watchtower as per [this guide](https://fossengineer.com/setup-watchtower-with-docker/)
 
 ### Communication
 
-
-* Jitsi :heavy_check_mark:
-* [Matrix](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
+1. Jitsi Meet :heavy_check_mark:
+2. [Matrix](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
 
 
 ### Privacy

@@ -1,10 +1,12 @@
-## Chats:
+## Chats
 
 
 
-#### [Matrix with Synapse](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
+### Matrix with Synapse 
 
-First step - generate the configuration with:
+To [setup Matrix with docker](https://fossengineer.com/selfhosting-matrix-synapse-docker/), we can:
+
+First step - generate the configuration with: :heavy_check_mark:
 
 ```sh
 sudo docker run -it --rm -v ~/Docker/synapse/data:/data -e SYNAPSE_SERVER_NAME=matrix.yourdomain.com -e SYNAPSE_REPORT_STATS=yes matrixdotorg/synapse:latest generate
@@ -60,25 +62,5 @@ networks:
     nginx_default:
         external: true
 ```
-Then, use nginx portal to add the domain + name of the docker container (synapse) + the port as 8008 (as defined here).
 
-#### Discourse
-
-```
-sudo apt update && sudo apt upgrade -y && sudo apt-get install docker.io docker-compose -y
-mkdir discourse && cd discourse/
-
-git clone https://github.com/discourse/discourse_docker
-cd discourse_docker/
-cp samples/standalone.yml containers/app.yml && sudo nano containers/app.yml
-```
-
-https://github.com/discourse/discourse/blob/main/docs/INSTALL-email.md
-
-```
-#install discourse
-sudo ./discourse-setup
-#./launcher bootstrap app
-#Start Discourse
-/var/docker/launcher start app
-```
+Then, use nginx portal to add the domain + name of the docker container (synapse) + the port as 8008 (as defined in this config file).
