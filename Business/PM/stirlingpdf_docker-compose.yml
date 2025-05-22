@@ -1,0 +1,10 @@
+#version: '3.3'
+services:
+  stirling-pdf: #https://docs.stirlingpdf.com/Installation/Docker%20Install/
+    image: frooodle/s-pdf:latest #https://github.com/Stirling-Tools/Stirling-PDF?ref=fossengineer.com
+    ports:
+      - '8033:8080'
+    volumes:
+      - /home/Docker/Stirling:/usr/share/tesseract-ocr/4.00/tessdata #Required for extra OCR languages
+      - /home/Docker/Stirling/configs:/configs
+#     - /location/of/customFiles:/customFiles/

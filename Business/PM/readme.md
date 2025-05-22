@@ -8,6 +8,7 @@ From powerpoints to kanban boards.
 6. Excalidraw
 7. Drawio
 8. Slidev Selfhosted
+9. StirlingPDF
 
 ### Huly
 
