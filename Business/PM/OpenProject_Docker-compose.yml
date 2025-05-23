@@ -1,9 +1,9 @@
-version: "3"
+#version: "3"
 
 services:
 
   openproject:
-    image: openproject/community:11
+    image: openproject/community #:11
     container_name: openproject
     restart: unless-stopped
     ports:

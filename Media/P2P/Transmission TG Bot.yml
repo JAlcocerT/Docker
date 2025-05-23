@@ -1,5 +1,7 @@
----
-version: "2.1"
+#https://fossengineer.com/transmission-with-vpn-torrent/
+
+#---
+#version: "2.1"
 services:
   
   transmission:

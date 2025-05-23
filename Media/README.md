@@ -10,7 +10,6 @@ wget  -cO - https://raw.githubusercontent.com/JAlcocerT/Docker/main/Media/kodi_d
 
 * Plex
 * Jellyfin
-* Calibre :heavy_check_mark:
 
 By default: `kodi` and `kodi`
 
@@ -58,12 +57,6 @@ wget  -cO - https://raw.githubusercontent.com/JAlcocerT/Ubuntu/main/variables.en
 
 </details>
 
-Remember: the default username/password is admin/adminadmin
+Remember: the default username/password is `admin/adminadmin`
 
 * [Transmission](https://fossengineer.com/torrent-with-transmission-and-VPN) :heavy_check_mark:
-* ruTorrent :heavy_check_mark:
-* Bazarr :heavy_check_mark:
-* Couchpotato :heavy_check_mark:
-* Jacket :heavy_check_mark:
-* Radarr :heavy_check_mark:
-* Sonarr :heavy_check_mark:

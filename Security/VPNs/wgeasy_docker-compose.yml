@@ -1,0 +1,31 @@
+# https://github.com/JAlcocerT/RPi/blob/main/Z_Wifi2ETH/docker-compose.yml
+
+#version: "3.8"  # Specify Docker Compose version (optional)
+
+services:
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy
+    container_name: wg-easy
+    environment:
+      LANG: en  # Set the language for the web UI
+      WG_HOST: 188.245.your.vps  # Replace with your actual server IP
+      PASSWORD_HASH: thisishashed!  # Replace with your generated password hash
+      PORT: 51821  # Web UI port
+      WG_PORT: 51820  # WireGuard UDP port
+    volumes:
+      - "/home/your_user/.wg-easy:/etc/wireguard"  # Mount local configuration directory (replace with absolute path)
+    ports:
+      - "51820:51820/udp"  # Publish WireGuard UDP port
+      - "51821:51821/tcp"  # Publish Web UI port
+    cap_add:
+      - NET_ADMIN  # Grant network administration capabilities
+      - SYS_MODULE  # Grant access to load kernel modules (potentially risky)
+    sysctls:
+      net.ipv4.conf.all.src_valid_mark: "1"  # Enable source address validation
+      net.ipv4.ip_forward: "1"  # Enable IP forwarding
+    restart: unless-stopped  # Restart container if it crashes
+
+# Optional Networks (if needed)
+# networks:
+#   wg_network:
+#     driver: bridge  # Define a bridge network (optional)

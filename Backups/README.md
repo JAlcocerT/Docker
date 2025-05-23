@@ -1,3 +1,6 @@
+Others: Duplicity, Urbackup, Seafile, RSnapshot
+
+
 ### Filerun :heavy_check_mark:
 
 * Raspberry Pi version (ARM): :heavy_check_mark:

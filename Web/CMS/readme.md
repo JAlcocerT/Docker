@@ -3,7 +3,7 @@
 * Strapi
 * Ghost
 * Directus
-* ...
+* Bludit https://www.bludit.com/
 
 <https://jamstack.org/headless-cms/>
 

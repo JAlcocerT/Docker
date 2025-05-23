@@ -1,0 +1,28 @@
+version: '3.8' # You can use 3.8 or a slightly older version like 3.3, 3.5, etc.
+
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy
+    container_name: grocy # Equivalent to --name grocy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - ~/Docker/Grocy:/config # Equivalent to -v ~/Docker/Grocy:/config
+    ports:
+      - "9283:80" # Equivalent to -p 9283:80
+    restart: unless-stopped # Equivalent to --restart unless-stopped
+
+#### Grocy :heavy_check_mark:
+
+# ```sh
+# docker run --name grocy -d \
+#   --name=grocy \
+#   -e PUID=1000 \
+#   -e PGID=1000 \
+#   -e TZ=Europe/Paris \
+#   -p 9283:80 \
+#   -v ~/Docker/Grocy:/config \
+#   --restart unless-stopped \
+#   lscr.io/linuxserver/grocy

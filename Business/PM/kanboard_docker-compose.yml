@@ -1,4 +1,4 @@
-version: '2'
+#version: '2'
 services:
   db:
     image: mariadb:latest
@@ -12,7 +12,7 @@ services:
       - MYSQL_PASSWORD=kanboard
     restart: always
       
-  kanboard:
+  kanboard: #https://github.com/kanboard/kanboard
     image: kanboard/kanboard:latest
     #ports:
     # - 89:80

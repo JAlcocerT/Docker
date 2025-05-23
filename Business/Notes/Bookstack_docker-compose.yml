@@ -1,7 +1,7 @@
----
-version: "2"
+#--- https://www.bookstackapp.com/
+#version: "2"
 services:
-  bookstack:
+  bookstack: #https://github.com/BookStackApp/BookStack
     image: linuxserver/bookstack
     container_name: bookstack
     environment:

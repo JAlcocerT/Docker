@@ -25,10 +25,9 @@
 </p>
 
 
-
 ---
 
-A companion for:
+A companion for This [public and open blog →](https://jalcocert.github.io/JAlcocerT/blog/)
 
 * My [**Raspberry Pi** guide](https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/)
 * My [**Linux** guide](https://jalcocert.github.io/Linux/docs/debian/docker/)
@@ -57,7 +56,9 @@ Everything needed to run a software application successfully can be stored in a 
 
 ## Docker and your favourite Apps
 
-I have been **collecting/adapting the config files** to install with Docker several Apps and consolidated it on this repository for anyone that might find it helpful.
+I have been **collecting/adapting the config files** to install several Apps with Docker.
+
+Consolidated them on this public repository for anyone that might find it helpful.
 
 <details>
   <summary>Click to know which Apps 🐋👈</summary>
@@ -66,18 +67,17 @@ I have been **collecting/adapting the config files** to install with Docker seve
 ### [Backups:](https://github.com/JAlcocerT/Docker/tree/main/Backups)
   * Duplicati :heavy_check_mark:
   * Filerun :heavy_check_mark:
-  * Nextcloud :heavy_check_mark:
+  * [Nextcloud](https://jalcocert.github.io/JAlcocerT/sync-file-tools/#nextcloud) :heavy_check_mark:
     * [RPI](https://jalcocert.github.io/RPi/posts/selfhosting-nextcloud/) :heavy_check_mark:
-    * Recommended Apps: cospend (moneybuster Android)
-  * Others: Duplicity, Urbackup, Seafile, RSnapshot
   * Photos: 
     * LibrePhotos
+    * [Immich](https://github.com/JAlcocerT/Docker/blob/main/Media/Photo/Immich_Docker-Compose.yml)
     * Lychee 
     * Photonix
     * Photoprism
     * [Photoview :page_with_curl:](https://fossengineer.com/selfhosting-Photoview-docker/) :heavy_check_mark: -> file system friendly
     * Piwigo
-  * RClone :heavy_check_mark:
+  * [RClone](https://github.com/JAlcocerT/Docker/blob/main/Backups/rclone_docker-compose.yml) :heavy_check_mark:
   * RSync :heavy_check_mark:
   * [Samba](https://fossengineer.com/selfhosting-samba/) :heavy_check_mark:
   * [Syncthing](https://fossengineer.com/selfhosting-filebrowser-docker) :heavy_check_mark:
@@ -92,31 +92,23 @@ I have been **collecting/adapting the config files** to install with Docker seve
       * Invoice Ninja
       * Solid Invoice (x86 only)
     * Management:
-       * Vikunja :heavy_check_mark:
+       * https://github.com/JAlcocerT/Docker/blob/main/Business/PM/vikunja_docker-compose.yaml :heavy_check_mark:
        * [Leantime](https://fossengineer.com/selfhosting-Leantime-docker/) (x86 & ARM, :heavy_check_mark:)
 ### [Communication:](https://github.com/JAlcocerT/Docker/tree/main/Communication)
    * Chats:
        * [Matrix with Synapse :page_with_curl:](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
        * Others: Revolt, RocketChat, Jitsi, Discourse
-   * Mail:
-       * iRedMail
-       * Mailcow
-       * Mailinabox
-       * Mailserver
-       * Mailu (rspamd)
-       * Poste
-       * Postfix
-   * FreshRSS :heavy_check_mark:
+   * [FreshRSS](https://fossengineer.com/freshrss-docker-setup/) :heavy_check_mark:
 ### [Dev](https://github.com/JAlcocerT/Docker/tree/main/Dev)
 * [WebTops](https://fossengineer.com/selfhosting-webtops-with-docker/)
 * [Gitea](https://fossengineer.com/selfhosting-Gitea-docker/) :heavy_check_mark:
 * [Gogs](https://fossengineer.com/selfhosting-Gogs-with-Docker/)
 * [Gitlab CE](https://fossengineer.com/selfhosting-Gitlab-with-Docker)
-* VSCode Server :heavy_check_mark:
+* [VSCode Server](https://github.com/JAlcocerT/Docker/blob/main/Dev/vscode-server_Docker-compose.yml) :heavy_check_mark:
 * [Jenkins](https://fossengineer.com/selfhosting-jenkins-ci-cd/)
 * [Airflow](https://fossengineer.com/selfhosting-airflow-with-docker)
-* OneDev: includes kanban board
-* SnippetBox :heavy_check_mark:
+* [OneDev](https://github.com/JAlcocerT/Docker/blob/main/Dev/GIT/OneDev_Docker-compose.yml): includes kanban board
+* [SnippetBox](https://github.com/JAlcocerT/Docker/blob/main/Others/snippetbox_docker-compose.yml) :heavy_check_mark:
 * [SSGs](https://github.com/JAlcocerT/Docker/tree/main/Web/SSGs)
 ### [IoT:](https://github.com/JAlcocerT/Docker/tree/main/IoT)
 * Automations:
@@ -131,18 +123,12 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * [BI Tools](https://jalcocert.github.io/JAlcocerT/setup-bi-tools-docker/):
   * [Metabase](https://jalcocert.github.io/RPi/posts/rpi-iot-dht1122-mongo/#metabase)
   * [Apache Superset](https://jalcocert.github.io/RPi/posts/rpi-gps-superset/#apache-superset-setup)
-  * Redash
+  * [Redash](https://jalcocert.github.io/JAlcocerT/setup-bi-tools-docker/#redash)
   * Grafana
 * Dashboards:
   * [NetData](https://fossengineer.com/selfhosting-server-monitoring-with-netdata-and-docker/) :heavy_check_mark:
   * Grafana with Prometheus (internet speed) :heavy_check_mark:
   * Grafana with Prometheus (internet + device with node exporter)
-  * Grafana with Graphite StatsD
-  * Grafana with InfluxDB (Temperature measuring)
-  * Grafana with Proxmox and InfluxDB
-  * Grafana with Proxmox and Graphite
-  * Grafana with Node-Red
-  * Grafana + cAdvisor
   * EFK stack for logs(Elastic search, Fluentd, Kibana)
   * ELK stack (ES, Logstash, Kibana)
   * GOtify
@@ -157,35 +143,34 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * Calibre :heavy_check_mark:
   * Audiobookshelf :heavy_check_mark:
   * Podgrab :heavy_check_mark:
-* Photos: 
-  * PiGallery :heavy_check_mark: -> Photo location, GPX support & file system friendly friendly (no DB required) :rocket:
+* [Photos](https://github.com/JAlcocerT/Docker/tree/main/Backups/Photos): 
+  * [PiGallery](https://github.com/JAlcocerT/Docker/blob/main/Backups/Photos/PiGallery_docker-compose.yml) :heavy_check_mark: -> Photo location, GPX support & file system friendly friendly (no DB required) :rocket:
 * FileSharing
   * Anonupload
   * Picoshare
   * Pingvin
   * [FileBrowser](https://fossengineer.com/selfhosting-filebrowser-docker)
 * Entertainment  
-  * Jellyfin :heavy_check_mark:
+  * [Jellyfin](https://jalcocert.github.io/JAlcocerT/media-server-with-open-source/) :heavy_check_mark:
   * Kodi
   * Plex
   * Emby
   * Couchpotato :heavy_check_mark:
-  * Jacket :heavy_check_mark:
+  * [Jacket](https://github.com/JAlcocerT/Docker/blob/main/Media/jacket_docker-compose.yml) :heavy_check_mark:
   * Others: Mylar3, Midarr, Readarr
-  * Calibre :heavy_check_mark:
+  * [Calibre](https://github.com/JAlcocerT/Docker/blob/main/Media/calibre_docker-compose.yml) :heavy_check_mark:
   * P2P
-    * Transmission :heavy_check_mark:
+    * [Transmission](https://fossengineer.com/transmission-with-vpn-torrent/) :heavy_check_mark:
     * rTorrent :heavy_check_mark:
     * [Qbittorrent](https://fossengineer.com/selfhosting-qBittorrent-with-docker-and-VPN) :heavy_check_mark:
     * Radarr :heavy_check_mark:
-    * Sonarr :heavy_check_mark:
-    * Bazar :heavy_check_mark:
+    * [Sonarr](https://github.com/JAlcocerT/Docker/blob/main/Media/Video/sonarr_docker-compose.yml) :heavy_check_mark:
+    * Bazarr :heavy_check_mark:
     * JDownloader :heavy_check_mark:
 * ArchiveBox
-* Music
-  * Supysonic :heavy_check_mark:
-  * Navidrome :heavy_check_mark: it has synergy with [youtube-dl](https://jalcocert.github.io/RPi/posts/youtube-video-download/#youtube-dl-material)
-* Mumble
+* [Music](https://github.com/JAlcocerT/Docker/tree/main/Media/Music)
+  * [Supysonic](https://github.com/JAlcocerT/Docker/blob/main/Media/Music/supysonic_docker-compose.yml) :heavy_check_mark:
+  * [Navidrome](https://github.com/JAlcocerT/Docker/blob/main/Media/Music/Navidrome_Docker-compose.yml) :heavy_check_mark: it has synergy with [youtube-dl](https://jalcocert.github.io/RPi/posts/youtube-video-download/#youtube-dl-material)
 
 ### [Security:](https://github.com/JAlcocerT/Docker/tree/main/Security)
 * Authelia  
@@ -197,11 +182,14 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * [Unbound](https://jalcocert.github.io/RPi/posts/selfh-internet-better/#unbound-dns) :heavy_check_mark:
   * [Pihole :page_with_curl:](https://fossengineer.com/selfhosting-PiHole-docker/) :heavy_check_mark: 
   * PiHole + Cloudflare (DNS over HTTPs)      
+  * Dynamic DNS
+    * DuckDNS :heavy_check_mark:
+    * No-IP  
 * EndleSSH
-* Fail2ban 
+* [Fail2ban](https://fossengineer.com/setup-fail2ban-with-docker) 
 * LAN:
   * [Watchyourlan](https://fossengineer.com/selfhosting-WatchYourLAN-docker/) :heavy_check_mark:
-  * Wireshark :heavy_check_mark:
+  * [Wireshark](https://fossengineer.com/setup-wireshark-with-docker/) :heavy_check_mark:
   * Pi-Alert  
 * Privacy:
   * [Whoogle :page_with_curl:](https://fossengineer.com/selfhosting-whoogle-docker/) :heavy_check_mark:
@@ -217,67 +205,57 @@ I have been **collecting/adapting the config files** to install with Docker seve
   * [Gluetun :page_with_curl:](https://fossengineer.com/using-bard-selfhosting-firefox-with-vpn-docker/)
   * [Tailscale](https://jalcocert.github.io/Linux/docs/debian/linux_vpn_setup/)
   * Headscale
-  * Wireguard :heavy_check_mark:
-* Watchtower :heavy_check_mark:
+  * [Wireguard and wg-easy](https://jalcocert.github.io/JAlcocerT/how-to-use-wg-easy-with-a-vps/) :heavy_check_mark:
+* [Watchtower](https://fossengineer.com/setup-watchtower-with-docker/) :heavy_check_mark:
     
 ###  Others:
 * Management:
-  * Bookstack
   * [Focalboard](https://fossengineer.com/focalboard-docker/) :heavy_check_mark:
-  * Joplin
-  * Kanboard
   * [Logseq](https://fossengineer.com/selfhosting-logseq/)
   * OpenProject
   * [Leantime :page_with_curl:](https://fossengineer.com/selfhosting-Leantime-docker/) :heavy_check_mark:
   * [Timtelite](https://fossengineer.com/selfhosting-timelite-free-tracking-tool-with-docker/)
   * [Trilium](https://fossengineer.com/selfhosting-Trilium-docker/) :heavy_check_mark:
-  * Wecan (Kanban board)
 * Youtube
   * MeTube :heavy_check_mark:
-* Grocy :heavy_check_mark:
+* [Grocy](https://github.com/JAlcocerT/Docker/tree/main/Others) :heavy_check_mark:
 * [Firefox :page_with_curl:](https://fossengineer.com/using-bard-selfhosting-firefox-with-vpn-docker/)
 * Libretranslate
 * Design
   * Penpotapp
   * [Drawio](https://fossengineer.com/selfhosting-drawio-with-docker/)
 
-
 ### [Web](https://github.com/JAlcocerT/Docker/tree/main/Web)
-* Analytics
-  * Matomo
-  * Plausible
-  * Posthog <https://posthog.com/docs/self-host>
+* [Analytics](https://github.com/JAlcocerT/Docker/tree/main/Web/Analytics)
+  * [Matomo](https://github.com/JAlcocerT/Docker/blob/main/Web/Analytics/matomo_Docker-compose.yml)
+  * [Plausible](https://github.com/JAlcocerT/Docker/blob/main/Web/Analytics/plausible_Docker-compose.yml)
+  * [Posthog](https://github.com/JAlcocerT/Docker/blob/main/Web/Analytics/Product_analytics/posthog_docker-compose.yml)
   * [Umami](https://fossengineer.com/selfhosting-umami-with-docker/) :heavy_check_mark:
-* Comment Engine
+* Comment Engines
   * remark42
-* Dynamic DNS
-  * DuckDNS :heavy_check_mark:
-  * No-IP
-* CMS/Sites
-  * Bludit
-  * [HUGO :page_with_curl:](https://fossengineer.com/web-guide-Hugo/) 
+* [CMS](https://github.com/JAlcocerT/Docker/tree/main/Web/CMS)
   * [Wordpress :page_with_curl:](https://fossengineer.com/selfhosting-wordpress-docker/) :heavy_check_mark:
   * [Ghost :page_with_curl:](https://fossengineer.com/selfhosting-ghost-docker/)
 * [Forms (HTML)](https://jalcocert.github.io/JAlcocerT/blog/dev-forms/#forms)
-  * Alpaca
-  * Drupal
-  * OhMyForm
-  * https://github.com/formbricks/formbricks
+  * [Drupal](https://github.com/JAlcocerT/Docker/blob/main/Others/drupal_docker-compose.yml)
+  * [Forms](https://github.com/JAlcocerT/Docker/tree/main/Web/Forms)
+    * [OhMyForm](https://github.com/JAlcocerT/Docker/blob/main/Web/Forms/OhMyForm_Docker-compose.yml)
+    * [FormBricks](https://jalcocert.github.io/JAlcocerT/blog/dev-forms/#formbricks)
 * Instagram alternatives
   * [Chevereto](https://fossengineer.com/selfhosting-chevereto-docker/)
   * Pixelfed
   * Vero
-* Static Web Server
+* Static Web Servers
   * [Apache :page_with_curl:](https://fossengineer.com/Selfhosting-Static-Webs-with-Apache-in-Docker/) 
   * NginX
-* [Subscriptions](https://jalcocert.github.io/JAlcocerT/blog/dev-forms/#newsletters)
+* [Subscriptions/Newsletters](https://jalcocert.github.io/JAlcocerT/blog/dev-forms/#newsletters)
    * Keila
    * Mailtrain
    * Moodle
 
 **Legend:**
   * :heavy_check_mark: -> Self-hosting instructions available in this repository
-  * :page_with_curl: -> Detailed instructions available in [my tech blog](https://fossengineer.com/).
+  * :page_with_curl: -> Detailed instructions available
 
 </details>
 
@@ -288,7 +266,7 @@ I have been **collecting/adapting the config files** to install with Docker seve
 * [TextGenWebUI with Docker](https://fossengineer.com/Generative-AI-LLMs-locally-with-cpu/)
 * [CrewAI with Docker](https://fossengineer.com/ai-agents-crewai/)
 
-You can also do [**AI Projects** with a Raspberry Pi](https://jalcocert.github.io/RPi/posts/raspberry-ai-projects/).
+> You can also do [**AI Projects** with a Raspberry Pi](https://jalcocert.github.io/RPi/posts/raspberry-ai-projects/).
 
 ## Powered Thanks To :heart:
 
@@ -303,12 +281,13 @@ You can also do [**AI Projects** with a Raspberry Pi](https://jalcocert.github.i
 
 Try it out the guide for yourself and improve or add other config files.
 
-If you enjoy self-hosting any of the apps listed, I would **show appreciation directly to their creators**. Please check the specific project for more details on that.
+If you enjoy self-hosting any of the apps listed, I would **show appreciation directly to their creators**. 
+
+Please check the specific project for more details on that.
 
 * If any of the docker-compose files or associated tutorials was helpful and you want to show gratitude:
  * Consider leaving feedback if you found some improvement / something can be explained better
  * Support additional weekends of self-hosting tinkering to bring new services to the list
-
 
 <p align="center">
   <a href="https://ko-fi.com/Z8Z1QPGUM">

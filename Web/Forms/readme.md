@@ -1,11 +1,11 @@
 ## Other FORMs
 
 
-* FormBricks
+1. FormBricks
     * https://formbricks.com/pricing
     * https://app.formbricks.com/environments/cm0vgwasu00061484bqmicsbm/settings/profile
 
-* OpnForms
+2. OpnForms
 
 
 ### qillforms

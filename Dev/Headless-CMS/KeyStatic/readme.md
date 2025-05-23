@@ -11,6 +11,9 @@
 
 * Thanks to https://github.com/JAlcocerT/barebones-starter for TinaCMS example
 
+> [!IMPORTANT]
+> See this [KeyStatic CMS Post](https://jalcocert.github.io/JAlcocerT/understanding-keystatic-cms/)
+
 
 ---
 

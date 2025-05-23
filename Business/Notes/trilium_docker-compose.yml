@@ -12,3 +12,18 @@ services:
 
 volumes:
   trilium-data:
+
+
+#### Trilium
+
+# ```
+# version: '3.3'
+# services:
+#     trilium:
+#         ports:
+#             - '8482:8080'
+#         volumes:
+#             - '~/Docker/Trilium:/home/node/trilium-data'
+#         image: 'zadam/trilium:latest'
+#         restart: always
+# ```

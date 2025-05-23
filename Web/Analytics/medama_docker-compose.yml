@@ -2,6 +2,9 @@
 #sudo docker logs medama
 #sudo docker stats medama
 
+
+#https://fossengineer.com/medama-web-analytics-selfhosting/
+
 #version: '3.9'
 services: #https://github.com/medama-io/medama
   medama: #https://github.com/medama-io/medama/pkgs/container/medama

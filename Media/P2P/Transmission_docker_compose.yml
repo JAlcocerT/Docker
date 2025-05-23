@@ -1,5 +1,6 @@
----
-version: "2.1"
+#https://fossengineer.com/transmission-with-vpn-torrent/
+# ---
+# version: "2.1"
 services:
   transmission:
     image: ghcr.io/linuxserver/transmission #lscr.io/linuxserver/transmission:latest #linuxserver/transmission:latest
