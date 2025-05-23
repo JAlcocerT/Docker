@@ -1,0 +1,30 @@
+# Example - https://feedback.astuto.io/
+# * By default, use it al `localhost:3000` with `admin@example.com` and `password`
+
+# https://astuto.io/
+# https://github.com/astuto/astuto
+# https://github.com/astuto/astuto?tab=AGPL-3.0-1-ov-file#readme
+
+#version: '3.4'
+services:
+  db:
+    image: postgres:14.5
+    environment:
+      POSTGRES_USER: yourpostgresusername
+      POSTGRES_PASSWORD: yourpostgrespassword
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+  web:
+    image: riggraz/astuto:latest #https://hub.docker.com/r/riggraz/astuto
+    environment:
+      POSTGRES_USER: yourpostgresusername
+      POSTGRES_PASSWORD: yourpostgrespassword
+      BASE_URL: http://yourwebsite.com
+      SECRET_KEY_BASE: yoursecretkeybase
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    
+volumes:
+  dbdata:
