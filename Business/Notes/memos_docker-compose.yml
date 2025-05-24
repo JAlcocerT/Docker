@@ -1,0 +1,21 @@
+#https://github.com/usememos/memos
+#https://fossengineer.com/selfhosting-memos-docker/
+
+#version: '3.8'
+
+services:
+  memos:
+    image: neosmemo/memos:stable  #https://github.com/usememos/memos
+    container_name: memos
+    restart: unless-stopped
+    ports:
+      - "5230:5230" # Host_Port:Container_Port
+    volumes:
+      - memos_data:/var/opt/memos # Use a named volume for persistence
+
+volumes:
+  memos_data:
+    # Docker will create and manage this named volume.
+    # Its data typically resides in /var/lib/docker/volumes/memos_data/_data
+    # You can specify a driver or custom options if needed, but for simplicity,
+    # leaving it blank works fine for a local volume.

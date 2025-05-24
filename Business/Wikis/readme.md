@@ -5,7 +5,7 @@
 5. https://github.com/outline/outline
 
 
-## Fitnesse
+Fitnesse
 
 https://github.com/unclebob/fitnesse
 
@@ -38,7 +38,7 @@ Vrite - headless CMS for technical content
 https://docs.vrite.io/self-hosting/docker/
 https://docs.vrite.io/self-hosting/docker/
 
-### F/OSS Alternatives to Gitbook
+F/OSS Alternatives to Gitbook
 
 * https://github.com/dotnet/docfx
 

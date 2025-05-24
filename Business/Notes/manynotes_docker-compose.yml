@@ -1,0 +1,124 @@
+# #https://github.com/brufdev/many-notes
+# #https://noted.lol/many-notes/
+#https://fossengineer.com/selfhosting-many-notes-docker/
+
+# #docker compose -f './manynotes_docker-compose.yml' up -d
+
+version: '3.8'
+
+services:
+  manynotes:
+    image: brufdev/many-notes:latest # Use a specific version for production, e.g., brufdev/many-notes:v0.9.0
+    container_name: manynotes
+    restart: unless-stopped
+    ports:
+      - "8099:8080" # Host_Port:Container_Port - Access Many Notes via http://your-server-ip (or http://your-server-ip:80 if default port)
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_KEY=YOUR_GENERATED_APP_KEY_HERE # <--- IMPORTANT: Generate and replace with a unique, strong key!
+      - APP_URL=http://192.168.1.8:8099 # <--- IMPORTANT: Replace with your server's actual IP or domain
+      # Database configuration for MariaDB
+      - DB_CONNECTION=mariadb
+      - DB_HOST=mariadb # Use the service name as the hostname
+      - DB_PORT=3306
+      - DB_DATABASE=manynotes
+      - DB_USERNAME=user
+      - DB_PASSWORD=USER_PASSWORD # <--- IMPORTANT: Replace with a strong password!
+      # Path where Many Notes stores the actual Markdown files
+      - APP_NOTES_PATH=/var/www/html/app/notes # This path is critical for your notes' persistence
+
+    volumes:
+      # Named volume for Laravel logs
+      - manynotes_logs:/var/www/html/storage/logs
+      # Named volume for Laravel internal private storage
+      - manynotes_private:/var/www/html/storage/app/private
+      # CRITICAL: Named volume for your actual Markdown notes files
+      - manynotes_files:/var/www/html/app/notes # <-- ADDED THIS CRITICAL VOLUME!
+
+    depends_on:
+      - mariadb # Ensure MariaDB starts before Many Notes
+
+  mariadb:
+    image: mariadb:11
+    container_name: manynotes_mariadb # Good to name this container too
+    restart: unless-stopped
+    environment:
+      - MARIADB_ROOT_PASSWORD=ROOT_PASSWORD # <--- IMPORTANT: Replace with a strong root password!
+      - MARIADB_DATABASE=manynotes
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=USER_PASSWORD # <--- IMPORTANT: Replace with the same strong password as in Many Notes service!
+    volumes:
+      - manynotes_db_data:/var/lib/mysql # Named volume for MariaDB database persistence
+
+# Define named volumes for persistence
+volumes:
+  manynotes_logs:
+  manynotes_private:
+  manynotes_files: # <-- ADDED THIS VOLUME
+  manynotes_db_data:
+  # If you wanted Typesense, it would be a separate service and its own volume, like:
+  # typesense_data:
+
+# version: '3.8'
+
+# services:
+#   manynotes:
+#     image: brufdev/many-notes:latest # Use a specific version for production, e.g., brufdev/many-notes:v0.9.0
+#     container_name: manynotes
+#     restart: unless-stopped
+#     ports:
+#       - "8099:6001" # Host_Port:Container_Port - Access Many Notes via http://your-server-ip:8000
+#     environment:
+#       - APP_ENV=production
+#       - APP_DEBUG=false
+#       - APP_KEY=YOUR_GENERATED_APP_KEY_HERE # <--- IMPORTANT: Replace with a unique, strong key!
+#       - APP_URL=http://192.168.1.8:6001 # <--- IMPORTANT: Change localhost to your server's IP or domain name
+#       # Database configuration (for SQLite - default)
+#       - DB_CONNECTION=sqlite
+#       - DB_DATABASE=/var/www/html/database/database.sqlite # Path inside the container for the DB file
+#       # Path where Many Notes stores the actual Markdown files
+#       - APP_NOTES_PATH=/var/www/html/app/notes # This maps to the `manynotes_notes` volume below
+#     volumes:
+#       # Named volume for the SQLite database file
+#       - many_notes_db_data:/var/www/html/database
+#       # Named volume for your actual Markdown notes (crucial for persistence and direct access)
+#       - many_notes_files:/var/www/html/app/notes
+
+# # Define named volumes for persistence
+# volumes:
+#   many_notes_db_data:
+#   many_notes_files:
+
+
+# version: '3.8'
+
+# services:
+#   manynotes:
+#     image: brufdev/many-notes:latest # Always use a specific version in production, e.g., v0.9.0
+#     container_name: manynotes
+#     restart: unless-stopped
+#     ports:
+#       - "8022:8000" # Host_Port:Container_Port - Access Many Notes via this port
+#     environment:
+#       # General configuration
+#       - APP_ENV=production
+#       - APP_DEBUG=false
+#       - APP_KEY=YourSuperSecretAppKeyGoesHere # IMPORTANT: Generate a secure, unique key!
+#       - APP_URL=http://localhost:8000 # IMPORTANT: Change to your server's URL/IP if accessing remotely
+#       # Database configuration (for SQLite)
+#       - DB_CONNECTION=sqlite
+#       - DB_DATABASE=/app/database/database.sqlite # Path inside the container
+#       # Storage volume for Markdown files and DB
+#       - APP_NOTES_PATH=/app/notes # Path inside the container where Markdown files will be stored
+#     volumes:
+#       - manynotes_data:/app/database # For the SQLite database file
+#       - manynotes_notes:/app/notes   # For your actual Markdown notes
+#     # depends_on: # <-- COMMENT OUT OR REMOVE THIS LINE
+#       # If using MySQL/PostgreSQL, you would add your DB service here
+#       # - db
+
+# # Define named volumes for persistence
+# volumes:
+#   manynotes_data:
+#   manynotes_notes:
