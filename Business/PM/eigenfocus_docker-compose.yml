@@ -1,0 +1,29 @@
+#https://github.com/Eigenfocus/eigenfocus
+#https://github.com/Eigenfocus/eigenfocus?tab=readme-ov-file#installation
+
+#version: '3.8'
+
+services:
+  eigenfocus:
+    image: eigenfocus/eigenfocus:1.0.0-free
+    container_name: eigenfocus
+    restart: unless-stopped
+    ports:
+      - "3001:3000" # Host_Port:Container_Port
+    environment:
+      - DEFAULT_HOST_URL=http://localhost:3001 # IMPORTANT: Change localhost to your server's IP or domain
+    volumes:
+      - eigenfocus_data:/eigenfocus-app/app-data # Use a named volume for persistence
+
+volumes:
+  eigenfocus_data:
+    # Optional: If you want to specify a driver or custom options for the volume,
+    # you can do so here. Otherwise, a default local volume will be created.
+
+# docker run \
+#     --restart unless-stopped \
+#     -v ./app-data:/eigenfocus-app/app-data \
+#     -p 3001:3000 \
+#     -e DEFAULT_HOST_URL=http://localhost:3001 \
+#     -d \
+#     eigenfocus/eigenfocus:1.0.0-free

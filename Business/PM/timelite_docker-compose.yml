@@ -1,0 +1,20 @@
+#https://fossengineer.com/selfhosting-timelite-with-docker/
+
+#version: "3"
+
+services:
+  app: #https://timelite.bythewood.me/
+    container_name: timelite
+    build: .
+    env_file: .env
+    ports:
+      - "${PORT}:${PORT}"
+    command: yarn next:start
+    restart: unless-stopped
+    networks:
+      - nginx_nginx_network
+
+networks:
+  nginx_nginx_network:
+    external: true
+  # Ensure that the nginx_nginx_network is created externally before running this compose file.
