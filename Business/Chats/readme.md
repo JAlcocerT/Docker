@@ -1,5 +1,2 @@
 1. Chatwoot
-
-
-* Others
-    * https://crisp.chat
+2. https://crisp.chat

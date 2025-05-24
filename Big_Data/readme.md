@@ -39,13 +39,4 @@
 
 [![MINio](https://img.youtube.com/vi/aMOycqeqlmM/0.jpg)](https://www.youtube.com/watch?v=aMOycqeqlmM)
 
-[YT Reference](https://www.youtube.com/watch?v=aMOycqeqlmM).
-
----
-
-## Other Tools
-
-* https://github.com/wix-incubator/quix
-* https://github.com/pinterest/querybook
-* https://github.com/quixio/quix-streams
-    * https://quix.io/templates/ai-customer-support
+<!-- [YT Reference](https://www.youtube.com/watch?v=aMOycqeqlmM) -->

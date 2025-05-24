@@ -1,16 +1,19 @@
+#https://joplinapp.org/help/apps/to-dos
+#https://joplinapp.org/
+
 #version: '3.3'
 services:
-    app:
-        image: joplin/server:latest
+    app: #https://joplinapp.org/
+        image: joplin/server:latest #https://github.com/laurent22/joplin
         depends_on:
             - db
         ports:
-            - "3000:22300"
+            - "3000:22300" #http://192.168.1.11:3097/login
         restart: unless-stopped     
-        env_file: .env   
+        #env_file: .env   
         environment:
             - APP_PORT=22300
-            - APP_BASE_URL=${APP_BASE_URL}  #  IP/URL
+            - APP_BASE_URL= 192.168.1.11 #${APP_BASE_URL}  #  IP/URL
             - DB_CLIENT=pg
             - POSTGRES_PASSWORD=password
             - POSTGRES_DATABASE=joplin
@@ -28,3 +31,8 @@ services:
             - POSTGRES_PASSWORD=password
             - POSTGRES_USER=user
             - POSTGRES_DB=joplin
+
+    # The out-of-the-box Joplin Server ships with a single admin account:
+
+    # • Email: admin@localhost
+    # • Password: admin

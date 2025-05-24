@@ -80,7 +80,7 @@ Consolidated them on this public repository for anyone that might find it helpfu
   * [RClone](https://github.com/JAlcocerT/Docker/blob/main/Backups/rclone_docker-compose.yml) :heavy_check_mark:
   * RSync :heavy_check_mark:
   * [Samba](https://fossengineer.com/selfhosting-samba/) :heavy_check_mark:
-  * [Syncthing](https://fossengineer.com/selfhosting-filebrowser-docker) :heavy_check_mark:
+  * Syncthing
     
 ### [Business:](https://github.com/JAlcocerT/Docker/tree/main/Business)
    * ERPs:
@@ -91,6 +91,7 @@ Consolidated them on this public repository for anyone that might find it helpfu
       * Crater Invoices
       * Invoice Ninja
       * Solid Invoice (x86 only)
+      * [Serverless Invoices and React Invoice Generator](https://fossengineer.com/open-source-invoice-creator/)
     * Management:
        * https://github.com/JAlcocerT/Docker/blob/main/Business/PM/vikunja_docker-compose.yaml :heavy_check_mark:
        * [Leantime](https://fossengineer.com/selfhosting-Leantime-docker/) (x86 & ARM, :heavy_check_mark:)
@@ -224,6 +225,7 @@ Consolidated them on this public repository for anyone that might find it helpfu
 * Design
   * Penpotapp
   * [Drawio](https://fossengineer.com/selfhosting-drawio-with-docker/)
+  * Excalidraw
 
 ### [Web](https://github.com/JAlcocerT/Docker/tree/main/Web)
 * [Analytics](https://github.com/JAlcocerT/Docker/tree/main/Web/Analytics)

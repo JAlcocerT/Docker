@@ -1,1 +1,15 @@
 #https://github.com/ryanlelek/Raneto
+
+#version: '3'
+services:
+  raneto:
+    image: ryanlelek/raneto:latest
+    container_name: raneto
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./content:/opt/raneto/content/pages
+      - ./config.js:/opt/raneto/config/config.js
+    restart: unless-stopped

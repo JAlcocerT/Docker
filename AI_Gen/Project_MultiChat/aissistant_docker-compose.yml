@@ -1,0 +1,27 @@
+services:
+  streamlit_aissistant:
+    image: st_aissistant:v2  
+    container_name: st_aissistant #docker exec -it st_aissistant /bin/bash
+    ports:
+      - "8505:8501"    
+    # env_file:
+    #   - .env  # Ensure this line is present
+    environment:
+      - DEV_MODE=False  # Set to "1" for development mode, "0" for production mode
+      - OPENAI_API_KEY=sk-proj-open-ai-api
+      - AUTH_MODE=Stripe  # Must be set for production
+      # - BASE_URL_MAILERLITE=${BASE_URL_MAILERLITE}  # Must be set for production
+      # - SHEET_URL_FORMBRICKS=${SHEET_URL_FORMBRICKS}  # Must be set for production
+      # - LIST_OF_PRODUCTS=${LIST_OF_PRODUCTS}  # Must be set for production
+      - MENU_OPTIONS=Custom Agent,Email Summarizer,Diagram Creation
+      - MENU_ICONS=bar-chart-line,envelope,pencil
+      - SYSTEM_PROMPT="You are a helpful data analytics assistant, specialized in Python and SQL. You will help to migrate pyspark code into big query sql code and leave the comments in the code where appropiate."
+    command: streamlit run Z_ST_AIssistant_v2.py
+    #command: tail -f /dev/null
+    # networks:
+    #   - cloudflare_tunnel
+    restart: unless-stopped
+            
+# networks:
+#   cloudflare_tunnel:
+#     external: true
