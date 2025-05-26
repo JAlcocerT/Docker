@@ -1,0 +1,185 @@
+#https://jalcocert.github.io/JAlcocerT/selfhosted-apps-may-2025/
+
+#version: '3'
+
+services:
+  streamlit-multichat: #https://github.com/JAlcocerT/Streamlit-MultiChat/tree/main/Z_DeployMe
+    image: ghcr.io/jalcocert/streamlit-multichat:v1.3 #https://github.com/JAlcocerT/Streamlit-MultiChat/pkgs/container/streamlit-multichat
+    container_name: streamlit_multichat ##https://github.com/JAlcocerT/Docker/blob/main/AI_Gen/Project_MultiChat/docker-compose.yml
+    volumes:
+      - ai_streamlit_multichat:/app
+    working_dir: /app
+    command: /bin/sh -c "\
+      mkdir -p /app/.streamlit && \
+      echo 'OPENAI_API_KEY = \"sk-proj-openaiAPIhere\"' > /app/.streamlit/secrets.toml && \
+      echo 'GROQ_API_KEY = \"gsk_GroqAPI\"' >> /app/.streamlit/secrets.toml && \
+      echo 'ANTHROPIC_API_KEY = \"sk-ant-yourANTHROPICapihere\"' >> /app/.streamlit/secrets.toml && \      
+      streamlit run Z_multichat_Auth.py"
+    #command: tail -f /dev/null 
+    ports:
+      - "8501:8501"
+    restart: always
+    environment:
+      MODEL_API_KEY: sk-proj-openaiAPIhere
+      MODEL: gpt-4o-mini      #gpt-4...
+      TEMPERATURE: 0 #dont be creative :)    
+      OPENAI_MODELS: "gpt-4.1-nano,gpt-4o-mini,gpt-4.1" # Comma-separated list of models for OPENAI page
+    # networks:
+    #   - cloudflare_tunnel
+      # - nginx_default   
+    #restart: always   
+
+# networks:
+#   cloudflare_tunnel:
+#     external: true
+  # nginx_default:
+  #   external: true
+
+#version: '3'
+#services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollamacontainer
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    #command: ollama pull llama3.2
+    restart: always
+
+# volumes:
+#   ollama_data:  
+
+#http://192.168.1.11:8090/
+  termix:
+    image: ghcr.io/lukegus/termix:latest
+    container_name: termix #https://github.com/JAlcocerT/Docker/blob/main/SelfH/Termix/docker-compose.yml
+    restart: unless-stopped
+    ports:
+      - "8090:8080"
+    volumes:
+      - termix-data:/app/data
+    environment:
+      # Generate random salt here https://www.lastpass.com/features/password-generator (max 32 characters, include all characters for settings)
+      SALT: "something_generated"
+      PORT: "8080"
+
+### NEXTCLOUD
+  db:
+    image: linuxserver/mariadb
+    restart: always
+    container_name: nextclouddb
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_INITDB_SKIP_TZINFO=1
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+
+  nextcloud-app:
+    image: nextcloud
+    container_name: nextcloud
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - /home/jalcocert/Docker/nextcloud/html:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.11:8080 http://0.0.0.0:8080 https://nc.piszymszu.duckdns.org/ http://100.86.82.103
+
+#version: "3"
+#services:
+  nginx-app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    container_name: nginx    
+    ports:
+      # These ports are in format <host-port>:<container-port>
+      - '80:80' # Public HTTP Port
+      - '443:443' # Public HTTPS Port
+      - '81:81' # Admin Web Port
+      # Add any other Stream port you want to expose
+      # - '21:21' # FTP
+    volumes:
+      #- ./data:/data
+      #- ./letsencrypt:/etc/letsencrypt
+      - ~/Docker/Nginx/data:/data
+      - ~/Docker/Nginx/letsencrypt:/etc/letsencrypt
+
+#### TOOLS ###
+#version: '3.9'
+#services:
+  it-tools:
+    image: 'corentinth/it-tools:latest'
+    ports:
+      - '8034:80'
+    restart: unless-stopped
+    container_name: ittools
+
+# version: "3.8"
+# services:
+  omni-tools:
+    image: iib0011/omni-tools:latest
+    container_name: omni-tools
+    ports:
+      - "8060:80"
+    restart: unless-stopped      
+
+
+#version: '3.3'
+#services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
+    ports:
+      - '8050:8080'
+    volumes:
+      - ./StirlingPDF/trainingData:/usr/share/tessdata # Required for extra OCR languages
+      - ./StirlingPDF/extraConfigs:/configs
+      - ./StirlingPDF/customFiles:/customFiles/
+      - ./StirlingPDF/logs:/logs/
+      - ./StirlingPDF/pipeline:/pipeline/
+    environment:
+      - DOCKER_ENABLE_SECURITY=false
+      - LANGS=en_GB
+#admin@example.com #changeme
+
+
+#services:
+    speedtest-tracker:
+        image: lscr.io/linuxserver/speedtest-tracker:latest
+        restart: unless-stopped
+        container_name: speedtest-tracker
+        ports:
+            - 8065:80
+            - 8443:443
+        environment:
+            - PUID=1000
+            - PGID=1000
+            #openssl rand -base64 12 #for secrets
+            - APP_KEY="your_random_secret_key_here"
+            - DB_CONNECTION=sqlite
+        volumes:
+            - speedtestconfig:/config
+
+# volumes:
+#     speedtestconfig:
+
+
+#############
+volumes:
+  ai_streamlit_multichat:
+  termix-data:
+    driver: local  
+#nextcloud:
+  db:
+#ollama
+  ollama_data:
+  speedtestconfig:
