@@ -1,0 +1,62 @@
+#docker-compose -f docker-compose_traefik.yml up -d
+
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v2.10
+    container_name: traefik
+    command:
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      # Disable Let's Encrypt for local development
+      - "--serversTransport.insecureSkipVerify=true"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Traefik dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - traefik-public
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.localhost`)"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.entrypoints=web"
+      - "traefik.http.routers.traefik.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_BASIC_AUTH}"
+
+  phidata_yt_groq:
+    image: ghcr.io/jalcocert/phidata:yt-groq
+    container_name: phidata_yt_groq
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    command: >
+      streamlit run cookbook/llms/groq/video_summary/app.py
+      --server.address=0.0.0.0
+      --server.port=8501
+      --server.headless=true
+      --server.enableCORS=true
+      --server.enableXsrfProtection=false
+      --browser.serverAddress=app.localhost
+      --browser.gatherUsageStats=false
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      # HTTP configuration
+      - "traefik.http.routers.phidata-yt-groq.rule=Host(`app.localhost`)"
+      - "traefik.http.routers.phidata-yt-groq.entrypoints=web"
+      - "traefik.http.services.phidata-yt-groq.loadbalancer.server.port=8501"
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: false
+
+# Create the letsencrypt directory with proper permissions
+# mkdir -p letsencrypt && touch letsencrypt/acme.json && chmod 600 letsencrypt/acme.json
