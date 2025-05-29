@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v2.10
+    container_name: traefik-prod
+    command:
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.leresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.leresolver.acme.email=${TRAEFIK_EMAIL}"
+      - "--certificatesresolvers.leresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Traefik dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./letsencrypt:/letsencrypt
+    networks:
+      - traefik-public
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.${TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
+      - "traefik.http.routers.traefik.tls.certresolver=leresolver"
+      - "traefik.http.routers.traefik.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_BASIC_AUTH}"
+      # Serve dashboard on the main domain
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.${TRAEFIK_DOMAIN}`) && PathPrefix(`/api`) || PathPrefix(`/dashboard`)"
+      # HTTP to HTTPS redirect
+      - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
+      - "traefik.http.routers.http-catchall.entrypoints=web"
+      - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+
+  phidata_yt_groq:
+    image: ghcr.io/jalcocert/phidata:yt-groq
+    container_name: phidata_yt_groq_prod
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    command: >
+      streamlit run cookbook/llms/groq/video_summary/app.py
+      --server.address=0.0.0.0
+      --server.port=8501
+      --server.headless=true
+      --server.enableCORS=false
+      --server.enableXsrfProtection=false
+      --browser.serverAddress=${TRAEFIK_DOMAIN}
+      --browser.gatherUsageStats=false
+    restart: unless-stopped
+    networks:
+      - traefik-public
+    labels:
+      - "traefik.enable=true"
+      # Main application router (HTTPS)
+      - "traefik.http.routers.phidata-yt-groq.rule=Host(`${TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.phidata-yt-groq.entrypoints=websecure"
+      - "traefik.http.routers.phidata-yt-groq.tls.certresolver=leresolver"
+      - "traefik.http.services.phidata-yt-groq.loadbalancer.server.port=8501"
+      # HTTP to HTTPS redirect
+      - "traefik.http.routers.phidata-http.rule=Host(`${TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.phidata-http.entrypoints=web"
+      - "traefik.http.routers.phidata-http.middlewares=redirect-to-https@docker"
+      # Global redirect for any other host
+      - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
+      - "traefik.http.routers.http-catchall.entrypoints=web"
+      - "traefik.http.routers.http-catchall.middlewares=redirect-to-https@docker"
+
+networks:
+  traefik-public:
+    external: false
+
+# Create the letsencrypt directory with proper permissions
+# mkdir -p letsencrypt && touch letsencrypt/acme.json && chmod 600 letsencrypt/acme.json
