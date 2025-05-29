@@ -6,3 +6,7 @@
 jwt*
 session
 encryption
+
+duckdns/
+letsencrypt/
+nginx-html/

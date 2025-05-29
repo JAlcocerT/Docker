@@ -1,54 +1,54 @@
-# #version: '3'
-# #github.com/JAlcocerT/Streamlit-MultiChat
-# #https://jalcocert.github.io/JAlcocerT/create-streamlit-chatgpt/
+# docker-compose -f docker-compose_caddy.yml down -v && docker-compose -f docker-compose_caddy.yml up -d
 
+version: '3.8'
 
-# #docker run -p 8501:8501 -v ai_streamlit_multichat:/app --name streamlitmultichat streamlitmultichat:latest /bin/sh -c "cd /app && streamlit run streamlit-multichat.py"
-# #podman run -p .....
+services:
+  streamlit-multichat:
+    image: ghcr.io/jalcocert/phidata:yt-groq #phidata:yt_summary_groq
+    #image: ghcr.io/jalcocert/streamlit-multichat:v1.3
+    container_name: streamlit_multichat
+    #volumes:
+    #  - ./app:/app
+    #  - streamlit_config:/app/.streamlit
+    #working_dir: /app
+    #command: tail -f /dev/null
+    command: streamlit run cookbook/llms/groq/video_summary/app.py
+    # command: >
+    #   sh -c "streamlit run Z_multichat.py --server.port=8501 --server.address=0.0.0.0 --server.enableCORS=false"
+    expose:
+      - "8501"
+    restart: unless-stopped
+    environment:
+      - MODEL_API_KEY=${MODEL_API_KEY:-sk-proj-openaiAPIhere}
+      - MODEL=${MODEL:-gpt-4o-mini}
+      - TEMPERATURE=${TEMPERATURE:-0}
+    networks:
+      - caddy-net
 
-# #dig multichat.jalcocertech.com
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+    networks:
+      - caddy-net
+    environment:
+      - ACME_AGREE=false
 
-# #docker-compose up -d
+networks:
+  caddy-net:
+    driver: bridge
 
-
-# version: '3'
-# services:
-#   streamlit-multichat:
-#     image: ghcr.io/jalcocert/streamlit-multichat
-#     container_name: streamlit_multichat
-#     volumes:
-#       - ai_streamlit_multichat:/app
-#     working_dir: /app
-#     command: /bin/sh -c "\
-#       mkdir -p /app/.streamlit && \
-#       echo 'OPENAI_API_KEY = \"sk-proj-openaiAPIhere\"' > /app/.streamlit/secrets.toml && \
-#       echo 'GROQ_API_KEY = \"gsk_groqAPIhere\"' >> /app/.streamlit/secrets.toml && \
-#       echo 'ANTHROPIC_API_KEY = \"sk-ant-yourANTHROPICapihere\"' >> /app/.streamlit/secrets.toml && \      
-#       streamlit run Z_multichat.py"
-#     ports:
-#       - "8501:8501"
-#     restart: always
-#     environment:
-#       MODEL_API_KEY: sk-proj-openaiAPIhere
-#       MODEL: gpt-4o-mini      #gpt-4 
-#       TEMPERATURE: 0 #dont be creative :)    
-#     networks:
-#       - caddy-net
-#   caddy:
-#     image: caddy:latest
-#     ports:
-#       - "80:80"
-#       - "443:443"
-#     volumes:
-#       - ./Caddyfile:/etc/caddy/Caddyfile
-#       - ./caddy_data:/data
-#       - ./caddy_config:/config
-#     networks:
-#       - caddy-net
-#     restart: unless-stopped
-
-# networks:
-#   caddy-net:
+volumes:
+  ai_streamlit_multichat:
+  caddy_data:
+  caddy_config:
+  streamlit_config:
 #     driver: bridge
 
 # volumes:

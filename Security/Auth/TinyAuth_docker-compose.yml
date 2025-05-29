@@ -1,32 +1,69 @@
+#./setup-tinyauth.sh
+#nano .env
+#docker-compose -f TinyAuth_docker-compose.yml up -d
+#docker-compose -f TinyAuth_docker-compose.yml stop tinyauth && docker-compose -f TinyAuth_docker-compose.yml rm -f tinyauth && docker-compose -f TinyAuth_docker-compose.yml up -d tinyauth
+
+version: '3.8'
+
 services:
   traefik:
     container_name: traefik
     image: traefik:v3.3
-    command: --api.insecure=true --providers.docker
+    command:
+      - --api.insecure=true
+      - --providers.docker
+      - --entrypoints.web.address=:80
+      - --entrypoints.web.http.redirections.entryPoint.to=websecure
+      - --entrypoints.web.http.redirections.entryPoint.scheme=https
+      - --entrypoints.websecure.address=:443
+      - --certificatesresolvers.myresolver.acme.email=your-email@example.com
+      - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
     ports:
-      - 80:80
+      - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./letsencrypt:/letsencrypt
     labels:
-      traefik.http.middlewares.tinyauth.forwardauth.address: http://tinyauth:3000/api/auth
+      - traefik.http.middlewares.tinyauth.forwardauth.address=http://tinyauth:3000/api/auth
+      - traefik.http.middlewares.tinyauth.forwardauth.trustForwardHeader=true
+      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+      - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
 
+  # Example protected service
   nginx:
     container_name: nginx
     image: nginx:latest
     labels:
-      traefik.enable: true
-      traefik.http.routers.nginx.rule: Host(`nginx.example.com`)
-      traefik.http.services.nginx.loadbalancer.server.port: 80
-      traefik.http.routers.nginx.middlewares: tinyauth
+      - traefik.enable=true
+      - traefik.http.routers.nginx.rule=Host(`gibme.duckdns.org`)
+      - traefik.http.routers.nginx.entrypoints=websecure
+      - traefik.http.routers.nginx.tls.certresolver=myresolver
+      - traefik.http.services.nginx.loadbalancer.server.port=80
+      - traefik.http.routers.nginx.middlewares=tinyauth@docker
+    volumes:
+      - ./nginx-html:/usr/share/nginx/html
 
+  # TinyAuth service
   tinyauth:
     container_name: tinyauth
     image: ghcr.io/steveiliop56/tinyauth:latest
-    environment:
-      - SECRET=some-random-32-chars-string
-      - APP_URL=https://tinyauth.example.com
-      - USERS=# user:password
+    env_file:
+      - ./tinyauth.env
     labels:
-      traefik.enable: true
-      traefik.http.routers.tinyauth.rule: Host(`tinyauth.example.com`)
-      traefik.http.services.tinyauth.loadbalancer.server.port: 3000
+      - traefik.enable=true
+      - traefik.http.routers.tinyauth.rule=Host(`auth.gibme.duckdns.org`)
+      - traefik.http.routers.tinyauth.entrypoints=websecure
+      - traefik.http.routers.tinyauth.tls.certresolver=myresolver
+      - traefik.http.services.tinyauth.loadbalancer.server.port=3000
+
+  # DuckDNS updater (optional)
+  duckdns:
+    image: linuxserver/duckdns
+    container_name: duckdns
+    env_file:
+      - ./duckdns.env
+    volumes:
+      - ./duckdns:/config
+    restart: unless-stopped
