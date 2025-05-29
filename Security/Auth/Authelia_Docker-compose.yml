@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # Authelia Service
+  authelia:
+    image: authelia/authelia:latest
+    container_name: authelia
+    volumes:
+      - ./authelia/config:/config
+    environment:
+      - TZ=Europe/Madrid
+      - AUTHELIA_JWT_SECRET_FILE=/config/jwt
+      - AUTHELIA_SESSION_SECRET_FILE=/config/session
+      - AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE=/config/encryption
+      - AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE=/config/jwt_reset
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.authelia.rule=Host(`auth.localhost`)"
+      - "traefik.http.routers.authelia.entrypoints=websecure"
+      - "traefik.http.routers.authelia.tls.certresolver=myresolver"
+      - "traefik.http.services.authelia.loadbalancer.server.port=9091"
+    networks:
+      - traefik_public
+    restart: unless-stopped
+    depends_on:
+      - redis
+
+  # Redis for session storage
+  redis:
+    image: redis:alpine
+    container_name: authelia-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - traefik_public
+    restart: unless-stopped
+
+  # Example service protected by Authelia
+  whoami:
+    image: containous/whoami
+    container_name: whoami
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - "traefik.http.routers.whoami.middlewares=authelia@docker"
+    networks:
+      - traefik_public
+    restart: unless-stopped
+
+networks:
+  traefik_public:
+    external: false
+
+volumes:
+  redis_data:
+    name: authelia_redis_data

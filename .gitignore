@@ -2,3 +2,7 @@
 
 *_venv/
 *_data/
+
+jwt*
+session
+encryption

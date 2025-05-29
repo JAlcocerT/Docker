@@ -1,0 +1,10 @@
+# Password is 'password' - CHANGE THIS IN PRODUCTION
+users:
+  admin:
+    displayname: "Admin"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$c2FsdHlzYWx0$oG0js25+awPUxQkGjPueVtT8wXHjEHY5rryd5kEHj3E"
+    email: admin@example.com
+    groups:
+      - admins
+    # TOTP secret: JBSWY3DPEHPK3PXP
+    totp_secret: "JBSWY3DPEHPK3PXP"

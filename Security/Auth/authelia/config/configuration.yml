@@ -1,0 +1,58 @@
+###############################################################
+#                   Authelia configuration                    #
+###############################################################
+
+server:
+  host: 0.0.0.0
+  port: 9091
+  path: ""
+
+log:
+  level: info
+
+jwt_secret: ${AUTHELIA_JWT_SECRET}
+
+authentication_backend:
+  file:
+    path: /config/users.yml
+    password:
+      algorithm: argon2id
+      iterations: 3
+      salt_length: 16
+      parallelism: 4
+      memory: 131072 # 128MB
+
+access_control:
+  default_policy: deny
+  rules:
+    # Rules applied to everyone
+    - domain: "auth.localhost"
+      policy: bypass
+    
+    # Example rule for whoami service
+    - domain: "whoami.localhost"
+      policy: two_factor
+
+session:
+  name: authelia_session
+  expiration: 3600 # 1 hour
+  inactivity: 300 # 5 minutes
+  domain: localhost
+  secret: ${AUTHELIA_SESSION_SECRET}
+  redis:
+    host: redis
+    port: 6379
+
+totp:
+  issuer: authelia.com
+  period: 30
+  skew: 1
+
+storage:
+  encryption_key: ${AUTHELIA_STORAGE_ENCRYPTION_KEY}
+  local:
+    path: /config/db.sqlite3
+
+notifier:
+  filesystem:
+    filename: /config/notification.txt

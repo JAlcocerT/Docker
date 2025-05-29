@@ -2,50 +2,90 @@ version: '3.8'
 
 services:
   zitadel:
-    restart: 'always'
-    networks:
-      - 'zitadel'
-    image: 'ghcr.io/zitadel/zitadel:latest'
-    command: 'start-from-init --masterkey "MasterkeyNeedsToHave32Characters" --tlsMode disabled'
+    image: ghcr.io/zitadel/zitadel:latest
+    container_name: zitadel
+    restart: always
+    command: >
+      start-from-init
+      --tlsMode external
+      --masterkey "${ZITADEL_MASTERKEY}"
+      --step 1
     environment:
-      - 'ZITADEL_DATABASE_POSTGRES_HOST=db'
-      - 'ZITADEL_DATABASE_POSTGRES_PORT=5432'
-      - 'ZITADEL_DATABASE_POSTGRES_DATABASE=zitadel'
-      - 'ZITADEL_DATABASE_POSTGRES_USER_USERNAME=zitadel'
-      - 'ZITADEL_DATABASE_POSTGRES_USER_PASSWORD=zitadel'
-      - 'ZITADEL_DATABASE_POSTGRES_USER_SSL_MODE=disable'
-      - 'ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME=postgres'
-      - 'ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD=postgres'
-      - 'ZITADEL_DATABASE_POSTGRES_ADMIN_SSL_MODE=disable'
-      - 'ZITADEL_EXTERNALSECURE=false' #can be true
-      - 'ZITADEL_EXTERNALDOMAIN=192.168.3.235' #default is localhost #zitadel.my.domain #https://zitadel.com/docs/self-hosting/manage/configure
-      - 'ZITADEL_EXTERNALPORT=8040' #443
-      - 'ZITADEL_PORT=8080'
+      # Database configuration
+      - ZITADEL_DATABASE_POSTGRES_HOST=db
+      - ZITADEL_DATABASE_POSTGRES_PORT=5432
+      - ZITADEL_DATABASE_POSTGRES_DATABASE=zitadel
+      - ZITADEL_DATABASE_POSTGRES_USER_USERNAME=${POSTGRES_USER}
+      - ZITADEL_DATABASE_POSTGRES_USER_PASSWORD=${POSTGRES_PASSWORD}
+      - ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME=${POSTGRES_USER}
+      - ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD=${POSTGRES_PASSWORD}
+      
+      # External access
+      - ZITADEL_EXTERNALSECURE=true
+      - ZITADEL_EXTERNALDOMAIN=${ZITADEL_DOMAIN}
+      - ZITADEL_EXTERNALPORT=443
+      - ZITADEL_PORT=8080
+      
+      # First instance setup (admin user)
+      - ZITADEL_FIRSTINSTANCE_ORG_HUMAN_USERNAME=${ZITADEL_ADMIN_USERNAME}
+      - ZITADEL_FIRSTINSTANCE_ORG_HUMAN_EMAIL=${ZITADEL_ADMIN_EMAIL}
+      - ZITADEL_FIRSTINSTANCE_ORG_HUMAN_PASSWORD=${ZITADEL_ADMIN_PASSWORD}
+      - ZITADEL_FIRSTINSTANCE_MACHINEKEY_APITOKEN=${ZITADEL_MACHINE_KEY}
+      
+      # SMTP (optional, uncomment and configure)
+      # - ZITADEL_EMAIL_SMTP_HOST=smtp.example.com
+      # - ZITADEL_EMAIL_SMTP_PORT=587
+      # - ZITADEL_EMAIL_SMTP_USER=user@example.com
+      # - ZITADEL_EMAIL_SMTP_PASSWORD=your-smtp-password
+      # - ZITADEL_EMAIL_SENDER_ADDRESS=noreply@${ZITADEL_DOMAIN}
+      # - ZITADEL_EMAIL_SENDER_NAME=ZITADEL
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.zitadel.rule=Host(`${ZITADEL_DOMAIN}`)"
+      - "traefik.http.routers.zitadel.entrypoints=websecure"
+      - "traefik.http.routers.zitadel.tls.certresolver=myresolver"
+      - "traefik.http.services.zitadel.loadbalancer.server.port=8080"
     depends_on:
       db:
-        condition: 'service_healthy'
-    ports:
-      - '8040:8080'
+        condition: service_healthy
+    networks:
+      - traefik_public
+      - zitadel
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/debug/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
 
   db:
-    restart: 'always'
     image: postgres:16-alpine
+    container_name: zitadel-db
+    restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=zitadel
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     networks:
-      - 'zitadel'
+      - zitadel
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
-      interval: '10s'
-      timeout: '30s'
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d zitadel"]
+      interval: 10s
+      timeout: 5s
       retries: 5
-      start_period: '20s'
-    ports:
-      - '5432:5432'
+      start_period: 30s
 
 networks:
   zitadel:
+    internal: true
+  traefik_public:
+    external: true
+
+volumes:
+  postgres_data:
+    name: zitadel_postgres_data
 
 
 #https://zitadel.com/docs/self-hosting/deploy/compose#docker-composes
