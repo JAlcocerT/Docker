@@ -153,21 +153,21 @@ services:
 
 
 #services:
-    speedtest-tracker:
-        image: lscr.io/linuxserver/speedtest-tracker:latest
-        restart: unless-stopped
-        container_name: speedtest-tracker
-        ports:
-            - 8065:80
-            - 8443:443
-        environment:
-            - PUID=1000
-            - PGID=1000
-            #openssl rand -base64 12 #for secrets
-            - APP_KEY="your_random_secret_key_here"
-            - DB_CONNECTION=sqlite
-        volumes:
-            - speedtestconfig:/config
+  speedtest-tracker:
+      image: lscr.io/linuxserver/speedtest-tracker:latest
+      restart: unless-stopped
+      container_name: speedtest-tracker
+      ports:
+          - 8065:80
+          - 8443:443
+      environment:
+          - PUID=1000
+          - PGID=1000
+          #openssl rand -base64 12 #for secrets
+          - APP_KEY="your_random_secret_key_here"
+          - DB_CONNECTION=sqlite
+      volumes:
+          - speedtestconfig:/config
 
 # volumes:
 #     speedtestconfig:
