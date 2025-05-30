@@ -2,10 +2,13 @@
 #https://github.com/Piwigo/Piwigo
 
 
+#docker compose -f Piwigo_Docker-compose.yml up -d
+
+
 services:
-  piwigo:
-    image: ghcr.io/linuxserver/piwigo #https://github.com/Piwigo/Piwigo
-    container_name: piwigo
+  piwigo: #https://github.com/linuxserver/piwigo/pkgs/container/piwigo
+    image: lscr.io/linuxserver/piwigo:latest #ghcr.io/linuxserver/piwigo #https://github.com/Piwigo/Piwigo
+    container_name: piwigo #https://docs.linuxserver.io/images/docker-piwigo/
     environment:
       - PUID=1000
       - PGID=1000
@@ -22,6 +25,7 @@ services:
     restart: unless-stopped
   db:
     image: mysql:5.7
+    container_name: piwigodb
     volumes:
       - /home/Docker/piwigo/db:/var/lib/mysql
       #- ./db_data:/var/lib/mysql

@@ -1,0 +1,50 @@
+### To work with Traefik, follow this first: https://github.com/JAlcocerT/Docker/tree/main/Security/Proxy/Traefik
+
+#https://github.com/vladmandic/pigallery
+#https://github.com/bpatrik/pigallery2
+
+#https://bpatrik.github.io/pigallery2/
+#https://hub.docker.com/r/bpatrik/pigallery2/tags/
+#https://github.com/JAlcocerT/pigallery2
+
+#du -h --max-depth=1
+
+#docker compose -f PiGalleryTraefik_docker-compose.yml up -d
+#admin/admin
+
+#version: "3.7"
+services:
+
+  pigallery:
+    image: bpatrik/pigallery2:2.0.0 #latest #https://github.com/bpatrik/pigallery2
+    container_name: pigallery
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /home/Docker/pigallery/config:/app/data/config
+      - /home/Docker/pigallery/tmp:/app/data/tmp
+      - db_data_pigallery:/app/data/db
+      - /home/jalcocert/Desktop/pixel8pro:/app/data/images:ro #your images folder #CHANGE THIS ONE!!!!!
+      #- /mnt/ext4_drive/Syncthing_Pixel8:/app/data/images:ro #your images folder
+      #- "/mnt/ext4_drive/Syncthing_Pixel8:/app/data/images:ro"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.pigallery.rule=Host(`pigallery.jalcocertech.com`)"
+      - "traefik.http.routers.pigallery.entrypoints=https"
+      - "traefik.http.routers.pigallery.tls=true"
+      - "traefik.http.routers.pigallery.tls.certresolver=cloudflare"
+      - "traefik.http.services.pigallery.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.pigallery2.middlewares=default-security-headers@file"
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  db_data_pigallery:
+
+#admin/admin (Change them later for something secure)

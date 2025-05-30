@@ -1,9 +1,9 @@
 How to change the Cloudflare DNS records programatically with python.
 
 ```sh
-python3 -m venv venv
+#python3 -m venv venv
 source venv/bin/activate
-pip install requests pyyaml
+#pip install requests pyyaml
 chmod +x update_dns.py
 python3 update_dns.py
 ```
@@ -14,7 +14,8 @@ Check with
 
 ```sh
 nslookup hugo.jalcocertech.com
-nslookup portainer-demo.jalcocertech.com
+nslookup portainer.jalcocertech.com
+nslookup pigallery.jalcocertech.com
 ```
 
 You will need your `YOUR_CF_DNS_API_TOKEN` and the ZONE_ID of your domain:

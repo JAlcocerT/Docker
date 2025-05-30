@@ -1,6 +1,7 @@
 #requires a DB - https://gist.github.com/pcnoic/8aa4f67fc3b18f572474e7bce592e48c
 #https://github.com/Piwigo/Piwigo
 
+#docker compose -f PiwigoTraefik_docker-compose.yml up -d
 
 services:
   piwigo:
@@ -17,18 +18,37 @@ services:
     # volumes:
     #   - ./config:/config
     #   - ./photos:/gallery
-    ports:
-      - 90:80
+    # ports:
+    #   - 90:80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.piwigo.rule=Host(`portainer.jalcocertech.com`)"
+      - "traefik.http.routers.piwigo.entrypoints=https"
+      - "traefik.http.routers.piwigo.tls=true"
+      - "traefik.http.routers.piwigo.tls.certresolver=cloudflare"
+      - "traefik.http.services.piwigo.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.piwigo.middlewares=default-security-headers@file"
+    networks:
+      - proxy
     restart: unless-stopped
   db:
     image: mysql:5.7
     container_name: piwigodb
     volumes:
-      - /home/Docker/piwigo/db:/var/lib/mysql
-      #- ./db_data:/var/lib/mysql
+      - piwigo-db-data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: piwigo
       MYSQL_USER: user
       MYSQL_PASSWORD: user
+
+networks:
+  proxy:
+    external: true
+  piwigo-internal:
+    internal: true
+
+volumes:
+  piwigo-db-data:

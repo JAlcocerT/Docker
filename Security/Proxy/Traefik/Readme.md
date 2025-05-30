@@ -15,8 +15,16 @@ nano ./config/traefik.yaml
 sudo docker compose up -d
 ```
 
-Working example with groq youtube summarizer, forked from phidata:
+**Working examples with labels**
+
+1. with groq youtube summarizer, forked from phidata:
 
 ```sh
 docker compose -f ytgroq_docker-compose.yml ps
+```
+
+2. with pigallery
+
+```sh
+docker compose -f PiGalleryTraefik_docker-compose.yml ps
 ```

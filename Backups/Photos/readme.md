@@ -26,3 +26,17 @@ wget -O .env https://github.com/immich-app/immich/releases/latest/download/examp
 2. [PhotoView](https://fossengineer.com/selfhosting-Photoview-docker/)
 
 3. [PiGallery](https://github.com/JAlcocerT/Docker/blob/main/Backups/Photos/PiGallery_docker-compose.yml)
+
+```sh
+docker compose -f PiGallery_docker-compose.yml up -d
+docker compose -f PiGalleryTraefik_docker-compose.yml up -d
+#admin/admin
+```
+
+> Its file first, **no database!**
+
+4. Piwigo:
+
+```sh
+docker compose -f PiwigoTraefik_docker-compose.yml up -d
+```
