@@ -9,4 +9,4 @@ For **reference**, see:
 
 ---
 
-Thanks to https://github.com/JamesTurland/JimsGarage
+Thanks to https://github.com/JamesTurland/JimsGarage!

@@ -14,4 +14,4 @@ services:
       #- BASE_URL=http://localhost:$PORT/
       - BASE_URL=http://localhost:3003/ #https://searxng.yourgreatdomain.com
       - INSTANCE_NAME=my-searxng-instance
-      #- FORMATS=html json #important so that it accepts web requests      
+      #- FORMATS=html json #important so that it accepts web requests (from other Apps)
