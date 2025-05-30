@@ -16,6 +16,7 @@ Check with
 nslookup hugo.jalcocertech.com
 nslookup portainer.jalcocertech.com
 nslookup pigallery.jalcocertech.com
+nslookup pihole.jalcocertech.com
 ```
 
 You will need your `YOUR_CF_DNS_API_TOKEN` and the ZONE_ID of your domain:
@@ -24,4 +25,17 @@ You will need your `YOUR_CF_DNS_API_TOKEN` and the ZONE_ID of your domain:
 curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=jalcocertech.com" \
   -H "Authorization: Bearer YOUR_CF_DNS_API_TOKEN" \
   -H "Content-Type: application/json" | jq -r '.result[0].id'
+```
+
+
+```sh
+ZONE_ID=$(yq -r '.cloudflare.zone_id' cloudflare_config.yaml); \
+[ -z "$ZONE_ID" ] || [ "$ZONE_ID" == "null" ] && \
+ZONE_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=$(yq -r '.cloudflare.domain_name' cloudflare_config.yaml)" \
+  -H "Authorization: Bearer $(yq -r '.cloudflare.api_token' cloudflare_config.yaml)" \
+  -H "Content-Type: application/json" | jq -r '.result[0].id'); \
+curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+  -H "Authorization: Bearer $(yq -r '.cloudflare.api_token' cloudflare_config.yaml)" \
+  -H "Content-Type: application/json" | \
+jq -r '.result[] | select(.type != "NS" and .type != "MX") | .name' | sort -u
 ```
