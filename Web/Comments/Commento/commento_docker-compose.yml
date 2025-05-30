@@ -1,22 +1,26 @@
+# #https://github.com/adtac/commento
+#https://docs.commento.io/installation/self-hosting/embed-on-your-website/
+
 services:
   commento:
     image: registry.gitlab.com/commento/commento
     container_name: commento
     restart: unless-stopped
     environment:
-      - COMMENTO_ORIGIN=http://localhost:8080  # Update with your domain
+      - COMMENTO_ORIGIN=https://comentarios.yourdomain.fyi
       - COMMENTO_PORT=8080
       - COMMENTO_POSTGRES=postgres://commento:commento@db:5432/commento?sslmode=disable
       - COMMENTO_GZIP_STATIC=true
-      - COMMENTO_BIND_ADDRESS=0.0.0.0
+      - COMMENTO_BIND_ADDRESS=0.0.0.0  # Changed to bind to all interfaces
       # Uncomment to prevent new owner registrations after first setup
       # - COMMENTO_FORBID_NEW_OWNERS=true
-    ports:
-      - "8080:8080"
+    expose:
+      - "8080"  # Only expose to other containers, not to host
     depends_on:
       - db
     networks:
       - commento_network
+      - cloudflared_tunnel
 
   db:
     image: postgres:13-alpine
@@ -37,3 +41,48 @@ volumes:
 networks:
   commento_network:
     driver: bridge
+  cloudflared_tunnel:
+    external: true
+
+############
+
+
+# services:
+#   commento:
+#     image: registry.gitlab.com/commento/commento
+#     container_name: commento
+#     restart: unless-stopped
+#     environment:
+#       - COMMENTO_ORIGIN=http://localhost:8080  # Update with your domain
+#       - COMMENTO_PORT=8080
+#       - COMMENTO_POSTGRES=postgres://commento:commento@db:5432/commento?sslmode=disable
+#       - COMMENTO_GZIP_STATIC=true
+#       - COMMENTO_BIND_ADDRESS=0.0.0.0
+#       # Uncomment to prevent new owner registrations after first setup
+#       # - COMMENTO_FORBID_NEW_OWNERS=true
+#     ports:
+#       - "8080:8080"
+#     depends_on:
+#       - db
+#     networks:
+#       - commento_network
+
+#   db:
+#     image: postgres:13-alpine
+#     container_name: commento_db
+#     restart: unless-stopped
+#     environment:
+#       - POSTGRES_USER=commento
+#       - POSTGRES_PASSWORD=commento
+#       - POSTGRES_DB=commento
+#     volumes:
+#       - commento_data:/var/lib/postgresql/data
+#     networks:
+#       - commento_network
+
+# volumes:
+#   commento_data:
+
+# networks:
+#   commento_network:
+#     driver: bridge
