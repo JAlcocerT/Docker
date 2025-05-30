@@ -1,0 +1,9 @@
+cloudflare:
+  api_token: "your_cf_dns_token"
+  zone_id: "your_zone_id"
+  records:
+    - name: "your_record_name"
+      type: "A"
+      content: "your_record_content_like_192.168.1.11"
+      proxied: false
+    # Add more records as needed

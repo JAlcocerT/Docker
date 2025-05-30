@@ -10,3 +10,8 @@ encryption
 duckdns/
 letsencrypt/
 nginx-html/
+
+venv/
+_data/
+
+cloudflare_config.yaml

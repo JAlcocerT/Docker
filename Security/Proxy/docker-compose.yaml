@@ -1,0 +1,79 @@
+#https://github.com/traefik/traefik
+#https://github.com/traefik/traefik?tab=MIT-1-ov-file#readme
+#https://traefik.io/
+
+#https://technotim.live/posts/traefik-3-docker-certificates/
+
+#https://www.youtube.com/watch?v=2ImyICAC8nA
+#https://www.youtube.com/watch?v=XH9XgiVM_z4
+#https://www.youtube.com/watch?v=liV3c9m_OX8&t=453s
+
+
+
+#### Traefik with fail2ban
+#https://geekland.eu/usar-fail2ban-con-traefik-para-proteger-servicios-que-corren-en-docker/
+
+
+#nano ./config/acme.json
+#chmod 600 /home/jalcocert/Docker/JimsGarage/Traefikv3/config/acme.json
+
+#sudo docker network create proxy
+#htpasswd -nb admin password #for the dashboard admin/pwd UI
+
+#sudo docker compose up -d
+#sudo rm -r logs
+
+secrets:
+  cf-token:
+    file: ./cf-token
+services:
+  traefik:
+    image: traefik:v3.3 # or traefik:v3.3 to pin a version
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true # helps to increase security
+    secrets:
+      - cf-token # the secret at the top of this file
+    env_file:
+      - .env # store other secrets e.g., dashboard password
+    networks:
+       proxy:
+    ports:
+      - 80:80
+      - 443:443
+     # - 10000:10000 # optional
+     # - 33073:33073 # optional
+    environment:
+      - TRAEFIK_DASHBOARD_CREDENTIALS=${TRAEFIK_DASHBOARD_CREDENTIALS}
+      - CF_API_EMAIL=your_registered_cf_email@gmail.com # Cloudflare email
+      - CF_DNS_API_TOKEN=your_cf_dns_api_token # Cloudflare API Token
+      #- CF_DNS_API_TOKEN_FILE=/run/secrets/cf-token # see https://doc.traefik.io/traefik/https/acme/#providers
+      # token file is the proper way to do it
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/jalcocert/Docker/JimsGarage/Traefikv3/config/traefik.yaml:/traefik.yaml:ro
+      - /home/jalcocert/Docker/JimsGarage/Traefikv3/config/acme.json:/acme.json
+      - /home/jalcocert/Docker/JimsGarage/Traefikv3/config/config.yaml:/config.yaml:ro
+      - /home/jalcocert/Docker/JimsGarage/Traefikv3/logs:/var/log/traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.entrypoints=http"
+      - "traefik.http.routers.traefik.rule=Host(`jalcocertech.com`)"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_DASHBOARD_CREDENTIALS}"
+      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
+      - "traefik.http.routers.traefik-secure.entrypoints=https"
+      - "traefik.http.routers.traefik-secure.rule=Host(`jalcocertech.com`)"
+      - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].main=jalcocertech.com"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.jalcocertech.com"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
+
+networks:
+  proxy:
+    external: true # or comment this line to auto create the network
