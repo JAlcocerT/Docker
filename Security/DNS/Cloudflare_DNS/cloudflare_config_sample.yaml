@@ -7,3 +7,5 @@ cloudflare:
       content: "your_record_content_like_192.168.1.11"
       proxied: false
     # Add more records as needed
+
+#nslookup portainer.jalcocertech.com

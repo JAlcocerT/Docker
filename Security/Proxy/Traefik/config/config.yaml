@@ -19,10 +19,10 @@ http:
         permanent: true
 
   routers:
-    portainer:
+    portainer: #this is just an example of a router that will expose Portainer, just be being into the Proxy network (No need of labels)
       entryPoints:
         - "https"
-      rule: "Host(`portainer-demo.jimsgarage.co.uk`)"
+      rule: "Host(`portainer.jalcocertech.com`)"
       middlewares:
         - default-security-headers
         - https-redirectscheme
@@ -33,5 +33,5 @@ http:
     portainer:
       loadBalancer:
         servers:
-          - url: "https://192.168.200.122:9443"
+          - url: "https://192.168.1.11:9443"
         passHostHeader: true

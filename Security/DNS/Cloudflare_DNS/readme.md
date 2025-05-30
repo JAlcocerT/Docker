@@ -8,6 +8,15 @@ chmod +x update_dns.py
 python3 update_dns.py
 ```
 
+The DNS record will be created as per the `cloudflare_config.yaml` file.
+
+Check with
+
+```sh
+nslookup hugo.jalcocertech.com
+nslookup portainer-demo.jalcocertech.com
+```
+
 You will need your `YOUR_CF_DNS_API_TOKEN` and the ZONE_ID of your domain:
 
 ```sh

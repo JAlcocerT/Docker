@@ -1,0 +1,34 @@
+#requires a DB - https://gist.github.com/pcnoic/8aa4f67fc3b18f572474e7bce592e48c
+#https://github.com/Piwigo/Piwigo
+
+
+services:
+  piwigo:
+    image: ghcr.io/linuxserver/piwigo
+    container_name: piwigo
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - /home/Docker/piwigo/config:/config
+      #- /home/Docker/piwigo/gallery:/gallery
+      - /home/jalcocert/Desktop/pixel8pro:/gallery      
+    # volumes:
+    #   - ./config:/config
+    #   - ./photos:/gallery
+    ports:
+      - 90:80
+    restart: unless-stopped
+  db:
+    image: mysql:5.7
+    container_name: piwigodb
+    volumes:
+      - /home/Docker/piwigo/db:/var/lib/mysql
+      #- ./db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: piwigo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
