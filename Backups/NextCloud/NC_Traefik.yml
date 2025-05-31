@@ -1,0 +1,60 @@
+
+#sudo docker compose -f NC_Traefik.yml up -d
+#nslookup nextcloud.jalcocertech.com
+
+#version: '3.8'
+
+volumes:
+  db:
+
+services:
+  db:
+    image: linuxserver/mariadb
+    restart: always
+    container_name: ncdb
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_INITDB_SKIP_TZINFO=1
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    networks:
+      - nc_network      
+
+  nextcloud:
+    image: nextcloud
+    container_name: nc
+    restart: always
+    depends_on:
+      - db
+    # networks:
+    #   - proxy
+    # ports:
+    #   - 8035:80      
+    volumes:
+      - /home/jalcocert/Docker/nextcloud/html:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      - NEXTCLOUD_TRUSTED_DOMAINS=https://nextcloud.jalcocertech.com http://192.168.1.11:8035
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.jalcocertech.com`)"
+      - "traefik.http.routers.nextcloud.entrypoints=https"
+      - "traefik.http.routers.nextcloud.tls=true"
+      - "traefik.http.routers.nextcloud.tls.certresolver=cloudflare"
+      - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
+    networks:
+      - nc_network
+      - proxy      
+
+networks:
+  nc_network:
+    driver: bridge
+  proxy:
+    external: true
