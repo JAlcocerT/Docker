@@ -1,0 +1,47 @@
+#https://github.com/thedevs-network/kutt
+#https://kutt.it/
+#https://www.youtube.com/watch?v=h3AMf4zwJHE
+
+#https://github.com/thedevs-network/kutt/blob/main/docker-compose.yml
+#sudo docker compose up -d
+#docker compose -f kutt_docker-compose.yml up -d 
+
+services: #https://dbtechreviews.com/2025/01/23/exploring-kutt-the-self-hosted-url-shortening-solution/
+  server:
+    image: kutt/kutt:latest #https://hub.docker.com/r/kutt/kutt
+    container_name: kutt
+    volumes:
+      - db_data_sqlite:/var/lib/kutt
+      - custom:/kutt/custom
+    environment: #https://github.com/thedevs-network/kutt/blob/main/.example.env
+      DB_FILENAME: "/var/lib/kutt/data.sqlite"
+      REDIS_ENABLED: true
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: 0F5B2J0CcoaFIDehV14ngwd6Lp2YbyJM7YeFVkILB1 #random string of characters
+      DEFAULT_DOMAIN: links.jalcocertech.com #no http or https
+    ports:
+      - 3010:3000
+    depends_on:
+      redis:
+        condition: service_started
+    networks:
+      - kutt_network # Use a dedicated network
+      - cloudflared_tunnel        
+  redis:
+    image: redis:alpine
+    restart: always
+    expose:
+      - 6379
+    networks:
+      - kutt_network #Use a dedicated network
+
+volumes:
+  db_data_sqlite:
+  custom:
+
+networks:
+  kutt_network:
+    driver: bridge #Explicitly define the network driver.
+  cloudflared_tunnel:
+    external: true # Mark the 'tunnel' network as external  

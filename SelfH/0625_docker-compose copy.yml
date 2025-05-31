@@ -160,6 +160,20 @@ services:
       - "8060:80"
     restart: unless-stopped      
 
+# #https://www.youtube.com/watch?v=2jftRXvHvlU
+# version: '3.8'
+
+# services:
+  reubah:
+    image: ghcr.io/dendianugerah/reubah:latest
+    container_name: reubah
+    ports:
+      - "8081:8081"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
 
 #version: '3.3'
 #services:
