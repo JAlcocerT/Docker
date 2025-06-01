@@ -8,6 +8,10 @@
 
 ```sh
 docker-compose -f adventurelog_docker-compose.yml up -d
+
+#docker exec -it adventurelog-db psql -U adventure -d database
+#\dt
+#docker exec -it adventurelog-db psql -U adventure -d database -c "\d+ account_emailaddress"
 ```
 
 > Which is a Django Python Web App and can be [integrated](https://adventurelog.app/docs/configuration/immich_integration.html) with Immich and Umami!
@@ -17,7 +21,6 @@ docker-compose -f adventurelog_docker-compose.yml up -d
 3. Wanderer - with komoot/Strava integration!
 
 * https://github.com/IoTechCrafts/wanderer
-
 
 ```sh
 wget https://raw.githubusercontent.com/IoTechCrafts/wanderer/main/docker-compose.yml

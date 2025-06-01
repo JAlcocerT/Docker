@@ -25,3 +25,5 @@ services:
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
+
+#https://jalcocert.github.io/RPi/posts/selfh-internet-better/#pi-hole

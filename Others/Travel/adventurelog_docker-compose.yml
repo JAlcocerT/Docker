@@ -17,8 +17,8 @@ services:
       - BODY_SIZE_LIMIT=Infinity
       ##OPTIONAL
       #https://adventurelog.app/docs/configuration/analytics.html
-      - PUBLIC_UMAMI_SRC=https://cloud.umami.is/script.js # If you are using the hosted version of Umami or umami.yourdomain.com/
-      - PUBLIC_UMAMI_WEBSITE_ID=your-umami-id     
+      # - PUBLIC_UMAMI_SRC=https://cloud.umami.is/script.js # If you are using the hosted version of Umami or umami.yourdomain.com/
+      # - PUBLIC_UMAMI_WEBSITE_ID=your-umami-id     
     ports:
       - "8015:3000"
     depends_on:
@@ -60,6 +60,10 @@ services:
       - DEBUG=False
       #- FRONTEND_URL=http://192.168.1.11:8015 # Used for email generation. This should be the url of the frontend
       - FRONTEND_URL=https://adventure.fossengineer.com #when used together with cloudflared tunnels
+      ##OPTIONAL# https://adventurelog.app/docs/configuration/disable_registration.html
+      #- DISABLE_REGISTRATION=True
+      # OPTIONAL: Set the message to display when registration is disabled
+      #- DISABLE_REGISTRATION_MESSAGE='Registration is disabled for this instance of AdventureLog.'
     ports:
       - "8016:80"  # Expose the backend port
     depends_on:
