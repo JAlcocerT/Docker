@@ -1,1 +1,81 @@
-#
+#https://fossengineer.com/selfhosting-adventurelog/
+#https://github.com/seanmorley15/AdventureLog
+#https://adventurelog.app/docs/intro/adventurelog_overview.html
+
+#sudo docker compose -f adventurelog_docker-compose.yml up -d
+#version: "3.9"
+
+services:
+  web:
+    image: ghcr.io/seanmorley15/adventurelog-frontend:latest
+    container_name: adventurelog-frontend
+    restart: unless-stopped
+    environment:
+      - PUBLIC_SERVER_URL=http://server:8000
+      #- ORIGIN=http://192.168.1.11:8015
+      - ORIGIN=https://adventure.fossengineer.com #when used together with cloudflared tunnels
+      - BODY_SIZE_LIMIT=Infinity
+      ##OPTIONAL
+      #https://adventurelog.app/docs/configuration/analytics.html
+      - PUBLIC_UMAMI_SRC=https://cloud.umami.is/script.js # If you are using the hosted version of Umami or umami.yourdomain.com/
+      - PUBLIC_UMAMI_WEBSITE_ID=your-umami-id     
+    ports:
+      - "8015:3000"
+    depends_on:
+      - server
+    networks:
+      - cloudflared_tunnel #to expose it to the internet
+      - adventurelog_net  # Use the internal network
+      # - nginx_nginx_default #for https
+
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: adventurelog-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: adventure
+      POSTGRES_PASSWORD: changeme123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - adventurelog_net  # Use the internal network
+
+  server:
+    image: ghcr.io/seanmorley15/adventurelog-backend:latest
+    container_name: adventurelog-backend
+    restart: unless-stopped
+    environment:
+      - PGHOST=db  # Use the service name 'db' as the hostname
+      - PGDATABASE=database
+      - PGUSER=adventure
+      - PGPASSWORD=changeme123
+      - SECRET_KEY=changeme123
+      - DJANGO_ADMIN_USERNAME=admin #you will need this
+      - DJANGO_ADMIN_PASSWORD=admin #to make the first login!!!
+      - DJANGO_ADMIN_EMAIL=admin@example.com
+      #https://adventurelog.app/docs/troubleshooting/no_images.html#troubleshooting-images-not-displayed-in-adventurelog
+      - PUBLIC_URL=http://192.168.1.11:8016 # Match the outward port, used for the creation of image urls
+      - CSRF_TRUSTED_ORIGINS=http://192.168.1.11:8016,http://192.168.1.11:8015,https://adventure.fossengineer.com
+      - DEBUG=False
+      #- FRONTEND_URL=http://192.168.1.11:8015 # Used for email generation. This should be the url of the frontend
+      - FRONTEND_URL=https://adventure.fossengineer.com #when used together with cloudflared tunnels
+    ports:
+      - "8016:80"  # Expose the backend port
+    depends_on:
+      - db
+    volumes:
+      - adventurelog_media:/code/media/
+    networks:
+      - adventurelog_net  # Use the internal network
+
+volumes:
+  postgres_data:
+  adventurelog_media:
+
+networks:
+  adventurelog_net:  # Define the internal network
+  # nginx_nginx_default:
+  #   external: true #for https
+  cloudflared_tunnel:
+    external: true # Mark the 'tunnel' network as external

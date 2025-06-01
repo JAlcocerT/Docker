@@ -10,6 +10,8 @@
 docker-compose -f adventurelog_docker-compose.yml up -d
 ```
 
+> Which is a Django Python Web App and can be [integrated](https://adventurelog.app/docs/configuration/immich_integration.html) with Immich and Umami!
+
 2. [AirTrail](https://fossengineer.com/selfhosting-airtrail/)
 
 3. Wanderer - with komoot/Strava integration!
