@@ -1,0 +1,17 @@
+version: "2"
+services:
+  tripplanner: #https://github.com/JAlcocerT/Py_Trip_Planner
+    image: ghcr.io/jalcocert/py_trip_planner:750fa2800d8f5f1541a293b91647efcf00f4548a@sha256:08572c669e21fca7384304570d540ab26f32a4ea60b499ec9ed8bf4fbfb41cb6 #https://github.com/JAlcocerT/Py_Trip_Planner/pkgs/container/py_trip_planner
+    container_name: tripplanner
+    ports:
+      - 8051:8050
+    restart: unless-stopped
+    command: python3 ./app/app.py
+    networks:
+      - cloudflared_tunnel #to expose it to the internet
+
+networks:
+  # nginx_nginx_default:
+  #   external: true #for https 
+  cloudflared_tunnel: #https://one.dash.cloudflare.com/
+    external: true # Mark the 'tunnel' network as external          
