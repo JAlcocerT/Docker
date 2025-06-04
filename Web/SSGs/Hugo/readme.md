@@ -1,4 +1,5 @@
 > https://jalcocert.github.io/JAlcocerT/using-hugo-as-website/#hugo-container
+* https://jalcocert.github.io/JAlcocerT/using-hugo-as-website/
 
 1. Clone a repo like the [Portfolio](https://github.com/JAlcocerT/Portfolio)
 2. Follow the steps below
@@ -23,4 +24,11 @@ docker run -d \
   -v "/home/jalcocert/Desktop/Portfolio/:/src" \
   klakegg/hugo:0.101.0 \
   server
+```
+
+And once changes are done, you can build the changes to go to `./public`. This is the equivalent to `hugo` command:
+
+```sh
+docker run --rm -v "/home/jalcocert/Desktop/IT/Portfolio:/src" klakegg/hugo:0.101.0 #goes to public
+#docker run --rm -v "/home/jalcocert/Desktop/IT/Code2Prompt-Test/WebGenerAItor/Portfolio:/src" klakegg/hugo:0.101.0 -d /src/custom-output #goes to custom-output
 ```

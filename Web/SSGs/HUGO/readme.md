@@ -1,1 +1,0 @@
-* https://jalcocert.github.io/JAlcocerT/using-hugo-as-website/

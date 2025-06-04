@@ -1,5 +1,10 @@
 Use any of these SSG's to generate content.
 
+1. Hugo
+2. Astro
+3. NextJs
+4. Slidev
+
 ## Publish SSG Content
 
 1. Any of F/OSS Web Server + [Cloudflare Tunnels](https://fossengineer.com/selfhosting-cloudflared-tunnel-docker/).
