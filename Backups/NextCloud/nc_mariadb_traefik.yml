@@ -1,0 +1,61 @@
+#version: '2'
+#volumes:
+  #nextcloud:
+  #db:
+  
+networks:
+  proxy:
+    external: true
+  nc-network:
+    external: false
+    
+services:
+  db:
+    image: linuxserver/mariadb
+    restart: always
+    container_name: nextclouddb
+    volumes:
+      - /home/jalcocert/Docker/nextcloud2/DB:/var/lib/mysql
+    environment:
+      - MYSQL_INITDB_SKIP_TZINFO=1
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    networks:
+      - nc-network
+  app:
+    image: nextcloud
+    container_name: nextcloud
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - /home/jalcocert/Docker/nextcloud2/html:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      - NEXTCLOUD_TRUSTED_DOMAINS= 192.168.1.11:8080
+    networks:
+      - proxy
+      - nc-network
+      #- nginx_nginx_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.nextcloud.entrypoints=http"
+      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.jalcocertech.com`)"
+      - "traefik.http.middlewares.nextcloud-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.nextcloud.middlewares=nextcloud-https-redirect"
+      - "traefik.http.routers.nextcloud-secure.entrypoints=https"
+      - "traefik.http.routers.nextcloud-secure.rule=Host(`nextcloud.jalcocertech.com`)"
+      - "traefik.http.routers.nextcloud-secure.tls=true"
+      - "traefik.http.routers.nextcloud-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.nextcloud-secure.service=nextcloud"
+      - "traefik.http.services.nextcloud.loadbalancer.server.port=80" #same as internal docker port      
+ 
+
