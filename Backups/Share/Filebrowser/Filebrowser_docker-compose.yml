@@ -2,7 +2,7 @@
 
 services:
   filebrowser:
-    image: filebrowser/filebrowser
+    image: filebrowser/filebrowser #https://hub.docker.com/r/filebrowser/filebrowser
     container_name: filebrowser
     ports:
       - "8080:80" #https://github.com/filebrowser/filebrowser/issues/2039

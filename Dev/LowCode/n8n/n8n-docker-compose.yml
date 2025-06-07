@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"  # Web UI port
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - N8N_EDITOR_BASE_URL=http://localhost:5678/
+      - N8N_ENCRYPTION_KEY=your-secret-encryption-key  # Change this to a secure random string
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_PASSWORD=n8n_strong_password  # Change this to a secure password
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin  # Change this to your preferred username
+      - N8N_BASIC_AUTH_PASSWORD=your_secure_password  # Change this to a secure password
+      - N8N_EMAIL_MODE=smtp
+      - N8N_SMTP_HOST=your-smtp-host  # Configure your SMTP server
+      - N8N_SMTP_PORT=587
+      - N8N_SMTP_USER=your-email@example.com
+      - N8N_SMTP_PASS=your-email-password
+      - N8N_SMTP_SENDER=your-email@example.com
+    volumes:
+      - ./data/n8n:/home/node/.n8n  # Persistent storage for n8n data
+    depends_on:
+      - postgres
+    networks:
+      - n8n_network
+
+  postgres:
+    image: postgres:13-alpine
+    container_name: n8n_postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=n8n_strong_password  # Match with DB_POSTGRESDB_PASSWORD
+      - POSTGRES_DB=n8n
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data  # Persistent storage for PostgreSQL
+    networks:
+      - n8n_network
+
+networks:
+  n8n_network:
+    driver: bridge
