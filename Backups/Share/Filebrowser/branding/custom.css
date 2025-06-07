@@ -1,0 +1,33 @@
+/* Custom styles for Filebrowser */
+:root {
+    --primary: #4a6fa5;
+    --primary-hover: #3a5a8c;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+}
+
+/* Custom logo size if needed */
+.login-logo {
+    max-height: 150px;
+    margin-bottom: 20px;
+}
+
+/* Customize the header */
+.navbar {
+    background-color: var(--primary);
+}
+
+/* Customize buttons */
+.button {
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

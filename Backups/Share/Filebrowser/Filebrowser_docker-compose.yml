@@ -1,0 +1,23 @@
+#version: '3.8'
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: filebrowser
+    ports:
+      - "8080:80" #https://github.com/filebrowser/filebrowser/issues/2039
+    volumes:
+      - /home/Docker/FileBrowser2/config:/config
+      - /home/jalcocert/Desktop:/srv  # This is the folder that will be visible from the UI
+      - ./branding:/branding  # Custom branding directory
+    environment:
+      # Set the branding name that appears on login/signup pages
+      - FB_BRANDING_NAME=My Custom File Browser
+      # Point FileBrowser to the branding directory inside the container
+      - FB_BRANDING_FILES=/branding
+      # Optionally, disable external links (set to 'true' or 'false')
+      # - FB_BRANDING_DISABLEEXTERNAL=true
+    restart: unless-stopped
+
+  #sudo docker compose -f Filebrowser_docker-compose.yml up -d
+  #docker-compose -f "/home/jalcocert/Desktop/IT/Docker/Backups/Share/Filebrowser/Filebrowser_docker-compose.yml" up -d
