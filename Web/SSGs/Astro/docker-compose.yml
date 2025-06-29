@@ -1,0 +1,73 @@
+#version: '3'
+
+services:
+  # Run one of these two Astro services at a time by specifying it directly with the command
+  # e.g., docker-compose up codex astro-dev
+  
+  # Codex service (using pre-built image)
+  codex:
+    image: codex-container:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.codex
+    # env_file:
+    #   - .env
+    container_name: codex-container
+    working_dir: /app
+    volumes:
+      - ./docsold:/app/test #A volume for Codex Container Tests
+      - ./docs:/app/documentaition #A volume for Codex Container Tests
+      - ./input-sources:/app/Codex-Container #DEMO with SDLC SpeedUp
+      #- ${PROJECT_PATH}:/app/Codex-Container #DEMO with SDLC SpeedUp via env
+      #- ./<project-repo>:/app/Codex-Container #sample project volume map
+    environment:
+      - NODE_ENV=development
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    networks:
+      - project-network
+    tty: true #required to run codex commands on the container
+    stdin_open: true
+    restart: "no"
+
+  # Astro Development Server
+  astro-dev:
+    image: node:22.16-alpine3.22 #node:18-alpine
+    container_name: astro-dev
+    working_dir: /app
+    ports:
+      - "4324:4321"  # Astro dev server with live changes port - Go to http://localhost:4324/
+    volumes:
+      - ./docs:/app #this is a common volume for Codex container to place the .md post
+    command: sh -c "cd /app && npm install && npm run dev -- --host 0.0.0.0"
+    environment:
+      - NODE_ENV=development
+    networks:
+      - project-network
+    tty: true
+    restart: "no"
+
+
+
+  astro-prod:
+    image: node:22.16-alpine3.22 #node:18-alpine #docker pull node:22.16-alpine3.22
+    container_name: astro-prod
+    working_dir: /app
+    volumes:
+      - ./docs:/app #this is a common volume for Codex container to place the .md post
+    ports:
+      - "8087:4321"  # Changed to match Astro's default port
+    command: >
+      sh -c "cd /app && 
+      npm install && 
+      npm run build && 
+      npx http-server ./dist -p 4321"
+     #check 2 commands for same container (?) 
+    environment:
+      - NODE_ENV=production
+    networks:
+      - project-network
+    restart: "no"
+
+networks:
+  project-network:
+    name: project-documentation-network

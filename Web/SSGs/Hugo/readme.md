@@ -2,6 +2,7 @@
 * https://jalcocert.github.io/JAlcocerT/using-hugo-as-website/
 
 1. Clone a repo like the [Portfolio](https://github.com/JAlcocerT/Portfolio)
+
 2. Follow the steps below
 
 ```sh
@@ -32,3 +33,7 @@ And once changes are done, you can build the changes to go to `./public`. This i
 docker run --rm -v "/home/jalcocert/Desktop/IT/Portfolio:/src" klakegg/hugo:0.101.0 #goes to public
 #docker run --rm -v "/home/jalcocert/Desktop/IT/Code2Prompt-Test/WebGenerAItor/Portfolio:/src" klakegg/hugo:0.101.0 -d /src/custom-output #goes to custom-output
 ```
+
+3. **OPTIONAL** You can make it work in DEV and in PROD via TRAEFIK AND HTTPS
+
+For that, see the commented lines of the docker-compose.yaml.

@@ -1,0 +1,47 @@
+services:
+  gotify:
+    image: ghcr.io/gotify/server:2.6
+    restart: always
+    ports:
+      - 6886:80 # Maps container port 80 to host port 6886
+    environment:
+      - "GOTIFY_DATABASE_DIALECT=postgres"
+      # Hardcoded database connection details
+      - "GOTIFY_DATABASE_CONNECTION=host=postgres\ port=5432\ user=gotify\ dbname=gotify\ password=YOUR_HARDCODED_PASSWORD\ sslmode=disable"
+      - "GOTIFY_REGISTRATION=false"
+      - TZ=Europe/Rome # Hardcoded timezone
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - gotify:/app/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  postgres:
+    image: 'postgres:17.2'
+    restart: always
+    environment:
+      # Hardcoded PostgreSQL environment variables
+      - POSTGRES_DB=gotify
+      - POSTGRES_PASSWORD=YOUR_HARDCODED_PASSWORD
+      - POSTGRES_USER=gotify
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  gotify:
+  postgres_data:
