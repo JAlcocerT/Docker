@@ -1,22 +1,22 @@
-version: '3.8'
+# version: '3.8'
 
-services:
-  astrp-dev:
-    image: astro_ssg:latest
-    container_name: web-astro    
-    ports:
-      - "4321:4321"
-    volumes:
-      - app_data:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
-    environment:
-      - NODE_ENV=development
-    command: npm run dev #tail -f /dev/null #keep it running      
+# services:
+#   astro-dev:
+#     image: astro_ssg:latest
+#     container_name: web-astro    
+#     ports:
+#       - "4321:4321"
+#     volumes:
+#       - app_data:/usr/src/app
+#       - node_modules:/usr/src/app/node_modules
+#     environment:
+#       - NODE_ENV=development
+#     command: npm run dev #tail -f /dev/null #keep it running      
 
-volumes:
-  node_modules:
-  app_data:
+# volumes:
+#   node_modules:
+#   app_data:
 
-#### docker build -t astro_ssg -f Dockerfile .
+# #### docker build -t astro_ssg -f Dockerfile .
 
-#docker exec -it web-astro sh
+# #docker exec -it web-astro sh

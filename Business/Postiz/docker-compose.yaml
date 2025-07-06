@@ -1,3 +1,5 @@
+#https://github.com/gitroomhq/postiz-app
+
 services:
   postiz:
     image: ghcr.io/gitroomhq/postiz-app:latest

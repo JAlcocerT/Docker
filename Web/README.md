@@ -1,3 +1,14 @@
+## Checks
+
+
+**Do I have broken links?**
+
+```sh
+#podman run --rm -it ghcr.io/linkchecker/linkchecker:latest --verbose https://fossengineer.com > linkchecker_output.txt
+
+docker run --rm -it -u $(id -u):$(id -g) ghcr.io/linkchecker/linkchecker:latest --verbose https://www.example.com
+```
+
 ## Analytics
 
 * PostHog
@@ -11,9 +22,7 @@
 
 * [Ghost](https://fossengineer.com/selfhosting-ghost-docker/)
   * Ghost + Gatsby SSG
-  * Ghost + Astro SSG
-
-
+  * [Ghost + Astro SSG](https://jalcocert.github.io/JAlcocerT/ghost-cms-for-astro/)
 
 * SaleOR - https://github.com/JAlcocerT/Docker/tree/main/Business
 
@@ -30,14 +39,17 @@
 
 
 ```sh
-wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Web/Wordpress > wp.sh && chmod 775 wp.sh && sudo ./wp.sh
+#wget  -cO - https://raw.githubusercontent.com/reisikei/docker/main/Web/Wordpress > wp.sh && chmod 775 wp.sh && sudo ./wp.sh
 ```
 
 Remember to check the latest WP image available with apache and php to avoid compatibility problems with themes and plugins.
-<https://hub.docker.com/_/wordpress>
+
+* <https://hub.docker.com/_/wordpress>
 
 If you need to upload with the plug in 'All-in-One-WP Migration' a file bigger than 2MB, you will need:
+
 Edit .htaccess file
+
 ```
 php_value upload_max_filesize 128M
 php_value post_max_size 128M
@@ -68,10 +80,6 @@ You might be interested in SSG's: HUGO, Jekyll, Astro... 🤘
 ---
 
 ## Social Media
-
-1. PostIz
-
-* https://github.com/gitroomhq/postiz-app
 
 ### Pixelfed
 
