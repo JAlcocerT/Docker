@@ -1,0 +1,39 @@
+{
+    "name": "Chatbot Example",
+    "nodes": [
+      {
+        "parameters": {
+          "mode": "chat"
+        },
+        "id": "1",
+        "name": "ChatTrigger",
+        "type": "n8n-nodes-langchain.chattrigger",
+        "typeVersion": 1,
+        "position": [300, 300]
+      },
+      {
+        "parameters": {
+          "message": "Hello! This is n8n responding to your chat."
+        },
+        "id": "2",
+        "name": "Respond to Chat",
+        "type": "n8n-nodes-base.respondToChat",
+        "typeVersion": 1,
+        "position": [500, 300]
+      }
+    ],
+    "connections": {
+      "ChatTrigger": {
+        "main": [
+          [
+            {
+              "node": "Respond to Chat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "active": true
+  }

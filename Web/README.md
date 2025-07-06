@@ -109,6 +109,9 @@ git checkout tags/v0.11.2
 
 They can work in combination with [Nginx](https://github.com/JAlcocerT/Docker/blob/main/Security/nginx_docker_compose.yaml)
 
+1. No-IP
+2. DuckDNS
+
 ### DuckDNS 
 
 ```sh
@@ -143,6 +146,3 @@ docker run \
   --restart unless-stopped \
   linuxserver/duckdns
   ```
-
-
-### No-IP
