@@ -1,0 +1,26 @@
+#https://github.com/MikeMather/publite.me
+#https://publite.me/documentation
+
+
+#version: "3.8"
+
+services:
+  app:
+    image: mikemather/publite:latest
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8000:8000" #http://localhost:8040/admin/setup
+    environment:
+      - DB_PATH=/app/data/blog.db
+      - MEDIA_ROOT=/app/data/media
+      - SECRET_KEY=<a secure secret key> #openssl rand -base64 12 #for secrets
+    restart: unless-stopped
+
+#https://github.com/MikeMather/publite.me/blob/main/docker-compose.yml
+
+# docker run -v ./data:/app/data \
+#   -e DB_PATH=/app/data/blog.db \
+#   -e MEDIA_ROOT=/app/data/media \
+#   -e SECRET_KEY=your_secret_key \
+#   -p 8000:8000 mikemather/publite:latest
