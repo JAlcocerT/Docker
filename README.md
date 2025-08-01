@@ -87,19 +87,19 @@ Consolidated them on this public repository for anyone that might find it helpfu
       * ERPNext
       * Dolibarr :heavy_check_mark:
       * Odoo (ex- OpenERP) :heavy_check_mark:
-    * Invoicing:
-      * Crater Invoices
-      * Invoice Ninja
-      * Solid Invoice (x86 only)
-      * [Serverless Invoices and React Invoice Generator](https://fossengineer.com/open-source-invoice-creator/)
-    * Management:
-       * https://github.com/JAlcocerT/Docker/blob/main/Business/PM/vikunja_docker-compose.yaml :heavy_check_mark:
+    * [Invoicing](https://github.com/JAlcocerT/Docker/tree/main/Business/Billing):
+      * Invoicerr
+      * [Serverless Invoices and React Invoice Generator](https://fossengineer.com/open-source-invoice-creator/) containerized
+    * [Management](https://github.com/JAlcocerT/Docker/blob/main/Business):
+       * [Vikunja](https://github.com/JAlcocerT/Docker/blob/main/Business/PM/vikunja_docker-compose.yaml) :heavy_check_mark:
        * [Leantime](https://fossengineer.com/selfhosting-Leantime-docker/) (x86 & ARM, :heavy_check_mark:)
+
 ### [Communication:](https://github.com/JAlcocerT/Docker/tree/main/Communication)
    * Chats:
        * [Matrix with Synapse :page_with_curl:](https://fossengineer.com/selfhosting-matrix-synapse-docker/) :heavy_check_mark:
        * Others: Revolt, RocketChat, Jitsi, Discourse
    * [FreshRSS](https://fossengineer.com/freshrss-docker-setup/) :heavy_check_mark:
+   
 ### [Dev](https://github.com/JAlcocerT/Docker/tree/main/Dev)
 * [WebTops](https://fossengineer.com/selfhosting-webtops-with-docker/)
 * [Gitea](https://fossengineer.com/selfhosting-Gitea-docker/) :heavy_check_mark:
@@ -111,6 +111,7 @@ Consolidated them on this public repository for anyone that might find it helpfu
 * [OneDev](https://github.com/JAlcocerT/Docker/blob/main/Dev/GIT/OneDev_Docker-compose.yml): includes kanban board
 * [SnippetBox](https://github.com/JAlcocerT/Docker/blob/main/Others/snippetbox_docker-compose.yml) :heavy_check_mark:
 * [SSGs](https://github.com/JAlcocerT/Docker/tree/main/Web/SSGs)
+
 ### [IoT:](https://github.com/JAlcocerT/Docker/tree/main/IoT)
 * Automations:
   * Domoticz

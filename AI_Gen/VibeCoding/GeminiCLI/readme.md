@@ -1,0 +1,1 @@
+* https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/commands.md

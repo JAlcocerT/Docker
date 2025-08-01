@@ -1,0 +1,29 @@
+FROM node:22.17.1-bullseye
+
+# Install required system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git expect sudo cargo curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Codex globally
+RUN npm install -g @openai/codex@0.1.2504211509
+
+# Install uv (a fast Python package installer and resolver)
+RUN curl -LsSf https://astral.sh/uv/0.8.4/install.sh | sh
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+WORKDIR /app
+
+# Copy the Python project configuration and install dependencies
+COPY pyproject.toml /app/pyproject.toml
+COPY endtoend.py /app/endtoend.py
+#RUN uv sync
+
+# Copy the orchestrator directory into the container
+COPY orchestrator /app/orchestrator
+#Initialize git to simplify codex use inside the container
+RUN git init 
+
+# Set default command
+CMD ["bash"]

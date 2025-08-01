@@ -1,0 +1,4 @@
+# git clone https://github.com/mokuappio/serverless-invoices.git
+# cd serverless-invoices.git
+# docker build . -t mokuappio/serverless-invoices
+# docker run -p 80:8080 -d --rm mokuappio/serverless-invoices

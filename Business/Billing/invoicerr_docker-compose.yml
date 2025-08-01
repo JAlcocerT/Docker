@@ -1,0 +1,5 @@
+# https://github.com/Impre-visible/invoicerr
+
+# git clone https://github.com/Impre-visible/invoicerr.git
+# cd invoicerr
+# docker compose up -d
