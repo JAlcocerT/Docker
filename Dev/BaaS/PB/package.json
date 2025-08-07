@@ -1,0 +1,16 @@
+{
+  "name": "pocketbase-collection-creator",
+  "version": "1.0.0",
+  "description": "Scripts to create PocketBase collections programmatically",
+  "main": "create_collection.js",
+  "scripts": {
+    "create-collections": "node create_collection.js"
+  },
+  "dependencies": {
+    "pocketbase": "^0.19.0",
+    "dotenv": "^16.3.0"
+  },
+  "keywords": ["pocketbase", "collections", "automation"],
+  "author": "",
+  "license": "MIT"
+}
