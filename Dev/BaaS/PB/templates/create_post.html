@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}Create Post - Flask + PocketBase{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1><i class="fas fa-plus me-2"></i>Create New Post</h1>
+        <p class="text-muted">Share your thoughts with the community</p>
+        
+        <div class="card">
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">
+                            <i class="fas fa-heading me-1"></i>Title
+                        </label>
+                        <input type="text" class="form-control" id="title" name="title" required 
+                               placeholder="Enter a catchy title for your post">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="content" class="form-label">
+                            <i class="fas fa-edit me-1"></i>Content
+                        </label>
+                        <textarea class="form-control" id="content" name="content" rows="10" required
+                                  placeholder="Write your post content here..."></textarea>
+                        <div class="form-text">
+                            <i class="fas fa-info-circle me-1"></i>
+                            You can use plain text or basic HTML formatting.
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane me-2"></i>Publish Post
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-lightbulb me-2"></i>Writing Tips</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Be Clear:</strong> Use a descriptive title
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Stay Focused:</strong> Keep your content relevant
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Be Respectful:</strong> Follow community guidelines
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Proofread:</strong> Check for typos before posting
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5><i class="fas fa-user me-2"></i>Author Info</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-user-circle fa-2x text-muted me-3"></i>
+                    <div>
+                        <h6 class="mb-0">{{ session.user_name }}</h6>
+                        <small class="text-muted">{{ session.user_email }}</small>
+                    </div>
+                </div>
+                <hr>
+                <small class="text-muted">
+                    <i class="fas fa-info-circle me-1"></i>
+                    This post will be published under your name and associated with your account.
+                </small>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5><i class="fas fa-preview me-2"></i>Preview</h5>
+            </div>
+            <div class="card-body">
+                <div id="preview-content">
+                    <p class="text-muted">
+                        <i class="fas fa-eye me-1"></i>
+                        Start typing to see a preview of your post...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Live preview functionality
+const titleInput = document.getElementById('title');
+const contentInput = document.getElementById('content');
+const previewDiv = document.getElementById('preview-content');
+
+function updatePreview() {
+    const title = titleInput.value.trim();
+    const content = contentInput.value.trim();
+    
+    if (!title && !content) {
+        previewDiv.innerHTML = `
+            <p class="text-muted">
+                <i class="fas fa-eye me-1"></i>
+                Start typing to see a preview of your post...
+            </p>
+        `;
+        return;
+    }
+    
+    previewDiv.innerHTML = `
+        <div class="border rounded p-3">
+            ${title ? `<h5 class="mb-2">${escapeHtml(title)}</h5>` : ''}
+            ${content ? `<p class="mb-0">${escapeHtml(content).substring(0, 150)}${content.length > 150 ? '...' : ''}</p>` : ''}
+            <hr class="my-2">
+            <small class="text-muted">
+                <i class="fas fa-user me-1"></i>{{ session.user_name }}
+                <i class="fas fa-calendar ms-2 me-1"></i>${new Date().toLocaleDateString()}
+            </small>
+        </div>
+    `;
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+titleInput.addEventListener('input', updatePreview);
+contentInput.addEventListener('input', updatePreview);
+
+// Character counter
+contentInput.addEventListener('input', function() {
+    const length = this.value.length;
+    const maxLength = 5000; // Reasonable limit
+    
+    if (length > maxLength * 0.8) {
+        const remaining = maxLength - length;
+        const color = remaining < 100 ? 'text-danger' : remaining < 500 ? 'text-warning' : 'text-info';
+        
+        if (!document.getElementById('char-counter')) {
+            const counter = document.createElement('div');
+            counter.id = 'char-counter';
+            counter.className = 'form-text mt-1';
+            this.parentNode.appendChild(counter);
+        }
+        
+        document.getElementById('char-counter').innerHTML = `
+            <span class="${color}">
+                <i class="fas fa-keyboard me-1"></i>
+                ${length.toLocaleString()} characters (${remaining > 0 ? remaining + ' remaining' : 'limit exceeded'})
+            </span>
+        `;
+    } else if (document.getElementById('char-counter')) {
+        document.getElementById('char-counter').remove();
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Flask + PocketBase{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h1>
+        <p class="lead">Welcome to your personal dashboard, {{ session.user_name }}!</p>
+        
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="card-title">Create Post</h5>
+                                <p class="card-text">Share your thoughts with the community</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-plus fa-2x"></i>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('create_post') }}" class="btn btn-light btn-sm">
+                            <i class="fas fa-plus me-1"></i>New Post
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="card-title">View Posts</h5>
+                                <p class="card-text">Browse all community posts</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-newspaper fa-2x"></i>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('index') }}" class="btn btn-light btn-sm">
+                            <i class="fas fa-eye me-1"></i>Browse Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-chart-line me-2"></i>Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-plus-circle fa-3x text-primary mb-2"></i>
+                        <h6>Create Content</h6>
+                        <p class="text-muted small">Write and publish new posts</p>
+                        <a href="{{ url_for('create_post') }}" class="btn btn-outline-primary btn-sm">
+                            Get Started
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-user-circle fa-3x text-success mb-2"></i>
+                        <h6>Profile</h6>
+                        <p class="text-muted small">Manage your account settings</p>
+                        <button class="btn btn-outline-success btn-sm" onclick="showProfile()">
+                            View Profile
+                        </button>
+                    </div>
+                    
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-database fa-3x text-info mb-2"></i>
+                        <h6>API Access</h6>
+                        <p class="text-muted small">Test API endpoints</p>
+                        <button class="btn btn-outline-info btn-sm" onclick="testAPI()">
+                            Test API
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-user me-2"></i>Your Profile</h5>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i class="fas fa-user-circle fa-4x text-muted"></i>
+                </div>
+                <table class="table table-borderless">
+                    <tr>
+                        <td><strong>Name:</strong></td>
+                        <td>{{ session.user_name }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email:</strong></td>
+                        <td>{{ session.user_email }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>User ID:</strong></td>
+                        <td><code>{{ session.user_id[:8] }}...</code></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5><i class="fas fa-cogs me-2"></i>System Status</h5>
+            </div>
+            <div class="card-body">
+                <div id="system-status">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+                        <span>Checking systems...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-user me-2"></i>Profile Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="profile-data">Loading...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function showProfile() {
+    fetch('/api/user')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('profile-data').innerHTML = `
+                <div class="row">
+                    <div class="col-sm-4"><strong>User ID:</strong></div>
+                    <div class="col-sm-8"><code>${data.user_id}</code></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-4"><strong>Name:</strong></div>
+                    <div class="col-sm-8">${data.name}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-4"><strong>Email:</strong></div>
+                    <div class="col-sm-8">${data.email}</div>
+                </div>
+            `;
+            new bootstrap.Modal(document.getElementById('profileModal')).show();
+        })
+        .catch(error => {
+            document.getElementById('profile-data').innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Error loading profile data
+                </div>
+            `;
+        });
+}
+
+function testAPI() {
+    const statusDiv = document.getElementById('system-status');
+    statusDiv.innerHTML = '<div class="spinner-border spinner-border-sm me-2"></div>Testing API...';
+    
+    Promise.all([
+        fetch('/api/user').then(r => r.ok),
+        fetch('/api/posts').then(r => r.ok)
+    ]).then(results => {
+        const userAPI = results[0];
+        const postsAPI = results[1];
+        
+        statusDiv.innerHTML = `
+            <div class="mb-2">
+                <i class="fas fa-${userAPI ? 'check text-success' : 'times text-danger'} me-2"></i>
+                User API: ${userAPI ? 'Working' : 'Error'}
+            </div>
+            <div>
+                <i class="fas fa-${postsAPI ? 'check text-success' : 'times text-danger'} me-2"></i>
+                Posts API: ${postsAPI ? 'Working' : 'Error'}
+            </div>
+        `;
+    }).catch(() => {
+        statusDiv.innerHTML = `
+            <div class="text-danger">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                API Test Failed
+            </div>
+        `;
+    });
+}
+
+// Auto-check system status on load
+document.addEventListener('DOMContentLoaded', testAPI);
+</script>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Flask + PocketBase{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-home me-2"></i>Welcome to Flask + PocketBase</h1>
+            {% if session.user_id %}
+                <a href="{{ url_for('create_post') }}" class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i>Create Post
+                </a>
+            {% endif %}
+        </div>
+
+        {% if posts %}
+            <h3 class="mb-3"><i class="fas fa-newspaper me-2"></i>Recent Posts</h3>
+            {% for post in posts %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-user me-1"></i>By {{ post.author }}
+                                <i class="fas fa-calendar ms-3 me-1"></i>{{ post.created[:10] }}
+                            </small>
+                            {% if post.published %}
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check me-1"></i>Published
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+                <h4 class="text-muted">No posts yet</h4>
+                <p class="text-muted">Be the first to create a post!</p>
+                {% if session.user_id %}
+                    <a href="{{ url_for('create_post') }}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Create First Post
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login to Create Posts
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>About This App</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    This is a demonstration of integrating <strong>Flask</strong> with <strong>PocketBase</strong> 
+                    for user authentication and data management.
+                </p>
+                
+                <h6><i class="fas fa-features me-2"></i>Features:</h6>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success me-2"></i>User Registration</li>
+                    <li><i class="fas fa-check text-success me-2"></i>User Authentication</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Session Management</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Post Creation</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Data Persistence</li>
+                </ul>
+
+                {% if not session.user_id %}
+                    <div class="mt-3">
+                        <a href="{{ url_for('register') }}" class="btn btn-success btn-sm me-2">
+                            <i class="fas fa-user-plus me-1"></i>Sign Up
+                        </a>
+                        <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-sign-in-alt me-1"></i>Login
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-database me-2"></i>PocketBase Status</h5>
+            </div>
+            <div class="card-body">
+                <div id="pb-status">
+                    <div class="d-flex align-items-center">
+                        <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+                        <span>Checking connection...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Check PocketBase connection status
+fetch('/api/posts')
+    .then(response => response.ok ? 'connected' : 'error')
+    .then(status => {
+        const statusDiv = document.getElementById('pb-status');
+        if (status === 'connected') {
+            statusDiv.innerHTML = `
+                <div class="d-flex align-items-center text-success">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <span>Connected to PocketBase</span>
+                </div>
+            `;
+        } else {
+            statusDiv.innerHTML = `
+                <div class="d-flex align-items-center text-danger">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <span>Connection Error</span>
+                </div>
+            `;
+        }
+    })
+    .catch(() => {
+        document.getElementById('pb-status').innerHTML = `
+            <div class="d-flex align-items-center text-danger">
+                <i class="fas fa-times-circle me-2"></i>
+                <span>PocketBase Offline</span>
+            </div>
+        `;
+    });
+</script>
+{% endblock %}
