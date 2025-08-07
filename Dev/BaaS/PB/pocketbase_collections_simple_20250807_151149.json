@@ -1,0 +1,636 @@
+[
+  {
+    "id": "_pb_users_auth_",
+    "name": "users",
+    "type": "auth",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "users_name",
+        "name": "name",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "users_avatar",
+        "name": "avatar",
+        "type": "file",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "maxSelect": 1,
+          "maxSize": 5242880,
+          "mimeTypes": [
+            "image/jpeg",
+            "image/png",
+            "image/svg+xml",
+            "image/gif",
+            "image/webp"
+          ],
+          "thumbs": null,
+          "protected": false
+        }
+      }
+    ],
+    "indexes": [],
+    "listRule": "id = @request.auth.id",
+    "viewRule": "id = @request.auth.id",
+    "createRule": "",
+    "updateRule": "id = @request.auth.id",
+    "deleteRule": "id = @request.auth.id",
+    "options": {
+      "allowEmailAuth": true,
+      "allowOAuth2Auth": true,
+      "allowUsernameAuth": true,
+      "exceptEmailDomains": null,
+      "manageRule": null,
+      "minPasswordLength": 8,
+      "onlyEmailDomains": null,
+      "requireEmail": false
+    },
+    "created": "2025-08-07 12:23:51.491Z",
+    "updated": "2025-08-07 12:23:51.493Z",
+    "field_summary": {
+      "total_fields": 2,
+      "field_types": [
+        "text",
+        "file"
+      ],
+      "required_fields": []
+    },
+    "rules_summary": {
+      "public_access": [
+        "createRule"
+      ],
+      "auth_required": [
+        "listRule",
+        "viewRule",
+        "updateRule",
+        "deleteRule"
+      ],
+      "custom_rules": []
+    }
+  },
+  {
+    "id": "wv3weup0ssdv6ia",
+    "name": "posts",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "4fdsp0bq",
+        "name": "title",
+        "type": "text",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": 1,
+          "max": 200,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "pg1vxhak",
+        "name": "content",
+        "type": "editor",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "convertUrls": false
+        }
+      },
+      {
+        "system": false,
+        "id": "kcvgunpv",
+        "name": "author",
+        "type": "text",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "bmssmcpq",
+        "name": "published",
+        "type": "bool",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "system": false,
+        "id": "kil61fc0",
+        "name": "tags",
+        "type": "select",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "maxSelect": 5,
+          "values": [
+            "tech",
+            "lifestyle",
+            "tutorial",
+            "news",
+            "review"
+          ]
+        }
+      },
+      {
+        "system": false,
+        "id": "wtycuofl",
+        "name": "featured_image",
+        "type": "file",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "maxSelect": 1,
+          "maxSize": 5242880,
+          "mimeTypes": [
+            "image/jpeg",
+            "image/png",
+            "image/webp"
+          ],
+          "thumbs": null,
+          "protected": false
+        }
+      }
+    ],
+    "indexes": [],
+    "listRule": "",
+    "viewRule": "",
+    "createRule": "@request.auth.id != ''",
+    "updateRule": "@request.auth.id != '' && author = @request.auth.email",
+    "deleteRule": "@request.auth.id != '' && author = @request.auth.email",
+    "options": {},
+    "created": "2025-08-07 12:38:10.008Z",
+    "updated": "2025-08-07 12:38:10.008Z",
+    "field_summary": {
+      "total_fields": 6,
+      "field_types": [
+        "bool",
+        "text",
+        "file",
+        "editor",
+        "select"
+      ],
+      "required_fields": [
+        "title",
+        "content",
+        "author"
+      ]
+    },
+    "rules_summary": {
+      "public_access": [
+        "listRule",
+        "viewRule"
+      ],
+      "auth_required": [
+        "createRule",
+        "updateRule",
+        "deleteRule"
+      ],
+      "custom_rules": []
+    }
+  },
+  {
+    "id": "r82nxgpadvit2iu",
+    "name": "categories",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "39ipt6rz",
+        "name": "name",
+        "type": "text",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": 1,
+          "max": 50,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "ki2rbfoa",
+        "name": "description",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": 500,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "xpl7fz7c",
+        "name": "color",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        }
+      }
+    ],
+    "indexes": [],
+    "listRule": "",
+    "viewRule": "",
+    "createRule": "@request.auth.id != ''",
+    "updateRule": "@request.auth.id != ''",
+    "deleteRule": "@request.auth.id != ''",
+    "options": {},
+    "created": "2025-08-07 12:38:10.012Z",
+    "updated": "2025-08-07 12:38:10.012Z",
+    "field_summary": {
+      "total_fields": 3,
+      "field_types": [
+        "text"
+      ],
+      "required_fields": [
+        "name"
+      ]
+    },
+    "rules_summary": {
+      "public_access": [
+        "listRule",
+        "viewRule"
+      ],
+      "auth_required": [
+        "createRule",
+        "updateRule",
+        "deleteRule"
+      ],
+      "custom_rules": []
+    }
+  },
+  {
+    "id": "8wt10ehkwe3dhy6",
+    "name": "user_settings",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "q09xfvpf",
+        "name": "user",
+        "type": "relation",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "collectionId": "_pb_users_auth_",
+          "cascadeDelete": true,
+          "minSelect": 1,
+          "maxSelect": 1,
+          "displayFields": [
+            "email"
+          ]
+        }
+      },
+      {
+        "system": false,
+        "id": "pvoicoar",
+        "name": "documentsNumber",
+        "type": "number",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": 0,
+          "max": null,
+          "noDecimal": false
+        }
+      },
+      {
+        "system": false,
+        "id": "bynjhfhd",
+        "name": "modelType",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": 100,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "be2stt1f",
+        "name": "strictMode",
+        "type": "bool",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "system": false,
+        "id": "fm5mjqwv",
+        "name": "storedResources",
+        "type": "json",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "system": false,
+        "id": "olkapan2",
+        "name": "storedRolePrompts",
+        "type": "json",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      }
+    ],
+    "indexes": [],
+    "listRule": "@request.auth.id = user.id",
+    "viewRule": "@request.auth.id = user.id",
+    "createRule": "@request.auth.id = @request.data.user",
+    "updateRule": "@request.auth.id = user.id",
+    "deleteRule": "@request.auth.id = user.id",
+    "options": {},
+    "created": "2025-08-07 12:46:54.787Z",
+    "updated": "2025-08-07 12:46:54.787Z",
+    "field_summary": {
+      "total_fields": 6,
+      "field_types": [
+        "bool",
+        "json",
+        "relation",
+        "text",
+        "number"
+      ],
+      "required_fields": [
+        "user"
+      ]
+    },
+    "rules_summary": {
+      "public_access": [],
+      "auth_required": [
+        "listRule",
+        "viewRule",
+        "createRule",
+        "updateRule",
+        "deleteRule"
+      ],
+      "custom_rules": []
+    }
+  },
+  {
+    "id": "pbh4oze2k3y6oj2",
+    "name": "chat_sessions",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "3wg1fy3e",
+        "name": "user",
+        "type": "relation",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "collectionId": "_pb_users_auth_",
+          "cascadeDelete": true,
+          "minSelect": 1,
+          "maxSelect": 1,
+          "displayFields": [
+            "email"
+          ]
+        }
+      },
+      {
+        "system": false,
+        "id": "fzjy52xn",
+        "name": "title",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": 200,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "ojyb03rb",
+        "name": "description",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": 500,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "phscvgtc",
+        "name": "isActive",
+        "type": "bool",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "system": false,
+        "id": "6kq0z3vr",
+        "name": "metadata",
+        "type": "json",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      }
+    ],
+    "indexes": [],
+    "listRule": "@request.auth.id = user.id",
+    "viewRule": "@request.auth.id = user.id",
+    "createRule": "@request.auth.id = @request.data.user",
+    "updateRule": "@request.auth.id = user.id",
+    "deleteRule": "@request.auth.id = user.id",
+    "options": {},
+    "created": "2025-08-07 13:07:27.618Z",
+    "updated": "2025-08-07 13:07:27.618Z",
+    "field_summary": {
+      "total_fields": 5,
+      "field_types": [
+        "json",
+        "relation",
+        "text",
+        "bool"
+      ],
+      "required_fields": [
+        "user"
+      ]
+    },
+    "rules_summary": {
+      "public_access": [],
+      "auth_required": [
+        "listRule",
+        "viewRule",
+        "createRule",
+        "updateRule",
+        "deleteRule"
+      ],
+      "custom_rules": []
+    }
+  },
+  {
+    "id": "gjsb3nfkjvwdul6",
+    "name": "chat_messages",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "fyueymca",
+        "name": "session",
+        "type": "relation",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "collectionId": "pbh4oze2k3y6oj2",
+          "cascadeDelete": true,
+          "minSelect": 1,
+          "maxSelect": 1,
+          "displayFields": [
+            "title"
+          ]
+        }
+      },
+      {
+        "system": false,
+        "id": "gohamx8k",
+        "name": "user",
+        "type": "relation",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "collectionId": "_pb_users_auth_",
+          "cascadeDelete": true,
+          "minSelect": 1,
+          "maxSelect": 1,
+          "displayFields": [
+            "email"
+          ]
+        }
+      },
+      {
+        "system": false,
+        "id": "lth8qpsb",
+        "name": "message",
+        "type": "json",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "system": false,
+        "id": "adikjfbp",
+        "name": "timestamp",
+        "type": "date",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "2yztayvy",
+        "name": "isRead",
+        "type": "bool",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      }
+    ],
+    "indexes": [
+      "CREATE INDEX `idx_chat_messages_user` ON `chat_messages` (`user`)",
+      "CREATE INDEX `idx_chat_messages_session` ON `chat_messages` (`session`)",
+      "CREATE INDEX `idx_chat_messages_timestamp` ON `chat_messages` (`timestamp` DESC)"
+    ],
+    "listRule": "@request.auth.id = user",
+    "viewRule": "@request.auth.id = user",
+    "createRule": "@request.auth.id = @request.data.user",
+    "updateRule": "@request.auth.id = user",
+    "deleteRule": "@request.auth.id = user",
+    "options": {},
+    "created": "2025-08-07 13:07:27.629Z",
+    "updated": "2025-08-07 13:07:27.629Z",
+    "field_summary": {
+      "total_fields": 5,
+      "field_types": [
+        "json",
+        "relation",
+        "bool",
+        "date"
+      ],
+      "required_fields": [
+        "session",
+        "user",
+        "message",
+        "timestamp"
+      ]
+    },
+    "rules_summary": {
+      "public_access": [],
+      "auth_required": [
+        "listRule",
+        "viewRule",
+        "createRule",
+        "updateRule",
+        "deleteRule"
+      ],
+      "custom_rules": []
+    }
+  }
+]

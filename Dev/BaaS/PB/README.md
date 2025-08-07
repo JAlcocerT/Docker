@@ -64,6 +64,26 @@ python3 view_api_rules.py
 python3 create_user_settings.py
 ```
 
+### Create Chat Collections
+
+```bash
+# Create chat_sessions and chat_messages collections for chat functionality
+python3 create_chat_collections.py
+```
+
+### Demo Scripts
+
+```bash
+# Check if PocketBase demo is healthy
+curl -s https://pocketbase.io/api/health
+
+# Try to create demo collections (may not work on public demo for security)
+python3 create_collection_demo.py
+
+# Create demo collections on your local PocketBase instance (recommended)
+python3 create_collection_local_demo.py
+```
+
 ### JavaScript Script
 
 ```bash
@@ -99,6 +119,11 @@ Each script creates example collections with different schemas:
 - **`export_collections.py`**: Exports all collections and schemas to JSON files
 - **`view_api_rules.py`**: Displays API rules in a clean, readable format
 - **`create_user_settings.py`**: Creates the `user_settings` collection for frontend integration
+- **`create_chat_collections.py`**: Creates `chat_sessions` and `chat_messages` collections for chat functionality
+
+### Demo Scripts
+- **`create_collection_demo.py`**: Creates demo collections on PocketBase demo instance
+- **`create_collection_local_demo.py`**: Creates demo collections on your local PocketBase instance
 
 ## Collection Features Demonstrated
 
