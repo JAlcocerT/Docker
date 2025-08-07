@@ -9,6 +9,7 @@ Run:
 ```sh
 #docker compose up -d
 docker compose -f PB_docker-compose.yml up -d
+curl -s http://127.0.0.1:8080/api/health
 ```
 
 ---
@@ -27,8 +28,10 @@ PB_ADMIN_PASS=pb_admin_12345@
 ```
 
 2. Ensure PocketBase is running:
+
 ```bash
 docker-compose -f PB_docker-compose.yml up -d
+curl -s http://127.0.0.1:8080/api/health
 ```
 
 ## Usage
@@ -40,6 +43,25 @@ pip install -r requirements.txt
 
 # Run the script
 python3 create_collection.py
+```
+
+### Export Collections Script
+```bash
+# Export all collections and their schemas to JSON
+python3 export_collections.py
+```
+
+### View API Rules Script
+```bash
+# View API rules in a clean format
+python3 view_api_rules.py
+```
+
+### Create User Settings Collection
+
+```bash
+# Create the user_settings collection for frontend integration
+python3 create_user_settings.py
 ```
 
 ### JavaScript Script
@@ -64,13 +86,19 @@ chmod +x create_collection.sh
 ./create_collection.sh
 ```
 
-## What Gets Created
+## Available Scripts
 
+### Collection Creation Scripts
 Each script creates example collections with different schemas:
 
-- **Python**: Creates `posts` and `categories` collections
-- **JavaScript**: Creates `products` and `reviews` collections (with relations)
-- **Bash**: Creates `blog_posts` and `comments` collections
+- **`create_collection.py`**: Creates `posts` and `categories` collections
+- **`create_collection.js`**: Creates `products` and `reviews` collections (with relations)
+- **`create_collection.sh`**: Creates `blog_posts` and `comments` collections
+
+### Collection Management Scripts
+- **`export_collections.py`**: Exports all collections and schemas to JSON files
+- **`view_api_rules.py`**: Displays API rules in a clean, readable format
+- **`create_user_settings.py`**: Creates the `user_settings` collection for frontend integration
 
 ## Collection Features Demonstrated
 
