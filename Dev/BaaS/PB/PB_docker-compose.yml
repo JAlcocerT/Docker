@@ -1,0 +1,24 @@
+#version: "3.7"
+
+services:
+    pocketbase:
+        image: pb  
+        container_name: pocketbase
+        restart: unless-stopped
+        ports:
+            - 8080:8080
+        # volumes:
+        #     - "./pocketbase-data:/pb/pb_data"  # Attaches pb_data to a volume named 'pocketbase-data' on your current directory
+        volumes:
+            - pocketbase-data:/pb/pb_data  # Reference the named volume here
+      # environment:
+      #   - POCKETBASE_URL=http://localhost:8080
+      #   - POCKETBASE_ADMIN_EMAIL=admin@example.com
+      #   - POCKETBASE_ADMIN_PASSWORD=admin123
+      # healthcheck:
+      #   test: ["CMD", "curl", "-f", "http://localhost:8090/api/health"]
+      #   interval: 30s
+      #   timeout: 10s
+      #   retries: 3
+volumes:
+    pocketbase-data: # Define the named volume
