@@ -46,6 +46,31 @@ create-specific: ## Create specific collections (usage: make create-specific COL
 	@echo "$(YELLOW)📝 Creating specific collections: $(COLLECTIONS)$(RESET)"
 	python3 create_json_collection.py $(COLLECTIONS)
 
+.PHONY: list-collections
+list-collections: ## List all existing collections
+	@echo "$(BLUE)📋 Listing all collections...$(RESET)"
+	python3 delete_collection.py --list
+
+.PHONY: delete-collection
+delete-collection: ## Delete specific collections (usage: make delete-collection COLLECTIONS="posts user_settings")
+	@echo "$(RED)🗑️  Deleting collections: $(COLLECTIONS)$(RESET)"
+	@if [ -z "$(COLLECTIONS)" ]; then \
+		echo "$(RED)❌ Error: Please specify COLLECTIONS to delete$(RESET)"; \
+		echo "$(YELLOW)Usage: make delete-collection COLLECTIONS=\"posts user_settings\"$(RESET)"; \
+		exit 1; \
+	fi
+	python3 delete_collection.py $(COLLECTIONS)
+
+.PHONY: delete-collection-force
+delete-collection-force: ## Force delete collections without confirmation (usage: make delete-collection-force COLLECTIONS="posts")
+	@echo "$(RED)🗑️  Force deleting collections: $(COLLECTIONS)$(RESET)"
+	@if [ -z "$(COLLECTIONS)" ]; then \
+		echo "$(RED)❌ Error: Please specify COLLECTIONS to delete$(RESET)"; \
+		echo "$(YELLOW)Usage: make delete-collection-force COLLECTIONS=\"posts user_settings\"$(RESET)"; \
+		exit 1; \
+	fi
+	python3 delete_collection.py --force $(COLLECTIONS)
+
 .PHONY: flask-deps
 flask-deps: ## Install Flask dependencies
 	@echo "$(YELLOW)📦 Installing Flask dependencies...$(RESET)"
