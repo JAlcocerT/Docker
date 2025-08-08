@@ -1,5 +1,6 @@
+Wrote about this at [**this post**](https://jalcocert.github.io/JAlcocerT/pocketbase-redux/)
 
-Navigate into the directory where your docker-compose.yaml is located.
+Navigate into the directory where your `docker-compose.yaml` is located.
 
 * Build your container: `docker build -t pb .`
 * Run your container: `docker run -p 8080:8080 pb`

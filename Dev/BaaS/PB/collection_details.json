@@ -1,0 +1,248 @@
+{
+  "user_settings": {
+    "name": "user_settings",
+    "type": "base",
+    "description": "User-specific settings and preferences",
+    "dependencies": ["users"],
+    "schema": [
+      {
+        "name": "user",
+        "type": "relation",
+        "required": true,
+        "options": {
+          "collectionName": "users",
+          "cascadeDelete": true,
+          "minSelect": 1,
+          "maxSelect": 1,
+          "displayFields": ["email"]
+        }
+      },
+      {
+        "name": "documentsNumber",
+        "type": "number",
+        "required": false,
+        "options": {
+          "min": 0
+        }
+      },
+      {
+        "name": "modelType",
+        "type": "text",
+        "required": false,
+        "options": {
+          "max": 100
+        }
+      },
+      {
+        "name": "strictMode",
+        "type": "bool",
+        "required": false,
+        "options": {
+          "default": false
+        }
+      },
+      {
+        "name": "preferences",
+        "type": "json",
+        "required": false,
+        "options": {}
+      },
+      {
+        "name": "theme",
+        "type": "select",
+        "required": false,
+        "options": {
+          "values": ["light", "dark", "auto"],
+          "maxSelect": 1
+        }
+      },
+      {
+        "name": "notifications",
+        "type": "json",
+        "required": false,
+        "options": {}
+      }
+    ],
+    "listRule": "@request.auth.id != '' && user = @request.auth.id",
+    "viewRule": "@request.auth.id != '' && user = @request.auth.id",
+    "createRule": "@request.auth.id != ''",
+    "updateRule": "@request.auth.id != '' && user = @request.auth.id",
+    "deleteRule": "@request.auth.id != '' && user = @request.auth.id"
+  },
+  "posts": {
+    "name": "posts",
+    "type": "base",
+    "description": "Blog posts and articles",
+    "dependencies": [],
+    "schema": [
+      {
+        "name": "title",
+        "type": "text",
+        "required": true,
+        "options": {
+          "min": 1,
+          "max": 200
+        }
+      },
+      {
+        "name": "content",
+        "type": "editor",
+        "required": true,
+        "options": {}
+      },
+      {
+        "name": "author",
+        "type": "text",
+        "required": true,
+        "options": {
+          "min": 1,
+          "max": 100
+        }
+      },
+      {
+        "name": "published",
+        "type": "bool",
+        "required": false,
+        "options": {
+          "default": true
+        }
+      },
+      {
+        "name": "tags",
+        "type": "select",
+        "required": false,
+        "options": {
+          "values": ["tech", "tutorial", "news", "review", "guide"],
+          "maxSelect": 5
+        }
+      },
+      {
+        "name": "featured_image",
+        "type": "file",
+        "required": false,
+        "options": {
+          "maxSelect": 1,
+          "maxSize": 5242880,
+          "mimeTypes": ["image/jpeg", "image/png", "image/webp"]
+        }
+      }
+    ],
+    "listRule": "published = true",
+    "viewRule": "published = true",
+    "createRule": "@request.auth.id != ''",
+    "updateRule": "@request.auth.id != '' && author = @request.auth.email",
+    "deleteRule": "@request.auth.id != '' && author = @request.auth.email"
+  },
+  "chat_sessions": {
+    "name": "chat_sessions",
+    "type": "base",
+    "description": "Chat sessions for real-time messaging",
+    "dependencies": ["users"],
+    "schema": [
+      {
+        "name": "title",
+        "type": "text",
+        "required": true,
+        "options": {
+          "min": 1,
+          "max": 100
+        }
+      },
+      {
+        "name": "participants",
+        "type": "relation",
+        "required": true,
+        "options": {
+          "collectionName": "users",
+          "cascadeDelete": false,
+          "minSelect": 1,
+          "maxSelect": 10,
+          "displayFields": ["email", "name"]
+        }
+      },
+      {
+        "name": "is_active",
+        "type": "bool",
+        "required": false,
+        "options": {
+          "default": true
+        }
+      },
+      {
+        "name": "metadata",
+        "type": "json",
+        "required": false,
+        "options": {}
+      }
+    ],
+    "listRule": "@request.auth.id != '' && participants.id ?= @request.auth.id",
+    "viewRule": "@request.auth.id != '' && participants.id ?= @request.auth.id",
+    "createRule": "@request.auth.id != ''",
+    "updateRule": "@request.auth.id != '' && participants.id ?= @request.auth.id",
+    "deleteRule": "@request.auth.id != '' && participants.id ?= @request.auth.id"
+  },
+  "chat_messages": {
+    "name": "chat_messages",
+    "type": "base",
+    "description": "Messages within chat sessions",
+    "dependencies": ["users", "chat_sessions"],
+    "schema": [
+      {
+        "name": "session",
+        "type": "relation",
+        "required": true,
+        "options": {
+          "collectionName": "chat_sessions",
+          "cascadeDelete": true,
+          "minSelect": 1,
+          "maxSelect": 1,
+          "displayFields": ["title"]
+        }
+      },
+      {
+        "name": "sender",
+        "type": "relation",
+        "required": true,
+        "options": {
+          "collectionName": "users",
+          "cascadeDelete": false,
+          "minSelect": 1,
+          "maxSelect": 1,
+          "displayFields": ["email", "name"]
+        }
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "required": true,
+        "options": {
+          "min": 1,
+          "max": 2000
+        }
+      },
+      {
+        "name": "message_type",
+        "type": "select",
+        "required": false,
+        "options": {
+          "values": ["text", "image", "file", "system"],
+          "maxSelect": 1
+        }
+      },
+      {
+        "name": "attachments",
+        "type": "file",
+        "required": false,
+        "options": {
+          "maxSelect": 5,
+          "maxSize": 10485760
+        }
+      }
+    ],
+    "listRule": "@request.auth.id != '' && session.participants.id ?= @request.auth.id",
+    "viewRule": "@request.auth.id != '' && session.participants.id ?= @request.auth.id",
+    "createRule": "@request.auth.id != '' && session.participants.id ?= @request.auth.id",
+    "updateRule": "@request.auth.id != '' && sender = @request.auth.id",
+    "deleteRule": "@request.auth.id != '' && sender = @request.auth.id"
+  }
+}
