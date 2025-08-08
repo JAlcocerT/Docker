@@ -1,0 +1,34 @@
+#https://github.com/JAlcocerT/Docker/blob/main/Web/SSGs/Astro/docker-compose.yml
+
+## MAKE SURE YOU RUN THE SITE BUILD COMMAND FIRST, BEFORE DEPLOYING THIS CONTAINER ##
+## YOU NEED TO MOUNT THE SITE DURING THE HUGO DEPLOYMENT ##
+
+#version: '3.8'
+services:
+  # One-off builder: runs Hugo to generate static files into exampleSite/public
+  hugo-build:
+    image: hugo_gallery
+    container_name: hugo-build
+    working_dir: /hugo-theme-gallery/exampleSite
+    command: sh -c "hugo --gc --minify"
+    volumes:
+      - "/home/jalcocert/Desktop/IT/hugo-theme-gallery-flasked:/hugo-theme-gallery"
+    restart: "no"
+
+  # Static file server: serves the built public/ directory
+  static-prod:
+    image: node:22.16-alpine3.22
+    container_name: hugo-prod-static-built
+    working_dir: /app
+    volumes:
+      - "/home/jalcocert/Desktop/IT/hugo-theme-gallery-flasked/exampleSite/public:/app/public:ro"
+    ports:
+      - "8087:4321"
+    command: >
+      sh -c "npm -g i http-server && http-server ./public -p 4321"
+    environment:
+      - NODE_ENV=production
+    restart: "no"
+
+
+#docker compose -f docker-compose-dev.yml up -d

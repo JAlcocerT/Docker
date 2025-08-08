@@ -5,14 +5,12 @@ These can be used to deploy your staticaly generated website.
 Static content can be served to the internet with:
 
 1. Lightttpd
-2. NGINX
-3. Caddy
-4. Traefik
+2. NGINX or Apache static web server
+3. Caddy static
 
 > https://jalcocert.github.io/JAlcocerT/selfhosting-python-ai-apps-caddy/
 
-1. [Apache](https://fossengineer.com/Selfhosting-Static-Webs-with-Apache-in-Docker)
-2. NginX
-
+4. Node Container
+5. **Others** (see them all in the `docker-compose.yml`): Python Static Web Server, busybox, klakegg/hugo, Traefik...
 
 > [Static hosting alternatives](https://fossengineer.com/alternatives-for-hosting-static-websites/)

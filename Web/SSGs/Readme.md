@@ -11,7 +11,6 @@ Use any of these SSG's to generate content.
 2. Or using Headless CMS's
 3. [Static Hosting](https://fossengineer.com/alternatives-for-hosting-static-websites/)
 
-
 ---
 
 ## JamStack

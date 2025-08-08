@@ -1,4 +1,7 @@
-> https://jalcocert.github.io/JAlcocerT/using-hugo-as-website/#hugo-container
+> See these blog posts
+
+* https://jalcocert.github.io/JAlcocerT/cool-hugo-themes/
+* https://jalcocert.github.io/JAlcocerT/using-hugo-as-website/#hugo-container
 * https://jalcocert.github.io/JAlcocerT/using-hugo-as-website/
 
 1. Clone a repo like the [Portfolio](https://github.com/JAlcocerT/Portfolio)

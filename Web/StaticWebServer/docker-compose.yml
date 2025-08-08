@@ -1,0 +1,71 @@
+#https://github.com/JAlcocerT/Docker/tree/main/Web/SSGs/Hugo
+
+## MAKE SURE YOU RUN THE SITE BUILD COMMAND FIRST, BEFORE DEPLOYING THIS CONTAINER ##
+## YOU NEED TO MOUNT THE SITE DURING THE HUGO DEPLOYMENT ##
+
+#version: '3.8'
+services:
+  server:
+    image: klakegg/hugo:0.101.0
+    container_name: hugo
+    #command: server
+    command: server --bind 0.0.0.0 --port 1313 --baseURL http://192.168.1.7/ # Adjust baseURL    
+    ports:
+      - "1313:1313"
+    volumes:
+      - "/home/jalcocert/Desktop/IT/hugo-theme-gallery-flasked/:/src" #mount your site here after you've created a new site!
+
+  # Serve built files with Node http-server
+  static-node:
+    image: node:22.16-alpine3.22
+    container_name: hugo-static-node
+    working_dir: /app
+    command: sh -c "npm -g i http-server && http-server ./public -p 4321"
+    volumes:
+      - "/home/jalcocert/Desktop/IT/hugo-theme-gallery-flasked/exampleSite/public:/app/public:ro"
+    ports:
+      - "8087:4321"
+    restart: "no"
+
+  # Ultra-light: BusyBox httpd
+  static-busybox:
+    image: busybox:stable
+    container_name: hugo-static-busybox
+    command: sh -c "httpd -f -p 4322 -h /app/public"
+    volumes:
+      - "/home/jalcocert/Desktop/IT/hugo-theme-gallery-flasked/exampleSite/public:/app/public:ro"
+    ports:
+      - "8088:4322"
+    restart: "no"
+
+  # Ultra-light: Python stdlib http.server
+  static-python:
+    image: python:3.12-alpine
+    container_name: hugo-static-python
+    working_dir: /app
+    command: python3 -m http.server 4323 --directory /app/public
+    volumes:
+      - "/home/jalcocert/Desktop/IT/hugo-theme-gallery-flasked/exampleSite/public:/app/public:ro"
+    ports:
+      - "8089:4323"
+    restart: "no"
+
+  # Nginx static server
+  static-nginx:
+    image: nginx:alpine
+    container_name: hugo-static-nginx
+    volumes:
+      - "/home/jalcocert/Desktop/IT/hugo-theme-gallery-flasked/exampleSite/public:/usr/share/nginx/html:ro"
+    ports:
+      - "8090:80"
+    restart: "no"
+
+  # Caddy static server
+  static-caddy:
+    image: caddy:alpine
+    container_name: hugo-static-caddy
+    volumes:
+      - "/home/jalcocert/Desktop/IT/hugo-theme-gallery-flasked/exampleSite/public:/usr/share/caddy:ro"
+    ports:
+      - "8091:80"
+    restart: "no"
