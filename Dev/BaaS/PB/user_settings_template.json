@@ -1,0 +1,82 @@
+{
+  "user_settings": {
+    "createRule": "@request.auth.id != ''",
+    "deleteRule": "@request.auth.id != '' && user = @request.auth.id",
+    "dependencies": [
+      "users"
+    ],
+    "description": "Exported from PocketBase on 2025-08-08",
+    "listRule": "@request.auth.id != '' && user = @request.auth.id",
+    "name": "user_settings",
+    "schema": [
+      {
+        "name": "user",
+        "options": {
+          "cascadeDelete": true,
+          "collectionName": "users",
+          "displayFields": [
+            "email"
+          ],
+          "maxSelect": 1,
+          "minSelect": 1
+        },
+        "required": true,
+        "type": "relation"
+      },
+      {
+        "name": "documentsNumber",
+        "options": {
+          "max": null,
+          "min": 0,
+          "noDecimal": false
+        },
+        "required": false,
+        "type": "number"
+      },
+      {
+        "name": "modelType",
+        "options": {
+          "max": 100,
+          "min": null,
+          "pattern": ""
+        },
+        "required": false,
+        "type": "text"
+      },
+      {
+        "name": "strictMode",
+        "options": {},
+        "required": false,
+        "type": "bool"
+      },
+      {
+        "name": "preferences",
+        "options": {},
+        "required": false,
+        "type": "json"
+      },
+      {
+        "name": "theme",
+        "options": {
+          "maxSelect": 1,
+          "values": [
+            "light",
+            "dark",
+            "auto"
+          ]
+        },
+        "required": false,
+        "type": "select"
+      },
+      {
+        "name": "notifications",
+        "options": {},
+        "required": false,
+        "type": "json"
+      }
+    ],
+    "type": "base",
+    "updateRule": "@request.auth.id != '' && user = @request.auth.id",
+    "viewRule": "@request.auth.id != '' && user = @request.auth.id"
+  }
+}

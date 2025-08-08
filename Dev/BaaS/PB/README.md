@@ -5,11 +5,14 @@ Navigate into the directory where your `docker-compose.yaml` is located.
 * Build your container: `docker build -t pb .`
 * Run your container: `docker run -p 8080:8080 pb`
 
-Run:
+**Run:**
 
 ```sh
 #docker compose up -d
 docker compose -f PB_docker-compose.yml up -d
+make setup
+
+
 curl -s http://127.0.0.1:8080/api/health
 ```
 

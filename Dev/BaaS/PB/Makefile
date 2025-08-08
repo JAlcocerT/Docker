@@ -71,6 +71,50 @@ delete-collection-force: ## Force delete collections without confirmation (usage
 	fi
 	python3 delete_collection.py --force $(COLLECTIONS)
 
+.PHONY: export-all
+export-all: ## Export all collections as full backup with metadata
+	@echo "$(BLUE)📤 Exporting all collections (full format)...$(RESET)"
+	python3 export_collections_enhanced.py --format=full
+	@echo "$(GREEN)✅ Full backup export completed$(RESET)"
+
+.PHONY: export-template
+export-template: ## Export all collections as template (creation-ready format)
+	@echo "$(BLUE)📤 Exporting all collections (template format)...$(RESET)"
+	python3 export_collections_enhanced.py --format=template --output=exported_collections_template.json
+	@echo "$(GREEN)✅ Template export completed - ready for recreation$(RESET)"
+	@echo "$(YELLOW)💡 Use: python3 create_json_collection.py to recreate$(RESET)"
+
+.PHONY: export-specific
+export-specific: ## Export specific collections as template (usage: make export-specific COLLECTIONS="posts user_settings")
+	@echo "$(BLUE)📤 Exporting specific collections: $(COLLECTIONS)$(RESET)"
+	@if [ -z "$(COLLECTIONS)" ]; then \
+		echo "$(RED)❌ Error: Please specify COLLECTIONS to export$(RESET)"; \
+		echo "$(YELLOW)Usage: make export-specific COLLECTIONS=\"posts user_settings\"$(RESET)"; \
+		exit 1; \
+	fi
+	python3 export_collections_enhanced.py $(COLLECTIONS) --format=template
+	@echo "$(GREEN)✅ Specific collections exported$(RESET)"
+
+.PHONY: export-backup
+export-backup: ## Create complete backup with custom filename (usage: make export-backup OUTPUT="my_backup.json")
+	@echo "$(BLUE)📤 Creating complete backup...$(RESET)"
+	@if [ -z "$(OUTPUT)" ]; then \
+		python3 export_collections_enhanced.py --format=full; \
+	else \
+		python3 export_collections_enhanced.py --format=full --output=$(OUTPUT); \
+	fi
+	@echo "$(GREEN)✅ Backup completed$(RESET)"
+
+.PHONY: backup-and-recreate
+backup-and-recreate: ## Backup current collections and prepare for recreation
+	@echo "$(BLUE)🔄 Creating backup and recreation template...$(RESET)"
+	python3 export_collections_enhanced.py --format=full --output=backup_full_$$(date +%Y%m%d_%H%M%S).json
+	python3 export_collections_enhanced.py --format=template --output=collection_details_backup.json
+	@echo "$(GREEN)✅ Backup completed$(RESET)"
+	@echo "$(YELLOW)💡 Files created:$(RESET)"
+	@echo "  • backup_full_*.json (complete backup)"
+	@echo "  • collection_details_backup.json (recreation template)"
+
 .PHONY: flask-deps
 flask-deps: ## Install Flask dependencies
 	@echo "$(YELLOW)📦 Installing Flask dependencies...$(RESET)"
