@@ -1,4 +1,4 @@
-1. Supabase
+1. **Supabase**
 
 ```sh
 git clone https://github.com/supabase/supabase.git
@@ -15,4 +15,4 @@ docker-compose up -d
 
 > http://localhost:9000
 
-2. PocketBase: with selfhosting focus
+2. **PocketBase**: with selfhosting focus

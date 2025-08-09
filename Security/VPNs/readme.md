@@ -8,7 +8,7 @@
 
 ### WIREGUARD ###
 
-https://hub.docker.com/r/linuxserver/wireguard
+* https://hub.docker.com/r/linuxserver/wireguard
 
 
 ```sh

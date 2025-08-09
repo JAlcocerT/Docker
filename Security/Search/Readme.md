@@ -6,3 +6,10 @@
 
 2. [Whoogle](https://fossengineer.com/selfhosting-whoogle-docker/)
 3. [MetaGer](https://gitlab.metager.de/open-source/MetaGer)
+
+---
+
+See also **Local Deep Researcher**:
+
+* https://jalcocert.github.io/JAlcocerT/live-search-and-research-with-ai/
+* https://github.com/JAlcocerT/local-deep-researcher/tree/main/
