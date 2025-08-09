@@ -2,17 +2,18 @@ Wrote about this at [**this post**](https://jalcocert.github.io/JAlcocerT/pocket
 
 Navigate into the directory where your `docker-compose.yaml` is located.
 
-* Build your container: `docker build -t pb .`
-* Run your container: `docker run -p 8080:8080 pb`
-
-**Run:**
+1. **Build** your container: `docker build -t pb .`
+2. Run your container with `docker run -p 8080:8080 pb`, or **better run via**
 
 ```sh
 #docker compose up -d
 docker compose -f PB_docker-compose.yml up -d
 make setup
+```
 
+See that PB is ready at: `localhost:8080/_/` and create your admin user/pass.
 
+```sh
 curl -s http://127.0.0.1:8080/api/health
 ```
 

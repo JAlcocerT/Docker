@@ -1,0 +1,31 @@
+services:
+  flask-cms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flask-cms
+    container_name: flask-cms
+    ports:
+      - "5050:5050"
+    environment:
+      - CONTENT_DIR=/app/src/content
+    # IMPORTANT: Do not bind-mount the whole project, it would shadow the built .venv and break imports.
+    # If you need live code edits inside the container, selectively mount only sources as below and
+    # rebuild if dependencies change.
+    # volumes:
+    #   - ./app.py:/app/app.py:ro
+    #   - ./src:/app/src:ro
+    #command: tail -f /dev/null
+    command: ["sh", "-lc", "uv run gunicorn app:app -b 0.0.0.0:5050 --workers 2 --threads 4 --timeout 60"]
+    # healthcheck:
+    #   test: ["CMD", "curl", "-fsS", "http://127.0.0.1:5050/api/list"]
+    #   interval: 30s
+    #   timeout: 5s
+    #   retries: 3
+    restart: unless-stopped
+    networks:
+      - project-flask
+
+networks:
+  project-flask:
+    driver: bridge
