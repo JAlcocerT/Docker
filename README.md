@@ -14,7 +14,7 @@
     <img alt="YouTube Channel" src="https://img.shields.io/badge/YouTube-Channel-red" />
   </a>
   <a href="https://GitHub.com/JAlcocerT/Docker/graphs/commit-activity" style="margin-right: 5px;">
-    <img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+    <img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-no-red.svg" />
   </a>
   <a href="https://github.com/JAlcocerT/Docker">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/JAlcocerT/Docker" />
@@ -27,7 +27,9 @@
 
 ---
 
-A companion for This [public and open blog →](https://jalcocert.github.io/JAlcocerT/blog/)
+A companion for this [public and open blog →](https://jalcocert.github.io/JAlcocerT/blog/).
+
+> Now superseed by [this](https://github.com/JAlcocerT/Home-Lab)
 
 * My [**Raspberry Pi** guide](https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/)
 * My [**Linux** guide](https://jalcocert.github.io/Linux/docs/debian/docker/)
@@ -36,6 +38,7 @@ A companion for This [public and open blog →](https://jalcocert.github.io/JAlc
   * You can also [build **MultiArch** container images](https://jalcocert.github.io/JAlcocerT/github-actions-use-cases/) for your projects with GHActions. [Example Project](https://github.com/JAlcocerT/Streamlit-MultiChat)
 
 ## Repository Structure
+
   * [Introduction: Why Docker?](#Intro)
   * [Back-up related containers](#Backups)
   * [Business apps related containers](#business)
