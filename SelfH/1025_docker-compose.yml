@@ -52,13 +52,7 @@ services:
       # - nginx_default   
     #restart: always   
 
-# networks:
-#   cloudflare_tunnel:
-#     external: true
-  # nginx_default:
-  #   external: true
 
-  
 ### PIGALLERY
 
 #https://github.com/bpatrik/pigallery2
@@ -161,6 +155,23 @@ services:
 # volumes:
 #     speedtestconfig:
 
+  freshrss:
+    image: lscr.io/linuxserver/freshrss:latest
+    container_name: freshrss
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/Docker/freshrss/config:/config
+    #ports:
+    #  - 8200:80
+    expose:
+      - "80"
+    restart: unless-stopped
+#     networks: ["nginx_default"]    
+
+
 
 #############
 volumes:
@@ -170,3 +181,13 @@ volumes:
   db:
   speedtestconfig:
   db_data_pigallery:
+
+# networks:
+#     nginx_default:
+#         external: true 
+
+# networks:
+#   cloudflare_tunnel:
+#     external: true
+  # nginx_default:
+  #   external: true
