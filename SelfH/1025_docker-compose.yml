@@ -1,0 +1,172 @@
+#https://jalcocert.github.io/JAlcocerT/selfhosted-apps-may-2025/
+
+#version: '3'
+
+services:
+
+  termix:
+    image: ghcr.io/lukegus/termix:latest
+    container_name: termix #https://github.com/JAlcocerT/Docker/blob/main/SelfH/Termix/docker-compose.yml
+    restart: unless-stopped
+    ports:
+      - "8090:8080"
+    volumes:
+      - termix-data:/app/data
+    environment:
+      # Generate random salt here https://www.lastpass.com/features/password-generator (max 32 characters, include all characters for settings)
+      SALT: "something_generated"
+      PORT: "8080"
+
+### NEXTCLOUD
+  db:
+    image: linuxserver/mariadb
+    restart: always
+    container_name: nextclouddb
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_INITDB_SKIP_TZINFO=1
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+
+  nextcloud-app:
+    image: nextcloud
+    container_name: nextcloud
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - /home/jalcocert/Docker/nextcloud/html:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=ncpass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      - NEXTCLOUD_TRUSTED_DOMAINS=http://192.168.1.11:8080 http://0.0.0.0:8080 https://nc.piszymszu.duckdns.org/
+    # networks:
+    #   - cloudflare_tunnel
+      # - nginx_default   
+    #restart: always   
+
+# networks:
+#   cloudflare_tunnel:
+#     external: true
+  # nginx_default:
+  #   external: true
+
+  
+### PIGALLERY
+
+#https://github.com/bpatrik/pigallery2
+
+#admin/admin
+  pigallery2:
+    image: bpatrik/pigallery2:2.0.0 #latest #https://github.com/bpatrik/pigallery2
+    container_name: pigallery2
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /home/Docker/pigallery2/config:/app/data/config
+      - /home/Docker/pigallery2/tmp:/app/data/tmp
+      - db_data_pigallery:/app/data/db
+      - /home/jalcocert/Desktop/pixel8pro:/app/data/images:ro #your images folder #CHANGE THIS ONE!!!!!
+      #- /mnt/ext4_drive/Syncthing_Pixel8:/app/data/images:ro #your images folder
+      #- "/mnt/ext4_drive/Syncthing_Pixel8:/app/data/images:ro"
+    ports:
+      - 8088:80
+    restart: unless-stopped
+
+# volumes:
+#   db_data_pigallery:
+
+#admin/admin (Change them later for something secure)
+
+### Syncthing x SFTPGo
+
+
+
+#### TOOLS ###
+#version: '3.9'
+#services:
+  it-tools:
+    image: 'corentinth/it-tools:latest'
+    ports:
+      - '8034:80'
+    restart: unless-stopped
+    container_name: ittools
+
+# version: "3.8"
+# services:
+  omni-tools:
+    image: iib0011/omni-tools:latest
+    container_name: omni-tools
+    ports:
+      - "8060:80"
+    restart: unless-stopped      
+
+# #https://www.youtube.com/watch?v=2jftRXvHvlU
+# version: '3.8'
+
+# services:
+  reubah:
+    image: ghcr.io/dendianugerah/reubah:latest
+    container_name: reubah
+    ports:
+      - "8081:8081"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+#version: '3.3'
+#services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
+    ports:
+      - '8050:8080'
+    volumes:
+      - ./StirlingPDF/trainingData:/usr/share/tessdata # Required for extra OCR languages
+      - ./StirlingPDF/extraConfigs:/configs
+      - ./StirlingPDF/customFiles:/customFiles/
+      - ./StirlingPDF/logs:/logs/
+      - ./StirlingPDF/pipeline:/pipeline/
+    environment:
+      - DOCKER_ENABLE_SECURITY=false
+      - LANGS=en_GB
+#admin@example.com #changeme
+
+
+#services:
+  speedtest-tracker:
+      image: lscr.io/linuxserver/speedtest-tracker:latest
+      restart: unless-stopped
+      container_name: speedtest-tracker
+      ports:
+          - 8065:80
+          - 8443:443
+      environment:
+          - PUID=1000
+          - PGID=1000
+          #openssl rand -base64 12 #for secrets
+          - APP_KEY="your_random_secret_key_here"
+          - DB_CONNECTION=sqlite
+      volumes:
+          - speedtestconfig:/config
+
+# volumes:
+#     speedtestconfig:
+
+
+#############
+volumes:
+  termix-data:
+    driver: local  
+#nextcloud:
+  db:
+  speedtestconfig:
+  db_data_pigallery:
