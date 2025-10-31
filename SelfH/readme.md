@@ -1,3 +1,7 @@
+> Continued at: https://github.com/JAlcocerT/Home-Lab/tree/main/z-homelab-setup/evolution
+
+---
+
 Selfhosting docs: https://jalcocert.github.io/JAlcocerT/docs/selfhosting/, particularly the [https section](https://jalcocert.github.io/JAlcocerT/docs/selfhosting/https).
 
 

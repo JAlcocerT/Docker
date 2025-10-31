@@ -15,6 +15,3 @@ curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
 
 git clone https://github.com/coollabsio/coolify
 ```
-
-
-#https://www.youtube.com/watch?v=hl8ebudhqZU

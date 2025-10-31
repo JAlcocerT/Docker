@@ -29,7 +29,7 @@
 
 A companion for this [public and open blog →](https://jalcocert.github.io/JAlcocerT/blog/).
 
-> Now superseed by [the **HomeLab** repository](https://github.com/JAlcocerT/Home-Lab)
+> Now *superseed* by [the **HomeLab** repository](https://github.com/JAlcocerT/Home-Lab)
 
 * My [**Raspberry Pi** guide](https://jalcocert.github.io/RPi/posts/selfhosting-with-docker/)
 * My [**Linux** guide](https://jalcocert.github.io/Linux/docs/debian/docker/)

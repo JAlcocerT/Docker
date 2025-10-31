@@ -8,8 +8,9 @@
 wget  -cO - https://raw.githubusercontent.com/JAlcocerT/Docker/main/Media/kodi_docker_compose.yml > docker-compose.yaml
 ```
 
-* Plex
 * Jellyfin
+
+* Plex
 
 By default: `kodi` and `kodi`
 

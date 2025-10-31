@@ -15,6 +15,7 @@ cd saleor-platform
 docker compose build
 
 #docker-compose up -d #or just from saleor-platform
+sudo docker compose -f saleor_docker-compose.yml up -d
 ```
 
 ### Hotel Management

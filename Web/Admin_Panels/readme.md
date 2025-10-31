@@ -4,7 +4,7 @@
 
 AdminJS is an automatic admin interface that can be plugged into your application.
 
-You, as a developer, provide database models (like posts, comments, stores, products or whatever else your application uses), and AdminJS generates UI which allows you (or other trusted users) to manage content.
+You, as a developer, provide database models (like posts, comments, stores, products or whatever else your application uses), and **AdminJS generates UI which allows you (or other trusted users) to manage content**.
 
 Inspired by: django admin, rails admin and active admin.
 
@@ -12,12 +12,8 @@ Inspired by: django admin, rails admin and active admin.
 
 * https://demo.adminjs.co/app/resources/Dataset/actions/stats?currentId=38&compareWithId=37
 
-## DJango admin
+## Others
 
-Python
-
-## Rails admin
-
-## active admin
-
-Ruby on rails
+1. DJango admin
+2. Rails admin
+3. active admin
