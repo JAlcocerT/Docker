@@ -15,3 +15,7 @@ venv/
 _data/
 
 cloudflare_config.yaml
+my-sample-project/
+database/
+extensions/
+uploads/

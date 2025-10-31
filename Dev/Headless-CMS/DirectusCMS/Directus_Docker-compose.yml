@@ -79,3 +79,29 @@
 
 
 #https://www.youtube.com/watch?v=J7tFWxAGkh4
+#https://www.youtube.com/watch?v=RceFoASxO00
+services:
+    directus:
+        image: directus/directus:11.5.1
+        ports:
+            - 8055:8055
+        # volumes:
+        #     - ./database:/directus/database
+        #     - ./uploads:/directus/uploads
+        #     - ./extensions:/directus/extensions
+        volumes:
+        - database:/directus/database
+        - uploads:/directus/uploads
+        - extensions:/directus/extensions         
+        environment:
+            SECRET: "replace-with-random-value"
+            ADMIN_EMAIL: "admin@example.com"
+            ADMIN_PASSWORD: "d1r3ctu5"
+            DB_CLIENT: "sqlite3"
+            DB_FILENAME: "/directus/database/data.db"
+            WEBSOCKETS_ENABLED: "true"
+
+volumes:
+  database:
+  uploads:
+  extensions:

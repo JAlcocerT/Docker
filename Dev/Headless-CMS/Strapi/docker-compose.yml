@@ -1,0 +1,18 @@
+#version: '3.8'
+
+services:
+  strapi:
+    container_name: my-strapi-container      
+    build:
+      context: .
+      dockerfile: Dockerfile.strapi
+    image: my-strapi
+    ports:
+      - "1337:1337"
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+    # command: tail -f /dev/null
+    command: /bin/bash -c "/scripts/start_strapi.sh && tail -f /dev/null"
+    volumes:
+      - ./scripts:/scripts

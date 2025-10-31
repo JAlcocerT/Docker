@@ -1,7 +1,23 @@
 
 
-#https://strapi.io/
-#https://github.com/strapi/strapi
+* https://strapi.io/
+* https://github.com/strapi/strapi
+
+```sh
+docker compose up --build
+#sudo docker-compose up -d
+
+
+docker build -t my-strapi-app .
+#docker run -p 1337:1337 my-strapi-app
+
+#docker exec -it <container_name_or_id> sh
+docker exec -it my-strapi-container sh
+
+#sudo docker compose -f Strapi_Docker-compose.yml up -d
+```
+
+> Strapi is an open-source headless CMS. It’s 100% JavaScript/TypeScript, fully customizable and developer-first.
 
 #https://market.strapi.io/
 #https://github.com/strapi-community/awesome-strapi
@@ -18,6 +34,7 @@
 
 ## Installing Strapi 
 
+This 3h video helped me a lot to get started: https://www.youtube.com/watch?v=t1iUuap7vhw
 
 ```sh
 node -v
@@ -31,15 +48,16 @@ git --version
 Then:
 
 ```sh
-npx create-strapi-app@latest my-project3 --quickstart #https://docs.strapi.io/dev-docs/installation/cli
-cd my-project
+npx create-strapi-app@latest my-sample-project --quickstart #https://docs.strapi.io/dev-docs/installation/cli
+cd my-sample-project
 npm install
 npm run develop #yes, not: npm run dev
 ```
 
-* `http://localhost:1337/admin/`
-* The DB is sqlite by default and it is at: `my-project/.tmp`
-    * For self-hosted Strapi projects, all your content is saved in a database file (by default, SQLite) found in the .tmp subfolder in your project's folder.
+Go to the **Strapi Admin panel**: `http://localhost:1337/admin/` and create the first admin user.
+
+* The **DB is sqlite by default** and it is at: `my-project/.tmp`
+    * For self-hosted Strapi projects, all your content is saved in a database file (by default, SQLite) found in the `.tmp` subfolder in your project's folder. See the `.env` generated at `my-sample-project`
     * https://docs.strapi.io/dev-docs/configurations/database
 
 ```sh

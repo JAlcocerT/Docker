@@ -1,7 +1,7 @@
-**KeyStaticCMS**
+## KeyStaticCMS
 
 
-* https://keystatic.com/docs/introduction
+Probably the easiest CMS to get started and combine with Astro, **KeyStaticCMS**: https://keystatic.com/docs/introduction
 
 * Thanks to https://github.com/majesticooss/mizar for the working example
     * Forked: https://github.com/JAlcocerT/mizar
@@ -38,7 +38,9 @@ npx serve -s dist #http://localhost:3000
 
 ---
 
-Keystatic is a “file-based” CMS and rich-content editor that lives alongside your source code.  In practice it gives you:
+Keystatic is a “file-based” CMS and rich-content editor that lives alongside your source code. 
+
+In practice it gives you:
 
 • A strongly-typed schema (singletons & collections) defined in a single `keystatic.config.ts`
 • A local-first (or pluggable) storage layer that writes JSON/Markdown/MDX back into your repo

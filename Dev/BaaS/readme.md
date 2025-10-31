@@ -15,4 +15,10 @@ docker-compose up -d
 
 > http://localhost:9000
 
-2. **PocketBase**: with selfhosting focus
+2. **PocketBase**: with selfhosting only focus. **Great Selfhostable BaaS**.
+
+```sh
+#docker compose up -d
+docker compose -f ./PB/PB_docker-compose.yml up -d
+make setup
+```

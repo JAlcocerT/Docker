@@ -20,5 +20,3 @@
 
 > [!IMPORTANT]
 > You might be looking for [VectorDBs](https://github.com/JAlcocerT/Docker/tree/main/AI_Gen/Z_VectorDBs)
-
----
